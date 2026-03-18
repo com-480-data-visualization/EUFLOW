@@ -28,6 +28,15 @@ In Hotel Sector:
 
 
 #### Airports and Flights Data
+<a href="https://github.com/jpatokal/openflights" 
+   style="display:inline-flex; align-items:center; text-decoration:none; color:inherit;">
+  <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" 
+       width="18" style="margin-right:6px;">
+  <code style="background-color:#f6f8fa; padding:2px 4px; border-radius:4px;">
+    GitHub
+  </code>
+</a>
+
 <a href="https://openflights.org/data">Airports</a>
 <a href="https://github.com/jpatokal/openflights">
   <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" width="20">GitHub
