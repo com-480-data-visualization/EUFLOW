@@ -29,19 +29,23 @@ Please, fill the following sections about your project.
 > - What am I trying to show with my visualization?
 > - Think of an overview for the project, your motivation, and the target audience.
 
-  Millions of people travel throughout Europe each year, making tourism a significant economic and cultural activity. However, travel patterns vary widely depending on destination popularity, seasonality, transportation options, and travel spending. This project aims to visualize tourism flows, seasonal patterns, transportation options, and travel expenditures across various destinations in order to better understand how Europeans travel within Europe.
+#### 🎨 What am I trying to show with my visualization?
+<p style="text-align: justify;">
+Millions of people travel throughout Europe each year, making tourism a significant economic and cultural activity. However, travel patterns vary widely depending on destination popularity, seasonality, transportation options, and travel spending. This project aims to visualize tourism flows, seasonal patterns, transportation options, and travel expenditures across various destinations in order to better understand how Europeans travel within Europe.
 
-  We address the following questions:
+We address the following questions:
 Where do Europeans travel, and which destinations are the most popular?
 When do Europeans travel, and how do seasonal patterns differ across destinations?
 How do Europeans travel, and what transport modes shape tourism flows?
 How much do travelers spend, and how does spending relate to trip duration or destination type?
 
-  In addition to the broader European analysis, we will focus on Switzerland to investigate whether the frequency of travel to Switzerland is influenced by economic and geographic factors. We specifically investigate whether visitors to Switzerland are more likely to come from nations that are geographically closer to Switzerland or from nations with greater GDP levels.
+In addition to the broader European analysis, we will focus on Switzerland to investigate whether the frequency of travel to Switzerland is influenced by economic and geographic factors. We specifically investigate whether visitors to Switzerland are more likely to come from nations that are geographically closer to Switzerland or from nations with greater GDP levels.
 
-  Our motivation for this project comes from our own experience as international students currently living in Switzerland. Since we all come from different countries and are personally interested in traveling across Europe, we became curious about the larger patterns behind tourism in Europe and how Switzerland fits into these trends.
+#### 📝 Think of an overview for the project, your motivation, and the target audience.
+<p style="text-align: justify;">
+Our motivation for this project comes from our own experience as international students currently living in Switzerland. Since we all come from different countries and are personally interested in traveling across Europe, we became curious about the larger patterns behind tourism in Europe and how Switzerland fits into these trends.
 
-  The target audience for this project includes students and young travelers planning trips in Europe, tourism organizations and policymakers interested in understanding regional travel behavior, and researchers studying mobility and tourism trends. By presenting the data through clear and interactive visualizations, our project aims to make complex tourism statistics easier to understand and more engaging for a broad audience.
+The target audience for this project includes students and young travelers planning trips in Europe, tourism organizations and policymakers interested in understanding regional travel behavior, and researchers studying mobility and tourism trends. By presenting the data through clear and interactive visualizations, our project aims to make complex tourism statistics easier to understand and more engaging for a broad audience.
 
 
 
