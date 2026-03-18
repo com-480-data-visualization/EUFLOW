@@ -20,17 +20,15 @@ Please, fill the following sections about your project.
 ### Dataset
 
 > Find a dataset (or multiple) that you will explore. Assess the quality of the data it contains and how much preprocessing / data-cleaning it will require before tackling visualization. We recommend using a standard dataset as this course is not about scraping nor data processing.
->
-> Hint: some good pointers for finding quality publicly available datasets ([Google dataset search](https://datasetsearch.research.google.com/), [Kaggle](https://www.kaggle.com/datasets), [OpenSwissData](https://opendata.swiss/en/), [SNAP](https://snap.stanford.edu/data/) and [FiveThirtyEight](https://data.fivethirtyeight.com/)).
 
 #### Travel Data
 In Hotel Sector:  
-[Visitors from European Countries to Switzerland](https://www.pxweb.bfs.admin.ch/pxweb/en/px-x-1003020000_102/-/px-x-1003020000_102.px/)  
-[...]()  
+[Visitors from European Countries to Switzerland](https://www.pxweb.bfs.admin.ch/pxweb/en/px-x-1003020000_102/-/px-x-1003020000_102.px/): provided by the Federal Statistical Office (FSO)  
+[Trips of EU residents](https://ec.europa.eu/eurostat/data/database?node_code=tin00193)(Annual data on trips of EU residents (t_tour_dem)): provided by Eurostat  
 
 
 #### Airports and Flights Data
-[Airports](https://openflights.org/data) (GitHub: https://github.com/jpatokal/openflights)  
+[Airports](https://openflights.org/data) [![GitHub](https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png)](https://github.com/jpatokal/openflights): provided by OpenFlights    
 [Flights](https://www.opdi.aero/flight-list-data.html): provided by Open Performance Data Initiative (OPDI) in collaboration with OpenSky Network (OSN)  
 
 
