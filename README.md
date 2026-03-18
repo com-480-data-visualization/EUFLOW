@@ -42,15 +42,15 @@ Please, fill the following sections about your project.
 > - What source of inspiration do you take? Visualizations that you found on other websites or magazines (might be unrelated to your data).
 > - In case you are using a dataset that you have already explored in another context (ML or ADA course, semester project...), you are required to share the report of that work to outline the differences with the submission for this class.
 
-📝 What others have already done with the data?
+#### 📝 What others have already done with the data?
 Several previous projects and organizations have already explored and analyzed European tourism data. One of the previous group projects, [EuropeTourism](https://github.com/com-480-data-visualization/EuropeTourism?tab=readme-ov-file), analyzed and visualized the peak and off-peak tourism seasons across European countries through monthly data analysis.
 
 In addition, the [EU Transition Pathways Platform](https://transition-pathways.europa.eu/), an official website from the European Union, provided numerous analyses of European tourism trends and prospects. UN Tourism, a specialized agency of the United Nations, provides various detailed analyses of tourism, such as [European Union Tourism Trends](https://www.untourism.int/). Furthermore, The European Travel Commission provides report focusing on major themes influencing tourism, including travel price sensitivity, tourism value, and potential risks. In addition, it evaluates travel sentiment and market performance across different source markets, and concludes with an economic outlook for the sector.
 
-🆕Why is your approach original?
+#### 🆕Why is your approach original?
 We will integrate multiple tourism and related travel datasets to analyze not only tourism patterns themselves but also factors influencing travel behavior. In addition to seasonality, we will further explore factors such as transportation modes, travel distance, and economic conditions, as well as whether proximity to Switzerland and GDP levels affect travel frequency to Switzerland.
 
-💡What source of inspiration do you take?
+#### 💡What source of inspiration do you take?
 Relevant flight visualized information can also be obtained from websites such as the [OpenSky Network](https://map.opensky-network.org/), which provides real-time air traffic data including aircraft position, callsign, aircraft type, altitude, and flight routes collected from ADS-B receivers worldwide. The data are visualized on an interactive thematic map where each aircraft is represented by a symbol at its current location, with colors encoding flight information. Additional details are displayed in a table for filtering and searching.
 
 
