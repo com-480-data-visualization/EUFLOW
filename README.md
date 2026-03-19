@@ -21,18 +21,17 @@ Please, fill the following sections about your project.
 The datasets used in this milestone include travel, flights, and economic indicator data.
 Additional datasets may be added during further milestones to enrich the scope and improve analytical depth.
 
-### 🧳 Travel Data
+#### 🧳 Travel Data
 [Visitors from European Countries to Switzerland (in hotel sector)](https://www.pxweb.bfs.admin.ch/pxweb/en/px-x-1003020000_102/-/px-x-1003020000_102.px/): provided by the Federal Statistical Office (FSO)  
 [Trips of EU residents](https://ec.europa.eu/eurostat/data/database?node_code=tin00193): provided by Eurostat  
 
-### ✈️ Airports and Flights Data
+#### ✈️ Airports and Flights Data
 <a href="https://openflights.org/data">Airports</a>
 <a href="https://github.com/jpatokal/openflights" style="text-decoration:none !important; color:inherit !important;"><code>GitHub</code></a>: provided by OpenFlights  
 [Flights](https://www.opdi.aero/flight-list-data.html): provided by Open Performance Data Initiative (OPDI) in collaboration with OpenSky Network (OSN)  
 
-### 🪙 GDP Data
+#### 🪙 GDP Data
 [Purchasing Power adjusted GDP per capita](https://ec.europa.eu/eurostat/databrowser/view/sdg_10_10/default/table?lang=en): provided by Eurostat  
-
 
 
 ## Problematic
@@ -64,7 +63,7 @@ The target audience for this project includes students and young travelers plann
 
 ## Related work
 
-### 📝 What others have already done with the data?
+### 📚 What others have already done with the data?
 Several previous projects and organizations have already explored and analyzed European tourism data. One of the previous group projects, [EuropeTourism](https://github.com/com-480-data-visualization/EuropeTourism?tab=readme-ov-file), analyzed and visualized the peak and off-peak tourism seasons across European countries through monthly data analysis.
 
 In addition, the [EU Transition Pathways Platform](https://transition-pathways.europa.eu/), an official website from the European Union, provided numerous analyses of European tourism trends and prospects. UN Tourism, a specialized agency of the United Nations, provides various detailed analyses of tourism, such as [European Union Tourism Trends](https://www.untourism.int/). Furthermore, The European Travel Commission provides report focusing on major themes influencing tourism, including travel price sensitivity, tourism value, and potential risks. In addition, it evaluates travel sentiment and market performance across different source markets, and concludes with an economic outlook for the sector.
