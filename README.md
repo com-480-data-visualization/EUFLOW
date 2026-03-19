@@ -19,8 +19,6 @@ Please, fill the following sections about your project.
 
 ### Dataset
 
-> Find a dataset (or multiple) that you will explore. Assess the quality of the data it contains and how much preprocessing / data-cleaning it will require before tackling visualization. We recommend using a standard dataset as this course is not about scraping nor data processing. 
-
 #### `✈️ Travel Data`
 In Hotel Sector:  
 [Visitors from European Countries to Switzerland](https://www.pxweb.bfs.admin.ch/pxweb/en/px-x-1003020000_102/-/px-x-1003020000_102.px/): provided by the Federal Statistical Office (FSO)  
@@ -43,10 +41,6 @@ In Hotel Sector:
 
 
 ### Problematic
-
-> Frame the general topic of your visualization and the main axis that you want to develop.
-> - What am I trying to show with my visualization?
-> - Think of an overview for the project, your motivation, and the target audience.
 
 #### 🎨 What am I trying to show with my visualization?
 <p style="text-align: justify;">
