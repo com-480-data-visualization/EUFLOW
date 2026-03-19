@@ -18,6 +18,8 @@ Please, fill the following sections about your project.
 *(max. 2000 characters per section)*
 
 ## Dataset
+The datasets used in this milestone include travel, flights, and economic indicator data.
+Additional datasets may be added during further milestones to enrich the scope and improve analytical depth.
 
 ### 🧳 Travel Data
 [Visitors from European Countries to Switzerland (in hotel sector)](https://www.pxweb.bfs.admin.ch/pxweb/en/px-x-1003020000_102/-/px-x-1003020000_102.px/): provided by the Federal Statistical Office (FSO)  
