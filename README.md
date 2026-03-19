@@ -19,15 +19,15 @@ Please, fill the following sections about your project.
 
 ### Dataset
 
-> Find a dataset (or multiple) that you will explore. Assess the quality of the data it contains and how much preprocessing / data-cleaning it will require before tackling visualization. We recommend using a standard dataset as this course is not about scraping nor data processing.
+> Find a dataset (or multiple) that you will explore. Assess the quality of the data it contains and how much preprocessing / data-cleaning it will require before tackling visualization. We recommend using a standard dataset as this course is not about scraping nor data processing. 
 
-#### Travel Data
+#### `✈️ Travel Data`
 In Hotel Sector:  
 [Visitors from European Countries to Switzerland](https://www.pxweb.bfs.admin.ch/pxweb/en/px-x-1003020000_102/-/px-x-1003020000_102.px/): provided by the Federal Statistical Office (FSO)  
 [Trips of EU residents](https://ec.europa.eu/eurostat/data/database?node_code=tin00193)(Annual data on trips of EU residents (t_tour_dem)): provided by Eurostat  
 
 
-#### Airports and Flights Data
+#### `🧳 Airports and Flights Data`
 <a href="https://openflights.org/data">Airports</a>
 <a href="https://github.com/jpatokal/openflights" style="display: inline-flex; align-items: center;">
   <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" width="20">
@@ -36,7 +36,7 @@ In Hotel Sector:
 [Flights](https://www.opdi.aero/flight-list-data.html): provided by Open Performance Data Initiative (OPDI) in collaboration with OpenSky Network (OSN)  
 
 
-#### GDP Data
+#### `🪙 GDP Data`
 [Purchasing Power adjusted GDP per capita](https://ec.europa.eu/eurostat/databrowser/view/sdg_10_10/default/table?lang=en): provided by Eurostat  
 
 
