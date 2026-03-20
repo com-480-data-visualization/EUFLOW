@@ -22,16 +22,16 @@ The datasets used in this milestone include travel, flights, and economic indica
 Additional datasets may be added during further milestones to enrich the scope and improve analytical depth.
 
 #### 🧳 Travel Data
-[Visitors from European Countries to Switzerland (in hotel sector)](https://www.pxweb.bfs.admin.ch/pxweb/en/px-x-1003020000_102/-/px-x-1003020000_102.px/): provided by the Federal Statistical Office (FSO)  
-[Trips of EU residents](https://ec.europa.eu/eurostat/data/database?node_code=tin00193): provided by Eurostat  
+[Visitors from European Countries to Switzerland (in hotel sector)](https://www.pxweb.bfs.admin.ch/pxweb/en/px-x-1003020000_102/-/px-x-1003020000_102.px/): the datasets are provided by the Federal Statistical Office (FSO), including annual and monthly data (in hotel sector) on tourist arrivals and overnight stays in Switzerland, categorized by visitors’ country of residence and Swiss cantons    
+[EU residents’ tourism behavior](https://ec.europa.eu/eurostat/data/database?node_code=tin00193): the datasets are provided by Eurostat, including information on tourism, trip characteristics (purpose, duration, and destination), nights spent, and tourism expenditure of EU residents   
 
 #### ✈️ Airports and Flights Data
 <a href="https://openflights.org/data">Airports</a>
-<a href="https://github.com/jpatokal/openflights" style="text-decoration:none !important; color:inherit !important;"><code>GitHub</code></a>: provided by OpenFlights  
-[Flights](https://www.opdi.aero/flight-list-data.html): provided by Open Performance Data Initiative (OPDI) in collaboration with OpenSky Network (OSN)  
+<a href="https://github.com/jpatokal/openflights" style="text-decoration:none !important; color:inherit !important;"><code>GitHub</code></a>: the datasets are provided by OpenFlights, including airports, airlines, and routes data    
+[Flights](https://www.opdi.aero/flight-list-data.html): the datasets are provided by Open Performance Data Initiative (OPDI) in collaboration with OpenSky Network (OSN), including monthly flight data (from Jan 2022 to Jan 2026) such as flight IDs, ICAO operators, departure and arrival airports, as well as first and last seen times  
 
 #### 🪙 GDP Data
-[Purchasing Power adjusted GDP per capita](https://ec.europa.eu/eurostat/databrowser/view/sdg_10_10/default/table?lang=en): provided by Eurostat  
+[Purchasing Power adjusted GDP per capita](https://ec.europa.eu/eurostat/databrowser/view/sdg_10_10/default/table?lang=en): the datasets are provided by Eurostat, including GDP data (measured in purchasing power standards (PPS)) of European countries from 2015 to 2024    
 
 
 ## Problematic
