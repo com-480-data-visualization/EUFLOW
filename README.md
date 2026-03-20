@@ -69,7 +69,7 @@ All of these preprocessing steps, summary statistics, and visualizations can be 
 ## Related work
 
 ### 📚 What others have already done with the data?
-Several previous projects and organizations have already explored and analyzed European tourism data. One of the previous group projects, [EuropeTourism](https://github.com/com-480-data-visualization/EuropeTourism?tab=readme-ov-file), analyzed and visualized the peak and off-peak tourism seasons across European countries through monthly data analysis.
+Some projects and organizations have explored and analyzed European tourism data. A previous group project, [EuropeTourism](https://github.com/com-480-data-visualization/EuropeTourism?tab=readme-ov-file), analyzed and visualized the peak and off-peak tourism seasons across European countries through monthly data analysis.
 
 In addition, the [EU Transition Pathways Platform](https://transition-pathways.europa.eu/), an official website from the European Union, provided numerous analyses of European tourism trends and prospects. UN Tourism, a specialized agency of the United Nations, provides various detailed analyses of tourism, such as [European Union Tourism Trends](https://www.untourism.int/). Furthermore, The [European Travel Commission](https://etc-corporate.org/) provides report focusing on major themes influencing tourism, including travel price sensitivity, tourism value, and potential risks. In addition, it evaluates travel sentiment and market performance across different source markets, and concludes with an economic outlook for the sector.
 
