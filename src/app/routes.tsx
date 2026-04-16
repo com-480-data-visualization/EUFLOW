@@ -16,4 +16,8 @@ export const router = createBrowserRouter([
     path: "/switzerland",
     element: <SwitzerlandPage />,
   },
-]);
+  ],
+  {
+    basename: "/EUFLOW/",
+  }
+);
