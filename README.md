@@ -81,7 +81,8 @@ Relevant flight visualized information can also be obtained from websites such a
 ## Milestone 2 (17th April, 5pm)
 
 **10% of the final grade**
-
+The Milestone 2 report: [Milestone 2](./Milestone2.pdf)
+The Functional project prototype: [EUFLOW](https://com-480-data-visualization.github.io/EUFLOW/)
 
 ## Milestone 3 (29th May, 5pm)
 
