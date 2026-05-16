@@ -9,8 +9,8 @@
         @import url('https://fonts.googleapis.com/css2?family=Radio+Canada+Big:ital,wght@0,400..700;1,400..700&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Geist+Mono:wght@100..900&family=Radio+Canada+Big:ital,wght@0,400..700;1,400..700&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap');
     </style>
-    <script src="script.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script> <!-- D3.js -->
+    <script src="script.js"></script>
     <title>Switzerland</title>
 </head>
 <body>
@@ -35,10 +35,41 @@
             </div>
             <p class="feature-section-block-title">Destination within Switzerland</p>
             <p id="part-suisse-2">Where do tourists go in Switzerland?</p>
-            <div class="frame"> 
+            <!-- <div class="frame">  -->
             <!-- D3.js -->
+            <div id="tooltip" style="position:absolute; background:white; padding:6px 10px; border:1px solid #ccc; display:none; pointer-events:none;"></div>
+                <svg id="map" width="900" height="600"></svg>
+
+                <script>
+                    const svg = d3.select("#map");
+                    const projection = d3.geoMercator().center([8.3, 46.8]).scale(12000).translate([450, 300]);
+                    const path = d3.geoPath().projection(projection);
+
+                    d3.json("data/cantons.geojson").then(data => {
+                    projection.fitSize([900, 600], data);
+
+                    const tooltip = d3.select("#tooltip");
+
+                    svg.selectAll("path")
+                    .data(data.features)
+                    .join("path")
+                    .attr("fill", "#d4d9e1")
+                    .attr("stroke", "#8896a8")
+                    .attr("d", path)
+                    .on("mouseover", function(event, d) {
+                        d3.select(this).attr("fill", "#a0b4c8");
+                        tooltip.style("display", "block").text(d.properties.NAME);
+                    })
+                    .on("mousemove", function(event) {
+                        tooltip.style("left", (event.pageX + 10) + "px")
+                            .style("top",  (event.pageY - 28) + "px"); })
+                    .on("mouseout", function() {
+                        d3.select(this).attr("fill", "#d4d9e1");
+                        tooltip.style("display", "none"); });
+                    });
+                </script>
             
-            </div>
+            <!-- </div> -->
         </div>
 
         <div class="feature-section-block-even">
