@@ -4,6 +4,12 @@
     box-sizing: border-box;
 }
 
+button {
+    all: unset;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
 .intro-section {
     background-color: black;
     /* aspect-ratio: 104 / 103; */
@@ -514,4 +520,684 @@
     border-bottom: 2px solid #B3B3B3;
     padding-bottom: 20px;
     width: 40px;
+}
+
+
+/* .grid line { stroke: #eee; stroke-dasharray: 3,3; } */
+.axis path, .axis line { stroke: #ccc; }
+.axis text { font-size: 11px; }
+.axis-label { font-size: 12px; }
+/* .trend-line { stroke: #ff4d6d; stroke-width: 1.5; stroke-dasharray: 6,4; opacity: 0.6; pointer-events: none; } */
+.country-label { font-size: 10px; fill: #666; pointer-events: none; }
+.corr-badge { font-size: 11px; fill: #666; }
+.corr-val { font-size: 20px; fill: #ff4d6d; }
+.dot { cursor: pointer; }
+
+
+.legend {
+    display: flex;
+    gap: 24px;
+    margin-top: 16px;
+    font-size: 12px;
+    align-items: center;
+}
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.legend-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+.trend-line {
+    stroke: #ff4d6d;
+    stroke-width: 2;
+    stroke-dasharray: 6,4;
+    fill: none;
+}
+
+
+/* frame 3 */
+.controls {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    color: #666;
+    justify-content: flex-end;  /* ← 加這行 */
+}
+
+
+
+#range-from, #range-to {
+    height: 4px;
+    top: 8px;
+    pointer-events: none;
+}
+#range-from::-webkit-slider-thumb,
+#range-to::-webkit-slider-thumb {
+    pointer-events: all;
+    -webkit-appearance: none;
+    width: 16px; height: 16px;
+    border-radius: 50%;
+    background: #1a1a2e;
+    cursor: pointer;
+}
+
+
+/* Track */
+.noUi-target {
+    background: #e8e8e8;
+    border-radius: 4px;
+    border: none;
+    box-shadow: none;
+    height: 4px;
+}
+
+.single-range{
+    width:240px;
+}
+
+.single-range input[type="range"]{
+    width:100%;
+    -webkit-appearance:none;
+    appearance:none;
+    height:8px;
+    border-radius:999px;
+    background:#d9d9d9;
+    outline:none;
+}
+
+/* 軌道 */
+.single-range input[type="range"]::-webkit-slider-runnable-track{
+    height:8px;
+    border-radius:999px;
+}
+
+/* 搖桿 */
+.single-range input[type="range"]::-webkit-slider-thumb{
+    -webkit-appearance:none;
+    appearance:none;
+
+    width:22px;
+    height:22px;
+    border-radius:50%;
+
+    background:#607787;
+    cursor:pointer;
+
+    margin-top:-7px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.intro-section {
+    background-color: black;
+    /* aspect-ratio: 104 / 103; */
+    text-align: center;
+    background-image: url("images/intro-section-background.png");
+    background-size: 522px 517px;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* padding-top: 80px; */
+    box-sizing: border-box;
+}
+
+
+/* navigation bar */
+#navbar {
+    position: fixed;        /* fix bar at top */
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;  /* logo left, link right */
+    font-family: "Radio Canada Big";
+    align-items: center;
+    padding: 25px;
+    /* background: transparent; */
+    /* background: black; */
+    background: rgba(255, 255, 255, 0.00);
+    backdrop-filter: blur(32px);
+    z-index: 1000;                   /* above content */
+    box-sizing: border-box;
+}
+
+#nav-logo {
+    color: #F5F5F5;
+    font-size: 20px;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+#nav-links {
+    list-style: none;
+    display: flex;
+    gap: 40px;
+    margin: 0;
+    padding: 0;
+}
+
+#nav-links a {
+    color: #F5F5F5;
+    text-decoration: none;
+    font-size: 16px;
+    opacity: 0.85;
+    transition: opacity 0.2s;
+}
+
+#nav-links a:hover {
+    opacity: 1;
+}
+
+
+
+/* java script */
+#navbar.scrolled #nav-logo {
+    color: black;
+    transition: color 0.3s ease;
+}
+
+#navbar.scrolled #nav-links a {
+    color: black;
+    transition: color 0.3s ease;
+}
+
+
+
+/* introduction text */
+#intro-text-1, #intro-text-2, #intro-text-3{
+    display: block;
+    text-align: center;
+    width: 100%;
+}
+
+#intro-text-1 {
+    align-self: stretch;
+    color: #F5F5F5;
+    text-align: center;
+    font-family: "Source Serif Pro";
+    font-size: 60px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 100%; /* 60px */
+    letter-spacing: -2.4px;
+    /* padding-top: 80px; */
+}
+
+#intro-text-2 {
+    align-self: stretch;
+    color: #F5F5F5;
+    text-align: center;
+    font-family: "Radio Canada Big";
+    font-size: 100px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 100%; /* 100px */
+    letter-spacing: -5px;
+    /* padding-top: 80px; */
+}
+
+#intro-text-3 {
+    align-self: stretch;
+    color: #F5F5F5;
+    text-align: center;
+    padding: 10px;
+    font-family: "Source Serif Pro";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%; /* 24px */
+    letter-spacing: -0.8px;
+}
+
+.button-group {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    justify-content: center;
+    margin-top: 24px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.button-explore {
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 16px;
+    /* gap: 10px; */
+    color: black;
+    font-family: "Geist Mono";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 100%;
+    /* margin-top: 24px; */
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+
+/* feature section - project */
+.feature-section {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-self: stretch;
+    /* padding: 100px 0px; */
+    /* gap: 40px; */
+}
+
+.feature-section-block-odd {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-self: stretch;
+    padding: 100px 0px;
+}
+
+.feature-section-block-even {
+    background-color: #F6F8FB;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-self: stretch;
+    padding: 100px 0px;
+}
+
+.feature-section-block-title {
+    max-width: 612px;
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    justify-content: center;
+    text-align: center;
+    font-family: "Radio Canada Big";
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 100%;
+    letter-spacing: -1.2px;
+}
+
+.feature-section-block-subtitle {
+    text-align: center;
+    font-family: "Source Serif Pro";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: -0.8px;
+}
+
+.frame {
+    background-color: #D9D9D9;
+    width: 858px;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 40px;
+    /* gap: 24px;
+    flex: 1 0 0; */
+}
+
+/* explore section */
+.cta-section {
+    background-color: #F6F8FB;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    display: flex;
+    padding: 120px 20px;
+    flex-direction: column;
+    align-items: center;
+    /* gap: 32px; */
+    align-self: stretch;
+}
+
+.cta-section-text {
+    display: flex;
+    justify-content: center;
+    max-width: 1500px;
+    align-self: stretch;
+    font-family: "Radio Canada Big";
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 100%;
+    padding-bottom: 32px;
+    letter-spacing: -1.2px;
+}
+
+/* #button-explore {
+    background-color: black;
+    display: flex;
+    padding: 16px;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-family: "Geist Mono";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 100%;
+    border: none;
+    outline: none;
+    cursor: pointer;
+} */
+
+
+/* footer */
+.footer {
+    align-items: center;
+    padding: 25px;
+    background-color: #111;
+}
+
+.footer-europe {
+    align-items: center;
+    padding: 25px;
+    background-color: #080E42;
+}
+
+.footer-suisse {
+    align-items: center;
+    padding: 25px;
+    background-color: #325972;
+}
+
+.footer-col {
+    list-style: none;
+    display: flex;
+    justify-content: space-between; 
+    gap: 40px;
+    margin: 0;
+    padding: 0;
+}
+
+.footer-col a {
+    color: #F5F5F5;
+    text-decoration: none;
+    font-size: 16px;
+    opacity: 0.85;
+    transition: opacity 0.2s;
+}
+
+.footer-col a:hover {
+    opacity: 1;
+}
+
+.footer-links {
+    list-style: none;
+    display: flex;
+    gap: 40px;
+    margin: 0;
+    padding: 0;
+}
+
+.footer-links a {
+    color: #F5F5F5;
+    text-decoration: none;
+    font-size: 20px;
+    font-family: "Radio Canada Big";
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px;
+    letter-spacing: -0.4px;
+}
+
+.copywrite {
+    color: #F5F5F5;
+    font-family: "Source Serif Pro";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%; /* 24px */
+    letter-spacing: -0.8px;
+}
+
+.footer-logo {
+    color: #F5F5F5;
+    text-align: center;
+    font-family: "Radio Canada Big";
+    font-size: 80px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 100%; /* 80px */
+    letter-spacing: -4px;
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: center;
+    padding-top: 24px;
+    font-size: 13px;
+}
+
+
+/* explore buttons */
+#button-explore-start {
+    background-color: black;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 16px;
+    color: white;
+    font-family: "Geist Mono";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 100%;
+    /* margin-top: 24px; */
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.intro-section-europe {
+    /* background-color: black; */
+    /* aspect-ratio: 104 / 103; */
+    width: 1280px;
+    height: 500px;
+    /* position: absolute; */
+    text-align: center;
+    /* background-image: url("images/suisse-background.png"); */
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.40) 100%), url('https://cdn.theatlantic.com/media/img/mt/2015/10/RTR48P3V/original.jpg') lightgray 50% 70%/ cover no-repeat;
+    /* background-image: url("images/gradient-background.png"); */
+    background-size: 100%;
+    /* background-position: center; */
+    background-repeat: no-repeat;
+    /* min-height: 100vh; */
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* padding-top: 80px; */
+    box-sizing: border-box;
+}
+
+#button-explore-suisse {
+    background-color: #080E42;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 16px;
+    color: white;
+    font-family: "Geist Mono";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 100%;
+    /* margin-top: 24px; */
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+
+/* Switzerland page */
+.intro-section-suisse {
+    /* background-color: black; */
+    /* aspect-ratio: 104 / 103; */
+    width: 1280px;
+    height: 500px;
+    /* position: absolute; */
+    text-align: center;
+    /* background-image: url("images/suisse-background.png"); */
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.40) 100%), url("images/suisse-background.png") lightgray 50% / cover no-repeat;
+    /* background-image: url("images/gradient-background.png"); */
+    /* background-size: 522px 517px; */
+    background-position: center;
+    background-repeat: no-repeat;
+    /* min-height: 100vh; */
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* padding-top: 80px; */
+    box-sizing: border-box;
+}
+
+.intro-tourism-title {
+    color: #F5F5F5;
+    text-align: center;
+    font-family: "Radio Canada Big";
+    font-size: 100px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 100%; /* 100px */
+    letter-spacing: -5px;
+}
+
+.intro-tourism-subtitle {
+    color: #F5F5F5;
+    text-align: center;
+    align-self: stretch;
+    font-family: "Source Serif Pro";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: -0.8px;
+}
+
+#button-explore-europe {
+    background-color: #325972;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 16px;
+    color: white;
+    font-family: "Geist Mono";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 100%;
+    /* margin-top: 24px; */
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+
+.section-number {
+    display: inline-block;
+    text-align: center;
+}
+
+.section-number span {
+    color: #B3B3B3;
+    display: block;
+    font-size: 3rem;
+    font-weight: bold;
+    align-self: stretch;
+    font-family: "Radio Canada Big";
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 100%;
+    letter-spacing: -0.72px;
+
+    /* box bottom */
+    border-bottom: 2px solid #B3B3B3;
+    padding-bottom: 20px;
+    width: 40px;
+}
+
+
+/* .grid line { stroke: #eee; stroke-dasharray: 3,3; } */
+.axis path, .axis line { stroke: #ccc; }
+.axis text { font-size: 11px; }
+.axis-label { font-size: 12px; }
+/* .trend-line { stroke: #ff4d6d; stroke-width: 1.5; stroke-dasharray: 6,4; opacity: 0.6; pointer-events: none; } */
+.country-label { font-size: 10px; fill: #666; pointer-events: none; }
+.corr-badge { font-size: 11px; fill: #666; }
+.corr-val { font-size: 20px; fill: #ff4d6d; }
+.dot { cursor: pointer; }
+
+
+.legend {
+    display: flex;
+    gap: 24px;
+    margin-top: 16px;
+    font-size: 12px;
+    align-items: center;
+}
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.legend-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+.trend-line {
+    stroke: #ff4d6d;
+    stroke-width: 2;
+    stroke-dasharray: 6,4;
+    fill: none;
+}
+
+
+/* frame 3 */
+.controls {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    color: #666;
+    justify-content: flex-end;
 }
