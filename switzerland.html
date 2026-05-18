@@ -125,9 +125,12 @@
             <p id="part-suisse-2">Does distance matter?</p>
             <!-- <div class="frame">  -->
             <!-- D3.js -->
-            <svg id="scatter" width="800" height="500" style="display:block; margin:0 auto;"></svg>
-            <div id="Scattertooltip" style="position:absolute; background:#222; color:#fff; padding:8px 12px; border:1px solid #444; border-radius:6px; pointer-events:none; display:none; font-size:12px; z-index:9999;"></div>
-
+            <!-- <svg id="scatter" width="800" height="500" style="display:block; margin:0 auto;"></svg> -->
+            <!-- <div id="Scattertooltip" style="position:absolute; background:#222; color:#fff; padding:8px 12px; border:1px solid #444; border-radius:6px; pointer-events:none; display:none; font-size:12px; z-index:9999;"></div> -->
+            <div style="position:relative; display:block; margin:0 auto; width:800px;">
+                <svg id="scatter" width="800" height="500"></svg>
+                <div id="Scattertooltip" style="position:absolute; background:#222; color:#fff; padding:8px 12px; border:1px solid #444; border-radius:6px; pointer-events:none; display:none; font-size:12px; z-index:9999;"></div>
+            </div>
             <script>
                 const margin = {top: 20, right: 160, bottom: 50, left: 80};
                 const W = 800 - margin.left - margin.right;
@@ -292,7 +295,7 @@
                     <button id="btn-next" style="display:inline-block; padding:6px 14px; border:1.5px solid #1a1a2e; border-radius:5px; cursor:pointer; font-family:'DM Mono',monospace; font-size:11px; color:white; background:black; outline:none; white-space:nowrap; box-sizing:border-box; transition:all 0.2s; font-size: 20px">Next →</button>
                 </div>
 
-                <svg id="gdp-svg"></svg>
+                <!-- <svg id="gdp-svg"></svg> -->
                 <div class="legend-wrap" id="gdp-legend"></div>
             </div>
 
