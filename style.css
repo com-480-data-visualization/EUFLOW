@@ -42,7 +42,7 @@ button {
     /* background: transparent; */
     /* background: black; */
     background: rgba(255, 255, 255, 0.00);
-    backdrop-filter: blur(32px);
+    backdrop-filter: blur(3px);
     z-index: 1000;                   /* above content */
     box-sizing: border-box;
 }
@@ -672,7 +672,7 @@ button {
     /* background: transparent; */
     /* background: black; */
     background: rgba(255, 255, 255, 0.00);
-    backdrop-filter: blur(32px);
+    backdrop-filter: blur(3px);
     z-index: 1000;                   /* above content */
     box-sizing: border-box;
 }
