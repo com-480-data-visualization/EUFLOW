@@ -49,71 +49,9 @@
                 <div id="tooltip" style="position:absolute; background:white; padding:6px 10px; border:1px solid #ccc; display:none; pointer-events:none;"></div>
 
                 <svg id="map" width="900" height="600"></svg>
+                 <script src="chart-1.js"></script>
 
-                <script>
-                    const svg = d3.select("#map");
-                    const projection = d3.geoMercator();
-                    const path = d3.geoPath().projection(projection);
-
-                    Promise.all([
-                    d3.json("data/cantons.geojson"),
-                    d3.json("data/canton_annual_total_visitors.json")
-                    ]).then(([geoData, visitors]) => {
-
-                    projection.fitSize([900, 600], geoData);
-
-                    const years = Object.keys(visitors).sort();
-                    const select = d3.select("#year-select");
-                    years.forEach(y => select.append("option").attr("value", y).text(y));
-                    select.property("value", years[years.length - 1]);
-
-                    const tooltip = d3.select("#tooltip");
-
-                    function updateMap(year) {
-                        const yearData = visitors[year];
-                        const maxVal = d3.max(Object.values(yearData));
-                        const colorScale = d3.scaleSequential()
-                        .domain([0, maxVal])
-                        // .interpolator(d3.interpolatePurples);
-                        .interpolator(d3.interpolateRgb("#ffcccc", "#8b0000"));
-
-                        svg.selectAll("path")
-                        .data(geoData.features)
-                        .join("path")
-                        .attr("fill", d => {
-                            const val = yearData[d.properties.NAME];
-                            return val ? colorScale(val) : "#ccc";
-                        })
-                        .attr("stroke", "#000")
-                        .attr("stroke-width", 0.5)
-                        .attr("d", path)
-                        .on("mouseover", function(event, d) {
-                            d3.select(this).attr("opacity", 0.7);
-                            const val = yearData[d.properties.NAME];
-                            tooltip.style("display", "block")
-                                .text(`${d.properties.NAME}: ${val ? val.toLocaleString() : "no data"}`);
-                        })
-                        .on("mousemove", function(event) {
-                        const container = document.querySelector("#map").getBoundingClientRect();
-                        tooltip.style("left", (event.clientX - container.left + 10) + "px")
-                                .style("top",  (event.clientY - container.top - 28) + "px");
-                        })
-                        .on("mouseout", function(event, d) {
-                            const val = yearData[d.properties.NAME];
-                            d3.select(this).attr("opacity", 1)
-                                        .attr("fill", val ? colorScale(val) : "#ccc");
-                            tooltip.style("display", "none");
-                        });
-                    }
-
-                    updateMap(years[years.length - 1]);
-
-                    select.on("change", function() {
-                        updateMap(this.value); });
-                    });
-                </script>
             </div>
-            
             <!-- </div> -->
         </div>
 
@@ -123,144 +61,15 @@
             </div>
             <p class="feature-section-block-title">Geographic Proximity</p>
             <p id="part-suisse-2">Does distance matter?</p>
-            <!-- <div class="frame">  -->
             <!-- D3.js -->
             <!-- <svg id="scatter" width="800" height="500" style="display:block; margin:0 auto;"></svg> -->
             <!-- <div id="Scattertooltip" style="position:absolute; background:#222; color:#fff; padding:8px 12px; border:1px solid #444; border-radius:6px; pointer-events:none; display:none; font-size:12px; z-index:9999;"></div> -->
             <div style="position:relative; display:block; margin:0 auto; width:800px;">
-                <svg id="scatter" width="800" height="500"></svg>
+                <!-- <svg id="scatter" width="800" height="500"></svg> -->
+                <svg id="scatter" width="800" height="500" style="margin-left: 80px;"></svg>
                 <div id="Scattertooltip" style="position:absolute; background:#222; color:#fff; padding:8px 12px; border:1px solid #444; border-radius:6px; pointer-events:none; display:none; font-size:12px; z-index:9999;"></div>
+                <script src="chart-2.js"></script>
             </div>
-            <script>
-                const margin = {top: 20, right: 160, bottom: 50, left: 80};
-                const W = 800 - margin.left - margin.right;
-                const H = 500 - margin.top - margin.bottom;
-
-                const scatterSvg = d3.select("#scatter")
-                    .append("g")
-                    .attr("transform", `translate(${margin.left},${margin.top})`);
-
-                d3.json("data/countries_distances_vs_visitors.json").then(rawData => {
-                    const data = rawData
-                        .filter(d => d["Visitors' country of residence"] !== "Switzerland")
-                        .filter(d => d["distance_km"] < 3000)
-                        .map(d => ({
-                            country: d["Visitors' country of residence"],
-                            distance: d["distance_km"],
-                            arrivals: d["value"]
-                        }));
-
-                    const x = d3.scaleLinear()
-                        .domain([0, d3.max(data, d => d.distance) * 1.00])
-                        .range([0, W]);
-
-                    const y = d3.scaleLinear()
-                        .domain([0, d3.max(data, d => d.arrivals) * 1.1])
-                        .range([H, 0]);
-
-                    const r = d3.scaleSqrt()
-                        .domain([0, d3.max(data, d => d.arrivals)])
-                        .range([4, 28]);
-
-                    // set grid
-                    // scatterSvg.append("g").attr("class", "grid")
-                    //     .call(d3.axisLeft(y).tickSize(-W).tickFormat(""))
-                    //     .select(".domain").remove();
-
-                    // axes
-                    scatterSvg.append("g").attr("class", "axis")
-                        .attr("transform", `translate(0,${H})`)
-                        .call(d3.axisBottom(x).ticks(6).tickFormat(d => `${d} km`));
-
-                    scatterSvg.append("g").attr("class", "axis")
-                        .call(d3.axisLeft(y).ticks(5).tickFormat(d =>
-                            d >= 1000000 ? `${(d/1000000).toFixed(1)}M` : `${(d/1000).toFixed(0)}K`
-                        ));
-
-                    // axis labels
-                    scatterSvg.append("text").attr("class", "axis-label")
-                        .attr("x", W / 2).attr("y", H + 45)
-                        .attr("text-anchor", "middle")
-                        .text("Distance from Switzerland (km)");
-
-                    scatterSvg.append("text").attr("class", "axis-label")
-                        .attr("transform", "rotate(-90)")
-                        .attr("x", -H / 2).attr("y", -60)
-                        .attr("text-anchor", "middle")
-                        .text("Number of Arrivals");
-
-                    // trend line
-                    const xMean = d3.mean(data, d => d.distance);
-                    const yMean = d3.mean(data, d => d.arrivals);
-                    const num = d3.sum(data, d => (d.distance - xMean) * (d.arrivals - yMean));
-                    const den = d3.sum(data, d => (d.distance - xMean) ** 2);
-                    const slope = num / den;
-                    const intercept = yMean - slope * xMean;
-                    const xMin = d3.min(data, d => d.distance);
-                    const xMax = d3.max(data, d => d.distance);
-
-                    scatterSvg.append("line")
-                        .attr("x1", x(xMin)).attr("y1", y(slope * xMin + intercept))
-                        .attr("x2", x(xMax)).attr("y2", y(slope * xMax + intercept))
-                        .attr("stroke", "#ff4d6d")
-                        .attr("stroke-width", 2)
-                        .attr("stroke-dasharray", "6,4");
-
-                    // correlation badge
-                    const xStd = Math.sqrt(d3.variance(data, d => d.distance));
-                    const yStd = Math.sqrt(d3.variance(data, d => d.arrivals));
-                    const corr = (num / (data.length - 1)) / (xStd * yStd);
-
-                    // color scale
-                    const colorScale = d3.scaleSequential()
-                        .domain([0, d3.max(data, d => d.distance)])
-                        .interpolator(d3.interpolateRgb("#9d8fff", "#ff6b9d"));
-
-                    const Scattertooltip = d3.select("#Scattertooltip");
-
-                    // scatter dots
-                    scatterSvg.selectAll(".dot")
-                        .data(data)
-                        .join("circle")
-                        .attr("class", "dot")
-                        .attr("cx", d => x(d.distance))
-                        .attr("cy", d => y(d.arrivals))
-                        .attr("r", d => r(d.arrivals))
-                        .attr("fill", d => colorScale(d.distance))
-                        .attr("opacity", 0.75)
-                        .attr("stroke", "#fff")
-                        .attr("stroke-width", 1)
-                        .on("mouseover", function(event, d) {
-                        const tip = document.getElementById("Scattertooltip");
-                        tip.style.display = "block";
-                        tip.innerHTML = `
-                        <div style="font-weight:700; margin-bottom:6px;">${d.country}</div>
-                        <div>Distance: ${d.distance.toLocaleString()} km</div>
-                        <div>Arrivals: ${d.arrivals.toLocaleString()}</div>`;
-                        })
-                        .on("mousemove", function(event) {
-                            const tip = document.getElementById("Scattertooltip");
-                            const container = tip.parentElement.getBoundingClientRect();
-                            tip.style.left = (event.clientX - container.left + 16) + "px";
-                            tip.style.top = (event.clientY - container.top - 40) + "px";
-                        })
-                        .on("mouseout", function() {
-                            document.getElementById("Scattertooltip").style.display = "none";
-                        });
-
-                    // labels
-                    const topCountries = data.filter(d => d.arrivals > 300000 || d.country === "Ireland");
-                    scatterSvg.selectAll(".country-label")
-                        .data(topCountries)
-                        .join("text")
-                        .attr("class", "country-label")
-                        .attr("x", d => x(d.distance) + r(d.arrivals) + 4)
-                        .attr("y", d => y(d.arrivals) + 4)
-                        .text(d => d.country);
-                });
-            </script>
-
-            <!-- </div> -->
         </div>
 
 
@@ -270,198 +79,58 @@
             </div>
             <p class="feature-section-block-title">Economic Factors</p>
             <p id="part-suisse-2">Does wealth influence travel?</p>
-            <!-- <div class="frame"> -->
 
             <div id="gdp-chart-wrap" style="position:relative;">
 
-                <div style="display:flex; justify-content:center; align-items:center; gap:12px; font-family:'DM Mono',monospace; font-size:12px; color:#666; margin-bottom:8px; margin-top:24px; flex-wrap:wrap;">
+                <!-- 控制列（第1頁才顯示）-->
+                <div id="gdp-controls" style="display:flex; justify-content:center; align-items:center; gap:12px; font-family:'DM Mono',monospace; font-size:12px; color:#666; margin-bottom:8px; margin-top:24px; flex-wrap:wrap;">
                     <label>Top</label>
                     <span id="slider-display">1 – 10</span>
                     <input type="range" id="top-slider" min="1" max="33" value="10" step="1" style="width:160px; accent-color:black;">
-
                     <span style="color:#ccc;">|</span>
                     <label>Rank</label>
                     <input type="number" id="rank-from" value="1" min="1" max="33" style="width:40px; padding:4px; border:1px solid #ccc; border-radius:4px; font-family:'DM Mono',monospace; font-size:12px; text-align:center;">
                     <label>to</label>
                     <input type="number" id="rank-to" value="10" min="1" max="33" style="width:40px; padding:4px; border:1px solid #ccc; border-radius:4px; font-family:'DM Mono',monospace; font-size:12px; text-align:center;">
-
                     <label>by avg GDP</label>
-                    <!-- <button class="btn-all" id="btn-all">Show All</button> -->
-                    <button class="btn-all" id="btn-all" style="display:inline-block; padding:6px 14px; border:1.5px solid #1a1a2e; border-radius:4px; cursor:pointer; font-family:'DM Mono',monospace; font-size:11px; color:#1a1a2e; background:transparent; outline:none; white-space:nowrap; box-sizing:border-box; transition:all 0.2s;">Show All</button>
+                    <button class="btn-all" id="btn-all" style="padding:6px 14px; border:1.5px solid #1a1a2e; border-radius:4px; cursor:pointer; font-family:'DM Mono',monospace; font-size:11px; color:#1a1a2e; background:transparent;">Show All</button>
                 </div>
 
-                <div style="display:flex; align-items:center; gap:16px;">
-                    <svg id="gdp-svg"></svg>
-                    <button id="btn-next" style="display:inline-block; padding:6px 14px; border:1.5px solid #1a1a2e; border-radius:5px; cursor:pointer; font-family:'DM Mono',monospace; font-size:11px; color:white; background:black; outline:none; white-space:nowrap; box-sizing:border-box; transition:all 0.2s; font-size: 20px">Next →</button>
-                </div>
+                <!-- Slides 容器 -->
+                <div style="position:relative; width:820px; overflow:hidden; padding-left: 40px;">
+                    <div id="gdp-slides" style="display:flex; transition:transform 0.4s ease;">
 
-                <!-- <svg id="gdp-svg"></svg> -->
+                    <!-- 第1頁：GDP 折線圖 -->
+                    <div style="min-width:820px;">
+                        <svg id="gdp-svg"></svg>
+                    </div>
+
+                    <!-- 第2頁：你的新圖 -->
+                    <div style="min-width:820px;">
+                        <svg id="gdp-svg2"></svg>
+                    </div>
+
+                    </div>
+
+                    <!-- 左右箭頭 -->
+                    <button id="btn-prev" style="position:absolute; left:10px; top:50%; transform:translateY(-50%); padding:6px 14px; border:1.5px solid #1a1a2e; border-radius:4px; cursor:pointer; font-family:'DM Mono',monospace; font-size:11px; color:white; background:black; display:none;">←</button>
+                    <button id="btn-next" style="position:absolute; right:10px; top:50%; transform:translateY(-50%); padding:6px 14px; border:1.5px solid #1a1a2e; border-radius:4px; cursor:pointer; font-family:'DM Mono',monospace; font-size:11px; color:white; background:black;">→</button>
+                    
+                    <div id="gdp-dots" style="display:flex; justify-content:center; gap:8px; margin-top:10px;">
+                        <div class="gdp-nav-dot" data-index="0" style="width:8px; height:8px; border-radius:50%; background:black; cursor:pointer;"></div>
+                        <div class="gdp-nav-dot" data-index="1" style="width:8px; height:8px; border-radius:50%; background:#ccc; cursor:pointer;"></div>
+                        <div class="gdp-nav-dot" data-index="2" style="width:8px; height:8px; border-radius:50%; background:#ccc; cursor:pointer;"></div>
+                    </div>
+
+                </div>
+                
                 <div class="legend-wrap" id="gdp-legend"></div>
-            </div>
+                </div>
 
                 <div id="gdp-tooltip" style="position:fixed; background:#1a1a2e; color:#fff; padding:10px 14px; border-radius:8px; font-family:'DM Mono',monospace; font-size:16px; pointer-events:none; display:none; z-index:999; min-width:160px;"></div>
+                <script src="chart-3.js"></script>
+            </div>
 
-                <script>
-                d3.json("data/eu_gdp_and_to_ch_df_merged.json").then(raw => {
-                    const YEARS = [2020, 2021, 2022, 2023, 2024];
-
-                    const filtered = raw.filter(d =>
-                        YEARS.includes(+d["Year"]) &&
-                        d["Visitors' country of residence"] !== "Switzerland" &&
-                        d["gdp_pps"] != null
-                    );
-
-                    const avgGdp = d3.rollup(filtered,
-                        v => d3.mean(v, d => +d["gdp_pps"]),
-                        d => d["Visitors' country of residence"]
-                    );
-
-                    const allCountries = [...avgGdp.entries()]
-                        .sort((a, b) => b[1] - a[1])
-                        .map(d => d[0]);
-
-                    const byCountry = d3.group(filtered, d => d["Visitors' country of residence"]);
-
-                    const color = d3.scaleOrdinal()
-                        .domain(allCountries)
-                        .range(d3.schemeTableau10.concat(d3.schemePastel1).concat(d3.schemeSet3));
-
-                    const margin = {top: 20, right: 120, bottom: 40, left: 70};
-                    const W = 820 - margin.left - margin.right;
-                    const H = 420 - margin.top - margin.bottom;
-
-                    const svg = d3.select("#gdp-svg")
-                        .attr("width", 800)
-                        .attr("height", H + margin.top + margin.bottom);
-
-                    const g = svg.append("g")
-                        .attr("transform", `translate(${margin.left},${margin.top})`);
-
-                    const x = d3.scaleLinear().domain([2020, 2024]).range([0, W]);
-                    const y = d3.scaleLinear()
-                        .domain([0, d3.max(filtered, d => +d["gdp_pps"]) * 1.1])
-                        .range([H, 0]);
-
-                    g.append("g").attr("class", "axis")
-                        .attr("transform", `translate(0,${H})`)
-                        .call(d3.axisBottom(x).tickValues(YEARS).tickFormat(d3.format("d")));
-
-                    g.append("g").attr("class", "axis")
-                        .call(d3.axisLeft(y).ticks(5).tickFormat(d => `${(d/1000).toFixed(0)}K`));
-
-                    g.append("text")
-                        .attr("x", W/2).attr("y", H + 36)
-                        .attr("text-anchor", "middle")
-                        .attr("fill", "#000").attr("font-size", 16)
-                        .text("Year");
-
-                    g.append("text")
-                        .attr("transform", "rotate(-90)")
-                        .attr("x", -H/2).attr("y", -52)
-                        .attr("text-anchor", "middle")
-                        .attr("fill", "#000").attr("font-size", 16)
-                        .text("GDP per capita (PPS)");
-
-                    const lineGen = d3.line()
-                        .x(d => x(+d["Year"]))
-                        .y(d => y(+d["gdp_pps"]))
-                        .curve(d3.curveMonotoneX);
-
-                    const tooltip = document.getElementById("gdp-tooltip");
-                    let showAll = false;
-                    let topN = 10;
-
-                    function draw(countries) {
-                        const lines = g.selectAll(".gdp-line").data(countries, d => d);
-                        lines.enter().append("path").attr("class", "gdp-line")
-                            .attr("fill", "none").attr("stroke", d => color(d))
-                            .attr("stroke-width", 2.5).attr("opacity", 0)
-                            .attr("d", d => lineGen((byCountry.get(d)||[]).filter(r => YEARS.includes(+r["Year"])).sort((a,b) => +a["Year"] - +b["Year"])))
-                            .transition().duration(500).attr("opacity", 1);
-                        lines.transition().duration(500).attr("opacity", 1)
-                            .attr("d", d => lineGen((byCountry.get(d)||[]).filter(r => YEARS.includes(+r["Year"])).sort((a,b) => +a["Year"] - +b["Year"])));
-                        lines.exit().transition().duration(300).attr("opacity", 0).remove();
-
-                        const allPts = countries.flatMap(c =>
-                            (byCountry.get(c)||[]).filter(r => YEARS.includes(+r["Year"])).map(r => ({...r, country: c}))
-                        );
-                        const dots = g.selectAll(".gdp-dot").data(allPts, d => d.country + d["Year"]);
-                        dots.enter().append("circle").attr("class", "gdp-dot")
-                            .attr("cx", d => x(+d["Year"])).attr("cy", d => y(+d["gdp_pps"]))
-                            .attr("r", 4).attr("fill", d => color(d.country))
-                            .attr("stroke", "#fff").attr("stroke-width", 1.5).attr("opacity", 0)
-                            .on("mouseover", (event, d) => {
-                                tooltip.style.display = "block";
-                                tooltip.innerHTML = `<div style="color:#a0cfff;margin-bottom:4px;">${d.country}</div><div>Year: ${d["Year"]}</div><div>GDP: ${(+d["gdp_pps"]).toLocaleString()} PPS</div>`;
-                            })
-                            .on("mousemove", event => {
-                                tooltip.style.left = (event.clientX + 14) + "px";
-                                tooltip.style.top = (event.clientY - 36) + "px";
-                            })
-                            .on("mouseout", () => tooltip.style.display = "none")
-                            .transition().duration(500).attr("opacity", 1);
-                        dots.transition().duration(500).attr("cx", d => x(+d["Year"])).attr("cy", d => y(+d["gdp_pps"])).attr("opacity", 1);
-                        dots.exit().transition().duration(300).attr("opacity", 0).remove();
-
-                        const labelData = countries.map(c => {
-                            const pts = (byCountry.get(c)||[]).filter(r => +r["Year"] === 2024);
-                            return pts.length ? {country: c, val: +pts[0]["gdp_pps"]} : null;
-                        }).filter(Boolean);
-                    }
-
-                    const slider = document.getElementById("top-slider");
-                    const rankFrom = document.getElementById("rank-from");
-                    const rankTo = document.getElementById("rank-to");
-                    slider.max = allCountries.length;
-                    rankFrom.max = allCountries.length;
-                    rankTo.max = allCountries.length;
-
-                    function syncControls(from, to) {
-                        slider.value = to;
-                        document.getElementById("slider-display").textContent = `${from} ~ ${to}`;
-                        rankFrom.value = from;
-                        rankTo.value = to;
-                    }
-
-                    function updateChart(from, to) {
-                        showAll = false;
-                        document.getElementById("btn-all").classList.remove("active");
-                        draw(allCountries.slice(from - 1, to));
-                    }
-
-                    slider.addEventListener("input", function() {
-                        const to = +this.value;
-                        syncControls(1, to);
-                        updateChart(1, to);
-                    });
-
-                    rankFrom.addEventListener("input", function() {
-                        const from = +this.value;
-                        const to = +rankTo.value;
-                        syncControls(from, to);
-                        updateChart(from, to);
-                    });
-
-                    rankTo.addEventListener("input", function() {
-                        const to = +this.value;
-                        const from = +rankFrom.value;
-                        syncControls(from, to);
-                        updateChart(from, to);
-                    });
-
-                    document.getElementById("btn-all").addEventListener("click", function() {
-                        showAll = !showAll;
-                        this.classList.toggle("active", showAll);
-                        if (showAll) draw(allCountries);
-                        else updateChart(+rankFrom.value, +rankTo.value);
-                    });
-
-                    syncControls(1, 10);
-                    updateChart(1, 10);
-                });
-                </script>
-
-            <!-- </div> -->
         </div>
 
         <!-- <div class="feature-section-block">
