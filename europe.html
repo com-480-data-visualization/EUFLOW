@@ -61,9 +61,14 @@
                 };
 
                 d3.csv("exploitable_data/total_nights_spent_per_dest.csv").then(data => {
+                    const yearCols = Object.keys(data[0]).filter(k => k.trim() !== 'c_dest');
+
                     const filtered = data
-                        .filter(d => !aggregateCodes.has(d.c_dest) && countryNames[d.c_dest])
-                        .map(d => ({ name: countryNames[d.c_dest], nights: +d['0'] }))
+                        .filter(d => !aggregateCodes.has(d.c_dest.trim()) && countryNames[d.c_dest.trim()])
+                        .map(d => ({
+                            name: countryNames[d.c_dest.trim()],
+                            nights: d3.mean(yearCols, y => +d[y])
+                        }))
                         .sort((a, b) => b.nights - a.nights)
                         .slice(0, 20);
 
@@ -88,11 +93,82 @@
             </script>
             </div>
 
-            <div class="frame">
-            <!-- D3.js -->
-
-            </div>
+            <div class="frame" id="dest-heatmap-chart"></div>
         </div>
+
+        <script>
+            d3.csv("exploitable_data/total_nights_spent_per_dest.csv").then(data => {
+                const aggregateCodesMap = new Set([
+                    'WORLD', 'EUR', 'EU27_2020', 'DOM', 'FOR', 'EU27_2020_FOR',
+                    'AME', 'ASI', 'AFR', 'AME_N', 'AME_C_S', 'AME_C_S_OTH',
+                    'ASI_OTH', 'AFR_OTH', 'EUR_OTH', 'EFTA'
+                ]);
+
+                const yearCols = Object.keys(data[0]).filter(k => k.trim() !== 'c_dest');
+                const years = yearCols.map(k => k.trim());
+
+                const filtered = data.filter(d => !aggregateCodesMap.has(d.c_dest.trim()) && countryNames[d.c_dest.trim()]);
+                const locations = filtered.map(d => countryNames[d.c_dest.trim()]);
+
+                const colorscale = [
+                    [0, '#eaf4fb'], [0.2, '#90c9e8'],
+                    [0.5, '#4A90D9'], [0.8, '#1a5fa8'], [1, '#0a2d5e']
+                ];
+
+                const zmax = d3.max(filtered.flatMap(d => yearCols.map(y => +d[y] / 1e9)));
+
+                const frames = years.map((year, i) => ({
+                    name: year,
+                    data: [{ z: filtered.map(d => +d[yearCols[i]] / 1e9) }]
+                }));
+
+                const sliderSteps = years.map(year => ({
+                    args: [[year], { frame: { duration: 400, redraw: true }, mode: 'immediate' }],
+                    label: year,
+                    method: 'animate'
+                }));
+
+                Plotly.newPlot('dest-heatmap-chart', [{
+                    type: 'choropleth',
+                    locationmode: 'country names',
+                    locations,
+                    z: filtered.map(d => +d[yearCols[0]] / 1e9),
+                    zmin: 0,
+                    zmax,
+                    colorscale,
+                    colorbar: { title: 'Nights (B)', thickness: 14 },
+                    hovertemplate: '%{location}: %{z:.2f}B nights<extra></extra>'
+                }], {
+                    geo: {
+                        scope: 'europe',
+                        projection: { type: 'natural earth' },
+                        showland: true,
+                        landcolor: '#f0f0f0',
+                        showcoastlines: true,
+                        coastlinecolor: '#ccc',
+                        showframe: false
+                    },
+                    margin: { l: 0, r: 0, t: 10, b: 60 },
+                    paper_bgcolor: 'rgba(0,0,0,0)',
+                    sliders: [{
+                        active: 0,
+                        steps: sliderSteps,
+                        x: 0.05, xanchor: 'left',
+                        y: 0, yanchor: 'top',
+                        pad: { t: 10 },
+                        currentvalue: {
+                            prefix: 'Year: ',
+                            visible: true,
+                            xanchor: 'center',
+                            font: { size: 14 }
+                        },
+                        transition: { duration: 400 }
+                    }]
+                }, { responsive: true }).then(() => {
+                    Plotly.addFrames('dest-heatmap-chart', frames);
+                });
+            });
+        </script>
 
 
 
