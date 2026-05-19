@@ -10,7 +10,8 @@
         @import url('https://fonts.googleapis.com/css2?family=Geist+Mono:wght@100..900&family=Radio+Canada+Big:ital,wght@0,400..700;1,400..700&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap');
     </style>
     <script src="script.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script> <!-- D3.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/topojson@3/dist/topojson.min.js"></script>
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <title>Europe</title>
 </head>
@@ -93,82 +94,13 @@
             </script>
             </div>
 
-            <div class="frame" id="dest-heatmap-chart"></div>
+            <div class="frame" style="position:relative; overflow:hidden;">
+                <select id="europe-year-select" style="padding:6px 10px; font-size:13px; border:1px solid #ccc; border-radius:4px; cursor:pointer;"></select>
+                <div id="europe-tooltip" style="position:absolute; background:white; padding:6px 10px; border:1px solid #ccc; display:none; pointer-events:none; border-radius:4px; font-size:13px;"></div>
+                <svg id="europe-map" viewBox="0 0 900 550" preserveAspectRatio="xMidYMid meet" style="width:100%;height:100%;display:block;"></svg>
+                <script src="chart-europe-heatmap.js"></script>
+            </div>
         </div>
-
-        <script>
-            d3.csv("exploitable_data/total_nights_spent_per_dest.csv").then(data => {
-                const aggregateCodesMap = new Set([
-                    'WORLD', 'EUR', 'EU27_2020', 'DOM', 'FOR', 'EU27_2020_FOR',
-                    'AME', 'ASI', 'AFR', 'AME_N', 'AME_C_S', 'AME_C_S_OTH',
-                    'ASI_OTH', 'AFR_OTH', 'EUR_OTH', 'EFTA'
-                ]);
-
-                const yearCols = Object.keys(data[0]).filter(k => k.trim() !== 'c_dest');
-                const years = yearCols.map(k => k.trim());
-
-                const filtered = data.filter(d => !aggregateCodesMap.has(d.c_dest.trim()) && countryNames[d.c_dest.trim()]);
-                const locations = filtered.map(d => countryNames[d.c_dest.trim()]);
-
-                const colorscale = [
-                    [0, '#eaf4fb'], [0.2, '#90c9e8'],
-                    [0.5, '#4A90D9'], [0.8, '#1a5fa8'], [1, '#0a2d5e']
-                ];
-
-                const zmax = d3.max(filtered.flatMap(d => yearCols.map(y => +d[y] / 1e9)));
-
-                const frames = years.map((year, i) => ({
-                    name: year,
-                    data: [{ z: filtered.map(d => +d[yearCols[i]] / 1e9) }]
-                }));
-
-                const sliderSteps = years.map(year => ({
-                    args: [[year], { frame: { duration: 400, redraw: true }, mode: 'immediate' }],
-                    label: year,
-                    method: 'animate'
-                }));
-
-                Plotly.newPlot('dest-heatmap-chart', [{
-                    type: 'choropleth',
-                    locationmode: 'country names',
-                    locations,
-                    z: filtered.map(d => +d[yearCols[0]] / 1e9),
-                    zmin: 0,
-                    zmax,
-                    colorscale,
-                    colorbar: { title: 'Nights (B)', thickness: 14 },
-                    hovertemplate: '%{location}: %{z:.2f}B nights<extra></extra>'
-                }], {
-                    geo: {
-                        scope: 'europe',
-                        projection: { type: 'natural earth' },
-                        showland: true,
-                        landcolor: '#f0f0f0',
-                        showcoastlines: true,
-                        coastlinecolor: '#ccc',
-                        showframe: false
-                    },
-                    margin: { l: 0, r: 0, t: 10, b: 60 },
-                    paper_bgcolor: 'rgba(0,0,0,0)',
-                    sliders: [{
-                        active: 0,
-                        steps: sliderSteps,
-                        x: 0.05, xanchor: 'left',
-                        y: 0, yanchor: 'top',
-                        pad: { t: 10 },
-                        currentvalue: {
-                            prefix: 'Year: ',
-                            visible: true,
-                            xanchor: 'center',
-                            font: { size: 14 }
-                        },
-                        transition: { duration: 400 }
-                    }]
-                }, { responsive: true }).then(() => {
-                    Plotly.addFrames('dest-heatmap-chart', frames);
-                });
-            });
-        </script>
 
 
 
