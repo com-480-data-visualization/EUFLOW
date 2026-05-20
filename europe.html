@@ -42,62 +42,25 @@
             <div class="frame">
             <!-- D3.js -->
             <script>
-                const aggregateCodes = new Set([
-                    'WORLD', 'EUR', 'EU27_2020', 'DOM', 'FOR', 'EU27_2020_FOR',
-                    'AME', 'ASI', 'AFR', 'AME_N', 'AME_C_S', 'AME_C_S_OTH',
-                    'ASI_OTH', 'AFR_OTH', 'EUR_OTH', 'EFTA'
-                ]);
-
-                const countryNames = {
-                    FR: 'France', ES: 'Spain', DE: 'Germany', IT: 'Italy',
-                    PL: 'Poland', NL: 'Netherlands', AT: 'Austria', EL: 'Greece',
-                    PT: 'Portugal', FI: 'Finland', CZ: 'Czech Republic', HR: 'Croatia',
-                    SE: 'Sweden', UK: 'United Kingdom', RO: 'Romania', DK: 'Denmark',
-                    US: 'United States', TR: 'Turkey', HU: 'Hungary', BE: 'Belgium',
-                    IE: 'Ireland', CH: 'Switzerland', SK: 'Slovakia', NO: 'Norway',
-                    BG: 'Bulgaria', EE: 'Estonia', CA: 'Canada', SI: 'Slovenia',
-                    LV: 'Latvia', LT: 'Lithuania', RU: 'Russia', CY: 'Cyprus',
-                    ZA: 'South Africa', BR: 'Brazil', MT: 'Malta', UA: 'Ukraine',
-                    LU: 'Luxembourg', IS: 'Iceland', CN: 'China'
-                };
-
-                d3.csv("exploitable_data/total_nights_spent_per_dest.csv").then(data => {
-                    const yearCols = Object.keys(data[0]).filter(k => k.trim() !== 'c_dest');
-
-                    const filtered = data
-                        .filter(d => !aggregateCodes.has(d.c_dest.trim()) && countryNames[d.c_dest.trim()])
-                        .map(d => ({
-                            name: countryNames[d.c_dest.trim()],
-                            nights: d3.mean(yearCols, y => +d[y])
-                        }))
-                        .sort((a, b) => b.nights - a.nights)
-                        .slice(0, 20);
-
-                    const x = filtered.map(d => d.nights / 1e9);
-                    const y = filtered.map(d => d.name);
-
-                    Plotly.newPlot('dest-popularity-chart', [{
-                        x,
-                        y,
-                        type: 'bar',
-                        orientation: 'h',
-                        marker: { color: '#4A90D9' },
-                        hovertemplate: '%{y}: %{x:.2f}B nights<extra></extra>'
-                    }], {
-                        xaxis: { title: 'Avg. Nights Spent (Billions)' },
-                        yaxis: { autorange: 'reversed' },
-                        margin: { l: 130, r: 20, t: 20, b: 50 },
-                        paper_bgcolor: 'rgba(0,0,0,0)',
-                        plot_bgcolor: 'rgba(0,0,0,0)'
-                    }, { responsive: true });
-                });
+           
             </script>
             </div>
-
+            <p id="part-suisse-2">Nights Spent by Destination by Europeans </p>
             <div class="frame" style="position:relative; overflow:hidden;">
-                <select id="europe-year-select" style="padding:6px 10px; font-size:13px; border:1px solid #ccc; border-radius:4px; cursor:pointer;"></select>
+                <select id="europe-year-select" style="
+                    position: absolute;
+                    top: 12px;
+                    right: 12px;
+                    z-index: 10;
+                    padding: 6px 10px;
+                    font-size: 13px;
+                    border: 1px solid #ccc;
+                    border-radius: 4px;
+                    background: white;
+                    cursor: pointer;
+                "></select>
                 <div id="europe-tooltip" style="position:absolute; background:white; padding:6px 10px; border:1px solid #ccc; display:none; pointer-events:none; border-radius:4px; font-size:13px;"></div>
-                <svg id="europe-map" viewBox="0 0 900 550" preserveAspectRatio="xMidYMid meet" style="width:100%;height:100%;display:block;"></svg>
+                <svg id="europe-map" viewBox="0 0 900 550" preserveAspectRatio="xMidYMid meet" style="width:100%;height:100%;display:block;background:white;"></svg>
                 <script src="chart-europe-heatmap.js"></script>
             </div>
         </div>
