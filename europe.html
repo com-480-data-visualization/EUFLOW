@@ -36,15 +36,239 @@
                 <span>1</span>
             </div>
             <p class="feature-section-block-title">Destination Popularity</p>
-            <p id="part-suisse-2">Where do Europeans travel?</p>
-            <div class="frame" id="dest-popularity-chart"></div>
-
-            <div class="frame">
-            <!-- D3.js -->
+  
             <script>
-           
+            window._EU_NAMES = {
+                FR:'France', ES:'Spain', DE:'Germany', IT:'Italy',
+                PL:'Poland', NL:'Netherlands', AT:'Austria', EL:'Greece',
+                PT:'Portugal', FI:'Finland', CZ:'Czech Republic', HR:'Croatia',
+                SE:'Sweden', UK:'United Kingdom', RO:'Romania', DK:'Denmark',
+                US:'United States', TR:'Turkey', HU:'Hungary', BE:'Belgium',
+                IE:'Ireland', CH:'Switzerland', SK:'Slovakia', NO:'Norway',
+                BG:'Bulgaria', EE:'Estonia', CA:'Canada', SI:'Slovenia',
+                LV:'Latvia', LT:'Lithuania', RU:'Russia', CY:'Cyprus',
+                ZA:'South Africa', BR:'Brazil', MT:'Malta', UA:'Ukraine',
+                LU:'Luxembourg', IS:'Iceland', CN:'China',
+                AME:'Americas', AME_N:'N. America', AME_C_S:'C./S. America',
+                ASI:'Asia', EUR:'Europe', AFR:'Africa', EUR_OTH:'Other Europe'
+            };
             </script>
+
+            <p id="part-suisse-2">Who sends the most tourists to each destination?</p>
+            <div class="frame" style="height:540px; display:block; overflow:hidden; background:white;">
+                <svg id="chart-origin" width="858" height="540" style="display:block;"></svg>
             </div>
+            <script>
+            (function() {
+                const N = window._EU_NAMES;
+                const colorPalette = ['#377eb8','#e41a1c','#4daf4a','#ff7f00','#984ea3','#a65628','#f781bf','#999999','#66c2a5'];
+                d3.csv("exploitable_data/most_popular_country_of_origin_by_destination.csv").then(raw => {
+                    const yearCols = Object.keys(raw[0]).filter(k => k.trim() !== '' && k.trim() !== 'geo' && !k.includes('Unnamed'));
+                    const years = yearCols.map(k => k.trim());
+                    const dests = raw.map(d => d.geo.trim());
+                    const originSet = new Set();
+                    raw.forEach(row => yearCols.forEach(yc => { const v=(row[yc]||'').trim(); if(v) originSet.add(v); }));
+                    const origins = [...originSet];
+                    const colorMap = {};
+                    origins.forEach((o, i) => colorMap[o] = colorPalette[i % colorPalette.length]);
+                    const svg = d3.select('#chart-origin');
+                    const nLegendRows = Math.ceil(origins.length / 4);
+                    const topMargin = 16 + nLegendRows * 20 + 16;
+                    const margin = {top: topMargin, right:30, bottom:60, left:130};
+                    const W=858, H=540, iw=W-margin.left-margin.right, ih=H-margin.top-margin.bottom;
+                    const cw=iw/years.length, ch=ih/dests.length;
+                    const g = svg.append('g').attr('transform',`translate(${margin.left},${margin.top})`);
+                    raw.forEach((row, ri) => {
+                        yearCols.forEach((yc, ci) => {
+                            const val=(row[yc]||'').trim();
+                            g.append('rect').attr('x',ci*cw).attr('y',ri*ch).attr('width',cw-1).attr('height',ch-1)
+                             .attr('fill',colorMap[val]||'#ddd').attr('rx',2)
+                             .append('title').text(`${N[dests[ri]]||dests[ri]} (${years[ci]}): ${N[val]||val}`);
+                        });
+                    });
+                    dests.forEach((d,i) => g.append('text').attr('x',-8).attr('y',i*ch+ch/2).attr('dy','0.35em')
+                        .attr('text-anchor','end').attr('font-size','13px').attr('fill','#333').text(N[d]||d));
+                    years.forEach((y,i) => { if(+y%5===0) g.append('text').attr('x',i*cw+cw/2).attr('y',ih+16)
+                        .attr('text-anchor','middle').attr('font-size','12px').attr('fill','#555').text(y); });
+                    const lg=svg.append('g').attr('transform',`translate(${margin.left},10)`);
+                    origins.forEach((o,i) => {
+                        const col=i%4, lrow=Math.floor(i/4), lx=col*175, ly=lrow*20;
+                        lg.append('rect').attr('x',lx).attr('y',ly).attr('width',13).attr('height',13).attr('fill',colorMap[o]).attr('rx',2);
+                        lg.append('text').attr('x',lx+17).attr('y',ly+10.5).attr('font-size','12px').attr('fill','#333').text(N[o]||o);
+                    });
+                });
+            })();
+            </script>
+
+            <div style="width:858px; height:1px; background:#e0e0e0; margin-top:80px;"></div>
+            <p id="part-suisse-2" style="margin-top:60px;">How do Europeans get to their destination?</p>
+            <div class="frame" style="height:700px; display:block; overflow:hidden; background:white;">
+                <svg id="chart-transport" width="858" height="700" style="display:block;"></svg>
+            </div>
+            <script>
+            (function() {
+                const N = window._EU_NAMES;
+                const aggCodes = new Set(['EA20','EU27_2020']);
+                const tColors = {'RDMV_PAS_X_BUS':'#4A90D9','AIR':'#E8433A','RAIL':'#4CAF50','SEA':'#9C27B0', 'WW': '#FFB300'};
+                const tLabels = {'RDMV_PAS_X_BUS':'Road / Car','AIR':'Air','RAIL':'Rail','SEA':'Sea', 'WW': 'Waterways'};
+                d3.csv("exploitable_data/most_popular_transport_by_country.csv").then(raw => {
+                    const filtered = raw.filter(d => !aggCodes.has(d.geo.trim()));
+                    const yearCols = Object.keys(raw[0]).filter(k => k.trim()!=='' && k.trim()!=='geo' && !k.includes('Unnamed'));
+                    const years = yearCols.map(k=>k.trim());
+                    const geos = filtered.map(d=>d.geo.trim());
+                    const svg = d3.select('#chart-transport');
+                    const margin={top:50,right:30,bottom:55,left:110};
+                    const W=858,H=700,iw=W-margin.left-margin.right,ih=H-margin.top-margin.bottom;
+                    const cw=iw/years.length, ch=ih/geos.length;
+                    const g=svg.append('g').attr('transform',`translate(${margin.left},${margin.top})`);
+                    filtered.forEach((row,ri) => {
+                        yearCols.forEach((yc,ci) => {
+                            const val=(row[yc]||'').trim();
+                            g.append('rect').attr('x',ci*cw).attr('y',ri*ch).attr('width',cw-1).attr('height',ch-1)
+                             .attr('fill',tColors[val]||'#ddd').attr('rx',2)
+                             .append('title').text(`${N[geos[ri]]||geos[ri]} (${years[ci]}): ${tLabels[val]||val}`);
+                        });
+                    });
+                    geos.forEach((d,i) => g.append('text').attr('x',-8).attr('y',i*ch+ch/2).attr('dy','0.35em')
+                        .attr('text-anchor','end').attr('font-size','12px').attr('fill','#333').text(N[d]||d));
+                    years.forEach((y,i) => g.append('text').attr('x',i*cw+cw/2).attr('y',ih+16)
+                        .attr('text-anchor','middle').attr('font-size','12px').attr('fill','#555').text(y));
+                    const presentModes=new Set();
+                    filtered.forEach(row=>yearCols.forEach(yc=>{const v=(row[yc]||'').trim();if(v)presentModes.add(v);}));
+                    const lg=svg.append('g').attr('transform',`translate(${margin.left},22)`);
+                    [...presentModes].forEach((m,i)=>{
+                        const lx=i*130;
+                        lg.append('rect').attr('x',lx).attr('y',0).attr('width',13).attr('height',13).attr('fill',tColors[m]||'#ccc').attr('rx',2);
+                        lg.append('text').attr('x',lx+17).attr('y',10.5).attr('font-size','13px').attr('fill','#333').text(tLabels[m]||m);
+                    });
+                });
+            })();
+            </script>
+
+            <div style="width:858px; height:1px; background:#e0e0e0; margin-top:80px;"></div>
+            <p id="part-suisse-2" style="margin-top:60px;">Do Europeans prefer short or long stays?</p>
+            <div class="frame" style="height:760px; display:block; overflow:hidden; background:white;">
+                <svg id="chart-night" width="858" height="760" style="display:block;"></svg>
+            </div>
+            <script>
+            (function() {
+                const N = window._EU_NAMES;
+                const euCodes=new Set(['AT','BE','BG','CY','CZ','DE','DK','EE','EL','ES','FI','FR','HR','HU','IE','IT','LT','LU','LV','MT','NL','PL','PT','RO','SE','SI','SK']);
+                const nColors={'N1-3':'#FFC107','N_GE4':'#2E7D32'};
+                const nLabels={'N1-3':'1–3 nights (short)','N_GE4':'4+ nights (long)'};
+                d3.csv("exploitable_data/most_popular_night_by_dest.csv").then(raw => {
+                    const filtered=raw.filter(d=>euCodes.has(d.c_dest.trim()));
+                    filtered.sort((a,b)=>a.c_dest.trim().localeCompare(b.c_dest.trim()));
+                    const yearCols=Object.keys(raw[0]).filter(k=>k.trim()!==''&&k.trim()!=='c_dest'&&!k.includes('Unnamed'));
+                    const years=yearCols.map(k=>k.trim());
+                    const dests=filtered.map(d=>d.c_dest.trim());
+                    const svg=d3.select('#chart-night');
+                    const margin={top:50,right:30,bottom:55,left:110};
+                    const W=858,H=760,iw=W-margin.left-margin.right,ih=H-margin.top-margin.bottom;
+                    const cw=iw/years.length, ch=ih/dests.length;
+                    const g=svg.append('g').attr('transform',`translate(${margin.left},${margin.top})`);
+                    filtered.forEach((row,ri)=>{
+                        yearCols.forEach((yc,ci)=>{
+                            const val=(row[yc]||'').trim();
+                            g.append('rect').attr('x',ci*cw).attr('y',ri*ch).attr('width',cw-1).attr('height',ch-1)
+                             .attr('fill',nColors[val]||'#ddd').attr('rx',2)
+                             .append('title').text(`${N[dests[ri]]||dests[ri]} (${years[ci]}): ${nLabels[val]||val}`);
+                        });
+                    });
+                    dests.forEach((d,i)=>g.append('text').attr('x',-8).attr('y',i*ch+ch/2).attr('dy','0.35em')
+                        .attr('text-anchor','end').attr('font-size','12px').attr('fill','#333').text(N[d]||d));
+                    years.forEach((y,i)=>g.append('text').attr('x',i*cw+cw/2).attr('y',ih+16)
+                        .attr('text-anchor','middle').attr('font-size','12px').attr('fill','#555').text(y));
+                    const lg=svg.append('g').attr('transform',`translate(${margin.left},22)`);
+                    Object.entries(nLabels).forEach(([k,label],i)=>{
+                        const lx=i*220;
+                        lg.append('rect').attr('x',lx).attr('y',0).attr('width',13).attr('height',13).attr('fill',nColors[k]).attr('rx',2);
+                        lg.append('text').attr('x',lx+17).attr('y',10.5).attr('font-size','13px').attr('fill','#333').text(label);
+                    });
+                });
+            })();
+            </script>
+
+            <div style="width:858px; height:1px; background:#e0e0e0; margin-top:80px;"></div>
+            <p id="part-suisse-2" style="margin-top:60px;">Where do Europeans sleep when they travel?</p>
+            <div class="frame" style="height:700px; display:block; overflow:hidden; background:white;">
+                <svg id="chart-accom" width="858" height="700" style="display:block;"></svg>
+            </div>
+            <script>
+            (function() {
+                const N = window._EU_NAMES;
+                const aggCodes=new Set(['EA20','EU27_2020']);
+                const aColors={'R_HOT':'#1565C0','NR_RF':'#E65100','NR_OWN':'#558B2F','R_OTH':'#6A1B9A'};
+                const aLabels={'R_HOT':'Hotel','NR_RF':'Rented (furnished)','NR_OWN':'Own / Family','R_OTH':'Other rented'};
+                d3.csv("exploitable_data/most_popular_accomod_by_country.csv").then(raw => {
+                    const filtered=raw.filter(d=>!aggCodes.has(d.geo.trim()));
+                    const yearCols=Object.keys(raw[0]).filter(k=>k.trim()!==''&&k.trim()!=='geo'&&!k.includes('Unnamed'));
+                    const years=yearCols.map(k=>k.trim());
+                    const geos=filtered.map(d=>d.geo.trim());
+                    const svg=d3.select('#chart-accom');
+                    const margin={top:50,right:30,bottom:55,left:110};
+                    const W=858,H=700,iw=W-margin.left-margin.right,ih=H-margin.top-margin.bottom;
+                    const cw=iw/years.length, ch=ih/geos.length;
+                    const g=svg.append('g').attr('transform',`translate(${margin.left},${margin.top})`);
+                    filtered.forEach((row,ri)=>{
+                        yearCols.forEach((yc,ci)=>{
+                            const val=(row[yc]||'').trim();
+                            g.append('rect').attr('x',ci*cw).attr('y',ri*ch).attr('width',cw-1).attr('height',ch-1)
+                             .attr('fill',aColors[val]||'#ddd').attr('rx',2)
+                             .append('title').text(`${N[geos[ri]]||geos[ri]} (${years[ci]}): ${aLabels[val]||val}`);
+                        });
+                    });
+                    geos.forEach((d,i)=>g.append('text').attr('x',-8).attr('y',i*ch+ch/2).attr('dy','0.35em')
+                        .attr('text-anchor','end').attr('font-size','12px').attr('fill','#333').text(N[d]||d));
+                    years.forEach((y,i)=>g.append('text').attr('x',i*cw+cw/2).attr('y',ih+16)
+                        .attr('text-anchor','middle').attr('font-size','12px').attr('fill','#555').text(y));
+                    const lg=svg.append('g').attr('transform',`translate(${margin.left},22)`);
+                    Object.entries(aLabels).forEach(([k,label],i)=>{
+                        const lx=i*185;
+                        lg.append('rect').attr('x',lx).attr('y',0).attr('width',13).attr('height',13).attr('fill',aColors[k]).attr('rx',2);
+                        lg.append('text').attr('x',lx+17).attr('y',10.5).attr('font-size','12px').attr('fill','#333').text(label);
+                    });
+                });
+            })();
+            </script>
+            <div style="width:858px; height:1px; background:#e0e0e0; margin-top:80px;"></div>
+            <p id="part-suisse-2">Trends Over Time — Top Destinations</p>
+            <div class="frame" id="dest-trend-chart" style="background:white;"></div>
+            <script>
+            (function() {
+                const TOP_COUNTRIES = {
+                    ES:'Spain', DE:'Germany', FR:'France', IT:'Italy',
+                    PL:'Poland', NL:'Netherlands', AT:'Austria'
+                };
+                const COLORS = ['#e41a1c','#377eb8','#4daf4a','#ff7f00','#984ea3','#a65628','#f781bf'];
+                d3.csv("exploitable_data/total_nights_spent_per_dest.csv").then(data => {
+                    const yearCols = Object.keys(data[0]).filter(k => k.trim() !== 'c_dest');
+                    const years = yearCols.map(k => k.trim());
+                    const codes = Object.keys(TOP_COUNTRIES);
+                    const traces = codes.map((code, i) => {
+                        const row = data.find(d => d.c_dest.trim() === code);
+                        return {
+                            x: years,
+                            y: yearCols.map(y => row ? (+row[y] / 1e9) : null),
+                            type: 'scatter', mode: 'lines+markers',
+                            name: TOP_COUNTRIES[code],
+                            line: { color: COLORS[i], width: 2 },
+                            marker: { size: 5 },
+                            hovertemplate: '%{y:.2f}B nights<extra>' + TOP_COUNTRIES[code] + '</extra>'
+                        };
+                    });
+                    Plotly.newPlot('dest-trend-chart', traces, {
+                        xaxis: { title: 'Year' },
+                        yaxis: { title: 'Nights Spent (Billions)' },
+                        legend: { orientation: 'h', y: -0.2 },
+                        margin: { l: 60, r: 20, t: 20, b: 80 },
+                        width: 858, height: 500,
+                        paper_bgcolor: 'white', plot_bgcolor: 'white'
+                    }, { responsive: true });
+                });
+            })();
+            </script>
+            <div style="width:858px; height:1px; background:#e0e0e0; margin-top:80px;"></div>
             <p id="part-suisse-2">Nights Spent by Destination by Europeans </p>
             <div class="frame" style="position:relative; overflow:hidden;">
                 <select id="europe-year-select" style="
