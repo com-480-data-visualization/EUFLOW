@@ -6,21 +6,22 @@ const scatterSvg = d3.select("#scatter")
     .append("g")
     .attr("transform", `translate(${margin.left},${margin.top})`);
 
+// read the data
 d3.json("data/countries_distances_vs_visitors.json").then(rawData => {
     const data = rawData
         .filter(d => d["Visitors' country of residence"] !== "Switzerland")
-        .filter(d => d["distance_km"] < 3000)
+        .filter(d => d["distance_km"] < 3000) // select the distannce that is smaller than 3000 km
         .map(d => ({
             country: d["Visitors' country of residence"],
             distance: d["distance_km"],
             arrivals: d["value"]
         }));
 
-    const x = d3.scaleLinear()
+    const x_axis = d3.scaleLinear()
         .domain([0, d3.max(data, d => d.distance) * 1.00])
         .range([0, W]);
 
-    const y = d3.scaleLinear()
+    const y_axis = d3.scaleLinear()
         .domain([0, d3.max(data, d => d.arrivals) * 1.1])
         .range([H, 0]);
 
@@ -36,10 +37,10 @@ d3.json("data/countries_distances_vs_visitors.json").then(rawData => {
     // axes
     scatterSvg.append("g").attr("class", "axis")
         .attr("transform", `translate(0,${H})`)
-        .call(d3.axisBottom(x).ticks(6).tickFormat(d => `${d} km`));
+        .call(d3.axisBottom(x_axis).ticks(6).tickFormat(d => `${d} km`));
 
     scatterSvg.append("g").attr("class", "axis")
-        .call(d3.axisLeft(y).ticks(5).tickFormat(d =>
+        .call(d3.axisLeft(y_axis).ticks(5).tickFormat(d =>
             d >= 1000000 ? `${(d/1000000).toFixed(1)}M` : `${(d/1000).toFixed(0)}K`
         ));
 
@@ -66,8 +67,8 @@ d3.json("data/countries_distances_vs_visitors.json").then(rawData => {
     const xMax = d3.max(data, d => d.distance);
 
     scatterSvg.append("line")
-        .attr("x1", x(xMin)).attr("y1", y(slope * xMin + intercept))
-        .attr("x2", x(xMax)).attr("y2", y(slope * xMax + intercept))
+        .attr("x1", x_axis(xMin)).attr("y1", y_axis(slope * xMin + intercept))
+        .attr("x2", x_axis(xMax)).attr("y2", y_axis(slope * xMax + intercept))
         .attr("stroke", "#ff4d6d")
         .attr("stroke-width", 2)
         .attr("stroke-dasharray", "6,4");
@@ -89,8 +90,8 @@ d3.json("data/countries_distances_vs_visitors.json").then(rawData => {
         .data(data)
         .join("circle")
         .attr("class", "dot")
-        .attr("cx", d => x(d.distance))
-        .attr("cy", d => y(d.arrivals))
+        .attr("cx", d => x_axis(d.distance))
+        .attr("cy", d => y_axis(d.arrivals))
         .attr("r", d => r(d.arrivals))
         .attr("fill", d => colorScale(d.distance))
         .attr("opacity", 0.75)
@@ -100,9 +101,9 @@ d3.json("data/countries_distances_vs_visitors.json").then(rawData => {
         const tip = document.getElementById("Scattertooltip");
         tip.style.display = "block";
         tip.innerHTML = `
-        <div style="font-weight:700; margin-bottom:6px;">${d.country}</div>
-        <div>Distance: ${d.distance.toLocaleString()} km</div>
-        <div>Arrivals: ${d.arrivals.toLocaleString()}</div>`;
+            <div style="font-weight:700; margin-bottom:6px;">${d.country}</div>
+            <div>Distance: ${d.distance.toLocaleString()} km</div>
+            <div>Arrivals: ${d.arrivals.toLocaleString()}</div>`;
         })
         .on("mousemove", function(event) {
             const tip = document.getElementById("Scattertooltip");
@@ -115,12 +116,12 @@ d3.json("data/countries_distances_vs_visitors.json").then(rawData => {
         });
 
     // labels
-    const topCountries = data.filter(d => d.arrivals > 300000 || d.country === "Ireland");
+    const topCountries = data.filter(d => d.arrivals > 100000);
     scatterSvg.selectAll(".country-label")
         .data(topCountries)
         .join("text")
         .attr("class", "country-label")
-        .attr("x", d => x(d.distance) + r(d.arrivals) + 4)
-        .attr("y", d => y(d.arrivals) + 4)
+        .attr("x", d => x_axis(d.distance) + r(d.arrivals) + 4)
+        .attr("y", d => y_axis(d.arrivals) + 4)
         .text(d => d.country);
 });

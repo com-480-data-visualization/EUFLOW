@@ -19,7 +19,7 @@
 
     <div class="intro-section-suisse">
         <nav id="navbar">
-            <div id="nav-logo">EUFlow</div>
+            <div id="nav-logo"><a href="index.html">EUFlow</a></div>
             <ul id="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="europe.html">Europe</a></li>
@@ -36,23 +36,26 @@
                 <span>1</span>
             </div>
             <p class="feature-section-block-title">Destination within Switzerland</p>
-            <p id="part-suisse-2">Where do tourists go in Switzerland?</p>
-            <!-- <div class="frame">  -->
-  
+            <p id="part-suisse-2">Where do tourists go in Switzerland?</p>  
             <div style="position:relative; display:inline-block;">
-  
                 <div style="position:absolute; top:10px; right:10px; z-index:10;">
                     <select id="year-select" style="padding:6px 10px; font-size:13px; border:1px solid #ccc; border-radius:4px; cursor:pointer;">
                     </select>
                 </div>
 
                 <div id="tooltip" style="position:absolute; background:white; padding:6px 10px; border:1px solid #ccc; display:none; pointer-events:none;"></div>
-
                 <svg id="map" width="900" height="600"></svg>
-                 <script src="chart-1.js"></script>
-
+        
+                <!-- <div id="map-legend">
+                    <div id="legend-title">Visitors</div>
+                    <div id="legend-gradient"></div>
+                    <div id="legend-labels">
+                        <span id="legend-min">0</span>
+                        <span id="legend-max">100K</span>
+                    </div>
+                </div> -->
+                <script src="chart-1.js"></script>
             </div>
-            <!-- </div> -->
         </div>
 
         <div class="feature-section-block-even">
@@ -79,70 +82,56 @@
             </div>
             <p class="feature-section-block-title">Economic Factors</p>
             <p id="part-suisse-2">Does wealth influence travel?</p>
-
-            <div id="gdp-chart-wrap" style="position:relative;">
-
-                <!-- 控制列（第1頁才顯示）-->
-                <div id="gdp-controls" style="display:flex; justify-content:center; align-items:center; gap:12px; font-family:'DM Mono',monospace; font-size:12px; color:#666; margin-bottom:8px; margin-top:24px; flex-wrap:wrap;">
-                    <label>Top</label>
-                    <span id="slider-display">1 – 10</span>
-                    <input type="range" id="top-slider" min="1" max="33" value="10" step="1" style="width:160px; accent-color:black;">
-                    <span style="color:#ccc;">|</span>
-                    <label>Rank</label>
-                    <input type="number" id="rank-from" value="1" min="1" max="33" style="width:40px; padding:4px; border:1px solid #ccc; border-radius:4px; font-family:'DM Mono',monospace; font-size:12px; text-align:center;">
-                    <label>to</label>
-                    <input type="number" id="rank-to" value="10" min="1" max="33" style="width:40px; padding:4px; border:1px solid #ccc; border-radius:4px; font-family:'DM Mono',monospace; font-size:12px; text-align:center;">
-                    <label>by avg GDP</label>
-                    <button class="btn-all" id="btn-all" style="padding:6px 14px; border:1.5px solid #1a1a2e; border-radius:4px; cursor:pointer; font-family:'DM Mono',monospace; font-size:11px; color:#1a1a2e; background:transparent;">Show All</button>
-                </div>
-
-                <!-- Slides 容器 -->
-                <div style="position:relative; width:820px; overflow:hidden; padding-left: 40px;">
-                    <div id="gdp-slides" style="display:flex; transition:transform 0.4s ease;">
-
-                    <!-- 第1頁：GDP 折線圖 -->
-                    <div style="min-width:820px;">
-                        <svg id="gdp-svg"></svg>
-                    </div>
-
-                    <!-- 第2頁：你的新圖 -->
-                    <div style="min-width:820px;">
-                        <svg id="gdp-svg2"></svg>
-                    </div>
-
-                    </div>
-
-                    <!-- 左右箭頭 -->
-                    <button id="btn-prev" style="position:absolute; left:10px; top:50%; transform:translateY(-50%); padding:6px 14px; border:1.5px solid #1a1a2e; border-radius:4px; cursor:pointer; font-family:'DM Mono',monospace; font-size:11px; color:white; background:black; display:none;">←</button>
-                    <button id="btn-next" style="position:absolute; right:10px; top:50%; transform:translateY(-50%); padding:6px 14px; border:1.5px solid #1a1a2e; border-radius:4px; cursor:pointer; font-family:'DM Mono',monospace; font-size:11px; color:white; background:black;">→</button>
-                    
-                    <div id="gdp-dots" style="display:flex; justify-content:center; gap:8px; margin-top:10px;">
-                        <div class="gdp-nav-dot" data-index="0" style="width:8px; height:8px; border-radius:50%; background:black; cursor:pointer;"></div>
-                        <div class="gdp-nav-dot" data-index="1" style="width:8px; height:8px; border-radius:50%; background:#ccc; cursor:pointer;"></div>
-                        <div class="gdp-nav-dot" data-index="2" style="width:8px; height:8px; border-radius:50%; background:#ccc; cursor:pointer;"></div>
-                    </div>
-
-                </div>
-                
-                <div class="legend-wrap" id="gdp-legend"></div>
-                </div>
-
-                <div id="gdp-tooltip" style="position:fixed; background:#1a1a2e; color:#fff; padding:10px 14px; border-radius:8px; font-family:'DM Mono',monospace; font-size:16px; pointer-events:none; display:none; z-index:999; min-width:160px;"></div>
-                <script src="chart-3.js"></script>
+            
+            <div id="gdp-controls-3" style="display:flex; justify-content:center; align-items:center; gap:12px; font-family:'DM Mono',monospace; font-size:12px; color:#666; margin-bottom:8px; margin-top:24px; flex-wrap:wrap;">
+                <label>Top</label>
+                <span id="slider-display-3">1 – 10</span>
+                <input type="range" id="top-slider-3" min="1" max="33" value="10" step="1" style="width:160px; accent-color:black;">
+                <span style="color:#ccc;">|</span>
+                <label>Rank</label>
+                <input type="number" id="rank-from-3" value="1" min="1" max="33" style="width:40px; padding:4px; border:1px solid #ccc; border-radius:4px; font-family:'DM Mono',monospace; font-size:12px; text-align:center;">
+                <label>to</label>
+                <input type="number" id="rank-to-3" value="10" min="1" max="33" style="width:40px; padding:4px; border:1px solid #ccc; border-radius:4px; font-family:'DM Mono',monospace; font-size:12px; text-align:center;">
+                <label>by avg GDP</label>
+                <button class="btn-all" id="btn-all-3" style="padding:6px 14px; border:1.5px solid #1a1a2e; border-radius:4px; cursor:pointer; font-family:'DM Mono',monospace; font-size:11px; color:#1a1a2e; background:transparent;">Show All</button>
             </div>
+
+            <div style="min-width:820px;">
+                <svg id="gdp-svg-1"></svg>
+            </div>
+
+            <div id="gdp-tooltip-3" style="position:fixed; background:#1a1a2e; color:#fff; padding:10px 14px; border-radius:8px; font-family:'DM Mono',monospace; font-size:16px; pointer-events:none; display:none; z-index:999; min-width:160px;"></div>
+            <script src="chart-3.js"></script>
 
         </div>
 
-        <!-- <div class="feature-section-block">
+        <div class="feature-section-block-even">
             <div class="section-number">
                 <span>4</span>
             </div>
             <p class="feature-section-block-title">Destination within Switzerland</p>
             <p id="part-suisse-2">Where do tourists go in Switzerland?</p>
-            <div class="frame"> 
-            
+
+            <div id="gdp-controls-4" style="display:flex; justify-content:center; align-items:center; gap:12px; font-family:'DM Mono',monospace; font-size:12px; color:#666; margin-bottom:8px; margin-top:24px; flex-wrap:wrap;">
+                <label class="top-label">Top</label>
+                <span id="slider-display-4">1 ~ 10</span>
+                <input type="range" id="top-slider-4" min="1" max="32" value="10" step="1">
+                <span class="divider">|</span>
+                <label class="rank-label">Rank</label>
+                <input type="number" id="rank-from-4" value="1" min="1" max="33" style="width:40px; padding:4px; border:1px solid #ccc; border-radius:4px; font-family:'DM Mono',monospace; font-size:12px; text-align:center;">
+                <span class="to-text">to</span>
+                <input type="number" id="rank-to-4" value="10" min="1" max="33" style="width:40px; padding:4px; border:1px solid #ccc; border-radius:4px; font-family:'DM Mono',monospace; font-size:12px; text-align:center;">
+                <span class="metric-label">by avg GDP</span>
+                <button class="btn-all" id="btn-all-4" style="padding:6px 14px; border:1.5px solid #1a1a2e; border-radius:4px; cursor:pointer; font-family:'DM Mono',monospace; font-size:11px; color:#1a1a2e; background:transparent;">Show All</button>
             </div>
-        </div> -->
+
+            <div id="gdp-tooltip-4" style="position:fixed; background:#1a1a2e; color:#fff; padding:10px 14px; border-radius:8px; font-family:'DM Mono',monospace; font-size:16px; pointer-events:none; display:none; z-index:999; min-width:160px;"></div>
+            <div style="min-width:820px;">
+                <svg id="gdp-svg-2"></svg>
+            </div>
+            <script src="chart-4.js"></script>
+
+        </div>
     
     </div>
 
@@ -163,7 +152,7 @@
         </div>
 
         <div class="footer-bottom">
-            <div class="footer-logo">EUFlow</div>
+            <div class="footer-logo"><a href="index.html">EUFlow</a></div>
         </div>
     </footer>
 

@@ -47,11 +47,13 @@ button {
     box-sizing: border-box;
 }
 
-#nav-logo {
-    color: #F5F5F5;
-    font-size: 20px;
-    font-weight: 600;
+#nav-logo a {
+    color: white;
     text-decoration: none;
+    font-size: 20px;
+    font-weight: 700;
+    /* opacity: 0.85; */
+    transition: opacity 0.2s;
 }
 
 #nav-links {
@@ -77,7 +79,7 @@ button {
 
 
 /* java script */
-#navbar.scrolled #nav-logo {
+#navbar.scrolled #nav-logo a {
     color: black;
     transition: color 0.3s ease;
 }
@@ -356,8 +358,13 @@ button {
     font-size: 80px;
     font-style: normal;
     font-weight: 700;
-    line-height: 100%; /* 80px */
+    line-height: 80px;
     letter-spacing: -4px;
+}
+
+.footer-logo a {
+    color: #F5F5F5;
+    text-decoration: none;
 }
 
 .footer-bottom {
@@ -1127,7 +1134,6 @@ button {
     cursor: pointer;
 }
 
-
 .section-number {
     display: inline-block;
     text-align: center;
@@ -1200,4 +1206,92 @@ button {
     font-size: 12px;
     color: #666;
     justify-content: flex-end;
+}
+
+#top-slider-3,
+#top-slider-4 {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 160px;
+    height: 8px;
+    border-radius: 999px;
+    outline: none;
+    background: transparent;
+    cursor: pointer;
+}
+
+#top-slider-3::-webkit-slider-runnable-track,
+#top-slider-4::-webkit-slider-runnable-track {
+    height: 8px;
+    border-radius: 999px;
+    background: inherit;
+}
+
+#top-slider-3::-webkit-slider-thumb,
+#top-slider-4::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #000;
+    cursor: pointer;
+    margin-top: -5px;
+    position: relative;
+    z-index: 10;
+}
+
+#rank-from-3,
+#rank-from-4,
+#rank-to-3,
+#rank-to-4 {
+    width: 54px;
+    height: 32px;
+    border-radius: 8px;
+    font-size: 18px;
+    text-align: center;
+    color: #000;
+    outline: none;
+}
+
+
+#slider-display-3,
+#slider-display-4 {
+    font-family: 'DM Mono', monospace;
+    font-size: 14px;
+    color: #444;
+    min-width: 70px;
+    display: inline-block;
+}
+
+
+#gdp-tooltip-3,
+#gdp-tooltip-4 {
+    position: fixed;
+    background: rgba(18,18,24,0.96);
+    color: #fff;
+    padding: 12px 16px;
+    border-radius: 12px;
+    font-family: 'DM Mono', monospace;
+    font-size: 13px;
+    line-height: 1.5;
+    pointer-events: none;
+    display: none;
+    z-index: 9999;
+    min-width: 160px;
+}
+
+#btn-all-3,
+#btn-all-4 {
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease;
+}
+
+#btn-all-3.active,
+#btn-all-4.active {
+    background: #111;
+    color: #fff;
+    border-color: #111;
 }

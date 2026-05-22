@@ -21,8 +21,8 @@ function updateMap(year) {
     const maxVal = d3.max(Object.values(yearData));
     const colorScale = d3.scaleSequential()
     .domain([0, maxVal])
-    // .interpolator(d3.interpolatePurples);
-    .interpolator(d3.interpolateRgb("#ffcccc", "#8b0000"));
+    // .interpolator(d3.interpolateBlues);
+    .interpolator(d3.interpolateRgb("#bedff9", "#0008ff"));
 
     svg.selectAll("path")
     .data(geoData.features)
@@ -57,4 +57,60 @@ updateMap(years[years.length - 1]);
 
 select.on("change", function() {
     updateMap(this.value); });
+
+
+const minValue = d3.min(data, d => +d.value);
+const maxValue = d3.max(data, d => +d.value);
+const legendWidth = 180;
+const legendHeight = 12;
+const legendX = 40;
+const legendY = H - 40;
+const defs = svg.append("defs");
+
+const linearGradient = defs.append("linearGradient")
+    .attr("id", "legend-gradient");
+
+linearGradient.append("stop")
+    .attr("offset", "0%")
+    .attr("stop-color", "#dbeafe");
+
+linearGradient.append("stop")
+    .attr("offset", "100%")
+    .attr("stop-color", "#1d4ed8");
+
+svg.append("rect")
+    .attr("x", legendX)
+    .attr("y", legendY)
+    .attr("width", legendWidth)
+    .attr("height", legendHeight)
+    .style("fill", "url(#legend-gradient)")
+    .attr("rx", 6);
+
+const legendScale = d3.scaleLinear()
+    .domain([
+        minValue,
+        maxValue
+    ])
+    .range([0, legendWidth]);
+
+const legendAxis = d3.axisBottom(legendScale)
+    .ticks(5)
+    .tickFormat(d3.format(".2s"));
+
+svg.append("g")
+    .attr(
+        "transform",
+        `translate(${legendX}, ${legendY + legendHeight})`
+    )
+    .call(legendAxis)
+    .call(g => g.select(".domain").remove());
+
+svg.append("text")
+    .attr("x", legendX)
+    .attr("y", legendY - 10)
+    .attr("fill", "#333")
+    .attr("font-size", 13)
+    .attr("font-family", "sans-serif")
+    .text("Visitors");
+
 });
