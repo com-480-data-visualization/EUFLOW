@@ -1,5 +1,5 @@
 d3.json("data/eu_gdp_and_to_ch_df_merged.json").then(raw => {
-    const YEARS = [2020, 2021, 2022, 2023, 2024];
+    const YEARS = [2020, 2021, 2022, 2023, 2024, 2025];
 
     const filtered = raw.filter(d =>
         YEARS.includes(+d["Year"]) &&
@@ -22,18 +22,18 @@ d3.json("data/eu_gdp_and_to_ch_df_merged.json").then(raw => {
         .domain(allCountries)
         .range(d3.schemeTableau10.concat(d3.schemePastel1).concat(d3.schemeSet3));
 
-    const margin = {top: 20, right: 120, bottom: 40, left: 70};
+    const margin = {top: 0, right: 50, bottom: 0, left: 70};
     const W = 820 - margin.left - margin.right;
     const H = 420 - margin.top - margin.bottom;
 
-    const svg = d3.select("#gdp-svg")
-        .attr("width", 800)
-        .attr("height", H + margin.top + margin.bottom);
+    const svg = d3.select("#gdp-svg-1")
+        .attr("width", 820)
+        .attr("height", 500);
 
     const g = svg.append("g")
         .attr("transform", `translate(${margin.left},${margin.top})`);
 
-    const x = d3.scaleLinear().domain([2020, 2024]).range([0, W]);
+    const x = d3.scaleLinear().domain([2020, 2025]).range([0, W]);
     const y = d3.scaleLinear()
         .domain([0, d3.max(filtered, d => +d["gdp_pps"]) * 1.1])
         .range([H, 0]);
@@ -63,7 +63,7 @@ d3.json("data/eu_gdp_and_to_ch_df_merged.json").then(raw => {
         .y(d => y(+d["gdp_pps"]))
         .curve(d3.curveMonotoneX);
 
-    const tooltip = document.getElementById("gdp-tooltip");
+    const tooltip = document.getElementById("gdp-tooltip-3");
     let showAll = false;
     let topN = 10;
 
@@ -100,28 +100,55 @@ d3.json("data/eu_gdp_and_to_ch_df_merged.json").then(raw => {
         dots.exit().transition().duration(300).attr("opacity", 0).remove();
 
         const labelData = countries.map(c => {
-            const pts = (byCountry.get(c)||[]).filter(r => +r["Year"] === 2024);
+            const pts = (byCountry.get(c)||[]).filter(r => +r["Year"] === 2025);
             return pts.length ? {country: c, val: +pts[0]["gdp_pps"]} : null;
         }).filter(Boolean);
     }
 
-    const slider = document.getElementById("top-slider");
-    const rankFrom = document.getElementById("rank-from");
-    const rankTo = document.getElementById("rank-to");
+    const slider = document.getElementById("top-slider-3");
+    const rankFrom = document.getElementById("rank-from-3");
+    const rankTo = document.getElementById("rank-to-3");
     slider.max = allCountries.length;
     rankFrom.max = allCountries.length;
     rankTo.max = allCountries.length;
 
     function syncControls(from, to) {
-        slider.value = to;
-        document.getElementById("slider-display").textContent = `${from} ~ ${to}`;
-        rankFrom.value = from;
-        rankTo.value = to;
-    }
+
+    document.getElementById("slider-display-3")
+        .textContent = `${from} ~ ${to}`;
+
+    rankFrom.value = from;
+    rankTo.value = to;
+
+    slider.value = to;
+
+    const min = 1;
+    const max = allCountries.length;
+
+    const fromPercent =
+        ((from - min) / (max - min)) * 100;
+
+    const toPercent =
+        ((to - min) / (max - min)) * 100;
+
+    slider.style.background =
+        `linear-gradient(
+            to right,
+
+            #e8e8e8 0%,
+            #e8e8e8 ${fromPercent}%,
+
+            #000 ${fromPercent}%,
+            #000 ${toPercent}%,
+
+            #e8e8e8 ${toPercent}%,
+            #e8e8e8 100%
+        )`;
+}
 
     function updateChart(from, to) {
         showAll = false;
-        document.getElementById("btn-all").classList.remove("active");
+        document.getElementById("btn-all-3").classList.remove("active");
         draw(allCountries.slice(from - 1, to));
     }
 
@@ -145,41 +172,16 @@ d3.json("data/eu_gdp_and_to_ch_df_merged.json").then(raw => {
         updateChart(from, to);
     });
 
-    document.getElementById("btn-all").addEventListener("click", function() {
+    document.getElementById("btn-all-3").addEventListener("click", function() {
         showAll = !showAll;
         this.classList.toggle("active", showAll);
-        if (showAll) draw(allCountries);
+        if (showAll) {
+            draw(allCountries);
+            syncControls(1, rankTo.max);
+        }
         else updateChart(+rankFrom.value, +rankTo.value);
     });
 
     syncControls(1, 10);
     updateChart(1, 10);
 });
-
-
-
-let gdpPage = 0;
-const gdpTotal = 3; // 你有 3 個 dots
-
-function gdpGoTo(index) {
-    gdpPage = index;
-    document.getElementById("gdp-slides").style.transform = `translateX(-${gdpPage * 820}px)`;
-    
-    document.getElementById("btn-prev").style.display = gdpPage === 0 ? "none" : "block";
-    document.getElementById("btn-next").style.display = gdpPage === gdpTotal - 1 ? "none" : "block";
-    document.getElementById("gdp-controls").style.display = gdpPage === 0 ? "flex" : "none";
-
-    // 更新 dots
-    document.querySelectorAll(".gdp-nav-dot").forEach((dot, i) => {
-        dot.style.background = i === gdpPage ? "black" : "#ccc";
-    });
-}
-
-document.getElementById("btn-next").addEventListener("click", () => gdpGoTo(gdpPage + 1));
-document.getElementById("btn-prev").addEventListener("click", () => gdpGoTo(gdpPage - 1));
-
-document.querySelectorAll(".gdp-nav-dot").forEach(dot => {
-    dot.addEventListener("click", () => gdpGoTo(+dot.dataset.index));
-});
-
-gdpGoTo(0);
