@@ -55,91 +55,87 @@
             </script>
 
             <p id="part-suisse-2">Who sends the most tourists to each destination?</p>
-            <div class="frame" style="height:540px; display:block; overflow:hidden; background:white;">
-                <svg id="chart-origin" width="858" height="540" style="display:block;"></svg>
+            <div class="frame" style="position:relative; overflow:hidden; background:#F6F8FB; height:620px;">
+                <select id="origin-choropleth-year-select" style="
+                    position: absolute; top: 12px; right: 12px; z-index: 10;
+                    padding: 6px 10px; font-size: 13px;
+                    border: 1px solid #ccc; border-radius: 4px;
+                    background: white; cursor: pointer;
+                "></select>
+                <div id="origin-choropleth-tooltip" style="position:absolute; background:white; padding:6px 10px; border:1px solid #ccc; display:none; pointer-events:none; border-radius:4px; font-size:13px;"></div>
+                <svg id="origin-choropleth-map" viewBox="0 0 858 600" preserveAspectRatio="xMidYMid slice" style="width:100%;height:100%;display:block;background:#F6F8FB;"></svg>
+                <script src="chart_origin_choropleth.js"></script>
             </div>
-            <script>
-            (function() {
-                const N = window._EU_NAMES;
-                const colorPalette = ['#377eb8','#e41a1c','#4daf4a','#ff7f00','#984ea3','#a65628','#f781bf','#999999','#66c2a5'];
-                d3.csv("exploitable_data/most_popular_country_of_origin_by_destination.csv").then(raw => {
-                    const yearCols = Object.keys(raw[0]).filter(k => k.trim() !== '' && k.trim() !== 'geo' && !k.includes('Unnamed'));
-                    const years = yearCols.map(k => k.trim());
-                    const dests = raw.map(d => d.geo.trim());
-                    const originSet = new Set();
-                    raw.forEach(row => yearCols.forEach(yc => { const v=(row[yc]||'').trim(); if(v) originSet.add(v); }));
-                    const origins = [...originSet];
-                    const colorMap = {};
-                    origins.forEach((o, i) => colorMap[o] = colorPalette[i % colorPalette.length]);
-                    const svg = d3.select('#chart-origin');
-                    const nLegendRows = Math.ceil(origins.length / 4);
-                    const topMargin = 16 + nLegendRows * 20 + 16;
-                    const margin = {top: topMargin, right:30, bottom:60, left:130};
-                    const W=858, H=540, iw=W-margin.left-margin.right, ih=H-margin.top-margin.bottom;
-                    const cw=iw/years.length, ch=ih/dests.length;
-                    const g = svg.append('g').attr('transform',`translate(${margin.left},${margin.top})`);
-                    raw.forEach((row, ri) => {
-                        yearCols.forEach((yc, ci) => {
-                            const val=(row[yc]||'').trim();
-                            g.append('rect').attr('x',ci*cw).attr('y',ri*ch).attr('width',cw-1).attr('height',ch-1)
-                             .attr('fill',colorMap[val]||'#ddd').attr('rx',2)
-                             .append('title').text(`${N[dests[ri]]||dests[ri]} (${years[ci]}): ${N[val]||val}`);
-                        });
-                    });
-                    dests.forEach((d,i) => g.append('text').attr('x',-8).attr('y',i*ch+ch/2).attr('dy','0.35em')
-                        .attr('text-anchor','end').attr('font-size','13px').attr('fill','#333').text(N[d]||d));
-                    years.forEach((y,i) => { if(+y%5===0) g.append('text').attr('x',i*cw+cw/2).attr('y',ih+16)
-                        .attr('text-anchor','middle').attr('font-size','12px').attr('fill','#555').text(y); });
-                    const lg=svg.append('g').attr('transform',`translate(${margin.left},10)`);
-                    origins.forEach((o,i) => {
-                        const col=i%4, lrow=Math.floor(i/4), lx=col*175, ly=lrow*20;
-                        lg.append('rect').attr('x',lx).attr('y',ly).attr('width',13).attr('height',13).attr('fill',colorMap[o]).attr('rx',2);
-                        lg.append('text').attr('x',lx+17).attr('y',ly+10.5).attr('font-size','12px').attr('fill','#333').text(N[o]||o);
-                    });
-                });
-            })();
-            </script>
 
             <div style="width:858px; height:1px; background:#e0e0e0; margin-top:80px;"></div>
             <p id="part-suisse-2" style="margin-top:60px;">How do Europeans get to their destination?</p>
-            <div class="frame" style="height:700px; display:block; overflow:hidden; background:white;">
-                <svg id="chart-transport" width="858" height="700" style="display:block;"></svg>
+            <div class="frame" style="height:700px; display:block; overflow:hidden; background:#F6F8FB;">
+                <svg id="chart-transport" width="858" height="700" style="display:block; background:#F6F8FB;"></svg>
             </div>
             <script>
             (function() {
                 const N = window._EU_NAMES;
                 const aggCodes = new Set(['EA20','EU27_2020']);
-                const tColors = {'RDMV_PAS_X_BUS':'#4A90D9','AIR':'#E8433A','RAIL':'#4CAF50','SEA':'#9C27B0', 'WW': '#FFB300'};
-                const tLabels = {'RDMV_PAS_X_BUS':'Road / Car','AIR':'Air','RAIL':'Rail','SEA':'Sea', 'WW': 'Waterways'};
+                const tColors = {'RDMV_PAS_X_BUS':'#4A90D9','AIR':'#E8433A','RAIL':'#4CAF50','SEA':'#9C27B0','WW':'#FFB300'};
+                const tLabels = {'RDMV_PAS_X_BUS':'Road / Car','AIR':'Air','RAIL':'Rail','SEA':'Sea','WW':'Waterways'};
+                const tIcons  = {'RDMV_PAS_X_BUS':'🚗','AIR':'✈','RAIL':'🚆','SEA':'⛵','WW':'⛴'};
+
                 d3.csv("exploitable_data/most_popular_transport_by_country.csv").then(raw => {
                     const filtered = raw.filter(d => !aggCodes.has(d.geo.trim()));
                     const yearCols = Object.keys(raw[0]).filter(k => k.trim()!=='' && k.trim()!=='geo' && !k.includes('Unnamed'));
                     const years = yearCols.map(k=>k.trim());
-                    const geos = filtered.map(d=>d.geo.trim());
+
+                    // Sort countries by their dominant (most-frequent) mode so the heatmap forms clean horizontal bands
+                    const modeRank = {'AIR':0,'RDMV_PAS_X_BUS':1,'RAIL':2,'SEA':3,'WW':4};
+                    filtered.forEach(row => {
+                        const counts = {};
+                        yearCols.forEach(yc => {
+                            const v = (row[yc] || '').trim();
+                            if (v) counts[v] = (counts[v] || 0) + 1;
+                        });
+                        row._dominant = Object.entries(counts).sort((a,b) => b[1]-a[1])[0]?.[0] || '';
+                    });
+                    filtered.sort((a,b) => {
+                        const ra = modeRank[a._dominant] ?? 99;
+                        const rb = modeRank[b._dominant] ?? 99;
+                        return ra - rb || a.geo.trim().localeCompare(b.geo.trim());
+                    });
+                    const geos = filtered.map(d => d.geo.trim());
+
                     const svg = d3.select('#chart-transport');
-                    const margin={top:50,right:30,bottom:55,left:110};
-                    const W=858,H=700,iw=W-margin.left-margin.right,ih=H-margin.top-margin.bottom;
+                    const margin = {top:50,right:30,bottom:55,left:130};
+                    const W=858, H=700, iw=W-margin.left-margin.right, ih=H-margin.top-margin.bottom;
                     const cw=iw/years.length, ch=ih/geos.length;
-                    const g=svg.append('g').attr('transform',`translate(${margin.left},${margin.top})`);
-                    filtered.forEach((row,ri) => {
-                        yearCols.forEach((yc,ci) => {
+                    const g = svg.append('g').attr('transform',`translate(${margin.left},${margin.top})`);
+
+                    filtered.forEach((row, ri) => {
+                        yearCols.forEach((yc, ci) => {
                             const val=(row[yc]||'').trim();
                             g.append('rect').attr('x',ci*cw).attr('y',ri*ch).attr('width',cw-1).attr('height',ch-1)
-                             .attr('fill',tColors[val]||'#ddd').attr('rx',2)
+                             .attr('fill',tColors[val]||'#ddd').attr('rx',2).attr('opacity',0.92)
                              .append('title').text(`${N[geos[ri]]||geos[ri]} (${years[ci]}): ${tLabels[val]||val}`);
                         });
                     });
-                    geos.forEach((d,i) => g.append('text').attr('x',-8).attr('y',i*ch+ch/2).attr('dy','0.35em')
-                        .attr('text-anchor','end').attr('font-size','12px').attr('fill','#333').text(N[d]||d));
+
+                    // Row labels: country name + dominant-mode icon
+                    geos.forEach((d, i) => {
+                        const dom = filtered[i]._dominant;
+                        g.append('text').attr('x',-8).attr('y',i*ch+ch/2).attr('dy','0.35em')
+                            .attr('text-anchor','end').attr('font-size','12px').attr('fill','#333')
+                            .text(`${tIcons[dom] || ''}  ${N[d] || d}`);
+                    });
                     years.forEach((y,i) => g.append('text').attr('x',i*cw+cw/2).attr('y',ih+16)
                         .attr('text-anchor','middle').attr('font-size','12px').attr('fill','#555').text(y));
-                    const presentModes=new Set();
-                    filtered.forEach(row=>yearCols.forEach(yc=>{const v=(row[yc]||'').trim();if(v)presentModes.add(v);}));
-                    const lg=svg.append('g').attr('transform',`translate(${margin.left},22)`);
-                    [...presentModes].forEach((m,i)=>{
-                        const lx=i*130;
+
+                    const presentModes = new Set();
+                    filtered.forEach(row => yearCols.forEach(yc => { const v=(row[yc]||'').trim(); if(v) presentModes.add(v); }));
+                    const lg = svg.append('g').attr('transform',`translate(${margin.left},22)`);
+                    [...presentModes].forEach((m,i) => {
+                        const lx = i*140;
                         lg.append('rect').attr('x',lx).attr('y',0).attr('width',13).attr('height',13).attr('fill',tColors[m]||'#ccc').attr('rx',2);
-                        lg.append('text').attr('x',lx+17).attr('y',10.5).attr('font-size','13px').attr('fill','#333').text(tLabels[m]||m);
+                        lg.append('text').attr('x',lx+18).attr('y',11)
+                            .attr('font-size','13px').attr('fill','#333')
+                            .text(`${tIcons[m] || ''} ${tLabels[m] || m}`);
                     });
                 });
             })();
@@ -147,8 +143,8 @@
 
             <div style="width:858px; height:1px; background:#e0e0e0; margin-top:80px;"></div>
             <p id="part-suisse-2" style="margin-top:60px;">Do Europeans prefer short or long stays?</p>
-            <div class="frame" style="height:760px; display:block; overflow:hidden; background:white;">
-                <svg id="chart-night" width="858" height="760" style="display:block;"></svg>
+            <div class="frame" style="height:600px; display:block; overflow:hidden; background:#F6F8FB;">
+                <svg id="chart-night" width="858" height="600" style="display:block; background:#F6F8FB;"></svg>
             </div>
             <script>
             (function() {
@@ -156,32 +152,78 @@
                 const euCodes=new Set(['AT','BE','BG','CY','CZ','DE','DK','EE','EL','ES','FI','FR','HR','HU','IE','IT','LT','LU','LV','MT','NL','PL','PT','RO','SE','SI','SK']);
                 const nColors={'N1-3':'#FFC107','N_GE4':'#2E7D32'};
                 const nLabels={'N1-3':'1–3 nights (short)','N_GE4':'4+ nights (long)'};
+
                 d3.csv("exploitable_data/most_popular_night_by_dest.csv").then(raw => {
-                    const filtered=raw.filter(d=>euCodes.has(d.c_dest.trim()));
-                    filtered.sort((a,b)=>a.c_dest.trim().localeCompare(b.c_dest.trim()));
-                    const yearCols=Object.keys(raw[0]).filter(k=>k.trim()!==''&&k.trim()!=='c_dest'&&!k.includes('Unnamed'));
-                    const years=yearCols.map(k=>k.trim());
-                    const dests=filtered.map(d=>d.c_dest.trim());
-                    const svg=d3.select('#chart-night');
-                    const margin={top:50,right:30,bottom:55,left:110};
-                    const W=858,H=760,iw=W-margin.left-margin.right,ih=H-margin.top-margin.bottom;
-                    const cw=iw/years.length, ch=ih/dests.length;
-                    const g=svg.append('g').attr('transform',`translate(${margin.left},${margin.top})`);
-                    filtered.forEach((row,ri)=>{
-                        yearCols.forEach((yc,ci)=>{
-                            const val=(row[yc]||'').trim();
-                            g.append('rect').attr('x',ci*cw).attr('y',ri*ch).attr('width',cw-1).attr('height',ch-1)
-                             .attr('fill',nColors[val]||'#ddd').attr('rx',2)
-                             .append('title').text(`${N[dests[ri]]||dests[ri]} (${years[ci]}): ${nLabels[val]||val}`);
+                    const filtered = raw.filter(d => euCodes.has(d.c_dest.trim()));
+                    const yearCols = Object.keys(raw[0]).filter(k=>k.trim()!==''&&k.trim()!=='c_dest'&&!k.includes('Unnamed'));
+                    const years   = yearCols.map(k => k.trim());
+
+                    // Per country: count "long" years vs "short" years across the time series
+                    filtered.forEach(row => {
+                        let s=0, l=0;
+                        yearCols.forEach(yc => {
+                            const v = (row[yc] || '').trim();
+                            if (v === 'N1-3') s++;
+                            else if (v === 'N_GE4') l++;
                         });
+                        row._short = s;
+                        row._long  = l;
+                        row._total = s + l;
+                        row._longShare = row._total ? l / row._total : 0;
                     });
-                    dests.forEach((d,i)=>g.append('text').attr('x',-8).attr('y',i*ch+ch/2).attr('dy','0.35em')
-                        .attr('text-anchor','end').attr('font-size','12px').attr('fill','#333').text(N[d]||d));
-                    years.forEach((y,i)=>g.append('text').attr('x',i*cw+cw/2).attr('y',ih+16)
-                        .attr('text-anchor','middle').attr('font-size','12px').attr('fill','#555').text(y));
-                    const lg=svg.append('g').attr('transform',`translate(${margin.left},22)`);
-                    Object.entries(nLabels).forEach(([k,label],i)=>{
-                        const lx=i*220;
+                    // Sort: long-stay countries on top, short-stay at the bottom
+                    filtered.sort((a,b) => b._longShare - a._longShare);
+                    const dests = filtered.map(d => d.c_dest.trim());
+
+                    const svg = d3.select('#chart-night');
+                    const margin = {top:100, right:60, bottom:40, left:130};
+                    const W=858, H=600, iw=W-margin.left-margin.right, ih=H-margin.top-margin.bottom;
+                    const ch = ih / dests.length;
+                    const g  = svg.append('g').attr('transform',`translate(${margin.left},${margin.top})`);
+
+                    // Diverging bar centered at 0.5 (50%); left = short, right = long
+                    const x = d3.scaleLinear().domain([0, 1]).range([0, iw]);
+                    const mid = x(0.5);
+
+                    g.append('line').attr('x1',mid).attr('x2',mid).attr('y1',-6).attr('y2',ih)
+                        .attr('stroke','#999').attr('stroke-dasharray','3 3');
+
+                    filtered.forEach((row, ri) => {
+                        const yT = ri*ch + ch*0.18, bh = ch*0.64;
+                        const shortW = (row._short / row._total) * (iw/2);
+                        const longW  = (row._long  / row._total) * (iw/2);
+                        // short on the left of midline
+                        g.append('rect').attr('x', mid - shortW).attr('y', yT)
+                            .attr('width', shortW).attr('height', bh)
+                            .attr('fill', nColors['N1-3']).attr('rx', 2);
+                        // long on the right of midline
+                        g.append('rect').attr('x', mid).attr('y', yT)
+                            .attr('width', longW).attr('height', bh)
+                            .attr('fill', nColors['N_GE4']).attr('rx', 2);
+                        // Percentage label on the dominant side
+                        const longPct = (row._longShare * 100).toFixed(0);
+                        g.append('text')
+                            .attr('x', row._longShare >= 0.5 ? mid + longW + 6 : mid - shortW - 6)
+                            .attr('y', yT + bh/2).attr('dy','0.35em')
+                            .attr('text-anchor', row._longShare >= 0.5 ? 'start' : 'end')
+                            .attr('font-size','11px').attr('fill','#444')
+                            .text(`${longPct}% long`);
+                    });
+
+                    dests.forEach((d, i) => g.append('text')
+                        .attr('x', -10).attr('y', i*ch + ch/2).attr('dy','0.35em')
+                        .attr('text-anchor','end').attr('font-size','12px').attr('fill','#333').text(N[d] || d));
+
+                    // Mid-axis tick labels at top
+                    g.append('text').attr('x', mid).attr('y', -28).attr('text-anchor','middle')
+                        .attr('font-size','11px').attr('fill','#666').text(`Share of years 2012–2024 dominated by each stay length`);
+                    g.append('text').attr('x', 0).attr('y', -10).attr('font-size','11px').attr('fill','#666').text('100% short ◀');
+                    g.append('text').attr('x', iw).attr('y', -10).attr('text-anchor','end').attr('font-size','11px').attr('fill','#666').text('▶ 100% long');
+
+                    // Legend
+                    const lg = svg.append('g').attr('transform',`translate(${margin.left},22)`);
+                    Object.entries(nLabels).forEach(([k,label],i) => {
+                        const lx = i*220;
                         lg.append('rect').attr('x',lx).attr('y',0).attr('width',13).attr('height',13).attr('fill',nColors[k]).attr('rx',2);
                         lg.append('text').attr('x',lx+17).attr('y',10.5).attr('font-size','13px').attr('fill','#333').text(label);
                     });
@@ -190,50 +232,14 @@
             </script>
 
             <div style="width:858px; height:1px; background:#e0e0e0; margin-top:80px;"></div>
-            <p id="part-suisse-2" style="margin-top:60px;">Where do Europeans sleep when they travel?</p>
-            <div class="frame" style="height:700px; display:block; overflow:hidden; background:white;">
-                <svg id="chart-accom" width="858" height="700" style="display:block;"></svg>
+            <p id="part-suisse-2" style="margin-top:60px;">Where do Europeans sleep when they travel? (share of nights, 2012–2024)</p>
+            <div class="frame" style="height:480px; display:block; overflow:hidden; background:#F6F8FB;">
+                <svg id="accom-stacked-chart" style="width:100%;height:100%;display:block; background:#F6F8FB;"></svg>
+                <script src="chart_accom_stacked.js"></script>
             </div>
-            <script>
-            (function() {
-                const N = window._EU_NAMES;
-                const aggCodes=new Set(['EA20','EU27_2020']);
-                const aColors={'R_HOT':'#1565C0','NR_RF':'#E65100','NR_OWN':'#558B2F','R_OTH':'#6A1B9A'};
-                const aLabels={'R_HOT':'Hotel','NR_RF':'Rented (furnished)','NR_OWN':'Own / Family','R_OTH':'Other rented'};
-                d3.csv("exploitable_data/most_popular_accomod_by_country.csv").then(raw => {
-                    const filtered=raw.filter(d=>!aggCodes.has(d.geo.trim()));
-                    const yearCols=Object.keys(raw[0]).filter(k=>k.trim()!==''&&k.trim()!=='geo'&&!k.includes('Unnamed'));
-                    const years=yearCols.map(k=>k.trim());
-                    const geos=filtered.map(d=>d.geo.trim());
-                    const svg=d3.select('#chart-accom');
-                    const margin={top:50,right:30,bottom:55,left:110};
-                    const W=858,H=700,iw=W-margin.left-margin.right,ih=H-margin.top-margin.bottom;
-                    const cw=iw/years.length, ch=ih/geos.length;
-                    const g=svg.append('g').attr('transform',`translate(${margin.left},${margin.top})`);
-                    filtered.forEach((row,ri)=>{
-                        yearCols.forEach((yc,ci)=>{
-                            const val=(row[yc]||'').trim();
-                            g.append('rect').attr('x',ci*cw).attr('y',ri*ch).attr('width',cw-1).attr('height',ch-1)
-                             .attr('fill',aColors[val]||'#ddd').attr('rx',2)
-                             .append('title').text(`${N[geos[ri]]||geos[ri]} (${years[ci]}): ${aLabels[val]||val}`);
-                        });
-                    });
-                    geos.forEach((d,i)=>g.append('text').attr('x',-8).attr('y',i*ch+ch/2).attr('dy','0.35em')
-                        .attr('text-anchor','end').attr('font-size','12px').attr('fill','#333').text(N[d]||d));
-                    years.forEach((y,i)=>g.append('text').attr('x',i*cw+cw/2).attr('y',ih+16)
-                        .attr('text-anchor','middle').attr('font-size','12px').attr('fill','#555').text(y));
-                    const lg=svg.append('g').attr('transform',`translate(${margin.left},22)`);
-                    Object.entries(aLabels).forEach(([k,label],i)=>{
-                        const lx=i*185;
-                        lg.append('rect').attr('x',lx).attr('y',0).attr('width',13).attr('height',13).attr('fill',aColors[k]).attr('rx',2);
-                        lg.append('text').attr('x',lx+17).attr('y',10.5).attr('font-size','12px').attr('fill','#333').text(label);
-                    });
-                });
-            })();
-            </script>
             <div style="width:858px; height:1px; background:#e0e0e0; margin-top:80px;"></div>
             <p id="part-suisse-2">Trends Over Time — Top Destinations</p>
-            <div class="frame" id="dest-trend-chart" style="background:white;"></div>
+            <div class="frame" id="dest-trend-chart" style="background:#F6F8FB;"></div>
             <script>
             (function() {
                 const TOP_COUNTRIES = {
@@ -245,6 +251,7 @@
                     const yearCols = Object.keys(data[0]).filter(k => k.trim() !== 'c_dest');
                     const years = yearCols.map(k => k.trim());
                     const codes = Object.keys(TOP_COUNTRIES);
+
                     const traces = codes.map((code, i) => {
                         const row = data.find(d => d.c_dest.trim() === code);
                         return {
@@ -252,19 +259,38 @@
                             y: yearCols.map(y => row ? (+row[y] / 1e9) : null),
                             type: 'scatter', mode: 'lines+markers',
                             name: TOP_COUNTRIES[code],
-                            line: { color: COLORS[i], width: 2 },
+                            line: { color: COLORS[i], width: 2.2 },
                             marker: { size: 5 },
                             hovertemplate: '%{y:.2f}B nights<extra>' + TOP_COUNTRIES[code] + '</extra>'
                         };
                     });
+
+                    // Direct end-of-line labels (replaces the legend)
+                    const lastIdx = yearCols.length - 1;
+                    const annotations = codes.map((code, i) => {
+                        const row = data.find(d => d.c_dest.trim() === code);
+                        const yVal = row ? (+row[yearCols[lastIdx]] / 1e9) : null;
+                        return {
+                            x: years[lastIdx], y: yVal,
+                            xref: 'x', yref: 'y',
+                            xanchor: 'left', yanchor: 'middle',
+                            xshift: 8,
+                            text: TOP_COUNTRIES[code],
+                            showarrow: false,
+                            font: { color: COLORS[i], size: 12, family: 'inherit' }
+                        };
+                    });
+
                     Plotly.newPlot('dest-trend-chart', traces, {
-                        xaxis: { title: 'Year' },
-                        yaxis: { title: 'Nights Spent (Billions)' },
-                        legend: { orientation: 'h', y: -0.2 },
-                        margin: { l: 60, r: 20, t: 20, b: 80 },
+                        xaxis: { title: 'Year', showgrid: false, zeroline: false },
+                        yaxis: { title: 'Nights Spent (Billions)', gridcolor: '#e6e9ee', zeroline: false },
+                        showlegend: false,
+                        annotations,
+                        margin: { l: 60, r: 110, t: 20, b: 50 },
                         width: 858, height: 500,
-                        paper_bgcolor: 'white', plot_bgcolor: 'white'
-                    }, { responsive: true });
+                        hovermode: 'x unified',
+                        paper_bgcolor: '#F6F8FB', plot_bgcolor: '#F6F8FB'
+                    }, { responsive: true, displayModeBar: false });
                 });
             })();
             </script>
@@ -285,7 +311,7 @@
                 "></select>
                 <div id="europe-tooltip" style="position:absolute; background:white; padding:6px 10px; border:1px solid #ccc; display:none; pointer-events:none; border-radius:4px; font-size:13px;"></div>
                 <svg id="europe-map" viewBox="0 0 900 550" preserveAspectRatio="xMidYMid meet" style="width:100%;height:100%;display:block;background:white;"></svg>
-                <script src="chart-europe-heatmap.js"></script>
+                <script src="chart-europe-heatmap.js?v=2"></script>
             </div>
         </div>
 
@@ -296,10 +322,50 @@
                 <span>2</span>
             </div>
             <p class="feature-section-block-title">Seasonality</p>
-            <p id="part-suisse-2">How much do people spend?</p>
-            <div class="frame"> 
-            <!-- D3.js -->
-            
+            <p id="part-suisse-2">Top month in terms of nights spent — by country</p>
+            <div class="frame" style="position:relative; overflow:hidden; background:#F6F8FB; height:720px;">
+                <select id="europe-country-year-select" style="
+                    position: absolute;
+                    top: 12px;
+                    right: 12px;
+                    z-index: 10;
+                    padding: 6px 10px;
+                    font-size: 13px;
+                    border: 1px solid #ccc;
+                    border-radius: 4px;
+                    background: white;
+                    cursor: pointer;
+                "></select>
+                <div id="europe-seasonality-country-tooltip" style="position:absolute; background:white; padding:6px 10px; border:1px solid #ccc; display:none; pointer-events:none; border-radius:4px; font-size:13px;"></div>
+                <svg id="europe-seasonality-country-map" viewBox="0 0 858 720" preserveAspectRatio="xMidYMid slice" style="width:100%;height:100%;display:block;background:#F6F8FB;"></svg>
+                <script src="chart_seasonality_country.js"></script>
+            </div>
+
+            <div style="width:858px; height:1px; background:#e0e0e0; margin-top:80px;"></div>
+            <p id="part-suisse-2" style="margin-top:60px;">Top month in terms of nights spent — by NUTS-2 region</p>
+            <div class="frame" style="position:relative; overflow:hidden; background:#F6F8FB; height:720px;">
+                <select id="europe-month-select" style="
+                    position: absolute;
+                    top: 12px;
+                    right: 12px;
+                    z-index: 10;
+                    padding: 6px 10px;
+                    font-size: 13px;
+                    border: 1px solid #ccc;
+                    border-radius: 4px;
+                    background: white;
+                    cursor: pointer;
+                "></select>
+                <div id="europe-seasonality-tooltip" style="position:absolute; background:white; padding:6px 10px; border:1px solid #ccc; display:none; pointer-events:none; border-radius:4px; font-size:13px;"></div>
+                <svg id="europe-seasonality-map" viewBox="0 0 858 720" preserveAspectRatio="xMidYMid slice" style="width:100%;height:100%;display:block;background:#F6F8FB;"></svg>
+                <script src="chart_seasonality.js"></script>
+            </div>
+
+            <div style="width:858px; height:1px; background:#e0e0e0; margin-top:80px;"></div>
+            <p id="part-suisse-2" style="margin-top:60px;">Top destination each month (totals across 2020–2024)</p>
+            <div class="frame" style="background:#F6F8FB; height:480px;">
+                <svg id="top-country-month-chart" style="width:100%;height:100%;display:block;background:#F6F8FB;"></svg>
+                <script src="chart_seasonality_top.js"></script>
             </div>
         </div>
 
