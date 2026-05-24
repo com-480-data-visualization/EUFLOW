@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="style.css" rel="stylesheet"/>
+    <link href="style.css?v=3" rel="stylesheet"/>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Radio+Canada+Big:ital,wght@0,400..700;1,400..700&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap');
@@ -54,23 +54,43 @@
             };
             </script>
 
-            <p id="part-suisse-2">Who sends the most tourists to each destination?</p>
-            <div class="frame" style="position:relative; overflow:hidden; background:#F6F8FB; height:620px;">
-                <select id="origin-choropleth-year-select" style="
-                    position: absolute; top: 12px; right: 12px; z-index: 10;
-                    padding: 6px 10px; font-size: 13px;
-                    border: 1px solid #ccc; border-radius: 4px;
-                    background: white; cursor: pointer;
-                "></select>
-                <div id="origin-choropleth-tooltip" style="position:absolute; background:white; padding:6px 10px; border:1px solid #ccc; display:none; pointer-events:none; border-radius:4px; font-size:13px;"></div>
-                <svg id="origin-choropleth-map" viewBox="0 0 858 600" preserveAspectRatio="xMidYMid slice" style="width:100%;height:100%;display:block;background:#F6F8FB;"></svg>
-                <script src="chart_origin_choropleth.js"></script>
+            <div class="chart-with-explanation">
+                <div class="frame" style="position:relative; overflow:hidden; background:#F6F8FB; height:620px;">
+                    <select id="origin-choropleth-year-select" style="
+                        position: absolute; top: 12px; right: 12px; z-index: 10;
+                        padding: 6px 10px; font-size: 13px;
+                        border: 1px solid #ccc; border-radius: 4px;
+                        background: white; cursor: pointer;
+                    "></select>
+                    <div id="origin-choropleth-tooltip" style="position:absolute; background:white; padding:6px 10px; border:1px solid #ccc; display:none; pointer-events:none; border-radius:4px; font-size:13px;"></div>
+                    <svg id="origin-choropleth-map" viewBox="0 0 858 600" preserveAspectRatio="xMidYMid slice" style="width:100%;height:100%;display:block;background:#F6F8FB;"></svg>
+                    <script src="chart_origin_choropleth.js"></script>
+                </div>
+                <div class="frame frame-explanation">
+                    <div class="chart-eyebrow">Origin</div>
+                    <h3 class="chart-title">Who sends the most tourists to each destination?</h3>
+                    <h4>What you see</h4>
+                    <p>Each EU country is colored by the country that supplies the most tourist nights for the selected year.</p>
+                    <p>The dropdown lets you scrub through years from 2010 onward. Watch how dominant origin countries spread across neighbors.</p>
+                    <p>Germany shows up as origin across much of central Europe, Spain dominates Portugal, and several Mediterranean and northern countries are driven mainly by their own domestic travelers.</p>
+                    <p class="source">Source: Eurostat tour_dem_tttr</p>
+                </div>
             </div>
 
             <div style="width:858px; height:1px; background:#e0e0e0; margin-top:80px;"></div>
-            <p id="part-suisse-2" style="margin-top:60px;">How do Europeans get to their destination?</p>
-            <div class="frame" style="height:700px; display:block; overflow:hidden; background:#F6F8FB;">
-                <svg id="chart-transport" width="858" height="700" style="display:block; background:#F6F8FB;"></svg>
+            <div class="chart-with-explanation">
+                <div class="frame" style="height:700px; display:block; overflow:hidden; background:#F6F8FB;">
+                    <svg id="chart-transport" width="858" height="700" style="display:block; background:#F6F8FB;"></svg>
+                </div>
+                <div class="frame frame-explanation">
+                    <div class="chart-eyebrow">Transport</div>
+                    <h3 class="chart-title">How do Europeans get to their destination?</h3>
+                    <h4>What you see</h4>
+                    <p>For each EU country (rows) and each year (columns), the cell shows the dominant transport mode used by outbound tourists.</p>
+                    <p>Countries are sorted by their most common mode, which forms clean horizontal bands. Row labels carry the icon of the dominant mode for quick scanning.</p>
+                    <p>Air travel takes the lead in island and far flung destinations. Road and car travel prevails in continental Europe. Rail and sea are the favorites of a small minority.</p>
+                    <p class="source">Source: Eurostat tour_dem_ttw</p>
+                </div>
             </div>
             <script>
             (function() {
@@ -142,9 +162,19 @@
             </script>
 
             <div style="width:858px; height:1px; background:#e0e0e0; margin-top:80px;"></div>
-            <p id="part-suisse-2" style="margin-top:60px;">Do Europeans prefer short or long stays?</p>
-            <div class="frame" style="height:600px; display:block; overflow:hidden; background:#F6F8FB;">
-                <svg id="chart-night" width="858" height="600" style="display:block; background:#F6F8FB;"></svg>
+            <div class="chart-with-explanation">
+                <div class="frame" style="height:600px; display:block; overflow:hidden; background:#F6F8FB;">
+                    <svg id="chart-night" width="858" height="600" style="display:block; background:#F6F8FB;"></svg>
+                </div>
+                <div class="frame frame-explanation">
+                    <div class="chart-eyebrow">Stays</div>
+                    <h3 class="chart-title">Do Europeans prefer short or long stays?</h3>
+                    <h4>What you see</h4>
+                    <p>A diverging bar centered on 50 percent. The orange portion on the left counts the years between 2012 and 2024 when short stays of 1 to 3 nights were the dominant trip type. The green portion on the right counts the years dominated by long stays of 4 or more nights.</p>
+                    <p>Countries are sorted top to bottom from most long stay dominated to most short stay dominated.</p>
+                    <p>Mediterranean beach countries lean toward long stays. City destinations and central Europe favor short breaks.</p>
+                    <p class="source">Source: Eurostat tour_dem_tnws</p>
+                </div>
             </div>
             <script>
             (function() {
@@ -232,14 +262,34 @@
             </script>
 
             <div style="width:858px; height:1px; background:#e0e0e0; margin-top:80px;"></div>
-            <p id="part-suisse-2" style="margin-top:60px;">Where do Europeans sleep when they travel? (share of nights, 2012–2024)</p>
-            <div class="frame" style="height:480px; display:block; overflow:hidden; background:#F6F8FB;">
-                <svg id="accom-stacked-chart" style="width:100%;height:100%;display:block; background:#F6F8FB;"></svg>
-                <script src="chart_accom_stacked.js"></script>
+            <div class="chart-with-explanation">
+                <div class="frame" style="height:480px; display:block; overflow:hidden; background:#F6F8FB;">
+                    <svg id="accom-stacked-chart" style="width:100%;height:100%;display:block; background:#F6F8FB;"></svg>
+                    <script src="chart_accom_stacked.js"></script>
+                </div>
+                <div class="frame frame-explanation">
+                    <div class="chart-eyebrow">Accommodation</div>
+                    <h3 class="chart-title">Where do Europeans sleep when they travel?</h3>
+                    <h4>What you see</h4>
+                    <p>A 100 percent stacked area chart showing how the mix of accommodation types has evolved across Europe between 2012 and 2024.</p>
+                    <p>Each colored band represents a category. Bands are normalized so their sum is always 100 percent. Direct labels on the right give the final 2024 share.</p>
+                    <p>Hotels and rented furnished places together account for most nights. Camping and own property holdings remain niche but steady.</p>
+                    <p class="source">Source: Eurostat tour_dem_tnac</p>
+                </div>
             </div>
             <div style="width:858px; height:1px; background:#e0e0e0; margin-top:80px;"></div>
-            <p id="part-suisse-2">Trends Over Time — Top Destinations</p>
-            <div class="frame" id="dest-trend-chart" style="background:#F6F8FB;"></div>
+            <div class="chart-with-explanation">
+                <div class="frame" id="dest-trend-chart" style="background:#F6F8FB;"></div>
+                <div class="frame frame-explanation">
+                    <div class="chart-eyebrow">Trends</div>
+                    <h3 class="chart-title">Top destinations over time</h3>
+                    <h4>What you see</h4>
+                    <p>Annual total nights spent in each of the seven leading destinations between 2012 and 2024. Each line tracks one country with its name labeled directly at the right end.</p>
+                    <p>Hover anywhere on the chart to compare values across all destinations for that year.</p>
+                    <p>The 2020 dip from the pandemic is sharp and uniform. Most countries returned to pre pandemic levels by 2022 and have grown since.</p>
+                    <p class="source">Source: Eurostat tour_occ_nim</p>
+                </div>
+            </div>
             <script>
             (function() {
                 const TOP_COUNTRIES = {
@@ -295,23 +345,33 @@
             })();
             </script>
             <div style="width:858px; height:1px; background:#e0e0e0; margin-top:80px;"></div>
-            <p id="part-suisse-2">Nights Spent by Destination by Europeans </p>
-            <div class="frame" style="position:relative; overflow:hidden;">
-                <select id="europe-year-select" style="
-                    position: absolute;
-                    top: 12px;
-                    right: 12px;
-                    z-index: 10;
-                    padding: 6px 10px;
-                    font-size: 13px;
-                    border: 1px solid #ccc;
-                    border-radius: 4px;
-                    background: white;
-                    cursor: pointer;
-                "></select>
-                <div id="europe-tooltip" style="position:absolute; background:white; padding:6px 10px; border:1px solid #ccc; display:none; pointer-events:none; border-radius:4px; font-size:13px;"></div>
-                <svg id="europe-map" viewBox="0 0 900 550" preserveAspectRatio="xMidYMid meet" style="width:100%;height:100%;display:block;background:white;"></svg>
-                <script src="chart-europe-heatmap.js?v=2"></script>
+            <div class="chart-with-explanation">
+                <div class="frame" style="position:relative; overflow:hidden;">
+                    <select id="europe-year-select" style="
+                        position: absolute;
+                        top: 12px;
+                        right: 12px;
+                        z-index: 10;
+                        padding: 6px 10px;
+                        font-size: 13px;
+                        border: 1px solid #ccc;
+                        border-radius: 4px;
+                        background: white;
+                        cursor: pointer;
+                    "></select>
+                    <div id="europe-tooltip" style="position:absolute; background:white; padding:6px 10px; border:1px solid #ccc; display:none; pointer-events:none; border-radius:4px; font-size:13px;"></div>
+                    <svg id="europe-map" viewBox="0 0 900 550" preserveAspectRatio="xMidYMid meet" style="width:100%;height:100%;display:block;background:white;"></svg>
+                    <script src="chart-europe-heatmap.js?v=2"></script>
+                </div>
+                <div class="frame frame-explanation">
+                    <div class="chart-eyebrow">Geography</div>
+                    <h3 class="chart-title">Nights spent by destination</h3>
+                    <h4>What you see</h4>
+                    <p>A choropleth of total nights spent in each country for the selected year. The color scale is logarithmic so small countries stay visible despite France and Spain dominating in absolute numbers.</p>
+                    <p>Use the dropdown on the top right to switch years. Toggle the Per capita box to divide each country's total by its population. Croatia, Cyprus and Malta jump up the scale when you switch to per capita.</p>
+                    <p>Hover any country to see the precise value and, in per capita mode, both the rate and the absolute total.</p>
+                    <p class="source">Source: Eurostat tour_occ_nin2c</p>
+                </div>
             </div>
         </div>
 
@@ -322,50 +382,79 @@
                 <span>2</span>
             </div>
             <p class="feature-section-block-title">Seasonality</p>
-            <p id="part-suisse-2">Top month in terms of nights spent — by country</p>
-            <div class="frame" style="position:relative; overflow:hidden; background:#F6F8FB; height:720px;">
-                <select id="europe-country-year-select" style="
-                    position: absolute;
-                    top: 12px;
-                    right: 12px;
-                    z-index: 10;
-                    padding: 6px 10px;
-                    font-size: 13px;
-                    border: 1px solid #ccc;
-                    border-radius: 4px;
-                    background: white;
-                    cursor: pointer;
-                "></select>
-                <div id="europe-seasonality-country-tooltip" style="position:absolute; background:white; padding:6px 10px; border:1px solid #ccc; display:none; pointer-events:none; border-radius:4px; font-size:13px;"></div>
-                <svg id="europe-seasonality-country-map" viewBox="0 0 858 720" preserveAspectRatio="xMidYMid slice" style="width:100%;height:100%;display:block;background:#F6F8FB;"></svg>
-                <script src="chart_seasonality_country.js"></script>
+            <div class="chart-with-explanation">
+                <div class="frame" style="position:relative; overflow:hidden; background:#F6F8FB; height:720px;">
+                    <select id="europe-country-year-select" style="
+                        position: absolute;
+                        top: 12px;
+                        right: 12px;
+                        z-index: 10;
+                        padding: 6px 10px;
+                        font-size: 13px;
+                        border: 1px solid #ccc;
+                        border-radius: 4px;
+                        background: white;
+                        cursor: pointer;
+                    "></select>
+                    <div id="europe-seasonality-country-tooltip" style="position:absolute; background:white; padding:6px 10px; border:1px solid #ccc; display:none; pointer-events:none; border-radius:4px; font-size:13px;"></div>
+                    <svg id="europe-seasonality-country-map" viewBox="0 0 858 720" preserveAspectRatio="xMidYMid slice" style="width:100%;height:100%;display:block;background:#F6F8FB;"></svg>
+                    <script src="chart_seasonality_country.js"></script>
+                </div>
+                <div class="frame frame-explanation">
+                    <div class="chart-eyebrow">Country view</div>
+                    <h3 class="chart-title">Top month by country</h3>
+                    <h4>What you see</h4>
+                    <p>Each EU country is colored by the month that recorded the most tourist nights in the selected year. Use the dropdown to switch between 2020 and 2024.</p>
+                    <p>The pandemic year of 2020 stands out. Several countries peak in February, October or December, when restrictions were briefly lifted. By 2022 the summer pattern is fully back.</p>
+                    <p>The United Kingdom and other non EU countries are shown in light gray as geographic context only.</p>
+                    <p class="source">Source: Eurostat tour_occ_nin2m</p>
+                </div>
             </div>
 
             <div style="width:858px; height:1px; background:#e0e0e0; margin-top:80px;"></div>
-            <p id="part-suisse-2" style="margin-top:60px;">Top month in terms of nights spent — by NUTS-2 region</p>
-            <div class="frame" style="position:relative; overflow:hidden; background:#F6F8FB; height:720px;">
-                <select id="europe-month-select" style="
-                    position: absolute;
-                    top: 12px;
-                    right: 12px;
-                    z-index: 10;
-                    padding: 6px 10px;
-                    font-size: 13px;
-                    border: 1px solid #ccc;
-                    border-radius: 4px;
-                    background: white;
-                    cursor: pointer;
-                "></select>
-                <div id="europe-seasonality-tooltip" style="position:absolute; background:white; padding:6px 10px; border:1px solid #ccc; display:none; pointer-events:none; border-radius:4px; font-size:13px;"></div>
-                <svg id="europe-seasonality-map" viewBox="0 0 858 720" preserveAspectRatio="xMidYMid slice" style="width:100%;height:100%;display:block;background:#F6F8FB;"></svg>
-                <script src="chart_seasonality.js"></script>
+            <div class="chart-with-explanation">
+                <div class="frame" style="position:relative; overflow:hidden; background:#F6F8FB; height:720px;">
+                    <select id="europe-month-select" style="
+                        position: absolute;
+                        top: 12px;
+                        right: 12px;
+                        z-index: 10;
+                        padding: 6px 10px;
+                        font-size: 13px;
+                        border: 1px solid #ccc;
+                        border-radius: 4px;
+                        background: white;
+                        cursor: pointer;
+                    "></select>
+                    <div id="europe-seasonality-tooltip" style="position:absolute; background:white; padding:6px 10px; border:1px solid #ccc; display:none; pointer-events:none; border-radius:4px; font-size:13px;"></div>
+                    <svg id="europe-seasonality-map" viewBox="0 0 858 720" preserveAspectRatio="xMidYMid slice" style="width:100%;height:100%;display:block;background:#F6F8FB;"></svg>
+                    <script src="chart_seasonality.js"></script>
+                </div>
+                <div class="frame frame-explanation">
+                    <div class="chart-eyebrow">Region view</div>
+                    <h3 class="chart-title">Top month by NUTS 2 region</h3>
+                    <h4>What you see</h4>
+                    <p>The same question as the country map but at NUTS 2 resolution. Hundreds of subnational regions are colored by their busiest month in the selected year.</p>
+                    <p>Patterns the country view hides become visible. Alpine and ski regions peak in February. A handful of Mediterranean and city regions peak in September or October.</p>
+                    <p>Hover any region to see its name and busiest month.</p>
+                    <p class="source">Source: Eurostat tour_occ_nin2m with NUTS 2 GISCO geometry</p>
+                </div>
             </div>
 
             <div style="width:858px; height:1px; background:#e0e0e0; margin-top:80px;"></div>
-            <p id="part-suisse-2" style="margin-top:60px;">Top destination each month (totals across 2020–2024)</p>
-            <div class="frame" style="background:#F6F8FB; height:480px;">
-                <svg id="top-country-month-chart" style="width:100%;height:100%;display:block;background:#F6F8FB;"></svg>
-                <script src="chart_seasonality_top.js"></script>
+            <div class="chart-with-explanation">
+                <div class="frame" style="background:#F6F8FB; height:480px;">
+                    <svg id="top-country-month-chart" style="width:100%;height:100%;display:block;background:#F6F8FB;"></svg>
+                    <script src="chart_seasonality_top.js"></script>
+                </div>
+                <div class="frame frame-explanation">
+                    <div class="chart-eyebrow">Ranking</div>
+                    <h3 class="chart-title">Top destination each month</h3>
+                    <h4>What you see</h4>
+                    <p>For every calendar month, the bar shows the country that received the most tourist nights across 2020 to 2024 combined. Bar length is total nights, bar color is the country's brand color.</p>
+                    <p>Summer months belong to France, Spain and Italy. The shoulder months and winter shuffle among Germany, France and Spain, with values an order of magnitude smaller.</p>
+                    <p class="source">Source: derived from Eurostat tour_occ_nin2m</p>
+                </div>
             </div>
         </div>
 
@@ -374,11 +463,67 @@
                 <span>3</span>
             </div>
             <p class="feature-section-block-title">Travel Expenditure</p>
-            <p id="part-suisse-2">How much do people spend?</p>
-            <div class="frame"> 
-            <!-- D3.js -->
-            
+
+            <div class="chart-with-explanation">
+                <div class="frame" style="position:relative; overflow:hidden; background:#F6F8FB; height:620px;">
+                    <select id="expenditure-choropleth-year-select" style="
+                        position: absolute; top: 12px; right: 12px; z-index: 10;
+                        padding: 6px 10px; font-size: 13px;
+                        border: 1px solid #ccc; border-radius: 4px;
+                        background: white; cursor: pointer;
+                    "></select>
+                    <div id="expenditure-choropleth-tooltip" style="position:absolute; background:white; padding:6px 10px; border:1px solid #ccc; display:none; pointer-events:none; border-radius:4px; font-size:13px;"></div>
+                    <svg id="expenditure-choropleth-map" viewBox="0 0 858 620" preserveAspectRatio="xMidYMid slice" style="width:100%;height:100%;display:block;background:#F6F8FB;"></svg>
+                    <script src="chart_expenditure_choropleth.js"></script>
+                </div>
+                <div class="frame frame-explanation">
+                    <div class="chart-eyebrow">Geography</div>
+                    <h3 class="chart-title">How much do tourists spend per trip?</h3>
+                    <h4>What you see</h4>
+                    <p>EU countries colored by the average expenditure per trip of their residents. Darker shades mean travelers from that country spend more on average per trip.</p>
+                    <p>Use the dropdown to scrub through years and watch the spending recover after the 2020 dip. Hover any country to see the exact figure.</p>
+                    <p>Luxembourg, Belgium and Austria sit near the top. Eastern European countries spend less on average per trip but the gap has narrowed since 2012.</p>
+                    <p class="source">Source: Eurostat tour_dem_extotw</p>
+                </div>
             </div>
+
+            <div style="width:858px; height:1px; background:#e0e0e0; margin-top:80px;"></div>
+
+            <div class="chart-with-explanation">
+                <div class="frame" style="background:#F6F8FB; height:700px; overflow:hidden;">
+                    <svg id="expenditure-scope-chart" style="width:100%;height:100%;display:block;background:#F6F8FB;"></svg>
+                    <script src="chart_expenditure_scope.js"></script>
+                </div>
+                <div class="frame frame-explanation">
+                    <div class="chart-eyebrow">Scope</div>
+                    <h3 class="chart-title">Domestic, intra EU or beyond</h3>
+                    <h4>What you see</h4>
+                    <p>Three grouped bars for each country show how much its residents spend on average per trip depending on where they go. Green for domestic, blue for trips within the EU, orange for trips outside the EU.</p>
+                    <p>Trips outside the EU are the most expensive almost everywhere. The gap between domestic and outside EU spending tells you how much extra a foreign holiday costs the traveler.</p>
+                    <p>Countries are sorted by their spending on trips outside the EU.</p>
+                    <p class="source">Source: Eurostat tour_dem_extotw split by destination scope</p>
+                </div>
+            </div>
+
+            <div style="width:858px; height:1px; background:#e0e0e0; margin-top:80px;"></div>
+
+            <div class="chart-with-explanation">
+                <div class="frame" style="background:#F6F8FB; height:540px; position:relative; overflow:hidden;">
+                    <div id="expenditure-scatter-tooltip" style="position:absolute; background:white; padding:6px 10px; border:1px solid #ccc; display:none; pointer-events:none; border-radius:4px; font-size:13px; z-index:10;"></div>
+                    <svg id="expenditure-scatter-chart" style="width:100%;height:100%;display:block;background:#F6F8FB;"></svg>
+                    <script src="chart_expenditure_scatter.js"></script>
+                </div>
+                <div class="frame frame-explanation">
+                    <div class="chart-eyebrow">Pattern</div>
+                    <h3 class="chart-title">Long budget trip or short luxury break?</h3>
+                    <h4>What you see</h4>
+                    <p>One dot per country. The horizontal axis is average spending per night, the vertical axis is average spending per trip. Dashed lines mark implied trip lengths of 4, 7, 10 and 14 nights.</p>
+                    <p>Dots far up and to the right are short luxury trips. Dots up and to the left are long budget trips. The ratio of trip cost to night cost gives the average length of a holiday.</p>
+                    <p>Hover any dot to see the exact figures and the implied number of nights per trip.</p>
+                    <p class="source">Source: Eurostat tour_dem_extotw and tour_dem_tnw</p>
+                </div>
+            </div>
+
         </div>
 
     </div>
