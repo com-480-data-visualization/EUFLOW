@@ -105,7 +105,7 @@ d3.json("data/eu_gdp_and_to_ch_df_merged.json").then(raw => {
         .y(d => y(+d["num_of_visitors"]))
         .curve(d3.curveMonotoneX);
 
-    const tooltip = document.getElementById("gdp-tooltip");
+    const tooltip = document.getElementById("gdp-tooltip-4");
 
     let showAll = false;
 
