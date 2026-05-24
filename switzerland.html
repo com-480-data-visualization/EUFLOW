@@ -64,25 +64,45 @@
             </div>
             <p class="feature-section-block-title">Geographic Proximity</p>
             <p id="part-suisse-2">Does distance matter?</p>
-            <!-- D3.js -->
-            <!-- <svg id="scatter" width="800" height="500" style="display:block; margin:0 auto;"></svg> -->
-            <!-- <div id="Scattertooltip" style="position:absolute; background:#222; color:#fff; padding:8px 12px; border:1px solid #444; border-radius:6px; pointer-events:none; display:none; font-size:12px; z-index:9999;"></div> -->
-            <div style="position:relative; display:block; margin:0 auto; width:800px;">
-                <!-- <svg id="scatter" width="800" height="500"></svg> -->
-                <svg id="scatter" width="800" height="500" style="margin-left: 80px;"></svg>
-                <div id="Scattertooltip" style="position:absolute; background:#222; color:#fff; padding:8px 12px; border:1px solid #444; border-radius:6px; pointer-events:none; display:none; font-size:12px; z-index:9999;"></div>
-                <script src="chart-2.js"></script>
+
+            <div id="Scattertooltip" style="position:fixed; background:rgba(18,18,24,0.96); color:#fff; padding:12px 16px; border-radius:12px; font-family:'DM Mono',monospace; font-size:13px; line-height:1.5; pointer-events:none; display:none; z-index:9999; min-width:160px;"></div>
+
+            <div class="chart-with-explanation">
+                <div class="frame" style="position:relative; overflow:hidden; background: transparent; height:540px;">
+                    <svg id="scatter" width="800" height="500" style="margin-left:80px;"></svg>
+                </div>
+                <div class="frame frame-explanation" style="background:#ffffff;">
+                    <div>
+                        <p class="chart-eyebrow">Key insight</p>
+                        <h3 class="chart-title">Closer means more visitors</h3>
+                        <p>There is a clear negative correlation between distance and arrivals — countries closer to Switzerland consistently send more tourists.</p>
+                    </div>
+                    <div>
+                        <h4>Dominant neighbor</h4>
+                        <p>Germany stands out dramatically, sending over 1.5M visitors despite being only ~300 km away. France follows as the second largest source market.</p>
+                    </div>
+                    <div>
+                        <h4>Distance outlier</h4>
+                        <p>The United Kingdom breaks the trend — despite being ~1000 km away, it sends a disproportionately large number of visitors, suggesting cultural and economic ties outweigh distance.</p>
+                    </div>
+                    <div>
+                        <h4>Beyond 1500 km</h4>
+                        <p>Countries further than 1500 km contribute very few arrivals, clustering near zero regardless of size or wealth.</p>
+                        <p class="source">Source: Eurostat · Distance from Bern · Arrivals data</p>
+                    </div>
+                </div>
             </div>
+            <script src="chart-2.js"></script>
         </div>
 
 
-        <div class="feature-section-block-odd">
+       <div class="feature-section-block-odd">
             <div class="section-number">
                 <span>3</span>
             </div>
             <p class="feature-section-block-title">Economic Factors</p>
             <p id="part-suisse-2">Does wealth influence travel?</p>
-            
+
             <div id="gdp-controls-3" style="display:flex; justify-content:center; align-items:center; gap:12px; font-family:'DM Mono',monospace; font-size:12px; color:#666; margin-bottom:8px; margin-top:24px; flex-wrap:wrap;">
                 <label>Top</label>
                 <span id="slider-display-3">1 – 10</span>
@@ -96,13 +116,35 @@
                 <button class="btn-all" id="btn-all-3" style="padding:6px 14px; border:1.5px solid #1a1a2e; border-radius:4px; cursor:pointer; font-family:'DM Mono',monospace; font-size:11px; color:#1a1a2e; background:transparent;">Show All</button>
             </div>
 
-            <div style="min-width:820px;">
-                <svg id="gdp-svg-1"></svg>
+            <div id="gdp-tooltip-3" style="position:fixed; background:rgba(18,18,24,0.96); color:#fff; padding:12px 16px; border-radius:12px; font-family:'DM Mono',monospace; font-size:13px; line-height:1.5; pointer-events:none; display:none; z-index:9999; min-width:160px;"></div>
+
+            <div class="chart-with-explanation">
+                <div class="frame" style="position:relative; overflow:hidden; background:#ffffff; height:540px;">
+                    <svg id="gdp-svg-1"></svg>
+                </div>
+                <div class="frame frame-explanation" style="background: #ffffff;">
+                    <div>
+                        <p class="chart-eyebrow">Key insight</p>
+                        <h3 class="chart-title">GDP growth since COVID</h3>
+                        <p>Most European countries show steady GDP growth from 2020 to 2025, recovering strongly after the pandemic dip.</p>
+                    </div>
+                    <div>
+                        <h4>Top earners</h4>
+                        <p>Luxembourg and Ireland consistently lead with GDP per capita above 80–100k PPS, far ahead of the rest of the pack.</p>
+                    </div>
+                    <div>
+                        <h4>Notable exception</h4>
+                        <p>Ireland spiked sharply in 2022 then declined — likely reflecting distortions from multinational corporate accounting rather than real economic change.</p>
+                    </div>
+                    <div>
+                        <h4>The middle cluster</h4>
+                        <p>Most countries cluster between 20–55k PPS and grow at similar rates, making it hard to distinguish individual trajectories without hovering.</p>
+                        <p class="source">Source: Eurostat · GDP in PPS · 2020–2025</p>
+                    </div>
+                </div>
             </div>
 
-            <div id="gdp-tooltip-3" style="position:fixed; background:#1a1a2e; color:#fff; padding:10px 14px; border-radius:8px; font-family:'DM Mono',monospace; font-size:16px; pointer-events:none; display:none; z-index:999; min-width:160px;"></div>
             <script src="chart-3.js"></script>
-
         </div>
 
         <div class="feature-section-block-even">
