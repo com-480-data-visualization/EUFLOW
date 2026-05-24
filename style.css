@@ -1397,3 +1397,130 @@ button {
     font-family: 'Geist Mono', monospace;
     letter-spacing: 0.02em;
 }
+
+/* ---------- Classy button refresh ---------- */
+
+/* Primary dark button — used by #button-explore-start (index hero) */
+#button-explore-start,
+#button-explore-suisse {
+    background: linear-gradient(135deg, #0a0a0a 0%, #1c1c1c 100%);
+    color: #fff !important;
+    padding: 14px 34px !important;
+    border-radius: 999px !important;
+    border: 1px solid rgba(255, 255, 255, 0.06) !important;
+    font-family: 'Geist Mono', monospace !important;
+    font-size: 13px !important;
+    font-weight: 500 !important;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    cursor: pointer;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18),
+                inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1),
+                box-shadow 0.35s cubic-bezier(0.2, 0.8, 0.2, 1),
+                background 0.35s ease;
+    display: inline-flex !important;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+#button-explore-start::before,
+#button-explore-suisse::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -120%;
+    width: 80%;
+    height: 100%;
+    background: linear-gradient(120deg,
+                transparent 0%,
+                rgba(255, 255, 255, 0.16) 50%,
+                transparent 100%);
+    transition: left 0.7s cubic-bezier(0.2, 0.8, 0.2, 1);
+    pointer-events: none;
+}
+
+#button-explore-start:hover,
+#button-explore-suisse:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 14px 36px rgba(0, 0, 0, 0.30),
+                inset 0 1px 0 rgba(255, 255, 255, 0.14);
+}
+
+#button-explore-start:hover::before,
+#button-explore-suisse:hover::before {
+    left: 130%;
+}
+
+#button-explore-start:active,
+#button-explore-suisse:active {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.22);
+}
+
+/* The Switzerland CTA keeps its navy identity */
+#button-explore-suisse {
+    background: linear-gradient(135deg, #050930 0%, #0e1664 100%) !important;
+}
+
+#button-explore-suisse:hover {
+    background: linear-gradient(135deg, #0a1147 0%, #1a247d 100%) !important;
+}
+
+/* Secondary light button — used by .button-explore on index */
+.button-explore {
+    background: #ffffff !important;
+    color: #0a0a0a !important;
+    padding: 13px 32px !important;
+    border-radius: 999px !important;
+    border: 1px solid #d6dae0 !important;
+    font-family: 'Geist Mono', monospace !important;
+    font-size: 13px !important;
+    font-weight: 500 !important;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1),
+                box-shadow 0.35s cubic-bezier(0.2, 0.8, 0.2, 1),
+                border-color 0.35s ease,
+                background 0.35s ease;
+    display: inline-flex !important;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+.button-explore::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -120%;
+    width: 80%;
+    height: 100%;
+    background: linear-gradient(120deg,
+                transparent 0%,
+                rgba(0, 0, 0, 0.06) 50%,
+                transparent 100%);
+    transition: left 0.7s cubic-bezier(0.2, 0.8, 0.2, 1);
+    pointer-events: none;
+}
+
+.button-explore:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+    border-color: #0a0a0a !important;
+    background: #fafbfc !important;
+}
+
+.button-explore:hover::before {
+    left: 130%;
+}
+
+.button-explore:active {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="style.css?v=3" rel="stylesheet"/>
+    <link href="style.css?v=4" rel="stylesheet"/>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Radio+Canada+Big:ital,wght@0,400..700;1,400..700&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap');
@@ -534,6 +534,31 @@
                     <p>Eurostat also publishes spending for entire regions and totals that have no country shape, like Africa, Asia, the Americas and the whole world. These appear as small colored bars at the bottom of the frame, on the same color scale as the map.</p>
                     <p>The bars labeled Domestic, All foreign trips and World give the reference levels for the average European traveler.</p>
                     <p class="source">Source: Eurostat tour_dem_extotw_per_dest and tour_dem_tnw_per_dest</p>
+                </div>
+            </div>
+
+            <div style="width:858px; height:1px; background:#e0e0e0; margin-top:80px;"></div>
+
+            <div class="chart-with-explanation">
+                <div class="frame" style="position:relative; overflow:hidden; background:#F6F8FB; height:660px;">
+                    <select id="expenditure-world-trip-year-select" style="
+                        position: absolute; top: 12px; right: 12px; z-index: 10;
+                        padding: 6px 10px; font-size: 13px;
+                        border: 1px solid #ccc; border-radius: 4px;
+                        background: white; cursor: pointer;
+                    "></select>
+                    <div id="expenditure-world-trip-tooltip" style="position:absolute; background:white; padding:6px 10px; border:1px solid #ccc; display:none; pointer-events:none; border-radius:4px; font-size:13px;"></div>
+                    <svg id="expenditure-world-trip-map" viewBox="0 0 858 660" preserveAspectRatio="xMidYMid slice" style="width:100%;height:100%;display:block;background:#F6F8FB;"></svg>
+                    <script src="chart_expenditure_world_trip.js"></script>
+                </div>
+                <div class="frame frame-explanation">
+                    <div class="chart-eyebrow">Destination</div>
+                    <h3 class="chart-title">Which world destinations cost the most per trip?</h3>
+                    <h4>What you see</h4>
+                    <p>The same world view, but now showing average spending per trip rather than per night. A trip cost combines what travelers spend each night with how long they stay.</p>
+                    <p>Long haul destinations rise sharply on this map because Europeans visit them for longer. North America and Asia stand out compared to nearby European countries.</p>
+                    <p>The bars at the bottom of the frame give the same reading for regions and totals that have no country shape. Africa, the Americas and Asia each show as a single aggregate bar.</p>
+                    <p class="source">Source: Eurostat tour_dem_extotw_per_dest</p>
                 </div>
             </div>
 
