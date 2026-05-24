@@ -442,6 +442,38 @@
             </div>
 
             <div style="width:858px; height:1px; background:#e0e0e0; margin-top:80px;"></div>
+
+            <div class="chart-with-explanation">
+                <div class="frame" style="position:relative; overflow:hidden; background:#F6F8FB; height:720px;">
+                    <div style="position:absolute; top:12px; right:12px; z-index:10; display:flex; gap:8px;">
+                        <select id="nights-heatmap-month-select" style="
+                            padding: 6px 10px; font-size: 13px;
+                            border: 1px solid #ccc; border-radius: 4px;
+                            background: white; cursor: pointer;
+                        "></select>
+                        <select id="nights-heatmap-year-select" style="
+                            padding: 6px 10px; font-size: 13px;
+                            border: 1px solid #ccc; border-radius: 4px;
+                            background: white; cursor: pointer;
+                        "></select>
+                    </div>
+                    <div id="nights-heatmap-tooltip" style="position:absolute; background:white; padding:6px 10px; border:1px solid #ccc; display:none; pointer-events:none; border-radius:4px; font-size:13px;"></div>
+                    <svg id="nights-heatmap-map" viewBox="0 0 858 720" preserveAspectRatio="xMidYMid slice" style="width:100%;height:100%;display:block;background:#F6F8FB;"></svg>
+                    <script src="chart_seasonality_nights_heatmap.js"></script>
+                </div>
+                <div class="frame frame-explanation">
+                    <div class="chart-eyebrow">Intensity</div>
+                    <h3 class="chart-title">How many nights, where and when?</h3>
+                    <h4>What you see</h4>
+                    <p>Pick a month and a year from the dropdowns at the top right of the map. Every NUTS 2 region is then colored by the total number of tourist nights it recorded that month, on a logarithmic color scale.</p>
+                    <p>Switch to August in any year and the Mediterranean coast and Alpine arc burn bright. Switch to February and only the ski regions stay lit while most of Europe goes dark.</p>
+                    <p>Use this view together with the categorical map above. The map above tells you which month a region peaks in. This map tells you how big the peak actually is.</p>
+                    <p class="source">Source: Eurostat tour_occ_nin2m, aggregated across residence and accommodation</p>
+                </div>
+            </div>
+
+            <div style="width:858px; height:1px; background:#e0e0e0; margin-top:80px;"></div>
+
             <div class="chart-with-explanation">
                 <div class="frame" style="background:#F6F8FB; height:480px;">
                     <svg id="top-country-month-chart" style="width:100%;height:100%;display:block;background:#F6F8FB;"></svg>
