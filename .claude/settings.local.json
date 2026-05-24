@@ -2,7 +2,11 @@
   "permissions": {
     "allow": [
       "Bash(awk -F',' '{print NF}')",
-      "Bash(awk -F',' 'NR>1 {print $1}' data/cleaned_nin2m.csv)"
+      "Bash(awk -F',' 'NR>1 {print $1}' data/cleaned_nin2m.csv)",
+      "Bash(awk -F',' 'NR>1 {print $2}' data/cleaned_nin2m.csv)",
+      "Bash(awk -F',' 'NR>1 {print $2}' data/cleaned_arnraw.csv)",
+      "Bash(awk -F',' 'NR>1 {print $3}' data/cleaned_arnraw.csv)",
+      "Bash(awk -F',' 'NR>1 {print $2}' exploitable_data/most_popular_accomod_by_country.csv)"
     ]
   }
 }

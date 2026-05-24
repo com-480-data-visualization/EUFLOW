@@ -21,22 +21,42 @@
         LT:'#006A44', CY:'#D57800', MT:'#CF142B', LU:'#00A1DE'
     };
 
-    d3.csv("exploitable_data/total_per_country_per_month.csv").then(raw => {
-        // Country-level rows only (2-letter geo codes)
-        const countries = raw.filter(r => (r.geo || "").trim().length === 2);
+    d3.csv("exploitable_data/nights_per_geo_per_month_per_year.csv").then(raw => {
+        // Keep country-level rows only (2-letter geo)
+        const countryRows = raw.filter(r => (r.geo || "").trim().length === 2);
 
-        // For each month, find the country with the highest total
-        const data = months.map(m => {
-            let topCode = null, topVal = -1;
-            countries.forEach(r => {
-                const v = +r[m];
-                if (v > topVal) { topVal = v; topCode = r.geo.trim(); }
+        // Build a lookup: byYear[year][month] = array of {geo, nights}
+        const byYear = {};
+        countryRows.forEach(row => {
+            const geo   = row.geo.trim();
+            const year  = (row.year || "").trim();
+            const month = (row.month || "").trim();
+            const v     = +row.nights;
+            if (!byYear[year]) byYear[year] = {};
+            if (!byYear[year][month]) byYear[year][month] = [];
+            byYear[year][month].push({ geo, nights: v });
+        });
+
+        const years = Object.keys(byYear).sort();
+
+        // Precompute per-year top dataset and the global maximum total for stable x scale
+        const dataByYear = {};
+        let globalMax = 0;
+        years.forEach(year => {
+            const arr = months.map(m => {
+                const rows = byYear[year][m] || [];
+                let topCode = null, topVal = -1;
+                rows.forEach(r => {
+                    if (r.nights > topVal) { topVal = r.nights; topCode = r.geo; }
+                });
+                if (topVal > globalMax) globalMax = topVal;
+                return { month: m, country: topCode, total: topVal };
             });
-            return { month: m, country: topCode, total: topVal };
+            dataByYear[year] = arr;
         });
 
         const W = 858, H = 460;
-        const margin = { top: 20, right: 220, bottom: 30, left: 100 };
+        const margin = { top: 20, right: 250, bottom: 30, left: 100 };
         const iw = W - margin.left - margin.right;
         const ih = H - margin.top - margin.bottom;
 
@@ -47,38 +67,14 @@
         const g = svg.append("g").attr("transform", `translate(${margin.left},${margin.top})`);
 
         const x = d3.scaleLinear()
-            .domain([0, d3.max(data, d => d.total)]).nice()
+            .domain([0, globalMax]).nice()
             .range([0, iw]);
         const y = d3.scaleBand()
             .domain(months)
             .range([0, ih])
             .padding(0.18);
 
-        // Bars
-        g.selectAll("rect.bar")
-            .data(data)
-            .join("rect")
-            .attr("class", "bar")
-            .attr("x", 0)
-            .attr("y", d => y(d.month))
-            .attr("width", d => x(d.total))
-            .attr("height", y.bandwidth())
-            .attr("fill", d => colors[d.country] || "#777")
-            .attr("rx", 3);
-
-        // Country + value label to the right of each bar
-        g.selectAll("text.lbl")
-            .data(data)
-            .join("text")
-            .attr("class", "lbl")
-            .attr("x", d => x(d.total) + 8)
-            .attr("y", d => y(d.month) + y.bandwidth() / 2)
-            .attr("dy", "0.35em")
-            .attr("font-size", "12.5px")
-            .attr("fill", "#222")
-            .text(d => `${N[d.country] || d.country} — ${(d.total / 1e9).toFixed(2)}B nights`);
-
-        // Month axis (left)
+        // Month axis (left, static)
         g.append("g")
             .call(d3.axisLeft(y).tickSize(0))
             .call(s => s.select(".domain").remove())
@@ -86,14 +82,57 @@
             .attr("font-size", "12.5px")
             .attr("fill", "#333");
 
-        // X axis (nights, in billions)
-        g.append("g")
+        // X axis (nights, in billions, static)
+        const xAxisG = g.append("g")
             .attr("transform", `translate(0, ${ih})`)
-            .call(d3.axisBottom(x)
-                .ticks(5)
-                .tickFormat(v => (v / 1e9).toFixed(1) + "B"))
-            .selectAll("text")
-            .attr("font-size", "11px")
-            .attr("fill", "#666");
+            .call(d3.axisBottom(x).ticks(5).tickFormat(v => (v / 1e9).toFixed(2) + "B"));
+        xAxisG.selectAll("text").attr("font-size", "11px").attr("fill", "#666");
+
+        const barLayer = g.append("g").attr("class", "bars");
+        const lblLayer = g.append("g").attr("class", "labels");
+
+        // Year selector
+        const select = d3.select("#top-country-month-year-select");
+        select.selectAll("option").remove();
+        years.forEach(yr => select.append("option").attr("value", yr).text(yr));
+        select.property("value", years[years.length - 1]);
+
+        function update(year) {
+            const data = dataByYear[year];
+
+            const bars = barLayer.selectAll("rect.bar").data(data, d => d.month);
+            bars.enter()
+                .append("rect")
+                .attr("class", "bar")
+                .attr("x", 0)
+                .attr("y", d => y(d.month))
+                .attr("height", y.bandwidth())
+                .attr("rx", 3)
+                .attr("width", 0)
+                .attr("fill", d => colors[d.country] || "#777")
+                .merge(bars)
+                .transition().duration(500)
+                .attr("fill", d => colors[d.country] || "#777")
+                .attr("width", d => x(d.total));
+
+            const lbls = lblLayer.selectAll("text.lbl").data(data, d => d.month);
+            lbls.enter()
+                .append("text")
+                .attr("class", "lbl")
+                .attr("x", d => x(d.total) + 8)
+                .attr("y", d => y(d.month) + y.bandwidth() / 2)
+                .attr("dy", "0.35em")
+                .attr("font-size", "12.5px")
+                .attr("fill", "#222")
+                .merge(lbls)
+                .transition().duration(500)
+                .attr("x", d => x(d.total) + 8)
+                .text(d => d.country
+                    ? `${N[d.country] || d.country} — ${(d.total / 1e9).toFixed(2)}B nights`
+                    : "no data");
+        }
+
+        update(years[years.length - 1]);
+        select.on("change", function () { update(this.value); });
     });
 })();

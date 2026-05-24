@@ -1,6 +1,6 @@
 (function () {
-    const svg = d3.select("#origin-choropleth-map");
-    const MAP_W = 858, MAP_H = 600;
+    const svg = d3.select("#accom-country-map");
+    const MAP_W = 858, MAP_H = 620;
 
     const EU27_ISO_TO_CODE = {
         40:"AT", 56:"BE", 100:"BG", 191:"HR", 196:"CY",
@@ -12,35 +12,54 @@
     };
     const EU27_ISO = new Set(Object.keys(EU27_ISO_TO_CODE).map(Number));
 
-    const N = window._EU_NAMES || {};
-
-    // Curated palette for ~12 most common origin countries; rest get a fallback color
-    const originColor = {
-        FR:'#1F77B4', DE:'#FF7F0E', ES:'#D62728', IT:'#2CA02C', AT:'#9467BD',
-        NL:'#8C564B', UK:'#E377C2', EL:'#7F7F7F', BG:'#BCBD22', HR:'#17BECF',
-        PL:'#FFD92F', BE:'#FFB347', SE:'#4C72B0', DK:'#55A868', FI:'#8172B2',
-        PT:'#937860', RO:'#DA8BC3', CZ:'#8C8C8C', HU:'#CCB974', IE:'#64B5CD'
+    const codeToName = {
+        AT:"Austria", BE:"Belgium", BG:"Bulgaria", HR:"Croatia", CY:"Cyprus",
+        CZ:"Czech Republic", DK:"Denmark", EE:"Estonia", FI:"Finland", FR:"France",
+        DE:"Germany", EL:"Greece", HU:"Hungary", IE:"Ireland", IT:"Italy",
+        LV:"Latvia", LT:"Lithuania", LU:"Luxembourg", MT:"Malta", NL:"Netherlands",
+        PL:"Poland", PT:"Portugal", RO:"Romania", SK:"Slovakia", SI:"Slovenia",
+        ES:"Spain", SE:"Sweden"
     };
-    const FALLBACK_COLOR = "#B0B0B0";
+
+    const aLabels = {
+        'R_HOT':  'Hotel',
+        'NR_RF':  'Rented (furnished)',
+        'NR_OWN': 'Own or family',
+        'R_OTH':  'Other rented',
+        'R_CAMP': 'Camping',
+        'R_HOL':  'Holiday dwelling',
+        'NR_OTH': 'Other non rented'
+    };
+    const aColors = {
+        'R_HOT':  '#1565C0',
+        'NR_RF':  '#E65100',
+        'NR_OWN': '#558B2F',
+        'R_OTH':  '#6A1B9A',
+        'R_CAMP': '#00897B',
+        'R_HOL':  '#C0CA33',
+        'NR_OTH': '#9E9E9E'
+    };
+
     const NO_DATA_FILL  = "#4A4A4A";
     const BACKDROP_FILL = "#D2D6DB";
     const BG_COLOR      = "#F6F8FB";
 
+    const aggCodes = new Set(['EA20', 'EU27_2020']);
+
     Promise.all([
         d3.json("https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json"),
-        d3.csv("exploitable_data/most_popular_country_of_origin_by_destination.csv")
+        d3.csv("exploitable_data/most_popular_accomod_by_country.csv")
     ]).then(([world, csvData]) => {
         const yearCols = Object.keys(csvData[0]).filter(k => /^\s*\d{4}\s*$/.test(k));
-        const years = yearCols.map(k => k.trim());
-        const recentYears = years.filter(y => +y >= 1990);
+        const years    = yearCols.map(k => k.trim());
 
-        const originByDest = {};
+        const accByCode = {};
         csvData.forEach(row => {
             const code = (row.geo || "").trim();
-            if (!code) return;
-            originByDest[code] = {};
+            if (!code || aggCodes.has(code)) return;
+            accByCode[code] = {};
             yearCols.forEach((col, i) => {
-                originByDest[code][years[i]] = (row[col] || "").trim();
+                accByCode[code][years[i]] = (row[col] || "").trim();
             });
         });
 
@@ -57,10 +76,8 @@
             .translate([MAP_W / 2, MAP_H / 2 + 20]);
         const path = d3.geoPath().projection(projection);
 
-        const gBackdrop = svg.append("g").attr("class", "backdrop");
-        const gEU       = svg.append("g").attr("class", "eu");
-
-        gBackdrop.selectAll("path")
+        svg.append("g").attr("class", "backdrop")
+            .selectAll("path")
             .data(backdropFeats)
             .join("path")
             .attr("d", path)
@@ -68,12 +85,14 @@
             .attr("stroke", "#9aa0a6")
             .attr("stroke-width", 0.4);
 
-        const select = d3.select("#origin-choropleth-year-select");
-        select.selectAll("option").remove();
-        recentYears.forEach(y => select.append("option").attr("value", y).text(y));
-        select.property("value", recentYears[recentYears.length - 1]);
+        const gEU = svg.append("g").attr("class", "eu");
 
-        const tooltip = d3.select("#origin-choropleth-tooltip");
+        const select = d3.select("#accom-country-year-select");
+        select.selectAll("option").remove();
+        years.forEach(y => select.append("option").attr("value", y).text(y));
+        select.property("value", years[years.length - 1]);
+
+        const tooltip = d3.select("#accom-country-tooltip");
 
         function update(year) {
             gEU.selectAll("path")
@@ -82,73 +101,74 @@
                 .attr("d", path)
                 .attr("stroke", "#222")
                 .attr("stroke-width", 0.5)
+                .transition().duration(500)
                 .attr("fill", d => {
                     const code = EU27_ISO_TO_CODE[+d.id];
-                    const origin = originByDest[code] && originByDest[code][year];
-                    if (!origin) return NO_DATA_FILL;
-                    return originColor[origin] || FALLBACK_COLOR;
-                })
+                    const a = accByCode[code] && accByCode[code][year];
+                    return aColors[a] || NO_DATA_FILL;
+                });
+
+            gEU.selectAll("path")
                 .on("mouseover", function (event, d) {
-                    d3.select(this).attr("opacity", 0.75);
+                    d3.select(this).attr("opacity", 0.78);
                     const code = EU27_ISO_TO_CODE[+d.id];
-                    const destName = N[code] || code;
-                    const origin = originByDest[code] && originByDest[code][year];
-                    const originName = N[origin] || origin || "no data";
+                    const name = codeToName[code] || code;
+                    const a = accByCode[code] && accByCode[code][year];
                     tooltip.style("display", "block")
-                        .text(`${destName} (${year}) — top origin: ${originName}`);
+                        .text(`${name} (${year}): ${aLabels[a] || "no data"}`);
                 })
                 .on("mousemove", function (event) {
-                    const container = document.querySelector("#origin-choropleth-map").getBoundingClientRect();
+                    const c = document.querySelector("#accom-country-map").getBoundingClientRect();
                     tooltip
-                        .style("left", (event.clientX - container.left + 10) + "px")
-                        .style("top",  (event.clientY - container.top - 28) + "px");
+                        .style("left", (event.clientX - c.left + 10) + "px")
+                        .style("top",  (event.clientY - c.top - 28) + "px");
                 })
                 .on("mouseout", function () {
                     d3.select(this).attr("opacity", 1);
                     tooltip.style("display", "none");
                 });
 
-            // Rebuild legend with only origins that actually appear this year
-            const presentOrigins = new Set();
-            euFeats.forEach(d => {
-                const code = EU27_ISO_TO_CODE[+d.id];
-                const origin = originByDest[code] && originByDest[code][year];
-                if (origin) presentOrigins.add(origin);
-            });
-            renderLegend([...presentOrigins].sort());
+            renderLegend(year);
         }
 
-        const legendG = svg.append("g")
-            .attr("class", "legend")
+        const legendG = svg.append("g").attr("class", "legend")
             .attr("transform", "translate(24, 60)");
 
-        function renderLegend(origins) {
+        function renderLegend(year) {
+            // Show only accommodation types that actually appear in the selected year
+            const present = new Set();
+            Object.values(accByCode).forEach(o => { if (o[year]) present.add(o[year]); });
+            const items = [...present]
+                .filter(k => aLabels[k])
+                .map(k => ({ key: k, label: aLabels[k], color: aColors[k] }));
+            items.push({ key: "no_data", label: "No data", color: NO_DATA_FILL });
+
             legendG.selectAll("*").remove();
             legendG.append("rect")
                 .attr("x", -10).attr("y", -12)
-                .attr("width", 175).attr("height", origins.length * 22 + 16)
+                .attr("width", 200).attr("height", items.length * 22 + 16)
                 .attr("fill", BG_COLOR).attr("fill-opacity", 0.92)
                 .attr("rx", 4);
 
             const item = legendG.selectAll("g.item")
-                .data(origins)
+                .data(items)
                 .join("g")
                 .attr("class", "item")
                 .attr("transform", (d, i) => `translate(0, ${i * 22})`);
 
             item.append("rect")
                 .attr("width", 18).attr("height", 18)
-                .attr("fill", d => originColor[d] || FALLBACK_COLOR)
+                .attr("fill", d => d.color)
                 .attr("stroke", "#333").attr("stroke-width", 0.5);
 
             item.append("text")
                 .attr("x", 26).attr("y", 13)
                 .attr("font-size", "13px")
                 .attr("fill", "#222")
-                .text(d => N[d] || d);
+                .text(d => d.label);
         }
 
-        update(recentYears[recentYears.length - 1]);
+        update(years[years.length - 1]);
         select.on("change", function () { update(this.value); });
     });
 })();
