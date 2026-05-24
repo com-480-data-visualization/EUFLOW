@@ -182,7 +182,7 @@
 
         function drawColorBar(scale, year) {
             cbarG.selectAll("*").remove();
-            const lw = 200, lh = 10, lx = MAP_W - lw - 30, ly = 30;
+            const lw = 200, lh = 10, lx = 30, ly = 30;
             const defs = cbarG.append("defs");
             const grad = defs.append("linearGradient").attr("id", "expenditure-world-cbar");
             const [d0, d1] = scale.domain();
