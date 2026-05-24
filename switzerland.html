@@ -125,14 +125,35 @@
                 <button class="btn-all" id="btn-all-4" style="padding:6px 14px; border:1.5px solid #1a1a2e; border-radius:4px; cursor:pointer; font-family:'DM Mono',monospace; font-size:11px; color:#1a1a2e; background:transparent;">Show All</button>
             </div>
 
-            <div id="gdp-tooltip-4" style="position:fixed; background:#1a1a2e; color:#fff; padding:10px 14px; border-radius:8px; font-family:'DM Mono',monospace; font-size:16px; pointer-events:none; display:none; z-index:999; min-width:160px;"></div>
-            <div style="min-width:820px;">
-                <svg id="gdp-svg-2"></svg>
+            <div id="gdp-tooltip-4" style="position:fixed; background:rgba(18,18,24,0.96); color:#fff; padding:12px 16px; border-radius:12px; font-family:'DM Mono',monospace; font-size:13px; line-height:1.5; pointer-events:none; display:none; z-index:9999; min-width:160px;"></div>
+
+            <div class="chart-with-explanation">
+                <div class="frame" style="position:relative; overflow:hidden; background:#F6F8FB; height:540px;">
+                    <svg id="gdp-svg-2"></svg>
+                </div>
+                <div class="frame frame-explanation">
+                    <div>
+                        <p class="chart-eyebrow">Key insight</p>
+                        <h3 class="chart-title">Wealth drives visits</h3>
+                        <p>There is a clear positive correlation between GDP per capita and visitor numbers — wealthier countries tend to send more tourists to Switzerland.</p>
+                    </div>
+                    <div>
+                        <h4>Top senders</h4>
+                        <p>Germany, France, the UK, and Italy dominate, each contributing over 200k–1M visitors annually, clustering in the upper right of the chart.</p>
+                    </div>
+                    <div>
+                        <h4>Outliers</h4>
+                        <p>Norway, Ireland, and Luxembourg have very high GDPs but send relatively few visitors, likely due to small populations or geographic distance. Iceland shows unusually low and volatile visitor counts.</p>
+                    </div>
+                    <div>
+                        <h4>COVID impact</h4>
+                        <p>A sharp dip is visible across most trendlines in 2020–2021, followed by a strong recovery through 2022–2025.</p>
+                        <p class="source">Source: Eurostat · GDP in PPS · Log scale</p>
+                    </div>
+                </div>
             </div>
             <script src="chart-4.js"></script>
-
         </div>
-    
     </div>
 
     <div class="cta-section">
