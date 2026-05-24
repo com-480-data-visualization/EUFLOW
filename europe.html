@@ -373,6 +373,37 @@
                     <p class="source">Source: Eurostat tour_occ_nin2c</p>
                 </div>
             </div>
+
+            <div style="width:858px; height:1px; background:#e0e0e0; margin-top:80px;"></div>
+
+            <div class="chart-with-explanation">
+                <div class="frame" style="position:relative; overflow:hidden; background:#F6F8FB; height:720px;">
+                    <div style="position:absolute; top:12px; right:12px; z-index:10; display:flex; gap:8px;">
+                        <select id="nights-nuts-country-country-select" style="
+                            padding: 6px 10px; font-size: 13px;
+                            border: 1px solid #ccc; border-radius: 4px;
+                            background: white; cursor: pointer;
+                        "></select>
+                        <select id="nights-nuts-country-year-select" style="
+                            padding: 6px 10px; font-size: 13px;
+                            border: 1px solid #ccc; border-radius: 4px;
+                            background: white; cursor: pointer;
+                        "></select>
+                    </div>
+                    <div id="nights-nuts-country-tooltip" style="position:absolute; background:white; padding:6px 10px; border:1px solid #ccc; display:none; pointer-events:none; border-radius:4px; font-size:13px;"></div>
+                    <svg id="nights-nuts-country-map" viewBox="0 0 858 720" preserveAspectRatio="xMidYMid slice" style="width:100%;height:100%;display:block;background:#F6F8FB;"></svg>
+                    <script src="chart_nights_nuts_country.js"></script>
+                </div>
+                <div class="frame frame-explanation">
+                    <div class="chart-eyebrow">Regions</div>
+                    <h3 class="chart-title">Nights by NUTS 2 region, by country</h3>
+                    <h4>What you see</h4>
+                    <p>Total tourist nights per NUTS 2 region for the chosen year, on a logarithmic color scale. The country dropdown lets you focus on one country at a time.</p>
+                    <p>When you pick a single country, the color scale is recomputed on its regions only. This makes within country variation visible, instead of being washed out by France and Spain in the EU wide view.</p>
+                    <p>Pick Italy to see the Lombardy and Veneto coasts dominate. Pick France to see the south rise above the rest. Pick Austria to spot the Alpine arc.</p>
+                    <p class="source">Source: Eurostat tour_occ_nin2m, summed over months and residence types</p>
+                </div>
+            </div>
         </div>
 
 

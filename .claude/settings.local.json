@@ -1,7 +1,8 @@
 {
   "permissions": {
     "allow": [
-      "Bash(awk -F',' '{print NF}')"
+      "Bash(awk -F',' '{print NF}')",
+      "Bash(awk -F',' 'NR>1 {print $1}' data/cleaned_nin2m.csv)"
     ]
   }
 }
