@@ -490,6 +490,56 @@
             <div style="width:858px; height:1px; background:#e0e0e0; margin-top:80px;"></div>
 
             <div class="chart-with-explanation">
+                <div class="frame" style="position:relative; overflow:hidden; background:#F6F8FB; height:620px;">
+                    <select id="expenditure-per-night-year-select" style="
+                        position: absolute; top: 12px; right: 12px; z-index: 10;
+                        padding: 6px 10px; font-size: 13px;
+                        border: 1px solid #ccc; border-radius: 4px;
+                        background: white; cursor: pointer;
+                    "></select>
+                    <div id="expenditure-per-night-tooltip" style="position:absolute; background:white; padding:6px 10px; border:1px solid #ccc; display:none; pointer-events:none; border-radius:4px; font-size:13px;"></div>
+                    <svg id="expenditure-per-night-map" viewBox="0 0 858 620" preserveAspectRatio="xMidYMid slice" style="width:100%;height:100%;display:block;background:#F6F8FB;"></svg>
+                    <script src="chart_expenditure_per_night.js"></script>
+                </div>
+                <div class="frame frame-explanation">
+                    <div class="chart-eyebrow">Intensity</div>
+                    <h3 class="chart-title">How much do tourists spend per night?</h3>
+                    <h4>What you see</h4>
+                    <p>Same EU countries as before, but now colored by how much their residents spend on average per night while traveling. Per night spending strips out the influence of trip length.</p>
+                    <p>A country with high per night and low per trip values takes short luxury breaks. A country with low per night and high per trip values takes long budget holidays.</p>
+                    <p>Luxembourg, Denmark and Belgium pay the most per night. Eastern Europe pays the least.</p>
+                    <p class="source">Source: Eurostat tour_dem_extotw and tour_dem_tnw</p>
+                </div>
+            </div>
+
+            <div style="width:858px; height:1px; background:#e0e0e0; margin-top:80px;"></div>
+
+            <div class="chart-with-explanation">
+                <div class="frame" style="position:relative; overflow:hidden; background:#F6F8FB; height:660px;">
+                    <select id="expenditure-world-year-select" style="
+                        position: absolute; top: 12px; right: 12px; z-index: 10;
+                        padding: 6px 10px; font-size: 13px;
+                        border: 1px solid #ccc; border-radius: 4px;
+                        background: white; cursor: pointer;
+                    "></select>
+                    <div id="expenditure-world-tooltip" style="position:absolute; background:white; padding:6px 10px; border:1px solid #ccc; display:none; pointer-events:none; border-radius:4px; font-size:13px;"></div>
+                    <svg id="expenditure-world-map" viewBox="0 0 858 660" preserveAspectRatio="xMidYMid slice" style="width:100%;height:100%;display:block;background:#F6F8FB;"></svg>
+                    <script src="chart_expenditure_world.js"></script>
+                </div>
+                <div class="frame frame-explanation">
+                    <div class="chart-eyebrow">Destination</div>
+                    <h3 class="chart-title">Where in the world does spending climb?</h3>
+                    <h4>What you see</h4>
+                    <p>Same per night metric, but now from the destination side. Each country is colored by how much travelers spend on average per night while visiting it.</p>
+                    <p>Eurostat also publishes spending for entire regions and totals that have no country shape, like Africa, Asia, the Americas and the whole world. These appear as small colored bars at the bottom of the frame, on the same color scale as the map.</p>
+                    <p>The bars labeled Domestic, All foreign trips and World give the reference levels for the average European traveler.</p>
+                    <p class="source">Source: Eurostat tour_dem_extotw_per_dest and tour_dem_tnw_per_dest</p>
+                </div>
+            </div>
+
+            <div style="width:858px; height:1px; background:#e0e0e0; margin-top:80px;"></div>
+
+            <div class="chart-with-explanation">
                 <div class="frame" style="background:#F6F8FB; height:700px; overflow:hidden;">
                     <svg id="expenditure-scope-chart" style="width:100%;height:100%;display:block;background:#F6F8FB;"></svg>
                     <script src="chart_expenditure_scope.js"></script>
