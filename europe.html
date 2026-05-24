@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="style.css?v=4" rel="stylesheet"/>
+    <link href="style.css?v=5" rel="stylesheet"/>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Radio+Canada+Big:ital,wght@0,400..700;1,400..700&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap');
@@ -64,7 +64,7 @@
                     "></select>
                     <div id="origin-choropleth-tooltip" style="position:absolute; background:white; padding:6px 10px; border:1px solid #ccc; display:none; pointer-events:none; border-radius:4px; font-size:13px;"></div>
                     <svg id="origin-choropleth-map" viewBox="0 0 858 600" preserveAspectRatio="xMidYMid slice" style="width:100%;height:100%;display:block;background:#F6F8FB;"></svg>
-                    <script src="chart_origin_choropleth.js"></script>
+                    <script src="chart_origin_choropleth.js?v=2"></script>
                 </div>
                 <div class="frame frame-explanation">
                     <div class="chart-eyebrow">Origin</div>
@@ -163,15 +163,21 @@
 
             <div style="width:858px; height:1px; background:#e0e0e0; margin-top:80px;"></div>
             <div class="chart-with-explanation">
-                <div class="frame" style="height:600px; display:block; overflow:hidden; background:#F6F8FB;">
+                <div class="frame" style="position:relative; height:600px; display:block; overflow:hidden; background:#F6F8FB;">
+                    <select id="chart-night-year-select" style="
+                        position: absolute; top: 12px; right: 12px; z-index: 10;
+                        padding: 6px 10px; font-size: 13px;
+                        border: 1px solid #ccc; border-radius: 4px;
+                        background: white; cursor: pointer;
+                    "></select>
                     <svg id="chart-night" width="858" height="600" style="display:block; background:#F6F8FB;"></svg>
                 </div>
                 <div class="frame frame-explanation">
                     <div class="chart-eyebrow">Stays</div>
                     <h3 class="chart-title">Do Europeans prefer short or long stays?</h3>
                     <h4>What you see</h4>
-                    <p>A diverging bar centered on 50 percent. The orange portion on the left counts the years between 2012 and 2024 when short stays of 1 to 3 nights were the dominant trip type. The green portion on the right counts the years dominated by long stays of 4 or more nights.</p>
-                    <p>Countries are sorted top to bottom from most long stay dominated to most short stay dominated.</p>
+                    <p>A diverging bar centered on 50 percent. The orange portion on the left counts the years between 2012 and the selected end year when short stays of 1 to 3 nights were the dominant trip type. The green portion on the right counts the years dominated by long stays of 4 or more nights.</p>
+                    <p>Use the dropdown in the top right to set the end year. As you scrub forward the bars accumulate more history. At 2012 each country is binary, by 2024 you see the full 13 year pattern.</p>
                     <p>Mediterranean beach countries lean toward long stays. City destinations and central Europe favor short breaks.</p>
                     <p class="source">Source: Eurostat tour_dem_tnws</p>
                 </div>
@@ -188,75 +194,134 @@
                     const yearCols = Object.keys(raw[0]).filter(k=>k.trim()!==''&&k.trim()!=='c_dest'&&!k.includes('Unnamed'));
                     const years   = yearCols.map(k => k.trim());
 
-                    // Per country: count "long" years vs "short" years across the time series
-                    filtered.forEach(row => {
-                        let s=0, l=0;
-                        yearCols.forEach(yc => {
-                            const v = (row[yc] || '').trim();
-                            if (v === 'N1-3') s++;
-                            else if (v === 'N_GE4') l++;
-                        });
-                        row._short = s;
-                        row._long  = l;
-                        row._total = s + l;
-                        row._longShare = row._total ? l / row._total : 0;
-                    });
-                    // Sort: long-stay countries on top, short-stay at the bottom
-                    filtered.sort((a,b) => b._longShare - a._longShare);
-                    const dests = filtered.map(d => d.c_dest.trim());
-
                     const svg = d3.select('#chart-night');
                     const margin = {top:100, right:60, bottom:40, left:130};
                     const W=858, H=600, iw=W-margin.left-margin.right, ih=H-margin.top-margin.bottom;
-                    const ch = ih / dests.length;
-                    const g  = svg.append('g').attr('transform',`translate(${margin.left},${margin.top})`);
+                    const g = svg.append('g').attr('transform',`translate(${margin.left},${margin.top})`);
 
-                    // Diverging bar centered at 0.5 (50%); left = short, right = long
                     const x = d3.scaleLinear().domain([0, 1]).range([0, iw]);
                     const mid = x(0.5);
 
+                    // Midline (static)
                     g.append('line').attr('x1',mid).attr('x2',mid).attr('y1',-6).attr('y2',ih)
                         .attr('stroke','#999').attr('stroke-dasharray','3 3');
 
-                    filtered.forEach((row, ri) => {
-                        const yT = ri*ch + ch*0.18, bh = ch*0.64;
-                        const shortW = (row._short / row._total) * (iw/2);
-                        const longW  = (row._long  / row._total) * (iw/2);
-                        // short on the left of midline
-                        g.append('rect').attr('x', mid - shortW).attr('y', yT)
-                            .attr('width', shortW).attr('height', bh)
-                            .attr('fill', nColors['N1-3']).attr('rx', 2);
-                        // long on the right of midline
-                        g.append('rect').attr('x', mid).attr('y', yT)
-                            .attr('width', longW).attr('height', bh)
-                            .attr('fill', nColors['N_GE4']).attr('rx', 2);
-                        // Percentage label on the dominant side
-                        const longPct = (row._longShare * 100).toFixed(0);
-                        g.append('text')
-                            .attr('x', row._longShare >= 0.5 ? mid + longW + 6 : mid - shortW - 6)
-                            .attr('y', yT + bh/2).attr('dy','0.35em')
-                            .attr('text-anchor', row._longShare >= 0.5 ? 'start' : 'end')
-                            .attr('font-size','11px').attr('fill','#444')
-                            .text(`${longPct}% long`);
-                    });
-
-                    dests.forEach((d, i) => g.append('text')
-                        .attr('x', -10).attr('y', i*ch + ch/2).attr('dy','0.35em')
-                        .attr('text-anchor','end').attr('font-size','12px').attr('fill','#333').text(N[d] || d));
-
-                    // Mid-axis tick labels at top
-                    g.append('text').attr('x', mid).attr('y', -28).attr('text-anchor','middle')
-                        .attr('font-size','11px').attr('fill','#666').text(`Share of years 2012–2024 dominated by each stay length`);
+                    // Side hints only (caption removed)
                     g.append('text').attr('x', 0).attr('y', -10).attr('font-size','11px').attr('fill','#666').text('100% short ◀');
                     g.append('text').attr('x', iw).attr('y', -10).attr('text-anchor','end').attr('font-size','11px').attr('fill','#666').text('▶ 100% long');
 
-                    // Legend
+                    // Legend (static)
                     const lg = svg.append('g').attr('transform',`translate(${margin.left},22)`);
                     Object.entries(nLabels).forEach(([k,label],i) => {
                         const lx = i*220;
                         lg.append('rect').attr('x',lx).attr('y',0).attr('width',13).attr('height',13).attr('fill',nColors[k]).attr('rx',2);
                         lg.append('text').attr('x',lx+17).attr('y',10.5).attr('font-size','13px').attr('fill','#333').text(label);
                     });
+
+                    // Year selector populated with available years (skip 1990, that's just one historical year per row)
+                    const usableYears = years.filter(y => +y >= 2012);
+                    const select = d3.select('#chart-night-year-select');
+                    select.selectAll('option').remove();
+                    usableYears.forEach(y => select.append('option').attr('value', y).text(y));
+                    select.property('value', usableYears[usableYears.length - 1]);
+
+                    const barsLayer = g.append('g').attr('class','bars');
+                    const lblsLayer = g.append('g').attr('class','lbls');
+                    const yLayer    = g.append('g').attr('class','ylbls');
+
+                    function computeRows(endYear) {
+                        const endIdx = years.indexOf(endYear);
+                        const slice = years.slice(0, endIdx + 1);
+                        const sliceCols = slice.map(y => yearCols[years.indexOf(y)]);
+                        return filtered.map(row => {
+                            let s = 0, l = 0;
+                            sliceCols.forEach(yc => {
+                                const v = (row[yc] || '').trim();
+                                if (v === 'N1-3') s++;
+                                else if (v === 'N_GE4') l++;
+                            });
+                            const total = s + l;
+                            return {
+                                geo: row.c_dest.trim(),
+                                short: s,
+                                long: l,
+                                total: total,
+                                longShare: total ? l / total : 0
+                            };
+                        });
+                    }
+
+                    function update(endYear) {
+                        const rows = computeRows(endYear);
+                        rows.sort((a, b) => b.longShare - a.longShare);
+                        const dests = rows.map(d => d.geo);
+                        const ch = ih / dests.length;
+                        const bh = ch * 0.64;
+
+                        // Row labels (sorted order)
+                        yLayer.selectAll('text.ylabel')
+                            .data(dests, d => d)
+                            .join(
+                                enter => enter.append('text').attr('class','ylabel')
+                                    .attr('x', -10)
+                                    .attr('dy','0.35em')
+                                    .attr('text-anchor','end')
+                                    .attr('font-size','12px')
+                                    .attr('fill','#333')
+                                    .text(d => N[d] || d),
+                                update => update,
+                                exit => exit.remove()
+                            )
+                            .transition().duration(500)
+                            .attr('y', (d, i) => i*ch + ch/2);
+
+                        // Short (left) bars
+                        barsLayer.selectAll('rect.short')
+                            .data(rows, d => d.geo)
+                            .join('rect')
+                            .attr('class','short')
+                            .attr('fill', nColors['N1-3'])
+                            .attr('rx', 2)
+                            .transition().duration(500)
+                            .attr('x', (d, i) => mid - (d.total ? (d.short / d.total) * (iw/2) : 0))
+                            .attr('y', (d, i) => i*ch + ch*0.18)
+                            .attr('width', d => d.total ? (d.short / d.total) * (iw/2) : 0)
+                            .attr('height', bh);
+
+                        // Long (right) bars
+                        barsLayer.selectAll('rect.long')
+                            .data(rows, d => d.geo)
+                            .join('rect')
+                            .attr('class','long')
+                            .attr('x', mid)
+                            .attr('fill', nColors['N_GE4'])
+                            .attr('rx', 2)
+                            .transition().duration(500)
+                            .attr('y', (d, i) => i*ch + ch*0.18)
+                            .attr('width', d => d.total ? (d.long / d.total) * (iw/2) : 0)
+                            .attr('height', bh);
+
+                        // Percentage labels, placed inside the dominant bar so they never collide with country names on the left
+                        lblsLayer.selectAll('text.pct')
+                            .data(rows, d => d.geo)
+                            .join('text')
+                            .attr('class','pct')
+                            .attr('dy','0.35em')
+                            .attr('font-size','11px')
+                            .transition().duration(500)
+                            .attr('x', d => {
+                                const shortW = d.total ? (d.short / d.total) * (iw/2) : 0;
+                                const longW  = d.total ? (d.long  / d.total) * (iw/2) : 0;
+                                return d.longShare >= 0.5 ? mid + longW - 6 : mid - shortW + 6;
+                            })
+                            .attr('y', (d, i) => i*ch + ch*0.18 + bh/2)
+                            .attr('text-anchor', d => d.longShare >= 0.5 ? 'end' : 'start')
+                            .attr('fill', d => d.longShare >= 0.5 ? '#ffffff' : '#1a1a1a')
+                            .text(d => `${(d.longShare * 100).toFixed(0)}% long`);
+                    }
+
+                    update(usableYears[usableYears.length - 1]);
+                    select.on('change', function() { update(this.value); });
                 });
             })();
             </script>
@@ -277,7 +342,34 @@
                     <p class="source">Source: Eurostat tour_dem_tnac</p>
                 </div>
             </div>
+
             <div style="width:858px; height:1px; background:#e0e0e0; margin-top:80px;"></div>
+
+            <div class="chart-with-explanation">
+                <div class="frame" style="position:relative; overflow:hidden; background:#F6F8FB; height:620px;">
+                    <select id="accom-country-year-select" style="
+                        position: absolute; top: 12px; right: 12px; z-index: 10;
+                        padding: 6px 10px; font-size: 13px;
+                        border: 1px solid #ccc; border-radius: 4px;
+                        background: white; cursor: pointer;
+                    "></select>
+                    <div id="accom-country-tooltip" style="position:absolute; background:white; padding:6px 10px; border:1px solid #ccc; display:none; pointer-events:none; border-radius:4px; font-size:13px;"></div>
+                    <svg id="accom-country-map" viewBox="0 0 858 620" preserveAspectRatio="xMidYMid slice" style="width:100%;height:100%;display:block;background:#F6F8FB;"></svg>
+                    <script src="chart_accom_country_map.js"></script>
+                </div>
+                <div class="frame frame-explanation">
+                    <div class="chart-eyebrow">By country</div>
+                    <h3 class="chart-title">Favorite accommodation, by country</h3>
+                    <h4>What you see</h4>
+                    <p>Each EU country is colored by the accommodation type that captured the most tourist nights in the selected year. The dropdown lets you scrub through 2012 to 2024.</p>
+                    <p>A clear split runs across Europe. Northern, central and Alpine countries lean on hotels. Mediterranean and southern countries lean on rented furnished places like vacation rentals and apartments. Greece is the only country whose residents sleep mostly in family owned dwellings.</p>
+                    <p>The legend below the map shows only the categories that actually appear that year, so it rebuilds as you change years.</p>
+                    <p class="source">Source: Eurostat tour_dem_tnac</p>
+                </div>
+            </div>
+
+            <div style="width:858px; height:1px; background:#e0e0e0; margin-top:80px;"></div>
+
             <div class="chart-with-explanation">
                 <div class="frame" id="dest-trend-chart" style="background:#F6F8FB;"></div>
                 <div class="frame frame-explanation">
@@ -506,17 +598,24 @@
             <div style="width:858px; height:1px; background:#e0e0e0; margin-top:80px;"></div>
 
             <div class="chart-with-explanation">
-                <div class="frame" style="background:#F6F8FB; height:480px;">
+                <div class="frame" style="position:relative; background:#F6F8FB; height:480px; overflow:hidden;">
+                    <select id="top-country-month-year-select" style="
+                        position: absolute; top: 12px; right: 12px; z-index: 10;
+                        padding: 6px 10px; font-size: 13px;
+                        border: 1px solid #ccc; border-radius: 4px;
+                        background: white; cursor: pointer;
+                    "></select>
                     <svg id="top-country-month-chart" style="width:100%;height:100%;display:block;background:#F6F8FB;"></svg>
-                    <script src="chart_seasonality_top.js"></script>
+                    <script src="chart_seasonality_top.js?v=2"></script>
                 </div>
                 <div class="frame frame-explanation">
                     <div class="chart-eyebrow">Ranking</div>
                     <h3 class="chart-title">Top destination each month</h3>
                     <h4>What you see</h4>
-                    <p>For every calendar month, the bar shows the country that received the most tourist nights across 2020 to 2024 combined. Bar length is total nights, bar color is the country's brand color.</p>
+                    <p>For every calendar month, the bar shows the country that received the most tourist nights in the selected year. Bar length is total nights, bar color is the country's brand color.</p>
+                    <p>Pick a year from the dropdown to scrub through 2020 to 2024 and see how the seasonal ranking shifts.</p>
                     <p>Summer months belong to France, Spain and Italy. The shoulder months and winter shuffle among Germany, France and Spain, with values an order of magnitude smaller.</p>
-                    <p class="source">Source: derived from Eurostat tour_occ_nin2m</p>
+                    <p class="source">Source: Eurostat tour_occ_nin2m</p>
                 </div>
             </div>
         </div>

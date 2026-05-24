@@ -1396,6 +1396,9 @@ button {
     color: #777;
     font-family: 'Geist Mono', monospace;
     letter-spacing: 0.02em;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+    max-width: 100%;
 }
 
 
