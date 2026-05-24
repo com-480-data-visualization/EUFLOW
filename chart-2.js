@@ -1,6 +1,6 @@
 const margin = {top: 20, right: 160, bottom: 50, left: 80};
-const W = 800 - margin.left - margin.right;
-const H = 500 - margin.top - margin.bottom;
+const W2 = 800 - margin.left - margin.right;
+const H2 = 500 - margin.top - margin.bottom;
 
 const scatterSvg = d3.select("#scatter")
     .append("g")
@@ -19,24 +19,19 @@ d3.json("data/countries_distances_vs_visitors.json").then(rawData => {
 
     const x_axis = d3.scaleLinear()
         .domain([0, d3.max(data, d => d.distance) * 1.00])
-        .range([0, W]);
+        .range([0, W2]);
 
     const y_axis = d3.scaleLinear()
         .domain([0, d3.max(data, d => d.arrivals) * 1.1])
-        .range([H, 0]);
+        .range([H2, 0]);
 
     const r = d3.scaleSqrt()
         .domain([0, d3.max(data, d => d.arrivals)])
         .range([4, 28]);
 
-    // set grid
-    // scatterSvg.append("g").attr("class", "grid")
-    //     .call(d3.axisLeft(y).tickSize(-W).tickFormat(""))
-    //     .select(".domain").remove();
-
     // axes
     scatterSvg.append("g").attr("class", "axis")
-        .attr("transform", `translate(0,${H})`)
+        .attr("transform", `translate(0,${H2})`)
         .call(d3.axisBottom(x_axis).ticks(6).tickFormat(d => `${d} km`));
 
     scatterSvg.append("g").attr("class", "axis")
@@ -46,13 +41,13 @@ d3.json("data/countries_distances_vs_visitors.json").then(rawData => {
 
     // axis labels
     scatterSvg.append("text").attr("class", "axis-label")
-        .attr("x", W / 2).attr("y", H + 45)
+        .attr("x", W2 / 2).attr("y", H2 + 45)
         .attr("text-anchor", "middle")
         .text("Distance from Switzerland (km)");
 
     scatterSvg.append("text").attr("class", "axis-label")
         .attr("transform", "rotate(-90)")
-        .attr("x", -H / 2).attr("y", -60)
+        .attr("x", -H2 / 2).attr("y", -60)
         .attr("text-anchor", "middle")
         .text("Number of Arrivals");
 
