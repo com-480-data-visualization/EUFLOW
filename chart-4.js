@@ -36,7 +36,7 @@ d3.json("data/eu_gdp_and_to_ch_df_merged.json").then(raw => {
         top: 20,
         right: 120,
         bottom: 70,
-        left: 90
+        left: 150
     };
 
     const W = 920 - margin.left - margin.right;
