@@ -1,185 +1,4482 @@
 [
   {
+    "Year": "2005",
+    "Visitors' country of residence": "Switzerland",
+    "distance_km": 0.0,
+    "value": 6573945.0
+  },
+  {
+    "Year": "2005",
+    "Visitors' country of residence": "Germany",
+    "distance_km": 450.8,
+    "value": 2007203.0
+  },
+  {
+    "Year": "2005",
+    "Visitors' country of residence": "France",
+    "distance_km": 473.7,
+    "value": 542502.0
+  },
+  {
+    "Year": "2005",
+    "Visitors' country of residence": "Italy",
+    "distance_km": 599.8,
+    "value": 460982.0
+  },
+  {
+    "Year": "2005",
+    "Visitors' country of residence": "Austria",
+    "distance_km": 406.0,
+    "value": 149826.0
+  },
+  {
+    "Year": "2005",
+    "Visitors' country of residence": "United Kingdom",
+    "distance_km": 1051.5,
+    "value": 709155.0
+  },
+  {
+    "Year": "2005",
+    "Visitors' country of residence": "Ireland",
+    "distance_km": 1322.9,
+    "value": 25278.0
+  },
+  {
+    "Year": "2005",
+    "Visitors' country of residence": "Netherlands",
+    "distance_km": 632.8,
+    "value": 312546.0
+  },
+  {
+    "Year": "2005",
+    "Visitors' country of residence": "Belgium",
+    "distance_km": 517.2,
+    "value": 207644.0
+  },
+  {
+    "Year": "2005",
+    "Visitors' country of residence": "Luxembourg",
+    "distance_km": 334.6,
+    "value": 35309.0
+  },
+  {
+    "Year": "2005",
+    "Visitors' country of residence": "Denmark",
+    "distance_km": 1010.8,
+    "value": 49296.0
+  },
+  {
+    "Year": "2005",
+    "Visitors' country of residence": "Sweden",
+    "distance_km": 1727.8,
+    "value": 73002.0
+  },
+  {
+    "Year": "2005",
+    "Visitors' country of residence": "Norway",
+    "distance_km": 1674.5,
+    "value": 30820.0
+  },
+  {
+    "Year": "2005",
+    "Visitors' country of residence": "Finland",
+    "distance_km": 2190.6,
+    "value": 27188.0
+  },
+  {
+    "Year": "2005",
+    "Visitors' country of residence": "Spain",
+    "distance_km": 1241.3,
+    "value": 163981.0
+  },
+  {
+    "Year": "2005",
+    "Visitors' country of residence": "Portugal",
+    "distance_km": 1539.0,
+    "value": 30689.0
+  },
+  {
+    "Year": "2005",
+    "Visitors' country of residence": "Greece",
+    "distance_km": 1443.0,
+    "value": 39795.0
+  },
+  {
+    "Year": "2005",
+    "Visitors' country of residence": "Turkey",
+    "distance_km": 2359.3,
+    "value": 26410.0
+  },
+  {
+    "Year": "2005",
+    "Visitors' country of residence": "Liechtenstein",
+    "distance_km": 120.0,
+    "value": 10386.0
+  },
+  {
+    "Year": "2005",
+    "Visitors' country of residence": "Iceland",
+    "distance_km": 2540.1,
+    "value": 5065.0
+  },
+  {
+    "Year": "2005",
+    "Visitors' country of residence": "Poland",
+    "distance_km": 1029.9,
+    "value": 31012.0
+  },
+  {
+    "Year": "2005",
+    "Visitors' country of residence": "Hungary",
+    "distance_km": 911.8,
+    "value": 21913.0
+  },
+  {
+    "Year": "2005",
+    "Visitors' country of residence": "Belarus",
+    "distance_km": 1574.6,
+    "value": 3305.0
+  },
+  {
+    "Year": "2005",
+    "Visitors' country of residence": "Bulgaria",
+    "distance_km": 1408.8,
+    "value": 12248.0
+  },
+  {
+    "Year": "2005",
+    "Visitors' country of residence": "Croatia",
+    "distance_km": 614.6,
+    "value": 8936.0
+  },
+  {
+    "Year": "2005",
+    "Visitors' country of residence": "Romania",
+    "distance_km": 1307.1,
+    "value": 19235.0
+  },
+  {
+    "Year": "2005",
+    "Visitors' country of residence": "Russia",
+    "distance_km": 5752.8,
+    "value": 78749.0
+  },
+  {
+    "Year": "2005",
+    "Visitors' country of residence": "Slovakia",
+    "distance_km": 879.8,
+    "value": 8961.0
+  },
+  {
+    "Year": "2005",
+    "Visitors' country of residence": "Slovenia",
+    "distance_km": 531.7,
+    "value": 8292.0
+  },
+  {
+    "Year": "2005",
+    "Visitors' country of residence": "Czechia",
+    "distance_km": 633.8,
+    "value": 25245.0
+  },
+  {
+    "Year": "2005",
+    "Visitors' country of residence": "Ukraine",
+    "distance_km": 1797.1,
+    "value": 11334.0
+  },
+  {
+    "Year": "2006",
+    "Visitors' country of residence": "Switzerland",
+    "distance_km": 0.0,
+    "value": 6948392.0
+  },
+  {
+    "Year": "2006",
+    "Visitors' country of residence": "Germany",
+    "distance_km": 450.8,
+    "value": 2106860.0
+  },
+  {
+    "Year": "2006",
+    "Visitors' country of residence": "France",
+    "distance_km": 473.7,
+    "value": 585472.0
+  },
+  {
+    "Year": "2006",
+    "Visitors' country of residence": "Italy",
+    "distance_km": 599.8,
+    "value": 498702.0
+  },
+  {
+    "Year": "2006",
+    "Visitors' country of residence": "Austria",
+    "distance_km": 406.0,
+    "value": 160031.0
+  },
+  {
+    "Year": "2006",
+    "Visitors' country of residence": "United Kingdom",
+    "distance_km": 1051.5,
+    "value": 784963.0
+  },
+  {
+    "Year": "2006",
+    "Visitors' country of residence": "Ireland",
+    "distance_km": 1322.9,
+    "value": 32802.0
+  },
+  {
+    "Year": "2006",
+    "Visitors' country of residence": "Netherlands",
+    "distance_km": 632.8,
+    "value": 329022.0
+  },
+  {
+    "Year": "2006",
+    "Visitors' country of residence": "Belgium",
+    "distance_km": 517.2,
+    "value": 218743.0
+  },
+  {
+    "Year": "2006",
+    "Visitors' country of residence": "Luxembourg",
+    "distance_km": 334.6,
+    "value": 37677.0
+  },
+  {
+    "Year": "2006",
+    "Visitors' country of residence": "Denmark",
+    "distance_km": 1010.8,
+    "value": 55788.0
+  },
+  {
+    "Year": "2006",
+    "Visitors' country of residence": "Sweden",
+    "distance_km": 1727.8,
+    "value": 78928.0
+  },
+  {
+    "Year": "2006",
+    "Visitors' country of residence": "Norway",
+    "distance_km": 1674.5,
+    "value": 35703.0
+  },
+  {
+    "Year": "2006",
+    "Visitors' country of residence": "Finland",
+    "distance_km": 2190.6,
+    "value": 32918.0
+  },
+  {
+    "Year": "2006",
+    "Visitors' country of residence": "Spain",
+    "distance_km": 1241.3,
+    "value": 189121.0
+  },
+  {
+    "Year": "2006",
+    "Visitors' country of residence": "Portugal",
+    "distance_km": 1539.0,
+    "value": 35434.0
+  },
+  {
+    "Year": "2006",
+    "Visitors' country of residence": "Greece",
+    "distance_km": 1443.0,
+    "value": 46891.0
+  },
+  {
+    "Year": "2006",
+    "Visitors' country of residence": "Turkey",
+    "distance_km": 2359.3,
+    "value": 28409.0
+  },
+  {
+    "Year": "2006",
+    "Visitors' country of residence": "Liechtenstein",
+    "distance_km": 120.0,
+    "value": 11566.0
+  },
+  {
+    "Year": "2006",
+    "Visitors' country of residence": "Iceland",
+    "distance_km": 2540.1,
+    "value": 6375.0
+  },
+  {
+    "Year": "2006",
+    "Visitors' country of residence": "Poland",
+    "distance_km": 1029.9,
+    "value": 38351.0
+  },
+  {
+    "Year": "2006",
+    "Visitors' country of residence": "Hungary",
+    "distance_km": 911.8,
+    "value": 27739.0
+  },
+  {
+    "Year": "2006",
+    "Visitors' country of residence": "Belarus",
+    "distance_km": 1574.6,
+    "value": 3852.0
+  },
+  {
+    "Year": "2006",
+    "Visitors' country of residence": "Bulgaria",
+    "distance_km": 1408.8,
+    "value": 13953.0
+  },
+  {
+    "Year": "2006",
+    "Visitors' country of residence": "Croatia",
+    "distance_km": 614.6,
+    "value": 10929.0
+  },
+  {
+    "Year": "2006",
+    "Visitors' country of residence": "Romania",
+    "distance_km": 1307.1,
+    "value": 23108.0
+  },
+  {
+    "Year": "2006",
+    "Visitors' country of residence": "Russia",
+    "distance_km": 5752.8,
+    "value": 93369.0
+  },
+  {
+    "Year": "2006",
+    "Visitors' country of residence": "Slovakia",
+    "distance_km": 879.8,
+    "value": 10467.0
+  },
+  {
+    "Year": "2006",
+    "Visitors' country of residence": "Slovenia",
+    "distance_km": 531.7,
+    "value": 9290.0
+  },
+  {
+    "Year": "2006",
+    "Visitors' country of residence": "Czechia",
+    "distance_km": 633.8,
+    "value": 28658.0
+  },
+  {
+    "Year": "2006",
+    "Visitors' country of residence": "Ukraine",
+    "distance_km": 1797.1,
+    "value": 14197.0
+  },
+  {
+    "Year": "2007",
+    "Visitors' country of residence": "Switzerland",
+    "distance_km": 0.0,
+    "value": 7184824.0
+  },
+  {
+    "Year": "2007",
+    "Visitors' country of residence": "Germany",
+    "distance_km": 450.8,
+    "value": 2249431.0
+  },
+  {
+    "Year": "2007",
+    "Visitors' country of residence": "France",
+    "distance_km": 473.7,
+    "value": 634305.0
+  },
+  {
+    "Year": "2007",
+    "Visitors' country of residence": "Italy",
+    "distance_km": 599.8,
+    "value": 542201.0
+  },
+  {
+    "Year": "2007",
+    "Visitors' country of residence": "Austria",
+    "distance_km": 406.0,
+    "value": 175683.0
+  },
+  {
+    "Year": "2007",
+    "Visitors' country of residence": "United Kingdom",
+    "distance_km": 1051.5,
+    "value": 834783.0
+  },
+  {
+    "Year": "2007",
+    "Visitors' country of residence": "Ireland",
+    "distance_km": 1322.9,
+    "value": 38554.0
+  },
+  {
+    "Year": "2007",
+    "Visitors' country of residence": "Netherlands",
+    "distance_km": 632.8,
+    "value": 362993.0
+  },
+  {
+    "Year": "2007",
+    "Visitors' country of residence": "Belgium",
+    "distance_km": 517.2,
+    "value": 227719.0
+  },
+  {
+    "Year": "2007",
+    "Visitors' country of residence": "Luxembourg",
+    "distance_km": 334.6,
+    "value": 39121.0
+  },
+  {
+    "Year": "2007",
+    "Visitors' country of residence": "Denmark",
+    "distance_km": 1010.8,
+    "value": 59356.0
+  },
+  {
+    "Year": "2007",
+    "Visitors' country of residence": "Sweden",
+    "distance_km": 1727.8,
+    "value": 84050.0
+  },
+  {
+    "Year": "2007",
+    "Visitors' country of residence": "Norway",
+    "distance_km": 1674.5,
+    "value": 38458.0
+  },
+  {
+    "Year": "2007",
+    "Visitors' country of residence": "Finland",
+    "distance_km": 2190.6,
+    "value": 35480.0
+  },
+  {
+    "Year": "2007",
+    "Visitors' country of residence": "Spain",
+    "distance_km": 1241.3,
+    "value": 211692.0
+  },
+  {
+    "Year": "2007",
+    "Visitors' country of residence": "Portugal",
+    "distance_km": 1539.0,
+    "value": 44100.0
+  },
+  {
+    "Year": "2007",
+    "Visitors' country of residence": "Greece",
+    "distance_km": 1443.0,
+    "value": 50023.0
+  },
+  {
+    "Year": "2007",
+    "Visitors' country of residence": "Turkey",
+    "distance_km": 2359.3,
+    "value": 30392.0
+  },
+  {
+    "Year": "2007",
+    "Visitors' country of residence": "Liechtenstein",
+    "distance_km": 120.0,
+    "value": 11725.0
+  },
+  {
+    "Year": "2007",
+    "Visitors' country of residence": "Iceland",
+    "distance_km": 2540.1,
+    "value": 6381.0
+  },
+  {
+    "Year": "2007",
+    "Visitors' country of residence": "Poland",
+    "distance_km": 1029.9,
+    "value": 45775.0
+  },
+  {
+    "Year": "2007",
+    "Visitors' country of residence": "Hungary",
+    "distance_km": 911.8,
+    "value": 31675.0
+  },
+  {
+    "Year": "2007",
+    "Visitors' country of residence": "Belarus",
+    "distance_km": 1574.6,
+    "value": 4257.0
+  },
+  {
+    "Year": "2007",
+    "Visitors' country of residence": "Bulgaria",
+    "distance_km": 1408.8,
+    "value": 15503.0
+  },
+  {
+    "Year": "2007",
+    "Visitors' country of residence": "Croatia",
+    "distance_km": 614.6,
+    "value": 10711.0
+  },
+  {
+    "Year": "2007",
+    "Visitors' country of residence": "Romania",
+    "distance_km": 1307.1,
+    "value": 33108.0
+  },
+  {
+    "Year": "2007",
+    "Visitors' country of residence": "Russia",
+    "distance_km": 5752.8,
+    "value": 114765.0
+  },
+  {
+    "Year": "2007",
+    "Visitors' country of residence": "Slovakia",
+    "distance_km": 879.8,
+    "value": 12288.0
+  },
+  {
+    "Year": "2007",
+    "Visitors' country of residence": "Slovenia",
+    "distance_km": 531.7,
+    "value": 11222.0
+  },
+  {
+    "Year": "2007",
+    "Visitors' country of residence": "Czechia",
+    "distance_km": 633.8,
+    "value": 34618.0
+  },
+  {
+    "Year": "2007",
+    "Visitors' country of residence": "Ukraine",
+    "distance_km": 1797.1,
+    "value": 17019.0
+  },
+  {
+    "Year": "2008",
+    "Visitors' country of residence": "Switzerland",
+    "distance_km": 0.0,
+    "value": 7389040.0
+  },
+  {
+    "Year": "2008",
+    "Visitors' country of residence": "Germany",
+    "distance_km": 450.8,
+    "value": 2344337.0
+  },
+  {
+    "Year": "2008",
+    "Visitors' country of residence": "France",
+    "distance_km": 473.7,
+    "value": 670663.0
+  },
+  {
+    "Year": "2008",
+    "Visitors' country of residence": "Italy",
+    "distance_km": 599.8,
+    "value": 552953.0
+  },
+  {
+    "Year": "2008",
+    "Visitors' country of residence": "Austria",
+    "distance_km": 406.0,
+    "value": 189159.0
+  },
+  {
+    "Year": "2008",
+    "Visitors' country of residence": "United Kingdom",
+    "distance_km": 1051.5,
+    "value": 825719.0
+  },
+  {
+    "Year": "2008",
+    "Visitors' country of residence": "Ireland",
+    "distance_km": 1322.9,
+    "value": 38772.0
+  },
+  {
+    "Year": "2008",
+    "Visitors' country of residence": "Netherlands",
+    "distance_km": 632.8,
+    "value": 412559.0
+  },
+  {
+    "Year": "2008",
+    "Visitors' country of residence": "Belgium",
+    "distance_km": 517.2,
+    "value": 246741.0
+  },
+  {
+    "Year": "2008",
+    "Visitors' country of residence": "Luxembourg",
+    "distance_km": 334.6,
+    "value": 41344.0
+  },
+  {
+    "Year": "2008",
+    "Visitors' country of residence": "Denmark",
+    "distance_km": 1010.8,
+    "value": 62708.0
+  },
+  {
+    "Year": "2008",
+    "Visitors' country of residence": "Sweden",
+    "distance_km": 1727.8,
+    "value": 91222.0
+  },
+  {
+    "Year": "2008",
+    "Visitors' country of residence": "Norway",
+    "distance_km": 1674.5,
+    "value": 41250.0
+  },
+  {
+    "Year": "2008",
+    "Visitors' country of residence": "Finland",
+    "distance_km": 2190.6,
+    "value": 38243.0
+  },
+  {
+    "Year": "2008",
+    "Visitors' country of residence": "Spain",
+    "distance_km": 1241.3,
+    "value": 215365.0
+  },
+  {
+    "Year": "2008",
+    "Visitors' country of residence": "Portugal",
+    "distance_km": 1539.0,
+    "value": 53075.0
+  },
+  {
+    "Year": "2008",
+    "Visitors' country of residence": "Greece",
+    "distance_km": 1443.0,
+    "value": 49724.0
+  },
+  {
+    "Year": "2008",
+    "Visitors' country of residence": "Turkey",
+    "distance_km": 2359.3,
+    "value": 37888.0
+  },
+  {
+    "Year": "2008",
+    "Visitors' country of residence": "Liechtenstein",
+    "distance_km": 120.0,
+    "value": 12942.0
+  },
+  {
+    "Year": "2008",
+    "Visitors' country of residence": "Iceland",
+    "distance_km": 2540.1,
+    "value": 7210.0
+  },
+  {
+    "Year": "2008",
+    "Visitors' country of residence": "Poland",
+    "distance_km": 1029.9,
+    "value": 50325.0
+  },
+  {
+    "Year": "2008",
+    "Visitors' country of residence": "Hungary",
+    "distance_km": 911.8,
+    "value": 32475.0
+  },
+  {
+    "Year": "2008",
+    "Visitors' country of residence": "Belarus",
+    "distance_km": 1574.6,
+    "value": 4480.0
+  },
+  {
+    "Year": "2008",
+    "Visitors' country of residence": "Bulgaria",
+    "distance_km": 1408.8,
+    "value": 17530.0
+  },
+  {
+    "Year": "2008",
+    "Visitors' country of residence": "Croatia",
+    "distance_km": 614.6,
+    "value": 11772.0
+  },
+  {
+    "Year": "2008",
+    "Visitors' country of residence": "Romania",
+    "distance_km": 1307.1,
+    "value": 40596.0
+  },
+  {
+    "Year": "2008",
+    "Visitors' country of residence": "Russia",
+    "distance_km": 5752.8,
+    "value": 130853.0
+  },
+  {
+    "Year": "2008",
+    "Visitors' country of residence": "Slovakia",
+    "distance_km": 879.8,
+    "value": 12658.0
+  },
+  {
+    "Year": "2008",
+    "Visitors' country of residence": "Slovenia",
+    "distance_km": 531.7,
+    "value": 10926.0
+  },
+  {
+    "Year": "2008",
+    "Visitors' country of residence": "Czechia",
+    "distance_km": 633.8,
+    "value": 42045.0
+  },
+  {
+    "Year": "2008",
+    "Visitors' country of residence": "Ukraine",
+    "distance_km": 1797.1,
+    "value": 20100.0
+  },
+  {
+    "Year": "2009",
+    "Visitors' country of residence": "Switzerland",
+    "distance_km": 0.0,
+    "value": 7270576.0
+  },
+  {
+    "Year": "2009",
+    "Visitors' country of residence": "Germany",
+    "distance_km": 450.8,
+    "value": 2294411.0
+  },
+  {
+    "Year": "2009",
+    "Visitors' country of residence": "France",
+    "distance_km": 473.7,
+    "value": 685842.0
+  },
+  {
+    "Year": "2009",
+    "Visitors' country of residence": "Italy",
+    "distance_km": 599.8,
+    "value": 546564.0
+  },
+  {
+    "Year": "2009",
+    "Visitors' country of residence": "Austria",
+    "distance_km": 406.0,
+    "value": 187528.0
+  },
+  {
+    "Year": "2009",
+    "Visitors' country of residence": "United Kingdom",
+    "distance_km": 1051.5,
+    "value": 691409.0
+  },
+  {
+    "Year": "2009",
+    "Visitors' country of residence": "Ireland",
+    "distance_km": 1322.9,
+    "value": 32018.0
+  },
+  {
+    "Year": "2009",
+    "Visitors' country of residence": "Netherlands",
+    "distance_km": 632.8,
+    "value": 396953.0
+  },
+  {
+    "Year": "2009",
+    "Visitors' country of residence": "Belgium",
+    "distance_km": 517.2,
+    "value": 241830.0
+  },
+  {
+    "Year": "2009",
+    "Visitors' country of residence": "Luxembourg",
+    "distance_km": 334.6,
+    "value": 43254.0
+  },
+  {
+    "Year": "2009",
+    "Visitors' country of residence": "Denmark",
+    "distance_km": 1010.8,
+    "value": 59504.0
+  },
+  {
+    "Year": "2009",
+    "Visitors' country of residence": "Sweden",
+    "distance_km": 1727.8,
+    "value": 84299.0
+  },
+  {
+    "Year": "2009",
+    "Visitors' country of residence": "Norway",
+    "distance_km": 1674.5,
+    "value": 39427.0
+  },
+  {
+    "Year": "2009",
+    "Visitors' country of residence": "Finland",
+    "distance_km": 2190.6,
+    "value": 38736.0
+  },
+  {
+    "Year": "2009",
+    "Visitors' country of residence": "Spain",
+    "distance_km": 1241.3,
+    "value": 212622.0
+  },
+  {
+    "Year": "2009",
+    "Visitors' country of residence": "Portugal",
+    "distance_km": 1539.0,
+    "value": 43061.0
+  },
+  {
+    "Year": "2009",
+    "Visitors' country of residence": "Greece",
+    "distance_km": 1443.0,
+    "value": 51162.0
+  },
+  {
+    "Year": "2009",
+    "Visitors' country of residence": "Turkey",
+    "distance_km": 2359.3,
+    "value": 31131.0
+  },
+  {
+    "Year": "2009",
+    "Visitors' country of residence": "Liechtenstein",
+    "distance_km": 120.0,
+    "value": 12180.0
+  },
+  {
+    "Year": "2009",
+    "Visitors' country of residence": "Iceland",
+    "distance_km": 2540.1,
+    "value": 5531.0
+  },
+  {
+    "Year": "2009",
+    "Visitors' country of residence": "Poland",
+    "distance_km": 1029.9,
+    "value": 46920.0
+  },
+  {
+    "Year": "2009",
+    "Visitors' country of residence": "Hungary",
+    "distance_km": 911.8,
+    "value": 34351.0
+  },
+  {
+    "Year": "2009",
+    "Visitors' country of residence": "Belarus",
+    "distance_km": 1574.6,
+    "value": 5236.0
+  },
+  {
+    "Year": "2009",
+    "Visitors' country of residence": "Bulgaria",
+    "distance_km": 1408.8,
+    "value": 15632.0
+  },
+  {
+    "Year": "2009",
+    "Visitors' country of residence": "Croatia",
+    "distance_km": 614.6,
+    "value": 11183.0
+  },
+  {
+    "Year": "2009",
+    "Visitors' country of residence": "Romania",
+    "distance_km": 1307.1,
+    "value": 30153.0
+  },
+  {
+    "Year": "2009",
+    "Visitors' country of residence": "Russia",
+    "distance_km": 5752.8,
+    "value": 145751.0
+  },
+  {
+    "Year": "2009",
+    "Visitors' country of residence": "Slovakia",
+    "distance_km": 879.8,
+    "value": 12128.0
+  },
+  {
+    "Year": "2009",
+    "Visitors' country of residence": "Slovenia",
+    "distance_km": 531.7,
+    "value": 10902.0
+  },
+  {
+    "Year": "2009",
+    "Visitors' country of residence": "Czechia",
+    "distance_km": 633.8,
+    "value": 40060.0
+  },
+  {
+    "Year": "2009",
+    "Visitors' country of residence": "Ukraine",
+    "distance_km": 1797.1,
+    "value": 21125.0
+  },
+  {
+    "Year": "2010",
+    "Visitors' country of residence": "Switzerland",
+    "distance_km": 0.0,
+    "value": 7574290.0
+  },
+  {
+    "Year": "2010",
+    "Visitors' country of residence": "Germany",
+    "distance_km": 450.8,
+    "value": 2237941.0
+  },
+  {
+    "Year": "2010",
+    "Visitors' country of residence": "France",
+    "distance_km": 473.7,
+    "value": 700578.0
+  },
+  {
+    "Year": "2010",
+    "Visitors' country of residence": "Italy",
+    "distance_km": 599.8,
+    "value": 520542.0
+  },
+  {
+    "Year": "2010",
+    "Visitors' country of residence": "Austria",
+    "distance_km": 406.0,
+    "value": 195190.0
+  },
+  {
+    "Year": "2010",
+    "Visitors' country of residence": "United Kingdom",
+    "distance_km": 1051.5,
+    "value": 732050.0
+  },
+  {
+    "Year": "2010",
+    "Visitors' country of residence": "Ireland",
+    "distance_km": 1322.9,
+    "value": 30499.0
+  },
+  {
+    "Year": "2010",
+    "Visitors' country of residence": "Netherlands",
+    "distance_km": 632.8,
+    "value": 383039.0
+  },
+  {
+    "Year": "2010",
+    "Visitors' country of residence": "Belgium",
+    "distance_km": 517.2,
+    "value": 240784.0
+  },
+  {
+    "Year": "2010",
+    "Visitors' country of residence": "Luxembourg",
+    "distance_km": 334.6,
+    "value": 44480.0
+  },
+  {
+    "Year": "2010",
+    "Visitors' country of residence": "Denmark",
+    "distance_km": 1010.8,
+    "value": 59916.0
+  },
+  {
+    "Year": "2010",
+    "Visitors' country of residence": "Sweden",
+    "distance_km": 1727.8,
+    "value": 85130.0
+  },
+  {
+    "Year": "2010",
+    "Visitors' country of residence": "Norway",
+    "distance_km": 1674.5,
+    "value": 44873.0
+  },
+  {
+    "Year": "2010",
+    "Visitors' country of residence": "Finland",
+    "distance_km": 2190.6,
+    "value": 40149.0
+  },
+  {
+    "Year": "2010",
+    "Visitors' country of residence": "Spain",
+    "distance_km": 1241.3,
+    "value": 221311.0
+  },
+  {
+    "Year": "2010",
+    "Visitors' country of residence": "Portugal",
+    "distance_km": 1539.0,
+    "value": 44723.0
+  },
+  {
+    "Year": "2010",
+    "Visitors' country of residence": "Greece",
+    "distance_km": 1443.0,
+    "value": 44591.0
+  },
+  {
+    "Year": "2010",
+    "Visitors' country of residence": "Turkey",
+    "distance_km": 2359.3,
+    "value": 35828.0
+  },
+  {
+    "Year": "2010",
+    "Visitors' country of residence": "Liechtenstein",
+    "distance_km": 120.0,
+    "value": 13044.0
+  },
+  {
+    "Year": "2010",
+    "Visitors' country of residence": "Iceland",
+    "distance_km": 2540.1,
+    "value": 4689.0
+  },
+  {
+    "Year": "2010",
+    "Visitors' country of residence": "Poland",
+    "distance_km": 1029.9,
+    "value": 51020.0
+  },
+  {
+    "Year": "2010",
+    "Visitors' country of residence": "Hungary",
+    "distance_km": 911.8,
+    "value": 35030.0
+  },
+  {
+    "Year": "2010",
+    "Visitors' country of residence": "Belarus",
+    "distance_km": 1574.6,
+    "value": 6254.0
+  },
+  {
+    "Year": "2010",
+    "Visitors' country of residence": "Bulgaria",
+    "distance_km": 1408.8,
+    "value": 14970.0
+  },
+  {
+    "Year": "2010",
+    "Visitors' country of residence": "Malta",
+    "distance_km": 1337.9,
+    "value": 3266.0
+  },
+  {
+    "Year": "2010",
+    "Visitors' country of residence": "Cyprus",
+    "distance_km": 2473.2,
+    "value": 3322.0
+  },
+  {
+    "Year": "2010",
+    "Visitors' country of residence": "Estonia",
+    "distance_km": 1789.5,
+    "value": 7568.0
+  },
+  {
+    "Year": "2010",
+    "Visitors' country of residence": "Latvia",
+    "distance_km": 1604.5,
+    "value": 4053.0
+  },
+  {
+    "Year": "2010",
+    "Visitors' country of residence": "Lithuania",
+    "distance_km": 1489.1,
+    "value": 5382.0
+  },
+  {
+    "Year": "2010",
+    "Visitors' country of residence": "Croatia",
+    "distance_km": 614.6,
+    "value": 10369.0
+  },
+  {
+    "Year": "2010",
+    "Visitors' country of residence": "Romania",
+    "distance_km": 1307.1,
+    "value": 30561.0
+  },
+  {
+    "Year": "2010",
+    "Visitors' country of residence": "Russia",
+    "distance_km": 5752.8,
+    "value": 157085.0
+  },
+  {
+    "Year": "2010",
+    "Visitors' country of residence": "Slovakia",
+    "distance_km": 879.8,
+    "value": 11634.0
+  },
+  {
+    "Year": "2010",
+    "Visitors' country of residence": "Slovenia",
+    "distance_km": 531.7,
+    "value": 12161.0
+  },
+  {
+    "Year": "2010",
+    "Visitors' country of residence": "Czechia",
+    "distance_km": 633.8,
+    "value": 42106.0
+  },
+  {
+    "Year": "2010",
+    "Visitors' country of residence": "Ukraine",
+    "distance_km": 1797.1,
+    "value": 23338.0
+  },
+  {
+    "Year": "2010",
+    "Visitors' country of residence": "Serbia",
+    "distance_km": 1067.9,
+    "value": 10179.0
+  },
+  {
+    "Year": "2011",
+    "Visitors' country of residence": "Switzerland",
+    "distance_km": 0.0,
+    "value": 7694682.0
+  },
+  {
+    "Year": "2011",
+    "Visitors' country of residence": "Germany",
+    "distance_km": 450.8,
+    "value": 2038680.0
+  },
+  {
+    "Year": "2011",
+    "Visitors' country of residence": "France",
+    "distance_km": 473.7,
+    "value": 680932.0
+  },
+  {
+    "Year": "2011",
+    "Visitors' country of residence": "Italy",
+    "distance_km": 599.8,
+    "value": 489182.0
+  },
+  {
+    "Year": "2011",
+    "Visitors' country of residence": "Austria",
+    "distance_km": 406.0,
+    "value": 190153.0
+  },
+  {
+    "Year": "2011",
+    "Visitors' country of residence": "United Kingdom",
+    "distance_km": 1051.5,
+    "value": 682117.0
+  },
+  {
+    "Year": "2011",
+    "Visitors' country of residence": "Ireland",
+    "distance_km": 1322.9,
+    "value": 28805.0
+  },
+  {
+    "Year": "2011",
+    "Visitors' country of residence": "Netherlands",
+    "distance_km": 632.8,
+    "value": 337592.0
+  },
+  {
+    "Year": "2011",
+    "Visitors' country of residence": "Belgium",
+    "distance_km": 517.2,
+    "value": 215240.0
+  },
+  {
+    "Year": "2011",
+    "Visitors' country of residence": "Luxembourg",
+    "distance_km": 334.6,
+    "value": 40563.0
+  },
+  {
+    "Year": "2011",
+    "Visitors' country of residence": "Denmark",
+    "distance_km": 1010.8,
+    "value": 57611.0
+  },
+  {
+    "Year": "2011",
+    "Visitors' country of residence": "Sweden",
+    "distance_km": 1727.8,
+    "value": 86203.0
+  },
+  {
+    "Year": "2011",
+    "Visitors' country of residence": "Norway",
+    "distance_km": 1674.5,
+    "value": 43975.0
+  },
+  {
+    "Year": "2011",
+    "Visitors' country of residence": "Finland",
+    "distance_km": 2190.6,
+    "value": 38342.0
+  },
+  {
+    "Year": "2011",
+    "Visitors' country of residence": "Spain",
+    "distance_km": 1241.3,
+    "value": 229103.0
+  },
+  {
+    "Year": "2011",
+    "Visitors' country of residence": "Portugal",
+    "distance_km": 1539.0,
+    "value": 46284.0
+  },
+  {
+    "Year": "2011",
+    "Visitors' country of residence": "Greece",
+    "distance_km": 1443.0,
+    "value": 41097.0
+  },
+  {
+    "Year": "2011",
+    "Visitors' country of residence": "Turkey",
+    "distance_km": 2359.3,
+    "value": 36193.0
+  },
+  {
+    "Year": "2011",
+    "Visitors' country of residence": "Liechtenstein",
+    "distance_km": 120.0,
+    "value": 12398.0
+  },
+  {
+    "Year": "2011",
+    "Visitors' country of residence": "Iceland",
+    "distance_km": 2540.1,
+    "value": 5020.0
+  },
+  {
+    "Year": "2011",
+    "Visitors' country of residence": "Poland",
+    "distance_km": 1029.9,
+    "value": 49148.0
+  },
+  {
+    "Year": "2011",
+    "Visitors' country of residence": "Hungary",
+    "distance_km": 911.8,
+    "value": 33746.0
+  },
+  {
+    "Year": "2011",
+    "Visitors' country of residence": "Belarus",
+    "distance_km": 1574.6,
+    "value": 5932.0
+  },
+  {
+    "Year": "2011",
+    "Visitors' country of residence": "Bulgaria",
+    "distance_km": 1408.8,
+    "value": 14449.0
+  },
+  {
+    "Year": "2011",
+    "Visitors' country of residence": "Malta",
+    "distance_km": 1337.9,
+    "value": 3395.0
+  },
+  {
+    "Year": "2011",
+    "Visitors' country of residence": "Cyprus",
+    "distance_km": 2473.2,
+    "value": 3342.0
+  },
+  {
+    "Year": "2011",
+    "Visitors' country of residence": "Estonia",
+    "distance_km": 1789.5,
+    "value": 7185.0
+  },
+  {
+    "Year": "2011",
+    "Visitors' country of residence": "Latvia",
+    "distance_km": 1604.5,
+    "value": 5726.0
+  },
+  {
+    "Year": "2011",
+    "Visitors' country of residence": "Lithuania",
+    "distance_km": 1489.1,
+    "value": 6072.0
+  },
+  {
+    "Year": "2011",
+    "Visitors' country of residence": "Croatia",
+    "distance_km": 614.6,
+    "value": 9717.0
+  },
+  {
+    "Year": "2011",
+    "Visitors' country of residence": "Romania",
+    "distance_km": 1307.1,
+    "value": 30523.0
+  },
+  {
+    "Year": "2011",
+    "Visitors' country of residence": "Russia",
+    "distance_km": 5752.8,
+    "value": 179168.0
+  },
+  {
+    "Year": "2011",
+    "Visitors' country of residence": "Slovakia",
+    "distance_km": 879.8,
+    "value": 12323.0
+  },
+  {
+    "Year": "2011",
+    "Visitors' country of residence": "Slovenia",
+    "distance_km": 531.7,
+    "value": 11105.0
+  },
+  {
+    "Year": "2011",
+    "Visitors' country of residence": "Czechia",
+    "distance_km": 633.8,
+    "value": 42803.0
+  },
+  {
+    "Year": "2011",
+    "Visitors' country of residence": "Ukraine",
+    "distance_km": 1797.1,
+    "value": 25305.0
+  },
+  {
+    "Year": "2011",
+    "Visitors' country of residence": "Serbia",
+    "distance_km": 1067.9,
+    "value": 11025.0
+  },
+  {
+    "Year": "2012",
+    "Visitors' country of residence": "Switzerland",
+    "distance_km": 0.0,
+    "value": 7731730.0
+  },
+  {
+    "Year": "2012",
+    "Visitors' country of residence": "Germany",
+    "distance_km": 450.8,
+    "value": 1871498.0
+  },
+  {
+    "Year": "2012",
+    "Visitors' country of residence": "France",
+    "distance_km": 473.7,
+    "value": 669344.0
+  },
+  {
+    "Year": "2012",
+    "Visitors' country of residence": "Italy",
+    "distance_km": 599.8,
+    "value": 482940.0
+  },
+  {
+    "Year": "2012",
+    "Visitors' country of residence": "Austria",
+    "distance_km": 406.0,
+    "value": 187368.0
+  },
+  {
+    "Year": "2012",
+    "Visitors' country of residence": "United Kingdom",
+    "distance_km": 1051.5,
+    "value": 659290.0
+  },
+  {
+    "Year": "2012",
+    "Visitors' country of residence": "Ireland",
+    "distance_km": 1322.9,
+    "value": 29064.0
+  },
+  {
+    "Year": "2012",
+    "Visitors' country of residence": "Netherlands",
+    "distance_km": 632.8,
+    "value": 302554.0
+  },
+  {
+    "Year": "2012",
+    "Visitors' country of residence": "Belgium",
+    "distance_km": 517.2,
+    "value": 203768.0
+  },
+  {
+    "Year": "2012",
+    "Visitors' country of residence": "Luxembourg",
+    "distance_km": 334.6,
+    "value": 37875.0
+  },
+  {
+    "Year": "2012",
+    "Visitors' country of residence": "Denmark",
+    "distance_km": 1010.8,
+    "value": 52815.0
+  },
+  {
+    "Year": "2012",
+    "Visitors' country of residence": "Sweden",
+    "distance_km": 1727.8,
+    "value": 81605.0
+  },
+  {
+    "Year": "2012",
+    "Visitors' country of residence": "Norway",
+    "distance_km": 1674.5,
+    "value": 43638.0
+  },
+  {
+    "Year": "2012",
+    "Visitors' country of residence": "Finland",
+    "distance_km": 2190.6,
+    "value": 36353.0
+  },
+  {
+    "Year": "2012",
+    "Visitors' country of residence": "Spain",
+    "distance_km": 1241.3,
+    "value": 219544.0
+  },
+  {
+    "Year": "2012",
+    "Visitors' country of residence": "Portugal",
+    "distance_km": 1539.0,
+    "value": 46765.0
+  },
+  {
+    "Year": "2012",
+    "Visitors' country of residence": "Greece",
+    "distance_km": 1443.0,
+    "value": 33426.0
+  },
+  {
+    "Year": "2012",
+    "Visitors' country of residence": "Turkey",
+    "distance_km": 2359.3,
+    "value": 37686.0
+  },
+  {
+    "Year": "2012",
+    "Visitors' country of residence": "Liechtenstein",
+    "distance_km": 120.0,
+    "value": 12278.0
+  },
+  {
+    "Year": "2012",
+    "Visitors' country of residence": "Iceland",
+    "distance_km": 2540.1,
+    "value": 4940.0
+  },
+  {
+    "Year": "2012",
+    "Visitors' country of residence": "Poland",
+    "distance_km": 1029.9,
+    "value": 48060.0
+  },
+  {
+    "Year": "2012",
+    "Visitors' country of residence": "Hungary",
+    "distance_km": 911.8,
+    "value": 33219.0
+  },
+  {
+    "Year": "2012",
+    "Visitors' country of residence": "Belarus",
+    "distance_km": 1574.6,
+    "value": 5476.0
+  },
+  {
+    "Year": "2012",
+    "Visitors' country of residence": "Bulgaria",
+    "distance_km": 1408.8,
+    "value": 13820.0
+  },
+  {
+    "Year": "2012",
+    "Visitors' country of residence": "Malta",
+    "distance_km": 1337.9,
+    "value": 2875.0
+  },
+  {
+    "Year": "2012",
+    "Visitors' country of residence": "Cyprus",
+    "distance_km": 2473.2,
+    "value": 3791.0
+  },
+  {
+    "Year": "2012",
+    "Visitors' country of residence": "Estonia",
+    "distance_km": 1789.5,
+    "value": 7503.0
+  },
+  {
+    "Year": "2012",
+    "Visitors' country of residence": "Latvia",
+    "distance_km": 1604.5,
+    "value": 5338.0
+  },
+  {
+    "Year": "2012",
+    "Visitors' country of residence": "Lithuania",
+    "distance_km": 1489.1,
+    "value": 6272.0
+  },
+  {
+    "Year": "2012",
+    "Visitors' country of residence": "Croatia",
+    "distance_km": 614.6,
+    "value": 10714.0
+  },
+  {
+    "Year": "2012",
+    "Visitors' country of residence": "Romania",
+    "distance_km": 1307.1,
+    "value": 30079.0
+  },
+  {
+    "Year": "2012",
+    "Visitors' country of residence": "Russia",
+    "distance_km": 5752.8,
+    "value": 201488.0
+  },
+  {
+    "Year": "2012",
+    "Visitors' country of residence": "Slovakia",
+    "distance_km": 879.8,
+    "value": 12549.0
+  },
+  {
+    "Year": "2012",
+    "Visitors' country of residence": "Slovenia",
+    "distance_km": 531.7,
+    "value": 10524.0
+  },
+  {
+    "Year": "2012",
+    "Visitors' country of residence": "Czechia",
+    "distance_km": 633.8,
+    "value": 43291.0
+  },
+  {
+    "Year": "2012",
+    "Visitors' country of residence": "Ukraine",
+    "distance_km": 1797.1,
+    "value": 27711.0
+  },
+  {
+    "Year": "2012",
+    "Visitors' country of residence": "Serbia",
+    "distance_km": 1067.9,
+    "value": 12656.0
+  },
+  {
+    "Year": "2013",
+    "Visitors' country of residence": "Switzerland",
+    "distance_km": 0.0,
+    "value": 7863745.0
+  },
+  {
+    "Year": "2013",
+    "Visitors' country of residence": "Germany",
+    "distance_km": 450.8,
+    "value": 1854263.0
+  },
+  {
+    "Year": "2013",
+    "Visitors' country of residence": "France",
+    "distance_km": 473.7,
+    "value": 692288.0
+  },
+  {
+    "Year": "2013",
+    "Visitors' country of residence": "Italy",
+    "distance_km": 599.8,
+    "value": 493839.0
+  },
+  {
+    "Year": "2013",
+    "Visitors' country of residence": "Austria",
+    "distance_km": 406.0,
+    "value": 187210.0
+  },
+  {
+    "Year": "2013",
+    "Visitors' country of residence": "United Kingdom",
+    "distance_km": 1051.5,
+    "value": 698375.0
+  },
+  {
+    "Year": "2013",
+    "Visitors' country of residence": "Ireland",
+    "distance_km": 1322.9,
+    "value": 29853.0
+  },
+  {
+    "Year": "2013",
+    "Visitors' country of residence": "Netherlands",
+    "distance_km": 632.8,
+    "value": 296623.0
+  },
+  {
+    "Year": "2013",
+    "Visitors' country of residence": "Belgium",
+    "distance_km": 517.2,
+    "value": 212484.0
+  },
+  {
+    "Year": "2013",
+    "Visitors' country of residence": "Luxembourg",
+    "distance_km": 334.6,
+    "value": 39377.0
+  },
+  {
+    "Year": "2013",
+    "Visitors' country of residence": "Denmark",
+    "distance_km": 1010.8,
+    "value": 57566.0
+  },
+  {
+    "Year": "2013",
+    "Visitors' country of residence": "Sweden",
+    "distance_km": 1727.8,
+    "value": 81364.0
+  },
+  {
+    "Year": "2013",
+    "Visitors' country of residence": "Norway",
+    "distance_km": 1674.5,
+    "value": 44866.0
+  },
+  {
+    "Year": "2013",
+    "Visitors' country of residence": "Finland",
+    "distance_km": 2190.6,
+    "value": 33799.0
+  },
+  {
+    "Year": "2013",
+    "Visitors' country of residence": "Spain",
+    "distance_km": 1241.3,
+    "value": 208034.0
+  },
+  {
+    "Year": "2013",
+    "Visitors' country of residence": "Portugal",
+    "distance_km": 1539.0,
+    "value": 53882.0
+  },
+  {
+    "Year": "2013",
+    "Visitors' country of residence": "Greece",
+    "distance_km": 1443.0,
+    "value": 34439.0
+  },
+  {
+    "Year": "2013",
+    "Visitors' country of residence": "Turkey",
+    "distance_km": 2359.3,
+    "value": 43795.0
+  },
+  {
+    "Year": "2013",
+    "Visitors' country of residence": "Liechtenstein",
+    "distance_km": 120.0,
+    "value": 12874.0
+  },
+  {
+    "Year": "2013",
+    "Visitors' country of residence": "Iceland",
+    "distance_km": 2540.1,
+    "value": 4861.0
+  },
+  {
+    "Year": "2013",
+    "Visitors' country of residence": "Poland",
+    "distance_km": 1029.9,
+    "value": 54222.0
+  },
+  {
+    "Year": "2013",
+    "Visitors' country of residence": "Hungary",
+    "distance_km": 911.8,
+    "value": 37617.0
+  },
+  {
+    "Year": "2013",
+    "Visitors' country of residence": "Belarus",
+    "distance_km": 1574.6,
+    "value": 6868.0
+  },
+  {
+    "Year": "2013",
+    "Visitors' country of residence": "Bulgaria",
+    "distance_km": 1408.8,
+    "value": 15419.0
+  },
+  {
+    "Year": "2013",
+    "Visitors' country of residence": "Malta",
+    "distance_km": 1337.9,
+    "value": 3838.0
+  },
+  {
+    "Year": "2013",
+    "Visitors' country of residence": "Cyprus",
+    "distance_km": 2473.2,
+    "value": 5590.0
+  },
+  {
+    "Year": "2013",
+    "Visitors' country of residence": "Estonia",
+    "distance_km": 1789.5,
+    "value": 11662.0
+  },
+  {
+    "Year": "2013",
+    "Visitors' country of residence": "Latvia",
+    "distance_km": 1604.5,
+    "value": 5031.0
+  },
+  {
+    "Year": "2013",
+    "Visitors' country of residence": "Lithuania",
+    "distance_km": 1489.1,
+    "value": 6271.0
+  },
+  {
+    "Year": "2013",
+    "Visitors' country of residence": "Croatia",
+    "distance_km": 614.6,
+    "value": 11703.0
+  },
+  {
+    "Year": "2013",
+    "Visitors' country of residence": "Romania",
+    "distance_km": 1307.1,
+    "value": 30880.0
+  },
+  {
+    "Year": "2013",
+    "Visitors' country of residence": "Russia",
+    "distance_km": 5752.8,
+    "value": 215603.0
+  },
+  {
+    "Year": "2013",
+    "Visitors' country of residence": "Slovakia",
+    "distance_km": 879.8,
+    "value": 14222.0
+  },
+  {
+    "Year": "2013",
+    "Visitors' country of residence": "Slovenia",
+    "distance_km": 531.7,
+    "value": 11655.0
+  },
+  {
+    "Year": "2013",
+    "Visitors' country of residence": "Czechia",
+    "distance_km": 633.8,
+    "value": 45974.0
+  },
+  {
+    "Year": "2013",
+    "Visitors' country of residence": "Ukraine",
+    "distance_km": 1797.1,
+    "value": 30387.0
+  },
+  {
+    "Year": "2013",
+    "Visitors' country of residence": "Serbia",
+    "distance_km": 1067.9,
+    "value": 14474.0
+  },
+  {
+    "Year": "2014",
+    "Visitors' country of residence": "Switzerland",
+    "distance_km": 0.0,
+    "value": 8003793.0
+  },
+  {
+    "Year": "2014",
+    "Visitors' country of residence": "Germany",
+    "distance_km": 450.8,
+    "value": 1811833.0
+  },
+  {
+    "Year": "2014",
+    "Visitors' country of residence": "France",
+    "distance_km": 473.7,
+    "value": 698588.0
+  },
+  {
+    "Year": "2014",
+    "Visitors' country of residence": "Italy",
+    "distance_km": 599.8,
+    "value": 504484.0
+  },
+  {
+    "Year": "2014",
+    "Visitors' country of residence": "Austria",
+    "distance_km": 406.0,
+    "value": 185871.0
+  },
+  {
+    "Year": "2014",
+    "Visitors' country of residence": "United Kingdom",
+    "distance_km": 1051.5,
+    "value": 711595.0
+  },
+  {
+    "Year": "2014",
+    "Visitors' country of residence": "Ireland",
+    "distance_km": 1322.9,
+    "value": 30720.0
+  },
+  {
+    "Year": "2014",
+    "Visitors' country of residence": "Netherlands",
+    "distance_km": 632.8,
+    "value": 293750.0
+  },
+  {
+    "Year": "2014",
+    "Visitors' country of residence": "Belgium",
+    "distance_km": 517.2,
+    "value": 209396.0
+  },
+  {
+    "Year": "2014",
+    "Visitors' country of residence": "Luxembourg",
+    "distance_km": 334.6,
+    "value": 40541.0
+  },
+  {
+    "Year": "2014",
+    "Visitors' country of residence": "Denmark",
+    "distance_km": 1010.8,
+    "value": 51592.0
+  },
+  {
+    "Year": "2014",
+    "Visitors' country of residence": "Sweden",
+    "distance_km": 1727.8,
+    "value": 85570.0
+  },
+  {
+    "Year": "2014",
+    "Visitors' country of residence": "Norway",
+    "distance_km": 1674.5,
+    "value": 44169.0
+  },
+  {
+    "Year": "2014",
+    "Visitors' country of residence": "Finland",
+    "distance_km": 2190.6,
+    "value": 34179.0
+  },
+  {
+    "Year": "2014",
+    "Visitors' country of residence": "Spain",
+    "distance_km": 1241.3,
+    "value": 207432.0
+  },
+  {
+    "Year": "2014",
+    "Visitors' country of residence": "Portugal",
+    "distance_km": 1539.0,
+    "value": 54104.0
+  },
+  {
+    "Year": "2014",
+    "Visitors' country of residence": "Greece",
+    "distance_km": 1443.0,
+    "value": 34678.0
+  },
+  {
+    "Year": "2014",
+    "Visitors' country of residence": "Turkey",
+    "distance_km": 2359.3,
+    "value": 44401.0
+  },
+  {
+    "Year": "2014",
+    "Visitors' country of residence": "Liechtenstein",
+    "distance_km": 120.0,
+    "value": 12556.0
+  },
+  {
+    "Year": "2014",
+    "Visitors' country of residence": "Iceland",
+    "distance_km": 2540.1,
+    "value": 4825.0
+  },
+  {
+    "Year": "2014",
+    "Visitors' country of residence": "Poland",
+    "distance_km": 1029.9,
+    "value": 58789.0
+  },
+  {
+    "Year": "2014",
+    "Visitors' country of residence": "Hungary",
+    "distance_km": 911.8,
+    "value": 34369.0
+  },
+  {
+    "Year": "2014",
+    "Visitors' country of residence": "Belarus",
+    "distance_km": 1574.6,
+    "value": 8095.0
+  },
+  {
+    "Year": "2014",
+    "Visitors' country of residence": "Bulgaria",
+    "distance_km": 1408.8,
+    "value": 15022.0
+  },
+  {
+    "Year": "2014",
+    "Visitors' country of residence": "Malta",
+    "distance_km": 1337.9,
+    "value": 3633.0
+  },
+  {
+    "Year": "2014",
+    "Visitors' country of residence": "Cyprus",
+    "distance_km": 2473.2,
+    "value": 5131.0
+  },
+  {
+    "Year": "2014",
+    "Visitors' country of residence": "Estonia",
+    "distance_km": 1789.5,
+    "value": 9238.0
+  },
+  {
+    "Year": "2014",
+    "Visitors' country of residence": "Latvia",
+    "distance_km": 1604.5,
+    "value": 5960.0
+  },
+  {
+    "Year": "2014",
+    "Visitors' country of residence": "Lithuania",
+    "distance_km": 1489.1,
+    "value": 6289.0
+  },
+  {
+    "Year": "2014",
+    "Visitors' country of residence": "Croatia",
+    "distance_km": 614.6,
+    "value": 10260.0
+  },
+  {
+    "Year": "2014",
+    "Visitors' country of residence": "Romania",
+    "distance_km": 1307.1,
+    "value": 32524.0
+  },
+  {
+    "Year": "2014",
+    "Visitors' country of residence": "Russia",
+    "distance_km": 5752.8,
+    "value": 194890.0
+  },
+  {
+    "Year": "2014",
+    "Visitors' country of residence": "Slovakia",
+    "distance_km": 879.8,
+    "value": 15688.0
+  },
+  {
+    "Year": "2014",
+    "Visitors' country of residence": "Slovenia",
+    "distance_km": 531.7,
+    "value": 11121.0
+  },
+  {
+    "Year": "2014",
+    "Visitors' country of residence": "Czechia",
+    "distance_km": 633.8,
+    "value": 45114.0
+  },
+  {
+    "Year": "2014",
+    "Visitors' country of residence": "Ukraine",
+    "distance_km": 1797.1,
+    "value": 26839.0
+  },
+  {
+    "Year": "2014",
+    "Visitors' country of residence": "Serbia",
+    "distance_km": 1067.9,
+    "value": 12315.0
+  },
+  {
+    "Year": "2015",
+    "Visitors' country of residence": "Switzerland",
+    "distance_km": 0.0,
+    "value": 8124788.0
+  },
+  {
+    "Year": "2015",
+    "Visitors' country of residence": "Germany",
+    "distance_km": 450.8,
+    "value": 1616251.0
+  },
+  {
+    "Year": "2015",
+    "Visitors' country of residence": "France",
+    "distance_km": 473.7,
+    "value": 655062.0
+  },
+  {
+    "Year": "2015",
+    "Visitors' country of residence": "Italy",
+    "distance_km": 599.8,
+    "value": 478165.0
+  },
+  {
+    "Year": "2015",
+    "Visitors' country of residence": "Austria",
+    "distance_km": 406.0,
+    "value": 180219.0
+  },
+  {
+    "Year": "2015",
+    "Visitors' country of residence": "United Kingdom",
+    "distance_km": 1051.5,
+    "value": 709925.0
+  },
+  {
+    "Year": "2015",
+    "Visitors' country of residence": "Ireland",
+    "distance_km": 1322.9,
+    "value": 31745.0
+  },
+  {
+    "Year": "2015",
+    "Visitors' country of residence": "Netherlands",
+    "distance_km": 632.8,
+    "value": 251889.0
+  },
+  {
+    "Year": "2015",
+    "Visitors' country of residence": "Belgium",
+    "distance_km": 517.2,
+    "value": 190165.0
+  },
+  {
+    "Year": "2015",
+    "Visitors' country of residence": "Luxembourg",
+    "distance_km": 334.6,
+    "value": 35415.0
+  },
+  {
+    "Year": "2015",
+    "Visitors' country of residence": "Denmark",
+    "distance_km": 1010.8,
+    "value": 46520.0
+  },
+  {
+    "Year": "2015",
+    "Visitors' country of residence": "Sweden",
+    "distance_km": 1727.8,
+    "value": 77611.0
+  },
+  {
+    "Year": "2015",
+    "Visitors' country of residence": "Norway",
+    "distance_km": 1674.5,
+    "value": 40153.0
+  },
+  {
+    "Year": "2015",
+    "Visitors' country of residence": "Finland",
+    "distance_km": 2190.6,
+    "value": 33526.0
+  },
+  {
+    "Year": "2015",
+    "Visitors' country of residence": "Spain",
+    "distance_km": 1241.3,
+    "value": 202523.0
+  },
+  {
+    "Year": "2015",
+    "Visitors' country of residence": "Portugal",
+    "distance_km": 1539.0,
+    "value": 53452.0
+  },
+  {
+    "Year": "2015",
+    "Visitors' country of residence": "Greece",
+    "distance_km": 1443.0,
+    "value": 33734.0
+  },
+  {
+    "Year": "2015",
+    "Visitors' country of residence": "Turkey",
+    "distance_km": 2359.3,
+    "value": 47385.0
+  },
+  {
+    "Year": "2015",
+    "Visitors' country of residence": "Liechtenstein",
+    "distance_km": 120.0,
+    "value": 12480.0
+  },
+  {
+    "Year": "2015",
+    "Visitors' country of residence": "Iceland",
+    "distance_km": 2540.1,
+    "value": 5030.0
+  },
+  {
+    "Year": "2015",
+    "Visitors' country of residence": "Poland",
+    "distance_km": 1029.9,
+    "value": 58219.0
+  },
+  {
+    "Year": "2015",
+    "Visitors' country of residence": "Hungary",
+    "distance_km": 911.8,
+    "value": 31374.0
+  },
+  {
+    "Year": "2015",
+    "Visitors' country of residence": "Belarus",
+    "distance_km": 1574.6,
+    "value": 5434.0
+  },
+  {
+    "Year": "2015",
+    "Visitors' country of residence": "Bulgaria",
+    "distance_km": 1408.8,
+    "value": 14722.0
+  },
+  {
+    "Year": "2015",
+    "Visitors' country of residence": "Malta",
+    "distance_km": 1337.9,
+    "value": 3881.0
+  },
+  {
+    "Year": "2015",
+    "Visitors' country of residence": "Cyprus",
+    "distance_km": 2473.2,
+    "value": 4904.0
+  },
+  {
+    "Year": "2015",
+    "Visitors' country of residence": "Estonia",
+    "distance_km": 1789.5,
+    "value": 6368.0
+  },
+  {
+    "Year": "2015",
+    "Visitors' country of residence": "Latvia",
+    "distance_km": 1604.5,
+    "value": 5828.0
+  },
+  {
+    "Year": "2015",
+    "Visitors' country of residence": "Lithuania",
+    "distance_km": 1489.1,
+    "value": 5792.0
+  },
+  {
+    "Year": "2015",
+    "Visitors' country of residence": "Croatia",
+    "distance_km": 614.6,
+    "value": 9924.0
+  },
+  {
+    "Year": "2015",
+    "Visitors' country of residence": "Romania",
+    "distance_km": 1307.1,
+    "value": 35147.0
+  },
+  {
+    "Year": "2015",
+    "Visitors' country of residence": "Russia",
+    "distance_km": 5752.8,
+    "value": 133043.0
+  },
+  {
+    "Year": "2015",
+    "Visitors' country of residence": "Slovakia",
+    "distance_km": 879.8,
+    "value": 15121.0
+  },
+  {
+    "Year": "2015",
+    "Visitors' country of residence": "Slovenia",
+    "distance_km": 531.7,
+    "value": 10833.0
+  },
+  {
+    "Year": "2015",
+    "Visitors' country of residence": "Czechia",
+    "distance_km": 633.8,
+    "value": 42297.0
+  },
+  {
+    "Year": "2015",
+    "Visitors' country of residence": "Ukraine",
+    "distance_km": 1797.1,
+    "value": 25265.0
+  },
+  {
+    "Year": "2015",
+    "Visitors' country of residence": "Serbia",
+    "distance_km": 1067.9,
+    "value": 11677.0
+  },
+  {
+    "Year": "2016",
+    "Visitors' country of residence": "Switzerland",
+    "distance_km": 0.0,
+    "value": 8273130.0
+  },
+  {
+    "Year": "2016",
+    "Visitors' country of residence": "Germany",
+    "distance_km": 450.8,
+    "value": 1616180.0
+  },
+  {
+    "Year": "2016",
+    "Visitors' country of residence": "France",
+    "distance_km": 473.7,
+    "value": 670966.0
+  },
+  {
+    "Year": "2016",
+    "Visitors' country of residence": "Italy",
+    "distance_km": 599.8,
+    "value": 476965.0
+  },
+  {
+    "Year": "2016",
+    "Visitors' country of residence": "Austria",
+    "distance_km": 406.0,
+    "value": 188300.0
+  },
+  {
+    "Year": "2016",
+    "Visitors' country of residence": "United Kingdom",
+    "distance_km": 1051.5,
+    "value": 703933.0
+  },
+  {
+    "Year": "2016",
+    "Visitors' country of residence": "Ireland",
+    "distance_km": 1322.9,
+    "value": 33200.0
+  },
+  {
+    "Year": "2016",
+    "Visitors' country of residence": "Netherlands",
+    "distance_km": 632.8,
+    "value": 264450.0
+  },
+  {
+    "Year": "2016",
+    "Visitors' country of residence": "Belgium",
+    "distance_km": 517.2,
+    "value": 194702.0
+  },
+  {
+    "Year": "2016",
+    "Visitors' country of residence": "Luxembourg",
+    "distance_km": 334.6,
+    "value": 37243.0
+  },
+  {
+    "Year": "2016",
+    "Visitors' country of residence": "Denmark",
+    "distance_km": 1010.8,
+    "value": 51250.0
+  },
+  {
+    "Year": "2016",
+    "Visitors' country of residence": "Sweden",
+    "distance_km": 1727.8,
+    "value": 77326.0
+  },
+  {
+    "Year": "2016",
+    "Visitors' country of residence": "Norway",
+    "distance_km": 1674.5,
+    "value": 41591.0
+  },
+  {
+    "Year": "2016",
+    "Visitors' country of residence": "Finland",
+    "distance_km": 2190.6,
+    "value": 33262.0
+  },
+  {
+    "Year": "2016",
+    "Visitors' country of residence": "Spain",
+    "distance_km": 1241.3,
+    "value": 210943.0
+  },
+  {
+    "Year": "2016",
+    "Visitors' country of residence": "Portugal",
+    "distance_km": 1539.0,
+    "value": 57205.0
+  },
+  {
+    "Year": "2016",
+    "Visitors' country of residence": "Greece",
+    "distance_km": 1443.0,
+    "value": 38343.0
+  },
+  {
+    "Year": "2016",
+    "Visitors' country of residence": "Turkey",
+    "distance_km": 2359.3,
+    "value": 53645.0
+  },
+  {
+    "Year": "2016",
+    "Visitors' country of residence": "Liechtenstein",
+    "distance_km": 120.0,
+    "value": 14030.0
+  },
+  {
+    "Year": "2016",
+    "Visitors' country of residence": "Iceland",
+    "distance_km": 2540.1,
+    "value": 5924.0
+  },
+  {
+    "Year": "2016",
+    "Visitors' country of residence": "Poland",
+    "distance_km": 1029.9,
+    "value": 63550.0
+  },
+  {
+    "Year": "2016",
+    "Visitors' country of residence": "Hungary",
+    "distance_km": 911.8,
+    "value": 35483.0
+  },
+  {
+    "Year": "2016",
+    "Visitors' country of residence": "Belarus",
+    "distance_km": 1574.6,
+    "value": 5221.0
+  },
+  {
+    "Year": "2016",
+    "Visitors' country of residence": "Bulgaria",
+    "distance_km": 1408.8,
+    "value": 15235.0
+  },
+  {
+    "Year": "2016",
+    "Visitors' country of residence": "Malta",
+    "distance_km": 1337.9,
+    "value": 4736.0
+  },
+  {
+    "Year": "2016",
+    "Visitors' country of residence": "Cyprus",
+    "distance_km": 2473.2,
+    "value": 5771.0
+  },
+  {
+    "Year": "2016",
+    "Visitors' country of residence": "Estonia",
+    "distance_km": 1789.5,
+    "value": 7295.0
+  },
+  {
+    "Year": "2016",
+    "Visitors' country of residence": "Latvia",
+    "distance_km": 1604.5,
+    "value": 5664.0
+  },
+  {
+    "Year": "2016",
+    "Visitors' country of residence": "Lithuania",
+    "distance_km": 1489.1,
+    "value": 6412.0
+  },
+  {
+    "Year": "2016",
+    "Visitors' country of residence": "Croatia",
+    "distance_km": 614.6,
+    "value": 11547.0
+  },
+  {
+    "Year": "2016",
+    "Visitors' country of residence": "Romania",
+    "distance_km": 1307.1,
+    "value": 35913.0
+  },
+  {
+    "Year": "2016",
+    "Visitors' country of residence": "Russia",
+    "distance_km": 5752.8,
+    "value": 119322.0
+  },
+  {
+    "Year": "2016",
+    "Visitors' country of residence": "Slovakia",
+    "distance_km": 879.8,
+    "value": 16002.0
+  },
+  {
+    "Year": "2016",
+    "Visitors' country of residence": "Slovenia",
+    "distance_km": 531.7,
+    "value": 11018.0
+  },
+  {
+    "Year": "2016",
+    "Visitors' country of residence": "Czechia",
+    "distance_km": 633.8,
+    "value": 41916.0
+  },
+  {
+    "Year": "2016",
+    "Visitors' country of residence": "Ukraine",
+    "distance_km": 1797.1,
+    "value": 23784.0
+  },
+  {
+    "Year": "2016",
+    "Visitors' country of residence": "Serbia",
+    "distance_km": 1067.9,
+    "value": 11697.0
+  },
+  {
+    "Year": "2017",
+    "Visitors' country of residence": "Switzerland",
+    "distance_km": 0.0,
+    "value": 8672753.0
+  },
+  {
+    "Year": "2017",
+    "Visitors' country of residence": "Germany",
+    "distance_km": 450.8,
+    "value": 1652977.0
+  },
+  {
+    "Year": "2017",
+    "Visitors' country of residence": "France",
+    "distance_km": 473.7,
+    "value": 680806.0
+  },
+  {
+    "Year": "2017",
+    "Visitors' country of residence": "Italy",
+    "distance_km": 599.8,
+    "value": 487914.0
+  },
+  {
+    "Year": "2017",
+    "Visitors' country of residence": "Austria",
+    "distance_km": 406.0,
+    "value": 191833.0
+  },
+  {
+    "Year": "2017",
+    "Visitors' country of residence": "United Kingdom",
+    "distance_km": 1051.5,
+    "value": 708193.0
+  },
+  {
+    "Year": "2017",
+    "Visitors' country of residence": "Ireland",
+    "distance_km": 1322.9,
+    "value": 37484.0
+  },
+  {
+    "Year": "2017",
+    "Visitors' country of residence": "Netherlands",
+    "distance_km": 632.8,
+    "value": 279385.0
+  },
+  {
+    "Year": "2017",
+    "Visitors' country of residence": "Belgium",
+    "distance_km": 517.2,
+    "value": 195605.0
+  },
+  {
+    "Year": "2017",
+    "Visitors' country of residence": "Luxembourg",
+    "distance_km": 334.6,
+    "value": 38394.0
+  },
+  {
+    "Year": "2017",
+    "Visitors' country of residence": "Denmark",
+    "distance_km": 1010.8,
+    "value": 55425.0
+  },
+  {
+    "Year": "2017",
+    "Visitors' country of residence": "Sweden",
+    "distance_km": 1727.8,
+    "value": 78664.0
+  },
+  {
+    "Year": "2017",
+    "Visitors' country of residence": "Norway",
+    "distance_km": 1674.5,
+    "value": 43739.0
+  },
+  {
+    "Year": "2017",
+    "Visitors' country of residence": "Finland",
+    "distance_km": 2190.6,
+    "value": 33965.0
+  },
+  {
+    "Year": "2017",
+    "Visitors' country of residence": "Spain",
+    "distance_km": 1241.3,
+    "value": 234456.0
+  },
+  {
+    "Year": "2017",
+    "Visitors' country of residence": "Portugal",
+    "distance_km": 1539.0,
+    "value": 63148.0
+  },
+  {
+    "Year": "2017",
+    "Visitors' country of residence": "Greece",
+    "distance_km": 1443.0,
+    "value": 37711.0
+  },
+  {
+    "Year": "2017",
+    "Visitors' country of residence": "Turkey",
+    "distance_km": 2359.3,
+    "value": 54834.0
+  },
+  {
+    "Year": "2017",
+    "Visitors' country of residence": "Liechtenstein",
+    "distance_km": 120.0,
+    "value": 14776.0
+  },
+  {
+    "Year": "2017",
+    "Visitors' country of residence": "Iceland",
+    "distance_km": 2540.1,
+    "value": 5859.0
+  },
+  {
+    "Year": "2017",
+    "Visitors' country of residence": "Poland",
+    "distance_km": 1029.9,
+    "value": 66559.0
+  },
+  {
+    "Year": "2017",
+    "Visitors' country of residence": "Hungary",
+    "distance_km": 911.8,
+    "value": 35491.0
+  },
+  {
+    "Year": "2017",
+    "Visitors' country of residence": "Belarus",
+    "distance_km": 1574.6,
+    "value": 6630.0
+  },
+  {
+    "Year": "2017",
+    "Visitors' country of residence": "Bulgaria",
+    "distance_km": 1408.8,
+    "value": 16462.0
+  },
+  {
+    "Year": "2017",
+    "Visitors' country of residence": "Malta",
+    "distance_km": 1337.9,
+    "value": 5627.0
+  },
+  {
+    "Year": "2017",
+    "Visitors' country of residence": "Cyprus",
+    "distance_km": 2473.2,
+    "value": 5807.0
+  },
+  {
+    "Year": "2017",
+    "Visitors' country of residence": "Estonia",
+    "distance_km": 1789.5,
+    "value": 6822.0
+  },
+  {
+    "Year": "2017",
+    "Visitors' country of residence": "Latvia",
+    "distance_km": 1604.5,
+    "value": 6123.0
+  },
+  {
+    "Year": "2017",
+    "Visitors' country of residence": "Lithuania",
+    "distance_km": 1489.1,
+    "value": 7246.0
+  },
+  {
+    "Year": "2017",
+    "Visitors' country of residence": "Croatia",
+    "distance_km": 614.6,
+    "value": 11491.0
+  },
+  {
+    "Year": "2017",
+    "Visitors' country of residence": "Romania",
+    "distance_km": 1307.1,
+    "value": 37530.0
+  },
+  {
+    "Year": "2017",
+    "Visitors' country of residence": "Russia",
+    "distance_km": 5752.8,
+    "value": 135518.0
+  },
+  {
+    "Year": "2017",
+    "Visitors' country of residence": "Slovakia",
+    "distance_km": 879.8,
+    "value": 18109.0
+  },
+  {
+    "Year": "2017",
+    "Visitors' country of residence": "Slovenia",
+    "distance_km": 531.7,
+    "value": 12131.0
+  },
+  {
+    "Year": "2017",
+    "Visitors' country of residence": "Czechia",
+    "distance_km": 633.8,
+    "value": 43997.0
+  },
+  {
+    "Year": "2017",
+    "Visitors' country of residence": "Ukraine",
+    "distance_km": 1797.1,
+    "value": 26362.0
+  },
+  {
+    "Year": "2017",
+    "Visitors' country of residence": "Serbia",
+    "distance_km": 1067.9,
+    "value": 12431.0
+  },
+  {
+    "Year": "2018",
+    "Visitors' country of residence": "Switzerland",
+    "distance_km": 0.0,
+    "value": 8991073.0
+  },
+  {
+    "Year": "2018",
+    "Visitors' country of residence": "Germany",
+    "distance_km": 450.8,
+    "value": 1732366.0
+  },
+  {
+    "Year": "2018",
+    "Visitors' country of residence": "France",
+    "distance_km": 473.7,
+    "value": 713972.0
+  },
+  {
+    "Year": "2018",
+    "Visitors' country of residence": "Italy",
+    "distance_km": 599.8,
+    "value": 483363.0
+  },
+  {
+    "Year": "2018",
+    "Visitors' country of residence": "Austria",
+    "distance_km": 406.0,
+    "value": 191739.0
+  },
+  {
+    "Year": "2018",
+    "Visitors' country of residence": "United Kingdom",
+    "distance_km": 1051.5,
+    "value": 720495.0
+  },
+  {
+    "Year": "2018",
+    "Visitors' country of residence": "Ireland",
+    "distance_km": 1322.9,
+    "value": 40402.0
+  },
+  {
+    "Year": "2018",
+    "Visitors' country of residence": "Netherlands",
+    "distance_km": 632.8,
+    "value": 296303.0
+  },
+  {
+    "Year": "2018",
+    "Visitors' country of residence": "Belgium",
+    "distance_km": 517.2,
+    "value": 204569.0
+  },
+  {
+    "Year": "2018",
+    "Visitors' country of residence": "Luxembourg",
+    "distance_km": 334.6,
+    "value": 39680.0
+  },
+  {
+    "Year": "2018",
+    "Visitors' country of residence": "Denmark",
+    "distance_km": 1010.8,
+    "value": 57079.0
+  },
+  {
+    "Year": "2018",
+    "Visitors' country of residence": "Sweden",
+    "distance_km": 1727.8,
+    "value": 84955.0
+  },
+  {
+    "Year": "2018",
+    "Visitors' country of residence": "Norway",
+    "distance_km": 1674.5,
+    "value": 44622.0
+  },
+  {
+    "Year": "2018",
+    "Visitors' country of residence": "Finland",
+    "distance_km": 2190.6,
+    "value": 35887.0
+  },
+  {
+    "Year": "2018",
+    "Visitors' country of residence": "Spain",
+    "distance_km": 1241.3,
+    "value": 248247.0
+  },
+  {
+    "Year": "2018",
+    "Visitors' country of residence": "Portugal",
+    "distance_km": 1539.0,
+    "value": 64359.0
+  },
+  {
+    "Year": "2018",
+    "Visitors' country of residence": "Greece",
+    "distance_km": 1443.0,
+    "value": 38552.0
+  },
+  {
+    "Year": "2018",
+    "Visitors' country of residence": "Turkey",
+    "distance_km": 2359.3,
+    "value": 48732.0
+  },
+  {
+    "Year": "2018",
+    "Visitors' country of residence": "Liechtenstein",
+    "distance_km": 120.0,
+    "value": 15772.0
+  },
+  {
+    "Year": "2018",
+    "Visitors' country of residence": "Iceland",
+    "distance_km": 2540.1,
+    "value": 6615.0
+  },
+  {
+    "Year": "2018",
+    "Visitors' country of residence": "Poland",
+    "distance_km": 1029.9,
+    "value": 72447.0
+  },
+  {
+    "Year": "2018",
+    "Visitors' country of residence": "Hungary",
+    "distance_km": 911.8,
+    "value": 35342.0
+  },
+  {
+    "Year": "2018",
+    "Visitors' country of residence": "Belarus",
+    "distance_km": 1574.6,
+    "value": 7039.0
+  },
+  {
+    "Year": "2018",
+    "Visitors' country of residence": "Bulgaria",
+    "distance_km": 1408.8,
+    "value": 16490.0
+  },
+  {
+    "Year": "2018",
+    "Visitors' country of residence": "Malta",
+    "distance_km": 1337.9,
+    "value": 6078.0
+  },
+  {
+    "Year": "2018",
+    "Visitors' country of residence": "Cyprus",
+    "distance_km": 2473.2,
+    "value": 6990.0
+  },
+  {
+    "Year": "2018",
+    "Visitors' country of residence": "Estonia",
+    "distance_km": 1789.5,
+    "value": 7544.0
+  },
+  {
+    "Year": "2018",
+    "Visitors' country of residence": "Latvia",
+    "distance_km": 1604.5,
+    "value": 6739.0
+  },
+  {
+    "Year": "2018",
+    "Visitors' country of residence": "Lithuania",
+    "distance_km": 1489.1,
+    "value": 7999.0
+  },
+  {
+    "Year": "2018",
+    "Visitors' country of residence": "Croatia",
+    "distance_km": 614.6,
+    "value": 12402.0
+  },
+  {
+    "Year": "2018",
+    "Visitors' country of residence": "Romania",
+    "distance_km": 1307.1,
+    "value": 39309.0
+  },
+  {
+    "Year": "2018",
+    "Visitors' country of residence": "Russia",
+    "distance_km": 5752.8,
+    "value": 137883.0
+  },
+  {
+    "Year": "2018",
+    "Visitors' country of residence": "Slovakia",
+    "distance_km": 879.8,
+    "value": 17144.0
+  },
+  {
+    "Year": "2018",
+    "Visitors' country of residence": "Slovenia",
+    "distance_km": 531.7,
+    "value": 12707.0
+  },
+  {
+    "Year": "2018",
+    "Visitors' country of residence": "Czechia",
+    "distance_km": 633.8,
+    "value": 49762.0
+  },
+  {
+    "Year": "2018",
+    "Visitors' country of residence": "Ukraine",
+    "distance_km": 1797.1,
+    "value": 30746.0
+  },
+  {
+    "Year": "2018",
+    "Visitors' country of residence": "Serbia",
+    "distance_km": 1067.9,
+    "value": 11795.0
+  },
+  {
+    "Year": "2019",
+    "Visitors' country of residence": "Switzerland",
+    "distance_km": 0.0,
+    "value": 9279360.0
+  },
+  {
+    "Year": "2019",
+    "Visitors' country of residence": "Germany",
+    "distance_km": 450.8,
+    "value": 1746134.0
+  },
+  {
+    "Year": "2019",
+    "Visitors' country of residence": "France",
+    "distance_km": 473.7,
+    "value": 723860.0
+  },
+  {
+    "Year": "2019",
+    "Visitors' country of residence": "Italy",
+    "distance_km": 599.8,
+    "value": 471601.0
+  },
+  {
+    "Year": "2019",
+    "Visitors' country of residence": "Austria",
+    "distance_km": 406.0,
+    "value": 188112.0
+  },
+  {
+    "Year": "2019",
+    "Visitors' country of residence": "United Kingdom",
+    "distance_km": 1051.5,
+    "value": 718092.0
+  },
+  {
+    "Year": "2019",
+    "Visitors' country of residence": "Ireland",
+    "distance_km": 1322.9,
+    "value": 41969.0
+  },
+  {
+    "Year": "2019",
+    "Visitors' country of residence": "Netherlands",
+    "distance_km": 632.8,
+    "value": 298863.0
+  },
+  {
+    "Year": "2019",
+    "Visitors' country of residence": "Belgium",
+    "distance_km": 517.2,
+    "value": 208299.0
+  },
+  {
+    "Year": "2019",
+    "Visitors' country of residence": "Luxembourg",
+    "distance_km": 334.6,
+    "value": 42396.0
+  },
+  {
+    "Year": "2019",
+    "Visitors' country of residence": "Denmark",
+    "distance_km": 1010.8,
+    "value": 58159.0
+  },
+  {
+    "Year": "2019",
+    "Visitors' country of residence": "Sweden",
+    "distance_km": 1727.8,
+    "value": 82392.0
+  },
+  {
+    "Year": "2019",
+    "Visitors' country of residence": "Norway",
+    "distance_km": 1674.5,
+    "value": 44551.0
+  },
+  {
+    "Year": "2019",
+    "Visitors' country of residence": "Finland",
+    "distance_km": 2190.6,
+    "value": 35316.0
+  },
+  {
+    "Year": "2019",
+    "Visitors' country of residence": "Spain",
+    "distance_km": 1241.3,
+    "value": 240436.0
+  },
+  {
+    "Year": "2019",
+    "Visitors' country of residence": "Portugal",
+    "distance_km": 1539.0,
+    "value": 65390.0
+  },
+  {
+    "Year": "2019",
+    "Visitors' country of residence": "Greece",
+    "distance_km": 1443.0,
+    "value": 35326.0
+  },
+  {
+    "Year": "2019",
+    "Visitors' country of residence": "Turkey",
+    "distance_km": 2359.3,
+    "value": 47399.0
+  },
+  {
+    "Year": "2019",
+    "Visitors' country of residence": "Liechtenstein",
+    "distance_km": 120.0,
+    "value": 16537.0
+  },
+  {
+    "Year": "2019",
+    "Visitors' country of residence": "Iceland",
+    "distance_km": 2540.1,
+    "value": 6689.0
+  },
+  {
+    "Year": "2019",
+    "Visitors' country of residence": "Poland",
+    "distance_km": 1029.9,
+    "value": 72287.0
+  },
+  {
+    "Year": "2019",
+    "Visitors' country of residence": "Hungary",
+    "distance_km": 911.8,
+    "value": 37620.0
+  },
+  {
+    "Year": "2019",
+    "Visitors' country of residence": "Belarus",
+    "distance_km": 1574.6,
+    "value": 6244.0
+  },
+  {
+    "Year": "2019",
+    "Visitors' country of residence": "Bulgaria",
+    "distance_km": 1408.8,
+    "value": 15087.0
+  },
+  {
+    "Year": "2019",
+    "Visitors' country of residence": "Malta",
+    "distance_km": 1337.9,
+    "value": 6124.0
+  },
+  {
+    "Year": "2019",
+    "Visitors' country of residence": "Cyprus",
+    "distance_km": 2473.2,
+    "value": 6671.0
+  },
+  {
+    "Year": "2019",
+    "Visitors' country of residence": "Estonia",
+    "distance_km": 1789.5,
+    "value": 6922.0
+  },
+  {
+    "Year": "2019",
+    "Visitors' country of residence": "Latvia",
+    "distance_km": 1604.5,
+    "value": 6626.0
+  },
+  {
+    "Year": "2019",
+    "Visitors' country of residence": "Lithuania",
+    "distance_km": 1489.1,
+    "value": 7910.0
+  },
+  {
+    "Year": "2019",
+    "Visitors' country of residence": "Croatia",
+    "distance_km": 614.6,
+    "value": 12313.0
+  },
+  {
+    "Year": "2019",
+    "Visitors' country of residence": "Romania",
+    "distance_km": 1307.1,
+    "value": 39820.0
+  },
+  {
+    "Year": "2019",
+    "Visitors' country of residence": "Russia",
+    "distance_km": 5752.8,
+    "value": 141430.0
+  },
+  {
+    "Year": "2019",
+    "Visitors' country of residence": "Slovakia",
+    "distance_km": 879.8,
+    "value": 17381.0
+  },
+  {
+    "Year": "2019",
+    "Visitors' country of residence": "Slovenia",
+    "distance_km": 531.7,
+    "value": 12558.0
+  },
+  {
+    "Year": "2019",
+    "Visitors' country of residence": "Czechia",
+    "distance_km": 633.8,
+    "value": 50850.0
+  },
+  {
+    "Year": "2019",
+    "Visitors' country of residence": "Ukraine",
+    "distance_km": 1797.1,
+    "value": 33022.0
+  },
+  {
+    "Year": "2019",
+    "Visitors' country of residence": "Serbia",
+    "distance_km": 1067.9,
+    "value": 12640.0
+  },
+  {
+    "Year": "2020",
+    "Visitors' country of residence": "Switzerland",
+    "distance_km": 0.0,
+    "value": 7694605.0
+  },
+  {
+    "Year": "2020",
+    "Visitors' country of residence": "Germany",
+    "distance_km": 450.8,
+    "value": 885226.0
+  },
+  {
+    "Year": "2020",
+    "Visitors' country of residence": "France",
+    "distance_km": 473.7,
+    "value": 414385.0
+  },
+  {
+    "Year": "2020",
+    "Visitors' country of residence": "Italy",
+    "distance_km": 599.8,
+    "value": 198609.0
+  },
+  {
+    "Year": "2020",
+    "Visitors' country of residence": "Austria",
+    "distance_km": 406.0,
+    "value": 84404.0
+  },
+  {
+    "Year": "2020",
+    "Visitors' country of residence": "United Kingdom",
+    "distance_km": 1051.5,
+    "value": 193636.0
+  },
+  {
+    "Year": "2020",
+    "Visitors' country of residence": "Ireland",
+    "distance_km": 1322.9,
+    "value": 11413.0
+  },
+  {
+    "Year": "2020",
+    "Visitors' country of residence": "Netherlands",
+    "distance_km": 632.8,
+    "value": 166247.0
+  },
+  {
+    "Year": "2020",
+    "Visitors' country of residence": "Belgium",
+    "distance_km": 517.2,
+    "value": 105578.0
+  },
+  {
+    "Year": "2020",
+    "Visitors' country of residence": "Luxembourg",
+    "distance_km": 334.6,
+    "value": 16908.0
+  },
+  {
+    "Year": "2020",
+    "Visitors' country of residence": "Denmark",
+    "distance_km": 1010.8,
+    "value": 19274.0
+  },
+  {
+    "Year": "2020",
+    "Visitors' country of residence": "Sweden",
+    "distance_km": 1727.8,
+    "value": 24644.0
+  },
+  {
+    "Year": "2020",
+    "Visitors' country of residence": "Norway",
+    "distance_km": 1674.5,
+    "value": 9731.0
+  },
+  {
+    "Year": "2020",
+    "Visitors' country of residence": "Finland",
+    "distance_km": 2190.6,
+    "value": 9654.0
+  },
+  {
+    "Year": "2020",
+    "Visitors' country of residence": "Spain",
+    "distance_km": 1241.3,
+    "value": 54609.0
+  },
+  {
+    "Year": "2020",
+    "Visitors' country of residence": "Portugal",
+    "distance_km": 1539.0,
+    "value": 25301.0
+  },
+  {
+    "Year": "2020",
+    "Visitors' country of residence": "Greece",
+    "distance_km": 1443.0,
+    "value": 10803.0
+  },
+  {
+    "Year": "2020",
+    "Visitors' country of residence": "Turkey",
+    "distance_km": 2359.3,
+    "value": 11840.0
+  },
+  {
+    "Year": "2020",
+    "Visitors' country of residence": "Liechtenstein",
+    "distance_km": 120.0,
+    "value": 12294.0
+  },
+  {
+    "Year": "2020",
+    "Visitors' country of residence": "Iceland",
+    "distance_km": 2540.1,
+    "value": 1137.0
+  },
+  {
+    "Year": "2020",
+    "Visitors' country of residence": "Poland",
+    "distance_km": 1029.9,
+    "value": 31462.0
+  },
+  {
+    "Year": "2020",
+    "Visitors' country of residence": "Hungary",
+    "distance_km": 911.8,
+    "value": 10685.0
+  },
+  {
+    "Year": "2020",
+    "Visitors' country of residence": "Belarus",
+    "distance_km": 1574.6,
+    "value": 1509.0
+  },
+  {
+    "Year": "2020",
+    "Visitors' country of residence": "Bulgaria",
+    "distance_km": 1408.8,
+    "value": 5614.0
+  },
+  {
+    "Year": "2020",
+    "Visitors' country of residence": "Malta",
+    "distance_km": 1337.9,
+    "value": 2298.0
+  },
+  {
+    "Year": "2020",
+    "Visitors' country of residence": "Cyprus",
+    "distance_km": 2473.2,
+    "value": 2755.0
+  },
+  {
+    "Year": "2020",
+    "Visitors' country of residence": "Estonia",
+    "distance_km": 1789.5,
+    "value": 3379.0
+  },
+  {
+    "Year": "2020",
+    "Visitors' country of residence": "Latvia",
+    "distance_km": 1604.5,
+    "value": 2223.0
+  },
+  {
+    "Year": "2020",
+    "Visitors' country of residence": "Lithuania",
+    "distance_km": 1489.1,
+    "value": 2731.0
+  },
+  {
+    "Year": "2020",
+    "Visitors' country of residence": "Croatia",
+    "distance_km": 614.6,
+    "value": 4005.0
+  },
+  {
+    "Year": "2020",
+    "Visitors' country of residence": "Romania",
+    "distance_km": 1307.1,
+    "value": 14786.0
+  },
+  {
+    "Year": "2020",
+    "Visitors' country of residence": "Russia",
+    "distance_km": 5752.8,
+    "value": 42193.0
+  },
+  {
+    "Year": "2020",
+    "Visitors' country of residence": "Slovakia",
+    "distance_km": 879.8,
+    "value": 6202.0
+  },
+  {
+    "Year": "2020",
+    "Visitors' country of residence": "Slovenia",
+    "distance_km": 531.7,
+    "value": 4471.0
+  },
+  {
+    "Year": "2020",
+    "Visitors' country of residence": "Czechia",
+    "distance_km": 633.8,
+    "value": 18304.0
+  },
+  {
+    "Year": "2020",
+    "Visitors' country of residence": "Ukraine",
+    "distance_km": 1797.1,
+    "value": 9470.0
+  },
+  {
+    "Year": "2020",
+    "Visitors' country of residence": "Serbia",
+    "distance_km": 1067.9,
+    "value": 3944.0
+  },
+  {
+    "Year": "2021",
+    "Visitors' country of residence": "Switzerland",
+    "distance_km": 0.0,
+    "value": 10056647.0
+  },
+  {
+    "Year": "2021",
+    "Visitors' country of residence": "Germany",
+    "distance_km": 450.8,
+    "value": 1071148.0
+  },
+  {
+    "Year": "2021",
+    "Visitors' country of residence": "France",
+    "distance_km": 473.7,
+    "value": 523455.0
+  },
+  {
+    "Year": "2021",
+    "Visitors' country of residence": "Italy",
+    "distance_km": 599.8,
+    "value": 254307.0
+  },
+  {
+    "Year": "2021",
+    "Visitors' country of residence": "Austria",
+    "distance_km": 406.0,
+    "value": 107129.0
+  },
+  {
+    "Year": "2021",
+    "Visitors' country of residence": "United Kingdom",
+    "distance_km": 1051.5,
+    "value": 129070.0
+  },
+  {
+    "Year": "2021",
+    "Visitors' country of residence": "Ireland",
+    "distance_km": 1322.9,
+    "value": 13076.0
+  },
+  {
+    "Year": "2021",
+    "Visitors' country of residence": "Netherlands",
+    "distance_km": 632.8,
+    "value": 202573.0
+  },
+  {
+    "Year": "2021",
+    "Visitors' country of residence": "Belgium",
+    "distance_km": 517.2,
+    "value": 111293.0
+  },
+  {
+    "Year": "2021",
+    "Visitors' country of residence": "Luxembourg",
+    "distance_km": 334.6,
+    "value": 29197.0
+  },
+  {
+    "Year": "2021",
+    "Visitors' country of residence": "Denmark",
+    "distance_km": 1010.8,
+    "value": 28805.0
+  },
+  {
+    "Year": "2021",
+    "Visitors' country of residence": "Sweden",
+    "distance_km": 1727.8,
+    "value": 22318.0
+  },
+  {
+    "Year": "2021",
+    "Visitors' country of residence": "Norway",
+    "distance_km": 1674.5,
+    "value": 8158.0
+  },
+  {
+    "Year": "2021",
+    "Visitors' country of residence": "Finland",
+    "distance_km": 2190.6,
+    "value": 11480.0
+  },
+  {
+    "Year": "2021",
+    "Visitors' country of residence": "Spain",
+    "distance_km": 1241.3,
+    "value": 95127.0
+  },
+  {
+    "Year": "2021",
+    "Visitors' country of residence": "Portugal",
+    "distance_km": 1539.0,
+    "value": 32887.0
+  },
+  {
+    "Year": "2021",
+    "Visitors' country of residence": "Greece",
+    "distance_km": 1443.0,
+    "value": 16239.0
+  },
+  {
+    "Year": "2021",
+    "Visitors' country of residence": "Turkey",
+    "distance_km": 2359.3,
+    "value": 11776.0
+  },
+  {
+    "Year": "2021",
+    "Visitors' country of residence": "Liechtenstein",
+    "distance_km": 120.0,
+    "value": 18456.0
+  },
+  {
+    "Year": "2021",
+    "Visitors' country of residence": "Iceland",
+    "distance_km": 2540.1,
+    "value": 1856.0
+  },
+  {
+    "Year": "2021",
+    "Visitors' country of residence": "Poland",
+    "distance_km": 1029.9,
+    "value": 54553.0
+  },
+  {
+    "Year": "2021",
+    "Visitors' country of residence": "Hungary",
+    "distance_km": 911.8,
+    "value": 15826.0
+  },
+  {
+    "Year": "2021",
+    "Visitors' country of residence": "Belarus",
+    "distance_km": 1574.6,
+    "value": 1595.0
+  },
+  {
+    "Year": "2021",
+    "Visitors' country of residence": "Bulgaria",
+    "distance_km": 1408.8,
+    "value": 8693.0
+  },
+  {
+    "Year": "2021",
+    "Visitors' country of residence": "Malta",
+    "distance_km": 1337.9,
+    "value": 4001.0
+  },
+  {
+    "Year": "2021",
+    "Visitors' country of residence": "Cyprus",
+    "distance_km": 2473.2,
+    "value": 3895.0
+  },
+  {
+    "Year": "2021",
+    "Visitors' country of residence": "Estonia",
+    "distance_km": 1789.5,
+    "value": 4948.0
+  },
+  {
+    "Year": "2021",
+    "Visitors' country of residence": "Latvia",
+    "distance_km": 1604.5,
+    "value": 3778.0
+  },
+  {
+    "Year": "2021",
+    "Visitors' country of residence": "Lithuania",
+    "distance_km": 1489.1,
+    "value": 4534.0
+  },
+  {
+    "Year": "2021",
+    "Visitors' country of residence": "Croatia",
+    "distance_km": 614.6,
+    "value": 5838.0
+  },
+  {
+    "Year": "2021",
+    "Visitors' country of residence": "Romania",
+    "distance_km": 1307.1,
+    "value": 30152.0
+  },
+  {
+    "Year": "2021",
+    "Visitors' country of residence": "Russia",
+    "distance_km": 5752.8,
+    "value": 30495.0
+  },
+  {
+    "Year": "2021",
+    "Visitors' country of residence": "Slovakia",
+    "distance_km": 879.8,
+    "value": 7728.0
+  },
+  {
+    "Year": "2021",
+    "Visitors' country of residence": "Slovenia",
+    "distance_km": 531.7,
+    "value": 5768.0
+  },
+  {
+    "Year": "2021",
+    "Visitors' country of residence": "Czechia",
+    "distance_km": 633.8,
+    "value": 23837.0
+  },
+  {
+    "Year": "2021",
+    "Visitors' country of residence": "Ukraine",
+    "distance_km": 1797.1,
+    "value": 14238.0
+  },
+  {
+    "Year": "2021",
+    "Visitors' country of residence": "Serbia",
+    "distance_km": 1067.9,
+    "value": 5643.0
+  },
+  {
+    "Year": "2022",
+    "Visitors' country of residence": "Switzerland",
+    "distance_km": 0.0,
+    "value": 10581936.0
+  },
+  {
+    "Year": "2022",
+    "Visitors' country of residence": "Germany",
+    "distance_km": 450.8,
+    "value": 1578892.0
+  },
+  {
+    "Year": "2022",
+    "Visitors' country of residence": "France",
+    "distance_km": 473.7,
+    "value": 727164.0
+  },
+  {
+    "Year": "2022",
+    "Visitors' country of residence": "Italy",
+    "distance_km": 599.8,
+    "value": 411660.0
+  },
+  {
+    "Year": "2022",
+    "Visitors' country of residence": "Austria",
+    "distance_km": 406.0,
+    "value": 159818.0
+  },
+  {
+    "Year": "2022",
+    "Visitors' country of residence": "United Kingdom",
+    "distance_km": 1051.5,
+    "value": 564157.0
+  },
+  {
+    "Year": "2022",
+    "Visitors' country of residence": "Ireland",
+    "distance_km": 1322.9,
+    "value": 40289.0
+  },
+  {
+    "Year": "2022",
+    "Visitors' country of residence": "Netherlands",
+    "distance_km": 632.8,
+    "value": 329986.0
+  },
+  {
+    "Year": "2022",
+    "Visitors' country of residence": "Belgium",
+    "distance_km": 517.2,
+    "value": 186142.0
+  },
+  {
+    "Year": "2022",
+    "Visitors' country of residence": "Luxembourg",
+    "distance_km": 334.6,
+    "value": 39777.0
+  },
+  {
+    "Year": "2022",
+    "Visitors' country of residence": "Denmark",
+    "distance_km": 1010.8,
+    "value": 58938.0
+  },
+  {
+    "Year": "2022",
+    "Visitors' country of residence": "Sweden",
+    "distance_km": 1727.8,
+    "value": 65919.0
+  },
+  {
+    "Year": "2022",
+    "Visitors' country of residence": "Norway",
+    "distance_km": 1674.5,
+    "value": 35662.0
+  },
+  {
+    "Year": "2022",
+    "Visitors' country of residence": "Finland",
+    "distance_km": 2190.6,
+    "value": 30068.0
+  },
+  {
+    "Year": "2022",
+    "Visitors' country of residence": "Spain",
+    "distance_km": 1241.3,
+    "value": 206897.0
+  },
+  {
+    "Year": "2022",
+    "Visitors' country of residence": "Portugal",
+    "distance_km": 1539.0,
+    "value": 60373.0
+  },
+  {
+    "Year": "2022",
+    "Visitors' country of residence": "Greece",
+    "distance_km": 1443.0,
+    "value": 32459.0
+  },
+  {
+    "Year": "2022",
+    "Visitors' country of residence": "Turkey",
+    "distance_km": 2359.3,
+    "value": 34376.0
+  },
+  {
+    "Year": "2022",
+    "Visitors' country of residence": "Liechtenstein",
+    "distance_km": 120.0,
+    "value": 17801.0
+  },
+  {
+    "Year": "2022",
+    "Visitors' country of residence": "Iceland",
+    "distance_km": 2540.1,
+    "value": 5607.0
+  },
+  {
+    "Year": "2022",
+    "Visitors' country of residence": "Poland",
+    "distance_km": 1029.9,
+    "value": 67128.0
+  },
+  {
+    "Year": "2022",
+    "Visitors' country of residence": "Hungary",
+    "distance_km": 911.8,
+    "value": 28698.0
+  },
+  {
+    "Year": "2022",
+    "Visitors' country of residence": "Belarus",
+    "distance_km": 1574.6,
+    "value": 3138.0
+  },
+  {
+    "Year": "2022",
+    "Visitors' country of residence": "Bulgaria",
+    "distance_km": 1408.8,
+    "value": 20376.0
+  },
+  {
+    "Year": "2022",
+    "Visitors' country of residence": "Malta",
+    "distance_km": 1337.9,
+    "value": 7393.0
+  },
+  {
+    "Year": "2022",
+    "Visitors' country of residence": "Cyprus",
+    "distance_km": 2473.2,
+    "value": 7013.0
+  },
+  {
+    "Year": "2022",
+    "Visitors' country of residence": "Estonia",
+    "distance_km": 1789.5,
+    "value": 9041.0
+  },
+  {
+    "Year": "2022",
+    "Visitors' country of residence": "Latvia",
+    "distance_km": 1604.5,
+    "value": 7364.0
+  },
+  {
+    "Year": "2022",
+    "Visitors' country of residence": "Lithuania",
+    "distance_km": 1489.1,
+    "value": 9231.0
+  },
+  {
+    "Year": "2022",
+    "Visitors' country of residence": "Croatia",
+    "distance_km": 614.6,
+    "value": 12116.0
+  },
+  {
+    "Year": "2022",
+    "Visitors' country of residence": "Romania",
+    "distance_km": 1307.1,
+    "value": 38411.0
+  },
+  {
+    "Year": "2022",
+    "Visitors' country of residence": "Russia",
+    "distance_km": 5752.8,
+    "value": 35294.0
+  },
+  {
+    "Year": "2022",
+    "Visitors' country of residence": "Slovakia",
+    "distance_km": 879.8,
+    "value": 13878.0
+  },
+  {
+    "Year": "2022",
+    "Visitors' country of residence": "Slovenia",
+    "distance_km": 531.7,
+    "value": 11019.0
+  },
+  {
+    "Year": "2022",
+    "Visitors' country of residence": "Czechia",
+    "distance_km": 633.8,
+    "value": 45222.0
+  },
+  {
+    "Year": "2022",
+    "Visitors' country of residence": "Ukraine",
+    "distance_km": 1797.1,
+    "value": 34781.0
+  },
+  {
+    "Year": "2022",
+    "Visitors' country of residence": "Serbia",
+    "distance_km": 1067.9,
+    "value": 10634.0
+  },
+  {
+    "Year": "2023",
+    "Visitors' country of residence": "Switzerland",
+    "distance_km": 0.0,
+    "value": 10801489.0
+  },
+  {
+    "Year": "2023",
+    "Visitors' country of residence": "Germany",
+    "distance_km": 450.8,
+    "value": 1703293.0
+  },
+  {
+    "Year": "2023",
+    "Visitors' country of residence": "France",
+    "distance_km": 473.7,
+    "value": 802724.0
+  },
+  {
+    "Year": "2023",
+    "Visitors' country of residence": "Italy",
+    "distance_km": 599.8,
+    "value": 461561.0
+  },
+  {
+    "Year": "2023",
+    "Visitors' country of residence": "Austria",
+    "distance_km": 406.0,
+    "value": 175387.0
+  },
+  {
+    "Year": "2023",
+    "Visitors' country of residence": "United Kingdom",
+    "distance_km": 1051.5,
+    "value": 762246.0
+  },
+  {
+    "Year": "2023",
+    "Visitors' country of residence": "Ireland",
+    "distance_km": 1322.9,
+    "value": 49975.0
+  },
+  {
+    "Year": "2023",
+    "Visitors' country of residence": "Netherlands",
+    "distance_km": 632.8,
+    "value": 340871.0
+  },
+  {
+    "Year": "2023",
+    "Visitors' country of residence": "Belgium",
+    "distance_km": 517.2,
+    "value": 191837.0
+  },
+  {
+    "Year": "2023",
+    "Visitors' country of residence": "Luxembourg",
+    "distance_km": 334.6,
+    "value": 45399.0
+  },
+  {
+    "Year": "2023",
+    "Visitors' country of residence": "Denmark",
+    "distance_km": 1010.8,
+    "value": 58628.0
+  },
+  {
+    "Year": "2023",
+    "Visitors' country of residence": "Sweden",
+    "distance_km": 1727.8,
+    "value": 72027.0
+  },
+  {
+    "Year": "2023",
+    "Visitors' country of residence": "Norway",
+    "distance_km": 1674.5,
+    "value": 39167.0
+  },
+  {
+    "Year": "2023",
+    "Visitors' country of residence": "Finland",
+    "distance_km": 2190.6,
+    "value": 35039.0
+  },
+  {
+    "Year": "2023",
+    "Visitors' country of residence": "Spain",
+    "distance_km": 1241.3,
+    "value": 248344.0
+  },
+  {
+    "Year": "2023",
+    "Visitors' country of residence": "Portugal",
+    "distance_km": 1539.0,
+    "value": 76407.0
+  },
+  {
+    "Year": "2023",
+    "Visitors' country of residence": "Greece",
+    "distance_km": 1443.0,
+    "value": 40232.0
+  },
+  {
+    "Year": "2023",
+    "Visitors' country of residence": "Turkey",
+    "distance_km": 2359.3,
+    "value": 62068.0
+  },
+  {
+    "Year": "2023",
+    "Visitors' country of residence": "Liechtenstein",
+    "distance_km": 120.0,
+    "value": 18301.0
+  },
+  {
+    "Year": "2023",
+    "Visitors' country of residence": "Iceland",
+    "distance_km": 2540.1,
+    "value": 5784.0
+  },
+  {
+    "Year": "2023",
+    "Visitors' country of residence": "Poland",
+    "distance_km": 1029.9,
+    "value": 80055.0
+  },
+  {
+    "Year": "2023",
+    "Visitors' country of residence": "Hungary",
+    "distance_km": 911.8,
+    "value": 33979.0
+  },
+  {
+    "Year": "2023",
+    "Visitors' country of residence": "Belarus",
+    "distance_km": 1574.6,
+    "value": 4087.0
+  },
+  {
+    "Year": "2023",
+    "Visitors' country of residence": "Bulgaria",
+    "distance_km": 1408.8,
+    "value": 19645.0
+  },
+  {
+    "Year": "2023",
+    "Visitors' country of residence": "Malta",
+    "distance_km": 1337.9,
+    "value": 9170.0
+  },
+  {
+    "Year": "2023",
+    "Visitors' country of residence": "Cyprus",
+    "distance_km": 2473.2,
+    "value": 9823.0
+  },
+  {
+    "Year": "2023",
+    "Visitors' country of residence": "Estonia",
+    "distance_km": 1789.5,
+    "value": 9683.0
+  },
+  {
+    "Year": "2023",
+    "Visitors' country of residence": "Latvia",
+    "distance_km": 1604.5,
+    "value": 11870.0
+  },
+  {
+    "Year": "2023",
+    "Visitors' country of residence": "Lithuania",
+    "distance_km": 1489.1,
+    "value": 10984.0
+  },
+  {
+    "Year": "2023",
+    "Visitors' country of residence": "Croatia",
+    "distance_km": 614.6,
+    "value": 15336.0
+  },
+  {
+    "Year": "2023",
+    "Visitors' country of residence": "Romania",
+    "distance_km": 1307.1,
+    "value": 45757.0
+  },
+  {
+    "Year": "2023",
+    "Visitors' country of residence": "Russia",
+    "distance_km": 5752.8,
+    "value": 38948.0
+  },
+  {
+    "Year": "2023",
+    "Visitors' country of residence": "Slovakia",
+    "distance_km": 879.8,
+    "value": 15813.0
+  },
+  {
+    "Year": "2023",
+    "Visitors' country of residence": "Slovenia",
+    "distance_km": 531.7,
+    "value": 13045.0
+  },
+  {
+    "Year": "2023",
+    "Visitors' country of residence": "Czechia",
+    "distance_km": 633.8,
+    "value": 52523.0
+  },
+  {
+    "Year": "2023",
+    "Visitors' country of residence": "Ukraine",
+    "distance_km": 1797.1,
+    "value": 36148.0
+  },
+  {
+    "Year": "2023",
+    "Visitors' country of residence": "Serbia",
+    "distance_km": 1067.9,
+    "value": 14994.0
+  },
+  {
+    "Year": "2024",
+    "Visitors' country of residence": "Switzerland",
+    "distance_km": 0.0,
+    "value": 10940490.0
+  },
+  {
+    "Year": "2024",
+    "Visitors' country of residence": "Germany",
+    "distance_km": 450.8,
+    "value": 1707217.0
+  },
+  {
+    "Year": "2024",
+    "Visitors' country of residence": "France",
+    "distance_km": 473.7,
+    "value": 849050.0
+  },
+  {
+    "Year": "2024",
+    "Visitors' country of residence": "Italy",
+    "distance_km": 599.8,
+    "value": 471501.0
+  },
+  {
+    "Year": "2024",
+    "Visitors' country of residence": "Austria",
+    "distance_km": 406.0,
+    "value": 173840.0
+  },
+  {
+    "Year": "2024",
+    "Visitors' country of residence": "United Kingdom",
+    "distance_km": 1051.5,
+    "value": 725399.0
+  },
+  {
+    "Year": "2024",
+    "Visitors' country of residence": "Ireland",
+    "distance_km": 1322.9,
+    "value": 54802.0
+  },
+  {
+    "Year": "2024",
+    "Visitors' country of residence": "Netherlands",
+    "distance_km": 632.8,
+    "value": 344911.0
+  },
+  {
+    "Year": "2024",
+    "Visitors' country of residence": "Belgium",
+    "distance_km": 517.2,
+    "value": 192823.0
+  },
+  {
+    "Year": "2024",
+    "Visitors' country of residence": "Luxembourg",
+    "distance_km": 334.6,
+    "value": 44759.0
+  },
+  {
+    "Year": "2024",
+    "Visitors' country of residence": "Denmark",
+    "distance_km": 1010.8,
+    "value": 63581.0
+  },
+  {
+    "Year": "2024",
+    "Visitors' country of residence": "Sweden",
+    "distance_km": 1727.8,
+    "value": 69926.0
+  },
+  {
+    "Year": "2024",
+    "Visitors' country of residence": "Norway",
+    "distance_km": 1674.5,
+    "value": 41244.0
+  },
+  {
+    "Year": "2024",
+    "Visitors' country of residence": "Finland",
+    "distance_km": 2190.6,
+    "value": 33818.0
+  },
+  {
+    "Year": "2024",
+    "Visitors' country of residence": "Spain",
+    "distance_km": 1241.3,
+    "value": 266660.0
+  },
+  {
+    "Year": "2024",
+    "Visitors' country of residence": "Portugal",
+    "distance_km": 1539.0,
+    "value": 88759.0
+  },
+  {
+    "Year": "2024",
+    "Visitors' country of residence": "Greece",
+    "distance_km": 1443.0,
+    "value": 46975.0
+  },
+  {
+    "Year": "2024",
+    "Visitors' country of residence": "Turkey",
+    "distance_km": 2359.3,
+    "value": 84358.0
+  },
+  {
+    "Year": "2024",
+    "Visitors' country of residence": "Liechtenstein",
+    "distance_km": 120.0,
+    "value": 18489.0
+  },
+  {
+    "Year": "2024",
+    "Visitors' country of residence": "Iceland",
+    "distance_km": 2540.1,
+    "value": 4964.0
+  },
+  {
+    "Year": "2024",
+    "Visitors' country of residence": "Poland",
+    "distance_km": 1029.9,
+    "value": 90517.0
+  },
+  {
+    "Year": "2024",
+    "Visitors' country of residence": "Hungary",
+    "distance_km": 911.8,
+    "value": 35586.0
+  },
+  {
+    "Year": "2024",
+    "Visitors' country of residence": "Belarus",
+    "distance_km": 1574.6,
+    "value": 5222.0
+  },
+  {
+    "Year": "2024",
+    "Visitors' country of residence": "Bulgaria",
+    "distance_km": 1408.8,
+    "value": 21908.0
+  },
+  {
+    "Year": "2024",
+    "Visitors' country of residence": "Malta",
+    "distance_km": 1337.9,
+    "value": 9277.0
+  },
+  {
+    "Year": "2024",
+    "Visitors' country of residence": "Cyprus",
+    "distance_km": 2473.2,
+    "value": 11515.0
+  },
+  {
+    "Year": "2024",
+    "Visitors' country of residence": "Estonia",
+    "distance_km": 1789.5,
+    "value": 10435.0
+  },
+  {
+    "Year": "2024",
+    "Visitors' country of residence": "Latvia",
+    "distance_km": 1604.5,
+    "value": 9650.0
+  },
+  {
+    "Year": "2024",
+    "Visitors' country of residence": "Lithuania",
+    "distance_km": 1489.1,
+    "value": 12585.0
+  },
+  {
+    "Year": "2024",
+    "Visitors' country of residence": "Croatia",
+    "distance_km": 614.6,
+    "value": 15245.0
+  },
+  {
+    "Year": "2024",
+    "Visitors' country of residence": "Romania",
+    "distance_km": 1307.1,
+    "value": 50033.0
+  },
+  {
+    "Year": "2024",
+    "Visitors' country of residence": "Russia",
+    "distance_km": 5752.8,
+    "value": 40149.0
+  },
+  {
+    "Year": "2024",
+    "Visitors' country of residence": "Slovakia",
+    "distance_km": 879.8,
+    "value": 17138.0
+  },
+  {
+    "Year": "2024",
+    "Visitors' country of residence": "Slovenia",
+    "distance_km": 531.7,
+    "value": 13030.0
+  },
+  {
+    "Year": "2024",
+    "Visitors' country of residence": "Czechia",
+    "distance_km": 633.8,
+    "value": 53156.0
+  },
+  {
+    "Year": "2024",
+    "Visitors' country of residence": "Ukraine",
+    "distance_km": 1797.1,
+    "value": 39123.0
+  },
+  {
+    "Year": "2024",
+    "Visitors' country of residence": "Serbia",
+    "distance_km": 1067.9,
+    "value": 14166.0
+  },
+  {
+    "Year": "2025",
     "Visitors' country of residence": "Switzerland",
     "distance_km": 0.0,
     "value": 11119049.0
   },
   {
+    "Year": "2025",
     "Visitors' country of residence": "Germany",
     "distance_km": 450.8,
     "value": 1779401.0
   },
   {
+    "Year": "2025",
     "Visitors' country of residence": "France",
     "distance_km": 473.7,
     "value": 871032.0
   },
   {
+    "Year": "2025",
     "Visitors' country of residence": "Italy",
     "distance_km": 599.8,
     "value": 495151.0
   },
   {
+    "Year": "2025",
     "Visitors' country of residence": "Austria",
     "distance_km": 406.0,
     "value": 182237.0
   },
   {
+    "Year": "2025",
     "Visitors' country of residence": "United Kingdom",
     "distance_km": 1051.5,
     "value": 771532.0
   },
   {
+    "Year": "2025",
     "Visitors' country of residence": "Ireland",
     "distance_km": 1322.9,
     "value": 62210.0
   },
   {
+    "Year": "2025",
     "Visitors' country of residence": "Netherlands",
     "distance_km": 632.8,
     "value": 347621.0
   },
   {
+    "Year": "2025",
     "Visitors' country of residence": "Belgium",
     "distance_km": 517.2,
     "value": 190005.0
   },
   {
+    "Year": "2025",
     "Visitors' country of residence": "Luxembourg",
     "distance_km": 334.6,
     "value": 47927.0
   },
   {
+    "Year": "2025",
     "Visitors' country of residence": "Denmark",
     "distance_km": 1010.8,
     "value": 64159.0
   },
   {
+    "Year": "2025",
     "Visitors' country of residence": "Sweden",
     "distance_km": 1727.8,
     "value": 77915.0
   },
   {
+    "Year": "2025",
     "Visitors' country of residence": "Norway",
     "distance_km": 1674.5,
     "value": 43640.0
   },
   {
+    "Year": "2025",
     "Visitors' country of residence": "Finland",
     "distance_km": 2190.6,
     "value": 36118.0
   },
   {
+    "Year": "2025",
     "Visitors' country of residence": "Spain",
     "distance_km": 1241.3,
     "value": 266129.0
   },
   {
+    "Year": "2025",
     "Visitors' country of residence": "Portugal",
     "distance_km": 1539.0,
     "value": 96040.0
   },
   {
+    "Year": "2025",
     "Visitors' country of residence": "Greece",
     "distance_km": 1443.0,
     "value": 51409.0
   },
   {
+    "Year": "2025",
     "Visitors' country of residence": "Turkey",
     "distance_km": 2359.3,
     "value": 103403.0
   },
   {
+    "Year": "2025",
     "Visitors' country of residence": "Liechtenstein",
     "distance_km": 120.0,
     "value": 21182.0
   },
   {
+    "Year": "2025",
     "Visitors' country of residence": "Iceland",
     "distance_km": 2540.1,
     "value": 6900.0
   },
   {
+    "Year": "2025",
     "Visitors' country of residence": "Poland",
     "distance_km": 1029.9,
     "value": 105673.0
   },
   {
+    "Year": "2025",
     "Visitors' country of residence": "Hungary",
     "distance_km": 911.8,
     "value": 35749.0
   },
   {
+    "Year": "2025",
     "Visitors' country of residence": "Belarus",
     "distance_km": 1574.6,
     "value": 3537.0
   },
   {
+    "Year": "2025",
     "Visitors' country of residence": "Bulgaria",
     "distance_km": 1408.8,
     "value": 23862.0
   },
   {
+    "Year": "2025",
     "Visitors' country of residence": "Malta",
     "distance_km": 1337.9,
     "value": 11090.0
   },
   {
+    "Year": "2025",
     "Visitors' country of residence": "Cyprus",
     "distance_km": 2473.2,
     "value": 12900.0
   },
   {
+    "Year": "2025",
     "Visitors' country of residence": "Estonia",
     "distance_km": 1789.5,
     "value": 11819.0
   },
   {
+    "Year": "2025",
     "Visitors' country of residence": "Latvia",
     "distance_km": 1604.5,
     "value": 10106.0
   },
   {
+    "Year": "2025",
     "Visitors' country of residence": "Lithuania",
     "distance_km": 1489.1,
     "value": 15384.0
   },
   {
+    "Year": "2025",
     "Visitors' country of residence": "Croatia",
     "distance_km": 614.6,
     "value": 17968.0
   },
   {
+    "Year": "2025",
     "Visitors' country of residence": "Romania",
     "distance_km": 1307.1,
     "value": 55407.0
   },
   {
+    "Year": "2025",
     "Visitors' country of residence": "Russia",
     "distance_km": 5752.8,
     "value": 44021.0
   },
   {
+    "Year": "2025",
     "Visitors' country of residence": "Slovakia",
     "distance_km": 879.8,
     "value": 17925.0
   },
   {
+    "Year": "2025",
     "Visitors' country of residence": "Slovenia",
     "distance_km": 531.7,
     "value": 14170.0
   },
   {
+    "Year": "2025",
     "Visitors' country of residence": "Czechia",
     "distance_km": 633.8,
     "value": 55989.0
   },
   {
+    "Year": "2025",
     "Visitors' country of residence": "Ukraine",
     "distance_km": 1797.1,
     "value": 42720.0
   },
   {
+    "Year": "2025",
     "Visitors' country of residence": "Serbia",
     "distance_km": 1067.9,
     "value": 15058.0
