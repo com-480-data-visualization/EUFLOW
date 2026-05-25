@@ -32,6 +32,18 @@
 
     <div class="feature-section">
     <div class="feature-section-block-odd">
+        <div class="chapter-intro">
+            <div class="chapter-eyebrow">Chapter 1 · The Pattern</div>
+            <p class="chapter-lede">
+                Every year, millions of Europeans choose Switzerland as their destination. But behind this flow of visitors lies a pattern — one that becomes clearer when you look at the data.
+            </p>
+        </div>
+        <div class="chapter-intro">
+            <div class="chapter-eyebrow">Part 1 · Where</div>
+            <p class="chapter-lede">
+                The first question is simple: once tourists arrive in Switzerland, where do they go? The answer is striking. Visitor numbers are heavily concentrated — Zurich, Bern, Graubünden, Valais, and Geneva together absorb the vast majority of arrivals. Most other cantons receive a fraction of that. Switzerland may be small, but not all of it is equally discovered.
+            </p>
+        </div>
         <div class="section-number">
             <span>1</span>
         </div>
@@ -67,12 +79,20 @@
 </div>
 
         <div class="feature-section-block-even">
+            <div class="chapter-intro">
+                <div class="chapter-eyebrow">Part 2 · Distance</div>
+                    <p class="chapter-lede">
+                        This raises a natural follow-up: where are these visitors coming from? 
+                        The scatter plot makes the answer immediately visible. Distance is the dominant force. 
+                        Countries closer to Switzerland send far more visitors — Germany alone accounts for over 1.5 million arrivals. 
+                        Beyond 1,500 km, the numbers drop close to zero. Geography, it seems, is destiny. Or almost. The United Kingdom sits over 1,000 km away, yet consistently sends hundreds of thousands of visitors — a reminder that cultural and economic ties can bend the rules of distance.
+                    </p>
+            </div>
             <div class="section-number">
                 <span>2</span>
             </div>
             <p class="feature-section-block-title">Geographic Proximity</p>
             <p class="part-suisse-2">Does distance matter?</p>
-
             <div id="Scattertooltip" style="position:fixed; background:rgba(18,18,24,0.96); color:#fff; padding:12px 16px; border-radius:12px; font-family:'DM Mono',monospace; font-size:13px; line-height:1.5; pointer-events:none; display:none; z-index:9999; min-width:160px;"></div>
 
             <div class="chart-with-explanation">
@@ -106,12 +126,20 @@
 
 
        <div class="feature-section-block-odd">
+            <div class="chapter-intro">
+                <div class="chapter-eyebrow">Part 3 · Wealth</div>
+                <p class="chapter-lede">
+                    Distance, it turns out, is a powerful predictor. Countries closer to Switzerland consistently send more visitors, with Germany towering above all others. 
+                    Yet distance alone doesn't explain everything — the United Kingdom, over 1,000 km away, punches well above its weight, hinting that cultural and economic ties matter too. 
+                    So if proximity shapes tourism flows, what role does wealth play?
+                </p>
+            </div>
             <div class="section-number">
                 <span>3</span>
             </div>
             <p class="feature-section-block-title">Economic Factors - GDP</p>
             <p class="part-suisse-2">Does wealth influence travel?</p>
-
+            
             <div id="gdp-controls-3" style="display:flex; justify-content:center; align-items:center; gap:12px; font-family:'DM Mono',monospace; font-size:12px; color:#666; margin-bottom:8px; margin-top:24px; flex-wrap:wrap;">
                 <label>Top</label>
                 <span id="slider-display-3">1 – 10</span>
@@ -157,12 +185,16 @@
         </div>
 
         <div class="feature-section-block-even">
+                <div class="story-bridge">
+                Across Europe, GDP per capita has been on a general upward trajectory since 2019 — a trend that may partly reflect post-COVID economic recovery. 
+                But rising wealth doesn't automatically translate into more visits to Switzerland, as the final chart reveals.
+                </div>
             <div class="section-number">
                 <span>4</span>
             </div>
             <p class="feature-section-block-title">GDP and Tourism Flows Among European Nations</p>
             <p class="part-suisse-2">Tracking GDP and visitor flows across European countries, 2019–2025</p>
-
+            
             <div id="gdp-controls-4" style="display:flex; justify-content:center; align-items:center; gap:12px; font-family:'DM Mono',monospace; font-size:12px; color:#666; margin-bottom:8px; margin-top:24px; flex-wrap:wrap;">
                 <label class="top-label">Top</label>
                 <span id="slider-display-4">1 ~ 10</span>
@@ -211,6 +243,15 @@
         </div>
     </div>
 
+    <div class="chapter-intro">
+        <div class="chapter-eyebrow">End of the Switzerland story</div>
+        <p class="chapter-lede">
+            Switzerland's appeal endures — not because of wealth or marketing, but because of proximity, familiarity, and habit. 
+            The data confirms what travelers already know: the closer you are, the more likely you are to come. 
+            And once the pattern is established, it tends to hold.
+        </p>
+    </div>
+    
     <div class="cta-section">
         <p class="cta-section-text">Explore broader tourism patterns in Europe</p>
         <button id="button-explore-europe" onclick="window.location.href='europe.html'">■ &nbsp;Explore Europe</button>
