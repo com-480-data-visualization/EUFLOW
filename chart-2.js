@@ -102,9 +102,8 @@ d3.json("data/countries_distances_vs_visitors.json").then(rawData => {
         })
         .on("mousemove", function(event) {
             const tip = document.getElementById("Scattertooltip");
-            const container = tip.parentElement.getBoundingClientRect();
-            tip.style.left = (event.clientX - container.left + 16) + "px";
-            tip.style.top = (event.clientY - container.top - 40) + "px";
+            tip.style.left = (event.clientX + 16) + "px";
+            tip.style.top = (event.clientY - 40) + "px";
         })
         .on("mouseout", function() {
             document.getElementById("Scattertooltip").style.display = "none";
