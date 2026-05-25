@@ -9,7 +9,7 @@ const legendY = H1 - 55;
 
 Promise.all([
     d3.json("data/cantons.geojson"),
-    d3.json("data/canton_annual_total_visitors.json")
+    d3.json("data/canton_annual_total_eu_visitors.json")
 ]).then(([geoData, visitors]) => {
 
     projection.fitSize([W1, H1], geoData);
