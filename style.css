@@ -534,8 +534,8 @@ button {
 
 /* .grid line { stroke: #eee; stroke-dasharray: 3,3; } */
 .axis path, .axis line { stroke: #ccc; }
-.axis text { font-size: 11px; }
-.axis-label { font-size: 12px; }
+.axis text { font-size: 12px; }
+.axis-label { font-size: 16px; }
 /* .trend-line { stroke: #ff4d6d; stroke-width: 1.5; stroke-dasharray: 6,4; opacity: 0.6; pointer-events: none; } */
 .country-label { font-size: 10px; fill: #666; pointer-events: none; }
 .corr-badge { font-size: 11px; fill: #666; }
@@ -1160,18 +1160,6 @@ button {
     width: 40px;
 }
 
-
-/* .grid line { stroke: #eee; stroke-dasharray: 3,3; } */
-.axis path, .axis line { stroke: #ccc; }
-.axis text { font-size: 11px; }
-.axis-label { font-size: 12px; }
-/* .trend-line { stroke: #ff4d6d; stroke-width: 1.5; stroke-dasharray: 6,4; opacity: 0.6; pointer-events: none; } */
-.country-label { font-size: 10px; fill: #666; pointer-events: none; }
-.corr-badge { font-size: 11px; fill: #666; }
-.corr-val { font-size: 20px; fill: #ff4d6d; }
-.dot { cursor: pointer; }
-
-
 .legend {
     display: flex;
     gap: 24px;
@@ -1335,7 +1323,7 @@ button {
     color: #2a2a2a;
     box-sizing: border-box;
     transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.4s ease;
-    text-align: left;
+    text-align: justify;
 }
 
 .frame-explanation:hover {
@@ -1773,4 +1761,8 @@ button {
 @keyframes scrollText {
     0%   { transform: translateX(0); }
     100% { transform: translateX(-50%); }
+}
+
+.part-suisse-2 {
+    font-size: 20px;
 }

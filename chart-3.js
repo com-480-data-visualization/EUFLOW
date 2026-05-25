@@ -1,5 +1,5 @@
 d3.json("data/eu_gdp_and_to_ch_df_merged.json").then(raw => {
-    const YEARS = [2020, 2021, 2022, 2023, 2024, 2025];
+    const YEARS = [2019, 2020, 2021, 2022, 2023, 2024, 2025];
 
     const filtered = raw.filter(d =>
         YEARS.includes(+d["Year"]) &&
@@ -33,7 +33,8 @@ d3.json("data/eu_gdp_and_to_ch_df_merged.json").then(raw => {
     const g = svg.append("g")
         .attr("transform", `translate(${margin.left},${margin.top})`);
 
-    const x = d3.scaleLinear().domain([2020, 2025]).range([0, W]);
+    const x = d3.scaleLinear().domain([2018.5, 2025.5]).range([0, W]);
+
     const y = d3.scaleLinear()
         .domain([0, d3.max(filtered, d => +d["gdp_pps"]) * 1.1])
         .range([H, 0]);
