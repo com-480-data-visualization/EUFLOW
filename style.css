@@ -1401,6 +1401,106 @@ button {
     max-width: 100%;
 }
 
+/* ---------- Data-story narrative elements ---------- */
+.chapter-intro {
+    max-width: 720px;
+    width: 100%;
+    margin: 8px auto 48px;
+    padding: 0 24px;
+    text-align: center;
+    font-family: 'Source Serif 4', serif;
+    color: #2a2a2a;
+}
+
+.chapter-intro .chapter-eyebrow {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: #1565C0;
+    margin-bottom: 14px;
+    font-weight: 500;
+}
+
+.chapter-intro .chapter-lede {
+    font-size: 19px;
+    line-height: 1.55;
+    color: #1a1a1a;
+}
+
+.chapter-intro .chapter-lede strong {
+    font-variation-settings: 'wght' 700;
+    color: #0c0c0c;
+}
+
+.story-bridge {
+    max-width: 620px;
+    width: 100%;
+    margin: 72px auto 0;
+    padding: 0 24px;
+    text-align: center;
+    font-family: 'Source Serif 4', serif;
+    font-style: italic;
+    font-size: 17px;
+    line-height: 1.5;
+    color: #555;
+    position: relative;
+}
+
+.story-bridge::before {
+    content: "";
+    display: block;
+    width: 32px;
+    height: 1px;
+    background: #c8cdd6;
+    margin: 0 auto 22px;
+}
+
+.frame-explanation .story-finding {
+    font-family: 'Source Serif 4', serif;
+    font-size: 15.5px;
+    line-height: 1.55;
+    color: #1a1a1a;
+    font-variation-settings: 'wght' 500;
+    margin: 0 0 14px 0;
+}
+
+.chapter-close {
+    max-width: 760px;
+    width: 100%;
+    margin: 90px auto 0;
+    padding: 36px 28px 0;
+    text-align: center;
+    font-family: 'Source Serif 4', serif;
+    border-top: 1px solid #d9dde5;
+}
+
+.chapter-close .chapter-close-eyebrow {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 11.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: #1565C0;
+    margin-bottom: 14px;
+    font-weight: 500;
+}
+
+.chapter-close .chapter-close-title {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-variation-settings: 'wght' 650, 'opsz' 60;
+    font-size: 30px;
+    line-height: 1.15;
+    letter-spacing: -0.015em;
+    color: #0c0c0c;
+    margin-bottom: 16px;
+}
+
+.chapter-close .chapter-close-body {
+    font-size: 17px;
+    line-height: 1.55;
+    color: #333;
+}
+
 
 .chart-with-explanation-suisse {
     display: flex;

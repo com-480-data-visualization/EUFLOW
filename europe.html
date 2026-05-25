@@ -35,8 +35,18 @@
             <div class="section-number">
                 <span>1</span>
             </div>
-            <p class="feature-section-block-title">Destination Popularity</p>
-  
+            <p class="feature-section-block-title">Where Europe travels</p>
+
+            <div class="chapter-intro">
+                <div class="chapter-eyebrow">Chapter 1 · Where</div>
+                <p class="chapter-lede">
+                    Every year Europeans take hundreds of millions of trips inside their own continent.
+                    The patterns look chaotic at first glance, but the data tells a much tighter story.
+                    <strong>A handful of neighbors. A handful of countries. A handful of regions.</strong>
+                    The eight views below build that picture, layer by layer.
+                </p>
+            </div>
+
             <script>
             window._EU_NAMES = {
                 FR:'France', ES:'Spain', DE:'Germany', IT:'Italy',
@@ -67,28 +77,29 @@
                     <script src="chart_origin_choropleth.js?v=2"></script>
                 </div>
                 <div class="frame frame-explanation">
-                    <div class="chart-eyebrow">Origin</div>
-                    <h3 class="chart-title">Who sends the most tourists to each destination?</h3>
-                    <h4>What you see</h4>
-                    <p>Each EU country is colored by the country that supplies the most tourist nights for the selected year.</p>
-                    <p>The dropdown lets you scrub through years from 2010 onward. Watch how dominant origin countries spread across neighbors.</p>
-                    <p>Germany shows up as origin across much of central Europe, Spain dominates Portugal, and several Mediterranean and northern countries are driven mainly by their own domestic travelers.</p>
+                    <div class="chart-eyebrow">Origin · Beat 1 / 8</div>
+                    <h3 class="chart-title">Most tourists don't come from far away.</h3>
+                    <p class="story-finding">Color every EU country by the single nation that sends it the most tourists, and the map fills with <strong>neighbors</strong>. Germany covers central Europe. Spain claims Portugal. France stretches across the western Mediterranean. The further away a country sits, the rarer it appears on this map.</p>
+                    <h4>How to read it</h4>
+                    <p>Each country is shaded by its top source of tourist nights in the selected year. Use the dropdown to scrub through years from 2010 onward.</p>
                     <p class="source">Source: Eurostat tour_dem_tttr</p>
                 </div>
             </div>
 
-            <div style="width:858px; height:1px; background:#e0e0e0; margin-top:80px;"></div>
+            <div class="story-bridge">
+                If most trips really are neighbor-to-neighbor, the next question almost writes itself —
+                how do Europeans actually get there?
+            </div>
             <div class="chart-with-explanation">
                 <div class="frame" style="height:700px; display:block; overflow:hidden; background:#F6F8FB;">
                     <svg id="chart-transport" width="858" height="700" style="display:block; background:#F6F8FB;"></svg>
                 </div>
                 <div class="frame frame-explanation">
-                    <div class="chart-eyebrow">Transport</div>
-                    <h3 class="chart-title">How do Europeans get to their destination?</h3>
-                    <h4>What you see</h4>
-                    <p>For each EU country (rows) and each year (columns), the cell shows the dominant transport mode used by outbound tourists.</p>
-                    <p>Countries are sorted by their most common mode, which forms clean horizontal bands. Row labels carry the icon of the dominant mode for quick scanning.</p>
-                    <p>Air travel takes the lead in island and far flung destinations. Road and car travel prevails in continental Europe. Rail and sea are the favorites of a small minority.</p>
+                    <div class="chart-eyebrow">Transport · Beat 2 / 8</div>
+                    <h3 class="chart-title">Cars, not planes, move Europe.</h3>
+                    <p class="story-finding">Road travel dominates almost every country on the continent. <strong>Air takes over only when geography forces it</strong> — islands, far edges, anywhere a drive is impractical. Rail and sea remain a small, stubborn minority everywhere else.</p>
+                    <h4>How to read it</h4>
+                    <p>Rows are EU countries, columns are years. Each cell is shaded by the dominant transport mode of that country's outbound tourists. Countries are sorted by their most frequent mode, so the bands stack cleanly. The icon at the start of each row is its dominant mode at a glance.</p>
                     <p class="source">Source: Eurostat tour_dem_ttw</p>
                 </div>
             </div>
@@ -161,7 +172,9 @@
             })();
             </script>
 
-            <div style="width:858px; height:1px; background:#e0e0e0; margin-top:80px;"></div>
+            <div class="story-bridge">
+                They drove in. Now — do they stay for a week, or just a weekend?
+            </div>
             <div class="chart-with-explanation">
                 <div class="frame" style="position:relative; height:600px; display:block; overflow:hidden; background:#F6F8FB;">
                     <select id="chart-night-year-select" style="
@@ -173,12 +186,11 @@
                     <svg id="chart-night" width="858" height="600" style="display:block; background:#F6F8FB;"></svg>
                 </div>
                 <div class="frame frame-explanation">
-                    <div class="chart-eyebrow">Stays</div>
-                    <h3 class="chart-title">Do Europeans prefer short or long stays?</h3>
-                    <h4>What you see</h4>
-                    <p>A diverging bar centered on 50 percent. The orange portion on the left counts the years between 2012 and the selected end year when short stays of 1 to 3 nights were the dominant trip type. The green portion on the right counts the years dominated by long stays of 4 or more nights.</p>
-                    <p>Use the dropdown in the top right to set the end year. As you scrub forward the bars accumulate more history. At 2012 each country is binary, by 2024 you see the full 13 year pattern.</p>
-                    <p>Mediterranean beach countries lean toward long stays. City destinations and central Europe favor short breaks.</p>
+                    <div class="chart-eyebrow">Stays · Beat 3 / 8</div>
+                    <h3 class="chart-title">The Mediterranean stays a week. The cities stay a weekend.</h3>
+                    <p class="story-finding">A clean split runs across the continent. <strong>Beach and island destinations dominate long stays</strong> of four nights or more. <strong>City and central-European destinations dominate short breaks</strong> of one to three nights. The geography of holidays is the geography of how long people sit still.</p>
+                    <h4>How to read it</h4>
+                    <p>A diverging bar centered on 50%. Orange (left) counts years between 2012 and the selected end year where short stays dominated; green (right) counts years where long stays dominated. Scrub the end-year dropdown to accumulate more history.</p>
                     <p class="source">Source: Eurostat tour_dem_tnws</p>
                 </div>
             </div>
@@ -326,24 +338,28 @@
             })();
             </script>
 
-            <div style="width:858px; height:1px; background:#e0e0e0; margin-top:80px;"></div>
+            <div class="story-bridge">
+                Whatever the length of the trip, they all have to sleep somewhere.
+                So where does Europe sleep?
+            </div>
             <div class="chart-with-explanation">
                 <div class="frame" style="height:480px; display:block; overflow:hidden; background:#F6F8FB;">
                     <svg id="accom-stacked-chart" style="width:100%;height:100%;display:block; background:#F6F8FB;"></svg>
                     <script src="chart_accom_stacked.js"></script>
                 </div>
                 <div class="frame frame-explanation">
-                    <div class="chart-eyebrow">Accommodation</div>
-                    <h3 class="chart-title">Where do Europeans sleep when they travel?</h3>
-                    <h4>What you see</h4>
-                    <p>A 100 percent stacked area chart showing how the mix of accommodation types has evolved across Europe between 2012 and 2024.</p>
-                    <p>Each colored band represents a category. Bands are normalized so their sum is always 100 percent. Direct labels on the right give the final 2024 share.</p>
-                    <p>Hotels and rented furnished places together account for most nights. Camping and own property holdings remain niche but steady.</p>
+                    <div class="chart-eyebrow">Accommodation · Beat 4 / 8</div>
+                    <h3 class="chart-title">Hotels still win — but just barely.</h3>
+                    <p class="story-finding">Hotels and rented apartments together cover the lion's share of nights. But since 2012 the mix has been quietly shifting: <strong>short-term rentals are eating steadily into the hotel slice</strong>. Camping and own-property stays remain niche but stable.</p>
+                    <h4>How to read it</h4>
+                    <p>A 100% stacked area chart, normalized so the bands always sum to 100% of nights. Each color is one accommodation type. The labels on the right show the final 2024 share.</p>
                     <p class="source">Source: Eurostat tour_dem_tnac</p>
                 </div>
             </div>
 
-            <div style="width:858px; height:1px; background:#e0e0e0; margin-top:80px;"></div>
+            <div class="story-bridge">
+                That's the continent-wide picture. Country by country, the story splits in two.
+            </div>
 
             <div class="chart-with-explanation">
                 <div class="frame" style="position:relative; overflow:hidden; background:#F6F8FB; height:620px;">
@@ -358,27 +374,28 @@
                     <script src="chart_accom_country_map.js"></script>
                 </div>
                 <div class="frame frame-explanation">
-                    <div class="chart-eyebrow">By country</div>
-                    <h3 class="chart-title">Favorite accommodation, by country</h3>
-                    <h4>What you see</h4>
-                    <p>Each EU country is colored by the accommodation type that captured the most tourist nights in the selected year. The dropdown lets you scrub through 2012 to 2024.</p>
-                    <p>A clear split runs across Europe. Northern, central and Alpine countries lean on hotels. Mediterranean and southern countries lean on rented furnished places like vacation rentals and apartments. Greece is the only country whose residents sleep mostly in family owned dwellings.</p>
-                    <p>The legend below the map shows only the categories that actually appear that year, so it rebuilds as you change years.</p>
+                    <div class="chart-eyebrow">By country · Beat 5 / 8</div>
+                    <h3 class="chart-title">A clean north-south split — and Greece sleeps with family.</h3>
+                    <p class="story-finding"><strong>Northern, central and Alpine countries lean on hotels.</strong> <strong>Mediterranean countries lean on rented apartments</strong> — vacation rentals, holiday flats, short-term lets. Greece is the only country where residents sleep predominantly in family-owned dwellings, a category nobody else relies on.</p>
+                    <h4>How to read it</h4>
+                    <p>Each country is colored by the accommodation type that captured the most tourist nights in the selected year. The legend below the map rebuilds based on which categories actually appear that year.</p>
                     <p class="source">Source: Eurostat tour_dem_tnac</p>
                 </div>
             </div>
 
-            <div style="width:858px; height:1px; background:#e0e0e0; margin-top:80px;"></div>
+            <div class="story-bridge">
+                We've seen who, how and where they sleep.
+                Time to pull back and ask the bluntest question of all: which countries actually catch most of these nights?
+            </div>
 
             <div class="chart-with-explanation">
                 <div class="frame" id="dest-trend-chart" style="background:#F6F8FB;"></div>
                 <div class="frame frame-explanation">
-                    <div class="chart-eyebrow">Trends</div>
-                    <h3 class="chart-title">Top destinations over time</h3>
-                    <h4>What you see</h4>
-                    <p>Annual total nights spent in each of the seven leading destinations between 2012 and 2024. Each line tracks one country with its name labeled directly at the right end.</p>
-                    <p>Hover anywhere on the chart to compare values across all destinations for that year.</p>
-                    <p>The 2020 dip from the pandemic is sharp and uniform. Most countries returned to pre pandemic levels by 2022 and have grown since.</p>
+                    <div class="chart-eyebrow">Trends · Beat 6 / 8</div>
+                    <h3 class="chart-title">Seven countries soak up most of Europe's nights — and the ranking barely moves.</h3>
+                    <p class="story-finding">France, Spain and Italy lead by an enormous margin. The <strong>2020 pandemic dip is sharp and uniform</strong> across every leader. By 2022 the ranking is back to where it was, with no real reshuffling between countries.</p>
+                    <h4>How to read it</h4>
+                    <p>Annual total nights for each of the seven leading destinations, 2012-2024. Each line tracks one country, labeled directly at its right end. Hover anywhere to compare all destinations for that year.</p>
                     <p class="source">Source: Eurostat tour_occ_nim</p>
                 </div>
             </div>
@@ -436,7 +453,10 @@
                 });
             })();
             </script>
-            <div style="width:858px; height:1px; background:#e0e0e0; margin-top:80px;"></div>
+            <div class="story-bridge">
+                Those raw totals are honest — and misleading. They reward size.
+                What happens when we account for population?
+            </div>
             <div class="chart-with-explanation">
                 <div class="frame" style="position:relative; overflow:hidden;">
                     <select id="europe-year-select" style="
@@ -456,17 +476,19 @@
                     <script src="chart-europe-heatmap.js?v=2"></script>
                 </div>
                 <div class="frame frame-explanation">
-                    <div class="chart-eyebrow">Geography</div>
-                    <h3 class="chart-title">Nights spent by destination</h3>
-                    <h4>What you see</h4>
-                    <p>A choropleth of total nights spent in each country for the selected year. The color scale is logarithmic so small countries stay visible despite France and Spain dominating in absolute numbers.</p>
-                    <p>Use the dropdown on the top right to switch years. Toggle the Per capita box to divide each country's total by its population. Croatia, Cyprus and Malta jump up the scale when you switch to per capita.</p>
-                    <p>Hover any country to see the precise value and, in per capita mode, both the rate and the absolute total.</p>
+                    <div class="chart-eyebrow">Geography · Beat 7 / 8</div>
+                    <h3 class="chart-title">Per capita, the tourism giants are tiny.</h3>
+                    <p class="story-finding">Toggle the per-capita switch and the ranking inverts. <strong>Croatia, Cyprus and Malta jump to the top of the scale</strong> — they carry more tourist nights per resident than anywhere else in Europe. France and Spain, which tower above everyone in absolute totals, drop into the middle of the pack.</p>
+                    <h4>How to read it</h4>
+                    <p>Total nights per country for the selected year, on a logarithmic color scale so smaller countries don't get washed out. Tick the Per capita box to divide each country's total by its population. Hover for the exact value.</p>
                     <p class="source">Source: Eurostat tour_occ_nin2c</p>
                 </div>
             </div>
 
-            <div style="width:858px; height:1px; background:#e0e0e0; margin-top:80px;"></div>
+            <div class="story-bridge">
+                One last zoom. Inside each of those countries, where do tourists actually go?
+                Almost never everywhere.
+            </div>
 
             <div class="chart-with-explanation">
                 <div class="frame" style="position:relative; overflow:hidden; background:#F6F8FB; height:720px;">
@@ -487,14 +509,23 @@
                     <script src="chart_nights_nuts_country.js"></script>
                 </div>
                 <div class="frame frame-explanation">
-                    <div class="chart-eyebrow">Regions</div>
-                    <h3 class="chart-title">Nights by NUTS 2 region, by country</h3>
-                    <h4>What you see</h4>
-                    <p>Total tourist nights per NUTS 2 region for the chosen year, on a logarithmic color scale. The country dropdown lets you focus on one country at a time.</p>
-                    <p>When you pick a single country, the color scale is recomputed on its regions only. This makes within country variation visible, instead of being washed out by France and Spain in the EU wide view.</p>
-                    <p>Pick Italy to see the Lombardy and Veneto coasts dominate. Pick France to see the south rise above the rest. Pick Austria to spot the Alpine arc.</p>
+                    <div class="chart-eyebrow">Regions · Beat 8 / 8</div>
+                    <h3 class="chart-title">Tourism clusters in regions, not countries.</h3>
+                    <p class="story-finding">Zoom inside any country and the same shape reappears: a few <strong>hot regions doing most of the work</strong>. Veneto and Lombardy carry Italy. The south carries France. The Alpine arc carries Austria. The rest of each country sits comparatively dark.</p>
+                    <h4>How to read it</h4>
+                    <p>Total tourist nights per NUTS 2 region for the chosen year, on a logarithmic scale. Pick a country in the left dropdown and the color scale recomputes on its regions alone — so within-country variation stops being washed out by the EU giants.</p>
                     <p class="source">Source: Eurostat tour_occ_nin2m, summed over months and residence types</p>
                 </div>
+            </div>
+
+            <div class="chapter-close">
+                <div class="chapter-close-eyebrow">End of Chapter 1 · Up next: When</div>
+                <h3 class="chapter-close-title">A handful of neighbors. A handful of countries. A handful of regions.</h3>
+                <p class="chapter-close-body">
+                    That's the geography of Europe's tourism. But the map of <em>where</em> hides one more pattern —
+                    and it is the sharpest of all. Most of these nights don't happen across the whole year.
+                    They happen in just a few months. Scroll on.
+                </p>
             </div>
         </div>
 
@@ -504,7 +535,18 @@
             <div class="section-number">
                 <span>2</span>
             </div>
-            <p class="feature-section-block-title">Seasonality</p>
+            <p class="feature-section-block-title">When Europe travels</p>
+
+            <div class="chapter-intro">
+                <div class="chapter-eyebrow">Chapter 2 · When</div>
+                <p class="chapter-lede">
+                    European tourism doesn't run on a calendar — it runs on a clock,
+                    and the clock has one big hand. <strong>The summer months crush every other season</strong>
+                    almost everywhere. But once you look closely, the picture cracks open:
+                    Alpine winters, Mediterranean shoulder seasons, and one year that broke the pattern entirely.
+                </p>
+            </div>
+
             <div class="chart-with-explanation">
                 <div class="frame" style="position:relative; overflow:hidden; background:#F6F8FB; height:720px;">
                     <select id="europe-country-year-select" style="
@@ -524,17 +566,19 @@
                     <script src="chart_seasonality_country.js"></script>
                 </div>
                 <div class="frame frame-explanation">
-                    <div class="chart-eyebrow">Country view</div>
-                    <h3 class="chart-title">Top month by country</h3>
-                    <h4>What you see</h4>
-                    <p>Each EU country is colored by the month that recorded the most tourist nights in the selected year. Use the dropdown to switch between 2020 and 2024.</p>
-                    <p>The pandemic year of 2020 stands out. Several countries peak in February, October or December, when restrictions were briefly lifted. By 2022 the summer pattern is fully back.</p>
-                    <p>The United Kingdom and other non EU countries are shown in light gray as geographic context only.</p>
+                    <div class="chart-eyebrow">Country view · Beat 1 / 4</div>
+                    <h3 class="chart-title">In a normal year, almost everyone peaks in August.</h3>
+                    <p class="story-finding">By 2024 the summer pattern is overwhelming — <strong>nearly every EU country records its single busiest month in July or August</strong>. Switch the year to 2020 and the map shatters: countries peak in February, October, December — whichever brief windows the pandemic restrictions left open.</p>
+                    <h4>How to read it</h4>
+                    <p>Each EU country is colored by the calendar month that recorded the most tourist nights in the selected year. Non-EU countries are shown in light gray as geographic context only.</p>
                     <p class="source">Source: Eurostat tour_occ_nin2m</p>
                 </div>
             </div>
 
-            <div style="width:858px; height:1px; background:#e0e0e0; margin-top:80px;"></div>
+            <div class="story-bridge">
+                But "the country peaks in August" hides everything interesting.
+                Zoom into the regions and a second story appears.
+            </div>
             <div class="chart-with-explanation">
                 <div class="frame" style="position:relative; overflow:hidden; background:#F6F8FB; height:720px;">
                     <select id="europe-month-select" style="
@@ -554,17 +598,19 @@
                     <script src="chart_seasonality.js"></script>
                 </div>
                 <div class="frame frame-explanation">
-                    <div class="chart-eyebrow">Region view</div>
-                    <h3 class="chart-title">Top month by NUTS 2 region</h3>
-                    <h4>What you see</h4>
-                    <p>The same question as the country map but at NUTS 2 resolution. Hundreds of subnational regions are colored by their busiest month in the selected year.</p>
-                    <p>Patterns the country view hides become visible. Alpine and ski regions peak in February. A handful of Mediterranean and city regions peak in September or October.</p>
-                    <p>Hover any region to see its name and busiest month.</p>
+                    <div class="chart-eyebrow">Region view · Beat 2 / 4</div>
+                    <h3 class="chart-title">Inside every country, a counter-season hides.</h3>
+                    <p class="story-finding">At NUTS 2 resolution, the summer-only story breaks. <strong>Alpine and ski regions peak in February.</strong> A scattering of Mediterranean coastlines and city regions peak in <strong>September or October</strong>, when prices drop and crowds thin. The country average drowns out everyone who isn't on the beach.</p>
+                    <h4>How to read it</h4>
+                    <p>The same question as the country map, but at NUTS 2 resolution — hundreds of subnational regions each colored by their busiest month. Hover any region to see its name and peak month.</p>
                     <p class="source">Source: Eurostat tour_occ_nin2m with NUTS 2 GISCO geometry</p>
                 </div>
             </div>
 
-            <div style="width:858px; height:1px; background:#e0e0e0; margin-top:80px;"></div>
+            <div class="story-bridge">
+                Which month a region peaks in is one question.
+                <em>How big the peak actually is</em> — that's another.
+            </div>
 
             <div class="chart-with-explanation">
                 <div class="frame" style="position:relative; overflow:hidden; background:#F6F8FB; height:720px;">
@@ -585,17 +631,19 @@
                     <script src="chart_seasonality_nights_heatmap.js"></script>
                 </div>
                 <div class="frame frame-explanation">
-                    <div class="chart-eyebrow">Intensity</div>
-                    <h3 class="chart-title">How many nights, where and when?</h3>
-                    <h4>What you see</h4>
-                    <p>Pick a month and a year from the dropdowns at the top right of the map. Every NUTS 2 region is then colored by the total number of tourist nights it recorded that month, on a logarithmic color scale.</p>
-                    <p>Switch to August in any year and the Mediterranean coast and Alpine arc burn bright. Switch to February and only the ski regions stay lit while most of Europe goes dark.</p>
-                    <p>Use this view together with the categorical map above. The map above tells you which month a region peaks in. This map tells you how big the peak actually is.</p>
+                    <div class="chart-eyebrow">Intensity · Beat 3 / 4</div>
+                    <h3 class="chart-title">August doesn't just win — it dwarfs every other month.</h3>
+                    <p class="story-finding">Switch to August in any year: <strong>the Mediterranean coast and the Alpine arc burn bright</strong> on a log scale. Switch to February: most of the continent goes dark and only the ski regions stay lit. The previous map showed which month a region peaks in. This one shows by how much.</p>
+                    <h4>How to read it</h4>
+                    <p>Pick a month and a year from the dropdowns. Each NUTS 2 region is colored by its total nights for that specific month, on a logarithmic scale so smaller regions remain visible.</p>
                     <p class="source">Source: Eurostat tour_occ_nin2m, aggregated across residence and accommodation</p>
                 </div>
             </div>
 
-            <div style="width:858px; height:1px; background:#e0e0e0; margin-top:80px;"></div>
+            <div class="story-bridge">
+                So we know the calendar.
+                One last question for this chapter — who wins each month of the year?
+            </div>
 
             <div class="chart-with-explanation">
                 <div class="frame" style="position:relative; background:#F6F8FB; height:480px; overflow:hidden;">
@@ -609,14 +657,23 @@
                     <script src="chart_seasonality_top.js?v=2"></script>
                 </div>
                 <div class="frame frame-explanation">
-                    <div class="chart-eyebrow">Ranking</div>
-                    <h3 class="chart-title">Top destination each month</h3>
-                    <h4>What you see</h4>
-                    <p>For every calendar month, the bar shows the country that received the most tourist nights in the selected year. Bar length is total nights, bar color is the country's brand color.</p>
-                    <p>Pick a year from the dropdown to scrub through 2020 to 2024 and see how the seasonal ranking shifts.</p>
-                    <p>Summer months belong to France, Spain and Italy. The shoulder months and winter shuffle among Germany, France and Spain, with values an order of magnitude smaller.</p>
+                    <div class="chart-eyebrow">Ranking · Beat 4 / 4</div>
+                    <h3 class="chart-title">Summer belongs to France, Spain and Italy. The rest of the year is a quieter contest.</h3>
+                    <p class="story-finding">Every summer month, the same three names sit on top — and by an order of magnitude. <strong>The shoulder months and winter shuffle</strong> among Germany, France and Spain, but with totals that are a fraction of August's. The calendar isn't just busier in summer; the leaderboard reshuffles around it.</p>
+                    <h4>How to read it</h4>
+                    <p>For each calendar month, the bar shows the country that received the most tourist nights in the selected year. Bar length is total nights; color is the country's identifier. Scrub the year dropdown from 2020 to 2024 to watch the seasonal ranking shift.</p>
                     <p class="source">Source: Eurostat tour_occ_nin2m</p>
                 </div>
+            </div>
+
+            <div class="chapter-close">
+                <div class="chapter-close-eyebrow">End of Chapter 2 · Up next: How much</div>
+                <h3 class="chapter-close-title">Europe travels in a window. Now: at what price?</h3>
+                <p class="chapter-close-body">
+                    We've answered <em>where</em> and <em>when</em>. There's one number left that ties them together —
+                    the bill. Some Europeans pay twice as much per night as their neighbors.
+                    Some destinations cost five times more than others. Scroll on for the money.
+                </p>
             </div>
         </div>
 
@@ -624,7 +681,17 @@
             <div class="section-number">
                 <span>3</span>
             </div>
-            <p class="feature-section-block-title">Travel Expenditure</p>
+            <p class="feature-section-block-title">How much it costs</p>
+
+            <div class="chapter-intro">
+                <div class="chapter-eyebrow">Chapter 3 · How much</div>
+                <p class="chapter-lede">
+                    The same trip costs wildly different things to wildly different Europeans.
+                    The bill depends on <strong>who travels, where they go, and how long they stay</strong>.
+                    The six views below peel those three variables apart — and end with the question every traveler eventually faces:
+                    short luxury break, or long budget holiday?
+                </p>
+            </div>
 
             <div class="chart-with-explanation">
                 <div class="frame" style="position:relative; overflow:hidden; background:#F6F8FB; height:620px;">
@@ -639,17 +706,19 @@
                     <script src="chart_expenditure_choropleth.js"></script>
                 </div>
                 <div class="frame frame-explanation">
-                    <div class="chart-eyebrow">Geography</div>
-                    <h3 class="chart-title">How much do tourists spend per trip?</h3>
-                    <h4>What you see</h4>
-                    <p>EU countries colored by the average expenditure per trip of their residents. Darker shades mean travelers from that country spend more on average per trip.</p>
-                    <p>Use the dropdown to scrub through years and watch the spending recover after the 2020 dip. Hover any country to see the exact figure.</p>
-                    <p>Luxembourg, Belgium and Austria sit near the top. Eastern European countries spend less on average per trip but the gap has narrowed since 2012.</p>
+                    <div class="chart-eyebrow">Geography · Beat 1 / 6</div>
+                    <h3 class="chart-title">Small, wealthy and central — that's who spends the most per trip.</h3>
+                    <p class="story-finding"><strong>Luxembourg, Belgium and Austria</strong> sit at the top of the per-trip spending map. Their residents take expensive trips on average — partly because they're wealthy, partly because nearly every trip is already an international one. <strong>Eastern Europe sits at the other end</strong>, though the gap has narrowed steadily since 2012.</p>
+                    <h4>How to read it</h4>
+                    <p>EU countries are colored by the average expenditure per trip of <em>their residents</em>. Darker shades mean travelers from that country spend more on average per trip. Scrub the year dropdown to watch the 2020 dip and its recovery.</p>
                     <p class="source">Source: Eurostat tour_dem_extotw</p>
                 </div>
             </div>
 
-            <div style="width:858px; height:1px; background:#e0e0e0; margin-top:80px;"></div>
+            <div class="story-bridge">
+                Per-trip totals mix two things: how much you spend each night, and how many nights you stay.
+                Strip out the second one — what does a single night actually cost?
+            </div>
 
             <div class="chart-with-explanation">
                 <div class="frame" style="position:relative; overflow:hidden; background:#F6F8FB; height:620px;">
@@ -664,17 +733,18 @@
                     <script src="chart_expenditure_per_night.js"></script>
                 </div>
                 <div class="frame frame-explanation">
-                    <div class="chart-eyebrow">Intensity</div>
-                    <h3 class="chart-title">How much do tourists spend per night?</h3>
-                    <h4>What you see</h4>
-                    <p>Same EU countries as before, but now colored by how much their residents spend on average per night while traveling. Per night spending strips out the influence of trip length.</p>
-                    <p>A country with high per night and low per trip values takes short luxury breaks. A country with low per night and high per trip values takes long budget holidays.</p>
-                    <p>Luxembourg, Denmark and Belgium pay the most per night. Eastern Europe pays the least.</p>
+                    <div class="chart-eyebrow">Intensity · Beat 2 / 6</div>
+                    <h3 class="chart-title">Per night, the rich pay more — and the south stretches it thinner.</h3>
+                    <p class="story-finding">Switch to per-night spending and the gap sharpens. <strong>Luxembourg, Denmark and Belgium</strong> pay the most for each night abroad. Eastern Europe pays the least. The trick is the ratio: a country with <em>high per-night and low per-trip</em> takes short luxury breaks; the inverse — high per-trip, low per-night — takes long budget holidays.</p>
+                    <h4>How to read it</h4>
+                    <p>Same EU countries as the previous map, but colored by what their residents spend per night while traveling. Per-night strips out the effect of trip length, so what's left is closer to taste and wealth.</p>
                     <p class="source">Source: Eurostat tour_dem_extotw and tour_dem_tnw</p>
                 </div>
             </div>
 
-            <div style="width:858px; height:1px; background:#e0e0e0; margin-top:80px;"></div>
+            <div class="story-bridge">
+                Until now the maps have asked who pays. Flip the camera around — where does that money land?
+            </div>
 
             <div class="chart-with-explanation">
                 <div class="frame" style="position:relative; overflow:hidden; background:#F6F8FB; height:660px;">
@@ -689,17 +759,19 @@
                     <script src="chart_expenditure_world.js?v=2"></script>
                 </div>
                 <div class="frame frame-explanation">
-                    <div class="chart-eyebrow">Destination</div>
-                    <h3 class="chart-title">Where in the world does spending climb?</h3>
-                    <h4>What you see</h4>
-                    <p>Same per night metric, but now from the destination side. Each country is colored by how much travelers spend on average per night while visiting it.</p>
-                    <p>Eurostat also publishes spending for entire regions and totals that have no country shape, like Africa, Asia, the Americas and the whole world. These appear as small colored bars at the bottom of the frame, on the same color scale as the map.</p>
-                    <p>The bars labeled Domestic, All foreign trips and World give the reference levels for the average European traveler.</p>
+                    <div class="chart-eyebrow">Destination · Beat 3 / 6</div>
+                    <h3 class="chart-title">A night abroad has a price tag — and it varies dramatically by where you sleep.</h3>
+                    <p class="story-finding">Now each country is colored by how much European travelers spend per night <em>visiting</em> it. The expensive destinations cluster where you'd expect — Western Europe, North America, parts of Asia. <strong>The reference bars at the bottom give the European average</strong> for domestic trips, all foreign trips, and the whole world.</p>
+                    <h4>How to read it</h4>
+                    <p>Same per-night metric as before, but flipped to the destination side. Eurostat publishes some totals (Africa, Asia, Americas, World) that have no country shape — those appear as colored bars at the bottom, on the same color scale.</p>
                     <p class="source">Source: Eurostat tour_dem_extotw_per_dest and tour_dem_tnw_per_dest</p>
                 </div>
             </div>
 
-            <div style="width:858px; height:1px; background:#e0e0e0; margin-top:80px;"></div>
+            <div class="story-bridge">
+                Per-night ranks destinations on price. But Europeans don't stay one night —
+                they stay longer the further they fly. So what does an entire trip cost?
+            </div>
 
             <div class="chart-with-explanation">
                 <div class="frame" style="position:relative; overflow:hidden; background:#F6F8FB; height:660px;">
@@ -714,17 +786,19 @@
                     <script src="chart_expenditure_world_trip.js?v=2"></script>
                 </div>
                 <div class="frame frame-explanation">
-                    <div class="chart-eyebrow">Destination</div>
-                    <h3 class="chart-title">Which world destinations cost the most per trip?</h3>
-                    <h4>What you see</h4>
-                    <p>The same world view, but now showing average spending per trip rather than per night. A trip cost combines what travelers spend each night with how long they stay.</p>
-                    <p>Long haul destinations rise sharply on this map because Europeans visit them for longer. North America and Asia stand out compared to nearby European countries.</p>
-                    <p>The bars at the bottom of the frame give the same reading for regions and totals that have no country shape. Africa, the Americas and Asia each show as a single aggregate bar.</p>
+                    <div class="chart-eyebrow">Destination · Beat 4 / 6</div>
+                    <h3 class="chart-title">Long-haul destinations don't just cost more per night — they cost more per trip, twice over.</h3>
+                    <p class="story-finding">Switch to per-trip and <strong>North America and Asia explode in color</strong>. The reason isn't only nightly price: Europeans stay there <em>much longer</em>. Per-night cost multiplied by trip length gives long-haul a double penalty. Neighboring European destinations look cheap by comparison even when nightly rates aren't far apart.</p>
+                    <h4>How to read it</h4>
+                    <p>Same world view as the previous map, but showing average spending per trip rather than per night. Aggregate regions appear as bars at the bottom, on the same color scale.</p>
                     <p class="source">Source: Eurostat tour_dem_extotw_per_dest</p>
                 </div>
             </div>
 
-            <div style="width:858px; height:1px; background:#e0e0e0; margin-top:80px;"></div>
+            <div class="story-bridge">
+                That double penalty hints at a clean three-way comparison.
+                For each country: a trip at home, a trip elsewhere in the EU, and a trip outside the EU — what do they each cost?
+            </div>
 
             <div class="chart-with-explanation">
                 <div class="frame" style="position:relative; background:#F6F8FB; height:700px; overflow:hidden;">
@@ -738,17 +812,20 @@
                     <script src="chart_expenditure_scope.js?v=2"></script>
                 </div>
                 <div class="frame frame-explanation">
-                    <div class="chart-eyebrow">Scope</div>
-                    <h3 class="chart-title">Domestic, intra EU or beyond</h3>
-                    <h4>What you see</h4>
-                    <p>Three grouped bars for each country show how much its residents spend on average per trip depending on where they go. Green for domestic, blue for trips within the EU, orange for trips outside the EU.</p>
-                    <p>Trips outside the EU are the most expensive almost everywhere. The gap between domestic and outside EU spending tells you how much extra a foreign holiday costs the traveler.</p>
-                    <p>Countries are sorted by their spending on trips outside the EU.</p>
+                    <div class="chart-eyebrow">Scope · Beat 5 / 6</div>
+                    <h3 class="chart-title">The further you leave home, the steeper the bill — almost everywhere.</h3>
+                    <p class="story-finding">Three bars per country, side by side. <strong>The orange bar (outside EU) is the tallest almost everywhere.</strong> The blue bar (intra-EU) sits in the middle. The green bar (domestic) is the cheapest. The gap between green and orange tells you how much extra a true international holiday costs that country's travelers.</p>
+                    <h4>How to read it</h4>
+                    <p>For each country, three grouped bars show average spending per trip by destination scope: green for domestic, blue for trips within the EU, orange for trips outside the EU. Countries are sorted by their outside-EU spending.</p>
                     <p class="source">Source: Eurostat tour_dem_extotw split by destination scope</p>
                 </div>
             </div>
 
-            <div style="width:858px; height:1px; background:#e0e0e0; margin-top:80px;"></div>
+            <div class="story-bridge">
+                One last chart — and it puts every country in the same picture.
+                The question we've been circling the entire chapter:
+                does this country take <em>short luxury breaks</em>, or <em>long budget holidays</em>?
+            </div>
 
             <div class="chart-with-explanation">
                 <div class="frame" style="background:#F6F8FB; height:540px; position:relative; overflow:hidden;">
@@ -763,14 +840,23 @@
                     <script src="chart_expenditure_scatter.js?v=2"></script>
                 </div>
                 <div class="frame frame-explanation">
-                    <div class="chart-eyebrow">Pattern</div>
-                    <h3 class="chart-title">Long budget trip or short luxury break?</h3>
-                    <h4>What you see</h4>
-                    <p>One dot per country. The horizontal axis is average spending per night, the vertical axis is average spending per trip. Dashed lines mark implied trip lengths of 4, 7, 10 and 14 nights.</p>
-                    <p>Dots far up and to the right are short luxury trips. Dots up and to the left are long budget trips. The ratio of trip cost to night cost gives the average length of a holiday.</p>
-                    <p>Hover any dot to see the exact figures and the implied number of nights per trip.</p>
+                    <div class="chart-eyebrow">Pattern · Beat 6 / 6</div>
+                    <h3 class="chart-title">Two travel cultures, on one chart.</h3>
+                    <p class="story-finding">Each dot is a country. <strong>Up and to the right</strong> — high per-night, high per-trip — sits the <em>short luxury break</em> crowd. <strong>Up and to the left</strong> — modest per-night, high per-trip — sits the <em>long budget holiday</em> crowd. The dashed lines mark implied trip lengths of 4, 7, 10 and 14 nights, so each country's average vacation length pops out at a glance.</p>
+                    <h4>How to read it</h4>
+                    <p>Horizontal axis: average spending per night. Vertical axis: average spending per trip. Each country sits on the line corresponding to its average trip length. Hover any dot for exact figures.</p>
                     <p class="source">Source: Eurostat tour_dem_extotw and tour_dem_tnw</p>
                 </div>
+            </div>
+
+            <div class="chapter-close">
+                <div class="chapter-close-eyebrow">End of the European story · Up next: Switzerland</div>
+                <h3 class="chapter-close-title">Where, when, how much — three lenses on one continent.</h3>
+                <p class="chapter-close-body">
+                    The Europe-wide view is finished. But every country tells its own version of these patterns.
+                    For our deep dive, we pick one — <strong>Switzerland</strong> — and ask whether the rules we've just seen
+                    (proximity wins, wealth pays more, summer crushes) actually hold up when you zoom all the way in.
+                </p>
             </div>
 
         </div>
