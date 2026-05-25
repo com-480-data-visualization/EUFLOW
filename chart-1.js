@@ -2,14 +2,14 @@ const svg = d3.select("#map");
 const projection = d3.geoMercator();
 const path = d3.geoPath().projection(projection);
 
-const W1 = 900, H1 = 600;
+const W1 = 900, H1 = 480;
 const legendWidth = 180, legendHeight = 12;
 const legendX = W1 - legendWidth - 30;
 const legendY = H1 - 55;
 
 Promise.all([
     d3.json("data/cantons.geojson"),
-    d3.json("data/canton_annual_total_visitors.json")
+    d3.json("data/canton_annual_total_eu_visitors.json")
 ]).then(([geoData, visitors]) => {
 
     projection.fitSize([W1, H1], geoData);
@@ -73,17 +73,17 @@ Promise.all([
             .attr("stroke-width", 0.5)
             .attr("d", path)
             .on("mouseover", function(event, d) {
-                d3.select(this).attr("opacity", 0.7);
-                const val = yearData[d.properties.NAME];
-                tooltip.style("display", "block")
-                    .text(`${d.properties.NAME}: ${val ? val.toLocaleString() : "no data"}`);
-            })
+    d3.select(this).attr("opacity", 0.7);
+    const val = yearData[d.properties.NAME];
+    tooltip.style("display", "block")
+        .html(`<div style="font-weight:700; margin-bottom:6px;">${d.properties.NAME}</div>
+               <div>Visitors: ${val ? val.toLocaleString() : "no data"}</div>`);
+})
             .on("mousemove", function(event) {
-                const container = document.querySelector("#map").getBoundingClientRect();
-                tooltip
-                    .style("left", (event.clientX - container.left + 10) + "px")
-                    .style("top",  (event.clientY - container.top  - 28) + "px");
-            })
+    tooltip
+        .style("left", (event.clientX + 16) + "px")
+        .style("top", (event.clientY - 40) + "px");
+})
             .on("mouseout", function(event, d) {
                 const val = yearData[d.properties.NAME];
                 d3.select(this)

@@ -1,0 +1,1252 @@
+{
+  "Anguilla": {
+    "lat": 18.25,
+    "long": -63.16666666,
+    "distance_km": 7126.3
+  },
+  "Guatemala": {
+    "lat": 15.5,
+    "long": -90.25,
+    "distance_km": 9374.2
+  },
+  "Gambia": {
+    "lat": 13.46666666,
+    "long": -16.56666666,
+    "distance_km": 4366.2
+  },
+  "Mexico": {
+    "lat": 23.0,
+    "long": -102.0,
+    "distance_km": 9571.6
+  },
+  "Malawi": {
+    "lat": -13.5,
+    "long": 34.0,
+    "distance_km": 7185.0
+  },
+  "Pitcairn Islands": {
+    "lat": -25.06666666,
+    "long": -130.1,
+    "distance_km": 15602.0
+  },
+  "Argentina": {
+    "lat": -34.0,
+    "long": -64.0,
+    "distance_km": 11493.0
+  },
+  "Guam": {
+    "lat": 13.46666666,
+    "long": 144.78333333,
+    "distance_km": 12051.6
+  },
+  "Bulgaria": {
+    "lat": 43.0,
+    "long": 25.0,
+    "distance_km": 1408.8
+  },
+  "Dominica": {
+    "lat": 15.41666666,
+    "long": -61.33333333,
+    "distance_km": 7206.9
+  },
+  "United Kingdom": {
+    "lat": 54.0,
+    "long": -2.0,
+    "distance_km": 1051.5
+  },
+  "Micronesia": {
+    "lat": 6.91666666,
+    "long": 158.25,
+    "distance_km": 13354.0
+  },
+  "Palestine": {
+    "lat": 31.9,
+    "long": 35.2,
+    "distance_km": 2855.4
+  },
+  "Curaçao": {
+    "lat": 12.116667,
+    "long": -68.933333,
+    "distance_km": 8044.0
+  },
+  "Rwanda": {
+    "lat": -2.0,
+    "long": 30.0,
+    "distance_km": 5839.0
+  },
+  "Hong Kong": {
+    "lat": 22.267,
+    "long": 114.188,
+    "distance_km": 9378.1
+  },
+  "Uzbekistan": {
+    "lat": 41.0,
+    "long": 64.0,
+    "distance_km": 4443.8
+  },
+  "China": {
+    "lat": 35.0,
+    "long": 105.0,
+    "distance_km": 7738.5
+  },
+  "Cyprus": {
+    "lat": 35.0,
+    "long": 33.0,
+    "distance_km": 2473.2
+  },
+  "Aruba": {
+    "lat": 12.5,
+    "long": -69.96666666,
+    "distance_km": 8092.3
+  },
+  "Réunion": {
+    "lat": -21.15,
+    "long": 55.5,
+    "distance_km": 8923.8
+  },
+  "South Korea": {
+    "lat": 37.0,
+    "long": 127.5,
+    "distance_km": 8928.8
+  },
+  "Antarctica": {
+    "lat": -90.0,
+    "long": 0.0,
+    "distance_km": 15209.2
+  },
+  "Somalia": {
+    "lat": 10.0,
+    "long": 49.0,
+    "distance_km": 5629.0
+  },
+  "Lebanon": {
+    "lat": 33.83333333,
+    "long": 35.83333333,
+    "distance_km": 2755.6
+  },
+  "Guinea": {
+    "lat": 11.0,
+    "long": -10.0,
+    "distance_km": 4335.6
+  },
+  "Tajikistan": {
+    "lat": 39.0,
+    "long": 71.0,
+    "distance_km": 5072.6
+  },
+  "Malaysia": {
+    "lat": 2.5,
+    "long": 112.5,
+    "distance_km": 10900.6
+  },
+  "North Korea": {
+    "lat": 40.0,
+    "long": 127.0,
+    "distance_km": 8637.6
+  },
+  "Sierra Leone": {
+    "lat": 8.5,
+    "long": -11.5,
+    "distance_km": 4651.6
+  },
+  "Benin": {
+    "lat": 9.5,
+    "long": 2.25,
+    "distance_km": 4192.2
+  },
+  "Italy": {
+    "lat": 42.83333333,
+    "long": 12.83333333,
+    "distance_km": 599.8
+  },
+  "Trinidad and Tobago": {
+    "lat": 10.6918,
+    "long": -61.2225,
+    "distance_km": 7573.0
+  },
+  "Saudi Arabia": {
+    "lat": 25.0,
+    "long": 45.0,
+    "distance_km": 4073.6
+  },
+  "Costa Rica": {
+    "lat": 10.0,
+    "long": -84.0,
+    "distance_km": 9354.8
+  },
+  "Serbia": {
+    "lat": 44.0,
+    "long": 21.0,
+    "distance_km": 1067.9
+  },
+  "Tokelau": {
+    "lat": -9.0,
+    "long": -172.0,
+    "distance_km": 15791.9
+  },
+  "Mongolia": {
+    "lat": 46.0,
+    "long": 105.0,
+    "distance_km": 6921.9
+  },
+  "Brunei": {
+    "lat": 4.5,
+    "long": 114.66666666,
+    "distance_km": 10895.1
+  },
+  "Hungary": {
+    "lat": 47.0,
+    "long": 20.0,
+    "distance_km": 911.8
+  },
+  "Mozambique": {
+    "lat": -18.25,
+    "long": 35.0,
+    "distance_km": 7716.4
+  },
+  "Kiribati": {
+    "lat": 1.41666666,
+    "long": 173.0,
+    "distance_km": 14445.2
+  },
+  "Haiti": {
+    "lat": 19.0,
+    "long": -72.41666666,
+    "distance_km": 7770.7
+  },
+  "Cambodia": {
+    "lat": 13.0,
+    "long": 105.0,
+    "distance_km": 9485.4
+  },
+  "Egypt": {
+    "lat": 27.0,
+    "long": 30.0,
+    "distance_km": 2939.1
+  },
+  "Turkmenistan": {
+    "lat": 40.0,
+    "long": 60.0,
+    "distance_km": 4197.4
+  },
+  "Oman": {
+    "lat": 21.0,
+    "long": 57.0,
+    "distance_km": 5249.3
+  },
+  "Jamaica": {
+    "lat": 18.25,
+    "long": -77.5,
+    "distance_km": 8211.5
+  },
+  "Azerbaijan": {
+    "lat": 40.5,
+    "long": 47.5,
+    "distance_km": 3226.0
+  },
+  "Slovakia": {
+    "lat": 48.66666666,
+    "long": 19.5,
+    "distance_km": 879.8
+  },
+  "Belarus": {
+    "lat": 53.0,
+    "long": 28.0,
+    "distance_km": 1574.6
+  },
+  "Vietnam": {
+    "lat": 16.16666666,
+    "long": 107.83333333,
+    "distance_km": 9434.8
+  },
+  "United States Virgin Islands": {
+    "lat": 18.35,
+    "long": -64.933333,
+    "distance_km": 7253.0
+  },
+  "Gibraltar": {
+    "lat": 36.13333333,
+    "long": -5.35,
+    "distance_km": 1637.6
+  },
+  "Sint Maarten": {
+    "lat": 18.033333,
+    "long": -63.05,
+    "distance_km": 7134.1
+  },
+  "Åland Islands": {
+    "lat": 60.116667,
+    "long": 19.9,
+    "distance_km": 1653.4
+  },
+  "Syria": {
+    "lat": 35.0,
+    "long": 38.0,
+    "distance_km": 2829.7
+  },
+  "Martinique": {
+    "lat": 14.666667,
+    "long": -61.0,
+    "distance_km": 7240.4
+  },
+  "Greenland": {
+    "lat": 72.0,
+    "long": -40.0,
+    "distance_km": 3703.2
+  },
+  "Honduras": {
+    "lat": 15.0,
+    "long": -86.5,
+    "distance_km": 9139.3
+  },
+  "Tunisia": {
+    "lat": 34.0,
+    "long": 9.0,
+    "distance_km": 1446.0
+  },
+  "Comoros": {
+    "lat": -12.16666666,
+    "long": 44.25,
+    "distance_km": 7479.7
+  },
+  "Slovenia": {
+    "lat": 46.11666666,
+    "long": 14.81666666,
+    "distance_km": 531.7
+  },
+  "Switzerland": {
+    "lat": 47.0,
+    "long": 8.0,
+    "distance_km": 0.0
+  },
+  "Guernsey": {
+    "lat": 49.46666666,
+    "long": -2.58333333,
+    "distance_km": 831.8
+  },
+  "Myanmar": {
+    "lat": 22.0,
+    "long": 98.0,
+    "distance_km": 8253.0
+  },
+  "Paraguay": {
+    "lat": -23.0,
+    "long": -58.0,
+    "distance_km": 10183.7
+  },
+  "Caribbean Netherlands": {
+    "lat": 12.18,
+    "long": -68.25,
+    "distance_km": 7987.1
+  },
+  "Barbados": {
+    "lat": 13.16666666,
+    "long": -59.53333333,
+    "distance_km": 7248.1
+  },
+  "Macau": {
+    "lat": 22.16666666,
+    "long": 113.55,
+    "distance_km": 9343.1
+  },
+  "Jordan": {
+    "lat": 31.0,
+    "long": 36.0,
+    "distance_km": 2979.5
+  },
+  "Laos": {
+    "lat": 18.0,
+    "long": 105.0,
+    "distance_km": 9080.9
+  },
+  "Togo": {
+    "lat": 8.0,
+    "long": 1.16666666,
+    "distance_km": 4371.3
+  },
+  "Morocco": {
+    "lat": 32.0,
+    "long": -5.0,
+    "distance_km": 2000.0
+  },
+  "Puerto Rico": {
+    "lat": 18.25,
+    "long": -66.5,
+    "distance_km": 7379.8
+  },
+  "French Guiana": {
+    "lat": 4.0,
+    "long": -53.0,
+    "distance_km": 7515.8
+  },
+  "Saint Pierre and Miquelon": {
+    "lat": 46.83333333,
+    "long": -56.33333333,
+    "distance_km": 4756.2
+  },
+  "Saint Martin": {
+    "lat": 18.0708,
+    "long": -63.0501,
+    "distance_km": 7131.2
+  },
+  "Estonia": {
+    "lat": 59.0,
+    "long": 26.0,
+    "distance_km": 1789.5
+  },
+  "Indonesia": {
+    "lat": -5.0,
+    "long": 120.0,
+    "distance_km": 12074.8
+  },
+  "Seychelles": {
+    "lat": -4.58333333,
+    "long": 55.66666666,
+    "distance_km": 7378.1
+  },
+  "Mali": {
+    "lat": 17.0,
+    "long": -4.0,
+    "distance_km": 3505.5
+  },
+  "Timor-Leste": {
+    "lat": -8.83333333,
+    "long": 125.91666666,
+    "distance_km": 12826.8
+  },
+  "Brazil": {
+    "lat": -10.0,
+    "long": -55.0,
+    "distance_km": 8857.0
+  },
+  "Ghana": {
+    "lat": 8.0,
+    "long": -2.0,
+    "distance_km": 4426.1
+  },
+  "Kenya": {
+    "lat": 1.0,
+    "long": 38.0,
+    "distance_km": 5868.0
+  },
+  "Iceland": {
+    "lat": 65.0,
+    "long": -18.0,
+    "distance_km": 2540.1
+  },
+  "Madagascar": {
+    "lat": -20.0,
+    "long": 47.0,
+    "distance_km": 8387.3
+  },
+  "Bangladesh": {
+    "lat": 24.0,
+    "long": 90.0,
+    "distance_km": 7508.1
+  },
+  "DR Congo": {
+    "lat": 0.0,
+    "long": 25.0,
+    "distance_km": 5463.9
+  },
+  "Zimbabwe": {
+    "lat": -20.0,
+    "long": 30.0,
+    "distance_km": 7741.6
+  },
+  "French Polynesia": {
+    "lat": -17.6797,
+    "long": -149.4068,
+    "distance_km": 16155.6
+  },
+  "Turkey": {
+    "lat": 39.0,
+    "long": 35.0,
+    "distance_km": 2359.3
+  },
+  "Cape Verde": {
+    "lat": 16.5388,
+    "long": -23.0418,
+    "distance_km": 4421.7
+  },
+  "Dominican Republic": {
+    "lat": 19.0,
+    "long": -70.66666666,
+    "distance_km": 7638.3
+  },
+  "Bahamas": {
+    "lat": 25.0343,
+    "long": -77.3963,
+    "distance_km": 7681.4
+  },
+  "Germany": {
+    "lat": 51.0,
+    "long": 9.0,
+    "distance_km": 450.8
+  },
+  "Suriname": {
+    "lat": 4.0,
+    "long": -56.0,
+    "distance_km": 7732.8
+  },
+  "Tonga": {
+    "lat": -20.0,
+    "long": -175.0,
+    "distance_km": 16996.8
+  },
+  "British Indian Ocean Territory": {
+    "lat": -6.0,
+    "long": 71.5,
+    "distance_km": 8545.6
+  },
+  "Saint Lucia": {
+    "lat": 13.88333333,
+    "long": -60.96666666,
+    "distance_km": 7299.7
+  },
+  "Ireland": {
+    "lat": 53.0,
+    "long": -8.0,
+    "distance_km": 1322.9
+  },
+  "Vatican City": {
+    "lat": 41.9,
+    "long": 12.45,
+    "distance_km": 668.0
+  },
+  "Colombia": {
+    "lat": 4.0,
+    "long": -72.0,
+    "distance_km": 8927.0
+  },
+  "Portugal": {
+    "lat": 39.5,
+    "long": -8.0,
+    "distance_km": 1539.0
+  },
+  "Faroe Islands": {
+    "lat": 62.0,
+    "long": -7.0,
+    "distance_km": 1921.3
+  },
+  "São Tomé and Príncipe": {
+    "lat": 1.0,
+    "long": 7.0,
+    "distance_km": 5097.6
+  },
+  "Northern Mariana Islands": {
+    "lat": 15.2,
+    "long": 145.75,
+    "distance_km": 11934.6
+  },
+  "Jersey": {
+    "lat": 49.25,
+    "long": -2.16666666,
+    "distance_km": 796.4
+  },
+  "Mayotte": {
+    "lat": -12.83333333,
+    "long": 45.16666666,
+    "distance_km": 7589.9
+  },
+  "Yemen": {
+    "lat": 15.0,
+    "long": 48.0,
+    "distance_km": 5119.8
+  },
+  "Nigeria": {
+    "lat": 10.0,
+    "long": 8.0,
+    "distance_km": 4101.4
+  },
+  "Afghanistan": {
+    "lat": 33.0,
+    "long": 65.0,
+    "distance_km": 4989.6
+  },
+  "Botswana": {
+    "lat": -22.0,
+    "long": 24.0,
+    "distance_km": 7808.6
+  },
+  "Isle of Man": {
+    "lat": 54.25,
+    "long": -4.5,
+    "distance_km": 1193.8
+  },
+  "El Salvador": {
+    "lat": 13.83333333,
+    "long": -88.91666666,
+    "distance_km": 9411.7
+  },
+  "Uganda": {
+    "lat": 1.0,
+    "long": 32.0,
+    "distance_km": 5603.4
+  },
+  "Andorra": {
+    "lat": 42.5,
+    "long": 1.5,
+    "distance_km": 717.2
+  },
+  "Turks and Caicos Islands": {
+    "lat": 21.75,
+    "long": -71.58333333,
+    "distance_km": 7497.3
+  },
+  "Chad": {
+    "lat": 15.0,
+    "long": 19.0,
+    "distance_km": 3692.2
+  },
+  "Finland": {
+    "lat": 64.0,
+    "long": 26.0,
+    "distance_km": 2190.6
+  },
+  "Russia": {
+    "lat": 60.0,
+    "long": 100.0,
+    "distance_km": 5752.8
+  },
+  "Kazakhstan": {
+    "lat": 48.0196,
+    "long": 66.9237,
+    "distance_km": 4329.1
+  },
+  "Svalbard and Jan Mayen": {
+    "lat": 78.0,
+    "long": 20.0,
+    "distance_km": 3492.9
+  },
+  "Venezuela": {
+    "lat": 8.0,
+    "long": -66.0,
+    "distance_km": 8150.0
+  },
+  "Monaco": {
+    "lat": 43.73333333,
+    "long": 7.4,
+    "distance_km": 366.1
+  },
+  "Senegal": {
+    "lat": 14.0,
+    "long": -14.0,
+    "distance_km": 4192.5
+  },
+  "Nepal": {
+    "lat": 28.0,
+    "long": 84.0,
+    "distance_km": 6765.1
+  },
+  "United Arab Emirates": {
+    "lat": 24.0,
+    "long": 54.0,
+    "distance_km": 4796.2
+  },
+  "Taiwan": {
+    "lat": 23.5,
+    "long": 121.0,
+    "distance_km": 9724.1
+  },
+  "New Caledonia": {
+    "lat": -21.5,
+    "long": 165.5,
+    "distance_km": 16531.6
+  },
+  "Bolivia": {
+    "lat": -17.0,
+    "long": -65.0,
+    "distance_km": 10142.8
+  },
+  "Chile": {
+    "lat": -30.0,
+    "long": -71.0,
+    "distance_km": 11619.9
+  },
+  "Ivory Coast": {
+    "lat": 8.0,
+    "long": -5.0,
+    "distance_km": 4496.1
+  },
+  "Libya": {
+    "lat": 25.0,
+    "long": 17.0,
+    "distance_km": 2568.3
+  },
+  "Peru": {
+    "lat": -10.0,
+    "long": -76.0,
+    "distance_km": 10364.5
+  },
+  "Canada": {
+    "lat": 60.0,
+    "long": -95.0,
+    "distance_km": 6265.8
+  },
+  "France": {
+    "lat": 46.0,
+    "long": 2.0,
+    "distance_km": 473.7
+  },
+  "Djibouti": {
+    "lat": 11.5,
+    "long": 43.0,
+    "distance_km": 5122.2
+  },
+  "Burundi": {
+    "lat": -3.5,
+    "long": 30.0,
+    "distance_km": 5996.2
+  },
+  "Kosovo": {
+    "lat": 42.666667,
+    "long": 21.166667,
+    "distance_km": 1145.2
+  },
+  "Denmark": {
+    "lat": 56.0,
+    "long": 10.0,
+    "distance_km": 1010.8
+  },
+  "Greece": {
+    "lat": 39.0,
+    "long": 22.0,
+    "distance_km": 1443.0
+  },
+  "Czechia": {
+    "lat": 49.75,
+    "long": 15.5,
+    "distance_km": 633.8
+  },
+  "Eritrea": {
+    "lat": 15.0,
+    "long": 39.0,
+    "distance_km": 4562.1
+  },
+  "Namibia": {
+    "lat": -22.0,
+    "long": 17.0,
+    "distance_km": 7694.5
+  },
+  "British Virgin Islands": {
+    "lat": 18.431383,
+    "long": -64.62305,
+    "distance_km": 7223.1
+  },
+  "Iran": {
+    "lat": 32.0,
+    "long": 53.0,
+    "distance_km": 4144.0
+  },
+  "Equatorial Guinea": {
+    "lat": 2.0,
+    "long": 10.0,
+    "distance_km": 4989.9
+  },
+  "Mauritania": {
+    "lat": 20.0,
+    "long": -12.0,
+    "distance_km": 3501.8
+  },
+  "Bahrain": {
+    "lat": 26.0,
+    "long": 50.55,
+    "distance_km": 4391.4
+  },
+  "Cocos (Keeling) Islands": {
+    "lat": -12.1642,
+    "long": 96.871,
+    "distance_km": 10903.6
+  },
+  "Ethiopia": {
+    "lat": 8.0,
+    "long": 38.0,
+    "distance_km": 5176.6
+  },
+  "Zambia": {
+    "lat": -15.0,
+    "long": 30.0,
+    "distance_km": 7210.0
+  },
+  "Bosnia and Herzegovina": {
+    "lat": 44.0,
+    "long": 18.0,
+    "distance_km": 848.9
+  },
+  "Falkland Islands": {
+    "lat": -51.75,
+    "long": -59.0,
+    "distance_km": 12667.6
+  },
+  "Grenada": {
+    "lat": 12.11666666,
+    "long": -61.66666666,
+    "distance_km": 7492.7
+  },
+  "Thailand": {
+    "lat": 15.0,
+    "long": 100.0,
+    "distance_km": 8953.9
+  },
+  "Romania": {
+    "lat": 46.0,
+    "long": 25.0,
+    "distance_km": 1307.1
+  },
+  "Saint Vincent and the Grenadines": {
+    "lat": 13.25,
+    "long": -61.2,
+    "distance_km": 7367.4
+  },
+  "Liberia": {
+    "lat": 6.5,
+    "long": -9.5,
+    "distance_km": 4790.0
+  },
+  "United States": {
+    "lat": 38.0,
+    "long": -97.0,
+    "distance_km": 8011.9
+  },
+  "South Sudan": {
+    "lat": 7.0,
+    "long": 30.0,
+    "distance_km": 4904.7
+  },
+  "Bouvet Island": {
+    "lat": -54.4208,
+    "long": 3.3464,
+    "distance_km": 11248.6
+  },
+  "Armenia": {
+    "lat": 40.0,
+    "long": 45.0,
+    "distance_km": 3060.8
+  },
+  "Japan": {
+    "lat": 36.0,
+    "long": 138.0,
+    "distance_km": 9550.9
+  },
+  "Pakistan": {
+    "lat": 30.0,
+    "long": 70.0,
+    "distance_km": 5569.0
+  },
+  "Eswatini": {
+    "lat": -26.5,
+    "long": 31.5,
+    "distance_km": 8475.7
+  },
+  "Liechtenstein": {
+    "lat": 47.26666666,
+    "long": 9.53333333,
+    "distance_km": 120.0
+  },
+  "Israel": {
+    "lat": 31.47,
+    "long": 35.13,
+    "distance_km": 2883.9
+  },
+  "American Samoa": {
+    "lat": -14.33333333,
+    "long": -170.0,
+    "distance_km": 16377.2
+  },
+  "Sri Lanka": {
+    "lat": 7.0,
+    "long": 81.0,
+    "distance_km": 8155.1
+  },
+  "South Georgia": {
+    "lat": -54.5,
+    "long": -37.0,
+    "distance_km": 12019.2
+  },
+  "Albania": {
+    "lat": 41.0,
+    "long": 20.0,
+    "distance_km": 1168.7
+  },
+  "Algeria": {
+    "lat": 28.0,
+    "long": 3.0,
+    "distance_km": 2153.5
+  },
+  "Ukraine": {
+    "lat": 49.0,
+    "long": 32.0,
+    "distance_km": 1797.1
+  },
+  "Saint Helena, Ascension and Tristan da Cunha": {
+    "lat": -15.95,
+    "long": -5.72,
+    "distance_km": 7105.5
+  },
+  "Heard Island and McDonald Islands": {
+    "lat": -53.0818,
+    "long": 73.5042,
+    "distance_km": 12705.4
+  },
+  "San Marino": {
+    "lat": 43.76666666,
+    "long": 12.41666666,
+    "distance_km": 498.6
+  },
+  "Cuba": {
+    "lat": 21.5,
+    "long": -80.0,
+    "distance_km": 8144.7
+  },
+  "Nauru": {
+    "lat": -0.53333333,
+    "long": 166.91666666,
+    "distance_km": 14466.4
+  },
+  "Spain": {
+    "lat": 40.0,
+    "long": -4.0,
+    "distance_km": 1241.3
+  },
+  "Kuwait": {
+    "lat": 29.5,
+    "long": 45.75,
+    "distance_km": 3780.6
+  },
+  "Montserrat": {
+    "lat": 16.75,
+    "long": -62.2,
+    "distance_km": 7168.7
+  },
+  "Mauritius": {
+    "lat": -20.28333333,
+    "long": 57.55,
+    "distance_km": 8952.9
+  },
+  "Sweden": {
+    "lat": 62.0,
+    "long": 15.0,
+    "distance_km": 1727.8
+  },
+  "Australia": {
+    "lat": -27.0,
+    "long": 133.0,
+    "distance_km": 14772.8
+  },
+  "Cameroon": {
+    "lat": 6.0,
+    "long": 12.0,
+    "distance_km": 4559.9
+  },
+  "Ecuador": {
+    "lat": -2.0,
+    "long": -77.5,
+    "distance_km": 9829.5
+  },
+  "Qatar": {
+    "lat": 25.5,
+    "long": 51.25,
+    "distance_km": 4480.5
+  },
+  "Marshall Islands": {
+    "lat": 9.0,
+    "long": 168.0,
+    "distance_km": 13494.5
+  },
+  "Poland": {
+    "lat": 52.0,
+    "long": 20.0,
+    "distance_km": 1029.9
+  },
+  "Cayman Islands": {
+    "lat": 19.3133,
+    "long": -81.2546,
+    "distance_km": 8408.3
+  },
+  "South Africa": {
+    "lat": -29.0,
+    "long": 24.0,
+    "distance_km": 8568.9
+  },
+  "Wallis and Futuna": {
+    "lat": -13.3,
+    "long": -176.2,
+    "distance_km": 16247.3
+  },
+  "Samoa": {
+    "lat": -13.58333333,
+    "long": -172.33333333,
+    "distance_km": 16298.8
+  },
+  "Netherlands": {
+    "lat": 52.5,
+    "long": 5.75,
+    "distance_km": 632.8
+  },
+  "Western Sahara": {
+    "lat": 24.5,
+    "long": -13.0,
+    "distance_km": 3115.6
+  },
+  "Montenegro": {
+    "lat": 42.5,
+    "long": 19.3,
+    "distance_km": 1023.7
+  },
+  "Bhutan": {
+    "lat": 27.5,
+    "long": 90.5,
+    "distance_km": 7283.6
+  },
+  "Malta": {
+    "lat": 35.9375,
+    "long": 14.3754,
+    "distance_km": 1337.9
+  },
+  "Vanuatu": {
+    "lat": -16.0,
+    "long": 167.0,
+    "distance_km": 16062.9
+  },
+  "Tanzania": {
+    "lat": -6.0,
+    "long": 35.0,
+    "distance_km": 6445.7
+  },
+  "New Zealand": {
+    "lat": -41.0,
+    "long": 174.0,
+    "distance_km": 18713.5
+  },
+  "Palau": {
+    "lat": 7.5,
+    "long": 134.5,
+    "distance_km": 12005.8
+  },
+  "Panama": {
+    "lat": 9.0,
+    "long": -80.0,
+    "distance_km": 9133.0
+  },
+  "Tuvalu": {
+    "lat": -8.0,
+    "long": 178.0,
+    "distance_km": 15578.9
+  },
+  "Fiji": {
+    "lat": -17.7134,
+    "long": 178.065,
+    "distance_km": 16632.1
+  },
+  "Nicaragua": {
+    "lat": 13.0,
+    "long": -85.0,
+    "distance_km": 9188.6
+  },
+  "Kyrgyzstan": {
+    "lat": 41.0,
+    "long": 75.0,
+    "distance_km": 5249.5
+  },
+  "French Southern and Antarctic Lands": {
+    "lat": -49.25,
+    "long": 69.167,
+    "distance_km": 12185.2
+  },
+  "Latvia": {
+    "lat": 57.0,
+    "long": 25.0,
+    "distance_km": 1604.5
+  },
+  "Georgia": {
+    "lat": 42.0,
+    "long": 43.5,
+    "distance_km": 2851.9
+  },
+  "Luxembourg": {
+    "lat": 49.75,
+    "long": 6.16666666,
+    "distance_km": 334.6
+  },
+  "Austria": {
+    "lat": 47.33333333,
+    "long": 13.33333333,
+    "distance_km": 406.0
+  },
+  "North Macedonia": {
+    "lat": 41.83333333,
+    "long": 22.0,
+    "distance_km": 1251.6
+  },
+  "Saint Barthélemy": {
+    "lat": 18.5,
+    "long": -63.41666666,
+    "distance_km": 7126.1
+  },
+  "Christmas Island": {
+    "lat": -10.5,
+    "long": 105.66666666,
+    "distance_km": 11436.6
+  },
+  "Solomon Islands": {
+    "lat": -8.0,
+    "long": 159.0,
+    "distance_km": 14885.6
+  },
+  "Antigua and Barbuda": {
+    "lat": 17.05,
+    "long": -61.8,
+    "distance_km": 7115.1
+  },
+  "Iraq": {
+    "lat": 33.0,
+    "long": 44.0,
+    "distance_km": 3404.3
+  },
+  "Moldova": {
+    "lat": 47.0,
+    "long": 29.0,
+    "distance_km": 1592.4
+  },
+  "Norfolk Island": {
+    "lat": -29.03333333,
+    "long": 167.95,
+    "distance_km": 17368.2
+  },
+  "Republic of the Congo": {
+    "lat": -1.0,
+    "long": 15.0,
+    "distance_km": 5361.6
+  },
+  "Niue": {
+    "lat": -19.03333333,
+    "long": -169.86666666,
+    "distance_km": 16896.0
+  },
+  "Lithuania": {
+    "lat": 56.0,
+    "long": 24.0,
+    "distance_km": 1489.1
+  },
+  "Niger": {
+    "lat": 16.0,
+    "long": 8.0,
+    "distance_km": 3437.6
+  },
+  "Guyana": {
+    "lat": 5.0,
+    "long": -59.0,
+    "distance_km": 7870.0
+  },
+  "Bermuda": {
+    "lat": 32.33333333,
+    "long": -64.75,
+    "distance_km": 6218.6
+  },
+  "Gabon": {
+    "lat": -1.0,
+    "long": 11.75,
+    "distance_km": 5330.4
+  },
+  "Cook Islands": {
+    "lat": -21.23333333,
+    "long": -159.76666666,
+    "distance_km": 16942.3
+  },
+  "Angola": {
+    "lat": -12.5,
+    "long": 18.5,
+    "distance_km": 6672.4
+  },
+  "Norway": {
+    "lat": 62.0,
+    "long": 10.0,
+    "distance_km": 1674.5
+  },
+  "Guadeloupe": {
+    "lat": 16.25,
+    "long": -61.583333,
+    "distance_km": 7160.8
+  },
+  "Maldives": {
+    "lat": 3.25,
+    "long": 73.0,
+    "distance_km": 7868.3
+  },
+  "Belgium": {
+    "lat": 50.83333333,
+    "long": 4.0,
+    "distance_km": 517.2
+  },
+  "Croatia": {
+    "lat": 45.16666666,
+    "long": 15.5,
+    "distance_km": 614.6
+  },
+  "Belize": {
+    "lat": 17.25,
+    "long": -88.75,
+    "distance_km": 9123.3
+  },
+  "Saint Kitts and Nevis": {
+    "lat": 17.33333333,
+    "long": -62.75,
+    "distance_km": 7165.3
+  },
+  "Singapore": {
+    "lat": 1.36666666,
+    "long": 103.8,
+    "distance_km": 10339.8
+  },
+  "Lesotho": {
+    "lat": -29.5,
+    "long": 28.5,
+    "distance_km": 8718.9
+  },
+  "Uruguay": {
+    "lat": -33.0,
+    "long": -56.0,
+    "distance_km": 10928.3
+  },
+  "Burkina Faso": {
+    "lat": 13.0,
+    "long": -2.0,
+    "distance_km": 3883.8
+  },
+  "India": {
+    "lat": 20.0,
+    "long": 77.0,
+    "distance_km": 6827.7
+  },
+  "Philippines": {
+    "lat": 13.0,
+    "long": 122.0,
+    "distance_km": 10696.0
+  },
+  "Central African Republic": {
+    "lat": 7.0,
+    "long": 21.0,
+    "distance_km": 4603.6
+  },
+  "Sudan": {
+    "lat": 15.0,
+    "long": 30.0,
+    "distance_km": 4092.3
+  },
+  "Guinea-Bissau": {
+    "lat": 12.0,
+    "long": -15.0,
+    "distance_km": 4438.9
+  },
+  "Papua New Guinea": {
+    "lat": -6.0,
+    "long": 147.0,
+    "distance_km": 14020.9
+  },
+  "United States Minor Outlying Islands": {
+    "lat": 19.3,
+    "long": 166.633333,
+    "distance_km": 12357.1
+  }
+}

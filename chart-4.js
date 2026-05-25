@@ -3,15 +3,15 @@ d3.json("data/eu_gdp_and_to_ch_df_merged.json").then(raw => {
     const filtered = raw.filter(d =>
         YEARS.includes(+d["Year"]) &&
         d["Visitors' country of residence"] !== "Switzerland" &&
-        d["gdp_pps"] != null &&
-        d["num_of_visitors"] != null &&
-        +d["gdp_pps"] > 0 &&
-        +d["num_of_visitors"] > 0
+        d["OBS_VALUE"] != null &&
+        d["value"] != null &&
+        +d["OBS_VALUE"] > 0 &&
+        +d["value"] > 0
     );
 
     const avgGdp = d3.rollup(
         filtered,
-        v => d3.mean(v, d => +d["gdp_pps"]),
+        v => d3.mean(v, d => +d["OBS_VALUE"]),
         d => d["Visitors' country of residence"]
     );
 
@@ -57,14 +57,14 @@ d3.json("data/eu_gdp_and_to_ch_df_merged.json").then(raw => {
     const x = d3.scaleLog()
         .domain([
             10000,
-            d3.max(filtered, d => +d["gdp_pps"]) * 1.05
+            d3.max(filtered, d => +d["OBS_VALUE"]) * 1.05
         ])
         .range([0, W]);
 
     const y = d3.scaleLog()
         .domain([
             1000,
-            d3.max(filtered, d => +d["num_of_visitors"]) * 1.05
+            d3.max(filtered, d => +d["value"]) * 1.05
         ])
         .range([H, 0]);
 
@@ -101,8 +101,8 @@ d3.json("data/eu_gdp_and_to_ch_df_merged.json").then(raw => {
         .text("Visitors to Switzerland (in log scale)");
 
     const lineGen = d3.line()
-        .x(d => x(+d["gdp_pps"]))
-        .y(d => y(+d["num_of_visitors"]))
+        .x(d => x(+d["OBS_VALUE"]))
+        .y(d => y(+d["value"]))
         .curve(d3.curveMonotoneX);
 
     const tooltip = document.getElementById("gdp-tooltip-4");
@@ -188,10 +188,10 @@ d3.json("data/eu_gdp_and_to_ch_df_merged.json").then(raw => {
             .append("circle")
             .attr("class", "gdp-dot")
             .attr("cx", d =>
-                x(+d["gdp_pps"])
+                x(+d["OBS_VALUE"])
             )
             .attr("cy", d =>
-                y(+d["num_of_visitors"])
+                y(+d["value"])
             )
             .attr("r", 4)
             .attr("fill", d =>
@@ -217,13 +217,13 @@ d3.json("data/eu_gdp_and_to_ch_df_merged.json").then(raw => {
 
                     <div>
                         GDP:
-                        ${(+d["gdp_pps"])
+                        ${(+d["OBS_VALUE"])
                             .toLocaleString()} PPS
                     </div>
 
                     <div>
                         Visitors:
-                        ${(+d["num_of_visitors"])
+                        ${(+d["value"])
                             .toLocaleString()}
                     </div>
                 `;
@@ -268,10 +268,10 @@ d3.json("data/eu_gdp_and_to_ch_df_merged.json").then(raw => {
         dots.transition()
             .duration(600)
             .attr("cx", d =>
-                x(+d["gdp_pps"])
+                x(+d["OBS_VALUE"])
             )
             .attr("cy", d =>
-                y(+d["num_of_visitors"])
+                y(+d["value"])
             );
 
         dots.exit()
@@ -285,8 +285,8 @@ d3.json("data/eu_gdp_and_to_ch_df_merged.json").then(raw => {
                 d.values[d.values.length - 1];
             return {
                 country: d.country,
-                x: +last["gdp_pps"],
-                y: +last["num_of_visitors"]
+                x: +last["OBS_VALUE"],
+                y: +last["value"]
             };
         });
 

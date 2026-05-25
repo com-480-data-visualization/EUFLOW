@@ -31,32 +31,40 @@
     </div>
 
     <div class="feature-section">
-        <div class="feature-section-block-odd">
-            <div class="section-number">
-                <span>1</span>
-            </div>
-            <p class="feature-section-block-title">Destination within Switzerland</p>
-            <p class="part-suisse-2">Where do tourists go in Switzerland?</p>  
-            <div style="position:relative; display:inline-block;">
-                <div style="position:absolute; top:10px; right:10px; z-index:10;">
-                    <select id="year-select" style="padding:6px 10px; font-size:13px; border:1px solid #ccc; border-radius:4px; cursor:pointer;">
-                    </select>
-                </div>
+    <div class="feature-section-block-odd">
+        <div class="section-number">
+            <span>1</span>
+        </div>
+        <p class="feature-section-block-title">Destination within Switzerland</p>
+        <p class="part-suisse-2">Where do European tourists go in Switzerland?</p>
 
-                <div id="tooltip" style="position:absolute; background:white; padding:6px 10px; border:1px solid #ccc; display:none; pointer-events:none;"></div>
-                <svg id="map" width="900" height="600"></svg>
-        
-                <!-- <div id="map-legend">
-                    <div id="legend-title">Visitors</div>
-                    <div id="legend-gradient"></div>
-                    <div id="legend-labels">
-                        <span id="legend-min">0</span>
-                        <span id="legend-max">100K</span>
-                    </div>
-                </div> -->
-                <script src="chart-1.js"></script>
+        <div id="tooltip" style="position:fixed; background:#1a1a2e; color:#fff; padding:10px 14px; border-radius:8px; font-size:13px; pointer-events:none; display:none; z-index:999;"></div>
+
+        <div class="chart-with-explanation">
+            <div class="frame" style="position:relative; overflow:hidden; background:transparent; height:540px;">
+                <div style="position:absolute; top:10px; right:10px; z-index:10;">
+                    <select id="year-select" style="padding:6px 10px; font-size:13px; border:1px solid #ccc; border-radius:4px; cursor:pointer;"></select>
+                </div>
+                <svg id="map" width="910" height="480"></svg>
+            </div>
+            <div class="frame frame-explanation" style="background:#ffffff;">
+                <div>
+                    <p class="chart-eyebrow">Key insight</p>
+                    <h3 class="chart-title">Urban and alpine cantons dominate</h3>
+                    <p>Visitor numbers are spread unevenly across Switzerland — a few cantons attract the lion's share, while most receive far fewer tourists.</p>
+                </div>
+                <div>
+                    <h4>Top cantons</h4>
+                    <p>Zurich leads by a significant margin, followed by Bern, Graubünden, Valais, and Geneva — together accounting for the bulk of all international arrivals.</p>
+                </div>
+                <div>
+                    <p class="source">Source: FSO · Visitor arrivals by canton</p>
+                </div>
             </div>
         </div>
+        <script src="chart-1.js"></script>
+    </div>
+</div>
 
         <div class="feature-section-block-even">
             <div class="section-number">
