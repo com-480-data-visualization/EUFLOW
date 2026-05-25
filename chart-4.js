@@ -1,5 +1,5 @@
 d3.json("data/eu_gdp_and_to_ch_df_merged.json").then(raw => {
-    const YEARS = [2020, 2021, 2022, 2023, 2024, 2025];
+    const YEARS = [2019, 2020, 2021, 2022, 2023, 2024, 2025];
     const filtered = raw.filter(d =>
         YEARS.includes(+d["Year"]) &&
         d["Visitors' country of residence"] !== "Switzerland" &&
