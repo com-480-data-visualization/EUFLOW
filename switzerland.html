@@ -9,9 +9,8 @@
         @import url('https://fonts.googleapis.com/css2?family=Radio+Canada+Big:ital,wght@0,400..700;1,400..700&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Geist+Mono:wght@100..900&family=Radio+Canada+Big:ital,wght@0,400..700;1,400..700&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap');
     </style>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script> <!-- D3.js -->
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.7.1/nouislider.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.7.1/nouislider.min.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/topojson@3/dist/topojson.min.js"></script>
     <script src="scripts/script.js"></script>
     <title>Switzerland</title>
 </head>
@@ -31,115 +30,336 @@
     </div>
 
     <div class="feature-section">
-    <div class="feature-section-block-odd">
-        <div class="chapter-intro">
-            <div class="chapter-eyebrow">Chapter 1 · The Pattern</div>
-            <p class="chapter-lede">
-                Every year, millions of Europeans choose Switzerland as their destination. But behind this flow of visitors lies a pattern  one that becomes clearer when you look at the data.
-            </p>
-        </div>
-        <div class="chapter-intro">
-            <div class="chapter-eyebrow">Part 1 · Where</div>
-            <p class="chapter-lede">
-                The first question is simple: once tourists arrive in Switzerland, where do they go? The answer is striking. Visitor numbers are heavily concentrated  Zurich, Bern, Graubünden, Valais, and Geneva together absorb the vast majority of arrivals. Most other cantons receive a fraction of that. Switzerland may be small, but not all of it is equally discovered.
-            </p>
-        </div>
-        <div class="section-number">
-            <span>1</span>
-        </div>
-        <p class="feature-section-block-title">Destination within Switzerland</p>
-        <p class="part-suisse-2">Where do European tourists go in Switzerland?</p>
 
-        <div id="tooltip" style="position:fixed; background:#1a1a2e; color:#fff; padding:10px 14px; border-radius:8px; font-size:13px; pointer-events:none; display:none; z-index:999;"></div>
+        <!-- ============================================================ -->
+        <!-- CHAPTER 1 · WHERE -->
+        <!-- ============================================================ -->
+        <div class="feature-section-block-odd">
+            <div class="section-number"><span>1</span></div>
+            <p class="feature-section-block-title">Where in Switzerland</p>
 
-        <div class="chart-with-explanation">
-            <div class="frame" style="position:relative; overflow:hidden; background:transparent; height:540px;">
-                <div style="position:absolute; top:10px; right:10px; z-index:10;">
-                    <select id="year-select" style="padding:6px 10px; font-size:13px; border:1px solid #ccc; border-radius:4px; cursor:pointer;"></select>
-                </div>
-                <svg id="map" width="910" height="480"></svg>
+            <div class="chapter-intro">
+                <div class="chapter-eyebrow">Chapter 1 · Where</div>
+                <p class="chapter-lede">
+                    Switzerland is small, but tourism inside it is uneven. The same five or six cantons absorb the
+                    bulk of every year's arrivals, and the rest sit in their shadow. The first chapter peels that
+                    geography apart in three layers: how many visitors land in each canton, which foreign country
+                    sends them, and how much of the traffic is actually Swiss residents on holiday at home.
+                </p>
             </div>
-            <div class="frame frame-explanation" style="background:#ffffff;">
-                <div>
-                    <p class="chart-eyebrow">Key insight</p>
-                    <h3 class="chart-title">Urban and alpine cantons dominate</h3>
-                    <p>Visitor numbers are spread unevenly across Switzerland  a few cantons attract the lion's share, while most receive far fewer tourists.</p>
+
+            <!-- Beat 1: existing canton choropleth (visitors per canton, by year) -->
+            <div id="tooltip" style="position:fixed; background:#1a1a2e; color:#fff; padding:10px 14px; border-radius:8px; font-size:13px; pointer-events:none; display:none; z-index:999;"></div>
+            <div class="chart-with-explanation">
+                <div class="frame" style="position:relative; overflow:hidden; background:transparent; height:540px;">
+                    <div style="position:absolute; top:10px; right:10px; z-index:10;">
+                        <select id="year-select" style="padding:6px 10px; font-size:13px; border:1px solid #ccc; border-radius:4px; cursor:pointer;"></select>
+                    </div>
+                    <svg id="map" width="910" height="480"></svg>
                 </div>
-                <div>
-                    <h4>Top cantons</h4>
-                    <p>Zurich leads by a significant margin, followed by Bern, Graubünden, Valais, and Geneva  together accounting for the bulk of all international arrivals.</p>
-                </div>
-                <div>
+                <div class="frame frame-explanation">
+                    <div class="chart-eyebrow">Canton volumes · Beat 1 / 3</div>
+                    <h3 class="chart-title">A handful of cantons absorb almost everyone.</h3>
+                    <p class="story-finding">Zurich leads by a wide margin, followed by Bern, Graubünden, Valais and Geneva. Together these five carry the lion's share of all international arrivals. The remaining 21 cantons split what's left.</p>
+                    <h4>How to read it</h4>
+                    <p>Each canton is shaded by total EU visitor arrivals in the selected year. Scrub the dropdown to walk through 2005-2025.</p>
                     <p class="source">Source: FSO · Visitor arrivals by canton</p>
                 </div>
             </div>
+            <script src="scripts/chart-1.js"></script>
+
+            <div class="story-bridge">
+                We know which cantons fill up. But who actually fills them - Swiss residents on holiday at home, or visitors from abroad?
+            </div>
+
+            <!-- Beat 2: Domestic vs foreign mix per canton (NEW) -->
+            <div id="ch-dom-for-tooltip" style="position:fixed; background:#1a1a2e; color:#fff; padding:10px 14px; border-radius:8px; font-size:13px; pointer-events:none; display:none; z-index:999;"></div>
+            <div class="chart-with-explanation">
+                <div class="frame" style="position:relative; overflow:hidden; background:#F6F8FB; height:700px;">
+                    <select id="ch-dom-for-year-select" style="position:absolute; top:12px; right:12px; z-index:10; padding:6px 10px; font-size:13px; border:1px solid #ccc; border-radius:4px; background:white; cursor:pointer;"></select>
+                    <svg id="ch-dom-for-chart" style="width:100%; height:100%; display:block; background:#F6F8FB;"></svg>
+                </div>
+                <div class="frame frame-explanation">
+                    <div class="chart-eyebrow">Mix · Beat 2 / 3</div>
+                    <h3 class="chart-title">Geneva is a foreigner's playground. Jura is Switzerland's.</h3>
+                    <p class="story-finding">Cantons split sharply: <strong>Geneva is over 70% foreign visitors</strong>, while <strong>Jura is roughly 87% Swiss residents</strong>. Big alpine cantons like Graubünden and Valais sit close to half-and-half - they're both international resorts and Swiss favorites.</p>
+                    <h4>How to read it</h4>
+                    <p>Each row is a canton. Bars sum to 100% of overnight stays - orange for Swiss residents, blue for foreign visitors. Cantons are sorted by foreign share descending.</p>
+                    <p class="source">Source: FSO · Overnight stays by canton and visitor's country of residence</p>
+                </div>
+            </div>
+            <script src="scripts/ch_domestic_foreign.js"></script>
+
+            <div class="story-bridge">
+                When the visitors are foreign - which country sends them?
+            </div>
+
+            <!-- Beat 3: Top foreign origin per canton (NEW) -->
+            <div id="ch-top-origin-tooltip" style="position:fixed; background:#1a1a2e; color:#fff; padding:10px 14px; border-radius:8px; font-size:13px; pointer-events:none; display:none; z-index:999;"></div>
+            <div class="chart-with-explanation">
+                <div class="frame" style="position:relative; overflow:hidden; background:#F6F8FB; height:540px;">
+                    <select id="ch-top-origin-year-select" style="position:absolute; top:12px; right:12px; z-index:10; padding:6px 10px; font-size:13px; border:1px solid #ccc; border-radius:4px; background:white; cursor:pointer;"></select>
+                    <svg id="ch-top-origin-map" viewBox="0 0 880 500" preserveAspectRatio="xMidYMid meet" style="width:100%; height:100%; display:block; background:#F6F8FB;"></svg>
+                </div>
+                <div class="frame frame-explanation">
+                    <div class="chart-eyebrow">Top foreign origin · Beat 3 / 3</div>
+                    <h3 class="chart-title">Americans top most cantons. Germans hold the Alps and the German-speaking cantons.</h3>
+                    <p class="story-finding">In 2024, the largest single foreign source is <strong>the United States</strong> for Zurich, Bern, Lucerne, Valais and Geneva - a recent shift driven by long-haul recovery. <strong>Germany</strong> still leads Graubünden, Ticino and Basel. <strong>France</strong> dominates Vaud, on Lake Geneva.</p>
+                    <h4>How to read it</h4>
+                    <p>Each canton is colored by the single country supplying the most overnight stays in the selected year, excluding Swiss residents. Scrub the year selector to watch the German→American shift across the 2010s and 2020s.</p>
+                    <p class="source">Source: FSO · Overnight stays by canton and visitor's country of residence</p>
+                </div>
+            </div>
+            <script src="scripts/ch_top_origin_per_canton.js"></script>
+
+            <div class="chapter-close">
+                <div class="chapter-close-eyebrow">End of Chapter 1 · Up next: When</div>
+                <h3 class="chapter-close-title">A few cantons. A few origins. Two very different visitor mixes.</h3>
+                <p class="chapter-close-body">
+                    We know the geography. But Swiss tourism has a sharper edge than the maps suggest:
+                    a clock. The next chapter asks <em>when</em> each canton actually fills up.
+                </p>
+            </div>
         </div>
-        <script src="scripts/chart-1.js"></script>
-    </div>
-</div>
 
+        <!-- ============================================================ -->
+        <!-- CHAPTER 2 · WHEN -->
+        <!-- ============================================================ -->
         <div class="feature-section-block-even">
-            <div class="chapter-intro">
-                <div class="chapter-eyebrow">Part 2 · Distance</div>
-                    <p class="chapter-lede">
-                        This raises a natural follow-up: where are these visitors coming from? 
-                        The scatter plot makes the answer immediately visible. Distance is the dominant force. 
-                        Countries closer to Switzerland send far more visitors  Germany alone accounts for over 1.5 million arrivals. 
-                        Beyond 1,500 km, the numbers drop close to zero. Geography, it seems, is destiny. Or almost. The United Kingdom sits over 1,000 km away, yet consistently sends hundreds of thousands of visitors  a reminder that cultural and economic ties can bend the rules of distance.
-                    </p>
-            </div>
-            <div class="section-number">
-                <span>2</span>
-            </div>
-            <p class="feature-section-block-title">Geographic Proximity</p>
-            <p class="part-suisse-2">Does distance matter?</p>
-            <div id="Scattertooltip" style="position:fixed; background:rgba(18,18,24,0.96); color:#fff; padding:12px 16px; border-radius:12px; font-family:'DM Mono',monospace; font-size:13px; line-height:1.5; pointer-events:none; display:none; z-index:9999; min-width:160px;"></div>
+            <div class="section-number"><span>2</span></div>
+            <p class="feature-section-block-title">When Switzerland fills up</p>
 
+            <div class="chapter-intro">
+                <div class="chapter-eyebrow">Chapter 2 · When</div>
+                <p class="chapter-lede">
+                    Swiss tourism runs on a strong seasonal rhythm. Most cantons see their busiest month in summer,
+                    when arrivals across all sources peak. But the calendar varies canton by canton - and the
+                    intensity of the peak varies more.
+                </p>
+            </div>
+
+            <!-- Beat 1: Top month per canton (NEW) -->
+            <div id="ch-top-month-tooltip" style="position:fixed; background:#1a1a2e; color:#fff; padding:10px 14px; border-radius:8px; font-size:13px; pointer-events:none; display:none; z-index:999;"></div>
+            <div class="chart-with-explanation">
+                <div class="frame" style="position:relative; overflow:hidden; background:#F6F8FB; height:540px;">
+                    <select id="ch-top-month-year-select" style="position:absolute; top:12px; right:12px; z-index:10; padding:6px 10px; font-size:13px; border:1px solid #ccc; border-radius:4px; background:white; cursor:pointer;"></select>
+                    <svg id="ch-top-month-map" viewBox="0 0 880 500" preserveAspectRatio="xMidYMid meet" style="width:100%; height:100%; display:block; background:#F6F8FB;"></svg>
+                </div>
+                <div class="frame frame-explanation">
+                    <div class="chart-eyebrow">Top month · Beat 1 / 2</div>
+                    <h3 class="chart-title">Summer wins almost everywhere. Zurich is the odd one out.</h3>
+                    <p class="story-finding">In 2024, most cantons recorded their single busiest month in <strong>July or August</strong>. <strong>Zurich peaks earlier - in June</strong> - driven by business travel and conferences before the holiday rush. Scrub back to 2020 and the map shatters: the pandemic forced October and December peaks where summer windows were closed.</p>
+                    <h4>How to read it</h4>
+                    <p>Each canton is colored by the calendar month with the highest arrivals in the selected year. The legend rebuilds each year, showing only months that actually win somewhere.</p>
+                    <p class="source">Source: FSO · Monthly arrivals by canton</p>
+                </div>
+            </div>
+            <script src="scripts/ch_top_month_per_canton.js"></script>
+
+            <div class="story-bridge">
+                Knowing the peak month is one question.
+                <em>How dramatic the peak actually is</em> - that's another.
+            </div>
+
+            <!-- Beat 2: Canton × month heatmap (NEW) -->
+            <div id="ch-month-heatmap-tooltip" style="position:fixed; background:#1a1a2e; color:#fff; padding:10px 14px; border-radius:8px; font-size:13px; pointer-events:none; display:none; z-index:999;"></div>
+            <div class="chart-with-explanation">
+                <div class="frame" style="position:relative; overflow:hidden; background:#F6F8FB; height:720px;">
+                    <select id="ch-month-heatmap-year-select" style="position:absolute; top:12px; right:12px; z-index:10; padding:6px 10px; font-size:13px; border:1px solid #ccc; border-radius:4px; background:white; cursor:pointer;"></select>
+                    <svg id="ch-month-heatmap" viewBox="0 0 880 700" preserveAspectRatio="xMidYMid meet" style="width:100%; height:100%; display:block; background:#F6F8FB;"></svg>
+                </div>
+                <div class="frame frame-explanation">
+                    <div class="chart-eyebrow">Intensity · Beat 2 / 2</div>
+                    <h3 class="chart-title">Alpine cantons burn bright twice. Urban cantons stay steady.</h3>
+                    <p class="story-finding">On a log color scale, two seasonal personalities emerge. <strong>Alpine cantons (Graubünden, Valais, Bern, Ticino)</strong> show double peaks in <strong>February (ski) and August (hiking)</strong>. <strong>Urban cantons (Zurich, Geneva, Basel)</strong> have flatter year-round patterns with a single mid-year bump.</p>
+                    <h4>How to read it</h4>
+                    <p>Rows are cantons sorted by peak month + volume. Columns are months Jan-Dec. Cell color shows arrivals on a logarithmic scale - darker = more.</p>
+                    <p class="source">Source: FSO · Monthly arrivals by canton</p>
+                </div>
+            </div>
+            <script src="scripts/ch_canton_month_heatmap.js"></script>
+
+            <div class="chapter-close">
+                <div class="chapter-close-eyebrow">End of Chapter 2 · Up next: How</div>
+                <h3 class="chapter-close-title">Summer dominates. Winter has a stake. Cities don't follow either.</h3>
+                <p class="chapter-close-body">
+                    We've answered <em>where</em> and <em>when</em>. What's still hidden is the shape of the trip itself:
+                    how long visitors stay, and whether the pandemic permanently changed who comes back.
+                </p>
+            </div>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- CHAPTER 3 · HOW -->
+        <!-- ============================================================ -->
+        <div class="feature-section-block-odd">
+            <div class="section-number"><span>3</span></div>
+            <p class="feature-section-block-title">How visitors stay, and who came back</p>
+
+            <div class="chapter-intro">
+                <div class="chapter-eyebrow">Chapter 3 · How</div>
+                <p class="chapter-lede">
+                    Volume tells one story. Behavior tells another.
+                    This chapter zooms in on two behavioral signals: how long visitors actually stay per arrival,
+                    and how each canton has recovered (or not) since the pandemic broke 2020.
+                </p>
+            </div>
+
+            <!-- Beat 1: Avg stay length per canton (NEW) -->
+            <div id="ch-stay-tooltip" style="position:fixed; background:#1a1a2e; color:#fff; padding:10px 14px; border-radius:8px; font-size:13px; pointer-events:none; display:none; z-index:999;"></div>
+            <div class="chart-with-explanation">
+                <div class="frame" style="position:relative; overflow:hidden; background:#F6F8FB; height:540px;">
+                    <select id="ch-stay-year-select" style="position:absolute; top:12px; right:12px; z-index:10; padding:6px 10px; font-size:13px; border:1px solid #ccc; border-radius:4px; background:white; cursor:pointer;"></select>
+                    <svg id="ch-stay-map" viewBox="0 0 880 500" preserveAspectRatio="xMidYMid meet" style="width:100%; height:100%; display:block; background:#F6F8FB;"></svg>
+                </div>
+                <div class="frame frame-explanation">
+                    <div class="chart-eyebrow">Stay length · Beat 1 / 2</div>
+                    <h3 class="chart-title">Mountains hold visitors. Transit cantons let them go.</h3>
+                    <p class="story-finding">In 2024 the longest average stay was in <strong>Graubünden, 2.6 nights per arrival</strong> - the canton of Davos, St. Moritz and the Engadin. The shortest was in <strong>Schaffhausen and Fribourg, around 1.6 nights</strong>, both transit cantons whose visitors typically come for a day-and-a-half then move on.</p>
+                    <h4>How to read it</h4>
+                    <p>Each canton is colored by overnight stays divided by arrivals - the average number of nights per visitor. Darker = longer stays.</p>
+                    <p class="source">Source: FSO · Arrivals and overnight stays by canton</p>
+                </div>
+            </div>
+            <script src="scripts/ch_avg_stay.js"></script>
+
+            <div class="story-bridge">
+                Stay length is steady. But arrivals were not. 2020 broke them - and the recovery is uneven.
+            </div>
+
+            <!-- Beat 2: COVID recovery slope chart (NEW) -->
+            <div id="ch-recovery-tooltip" style="position:fixed; background:#1a1a2e; color:#fff; padding:10px 14px; border-radius:8px; font-size:13px; pointer-events:none; display:none; z-index:999;"></div>
+            <div class="chart-with-explanation">
+                <div class="frame" style="position:relative; overflow:hidden; background:#F6F8FB; height:720px;">
+                    <svg id="ch-recovery-chart" viewBox="0 0 880 720" preserveAspectRatio="xMidYMid meet" style="width:100%; height:100%; display:block; background:#F6F8FB;"></svg>
+                </div>
+                <div class="frame frame-explanation">
+                    <div class="chart-eyebrow">Recovery · Beat 2 / 2</div>
+                    <h3 class="chart-title">Cities overshot. A few small alpine cantons never came back.</h3>
+                    <p class="story-finding">From 2019 to 2024, <strong>Geneva, Aargau and Neuchâtel grew arrivals by roughly +20%</strong> - they overshot their pre-pandemic peak. At the other end, <strong>Obwalden, Uri, Zug and Nidwalden lost 12-21% of their arrivals</strong> and haven't returned. The pandemic permanently reshuffled which Switzerland visitors choose.</p>
+                    <h4>How to read it</h4>
+                    <p>Each line is one canton - left point is 2019 arrivals, right point is 2024. Green = grew, red = shrank. The label shows the percentage change.</p>
+                    <p class="source">Source: FSO · Annual arrivals by canton</p>
+                </div>
+            </div>
+            <script src="scripts/ch_recovery.js"></script>
+
+            <div class="chapter-close">
+                <div class="chapter-close-eyebrow">End of Chapter 3 · Up next: How much</div>
+                <h3 class="chapter-close-title">The trip has a shape. Now: how much does it cost?</h3>
+                <p class="chapter-close-body">
+                    Visitors stay 1.6 to 2.6 nights. Cantons recovered or stagnated. The question we haven't asked yet
+                    is the bluntest one: <em>how much do they spend per night while they're here, and which origin pays the most?</em>
+                </p>
+            </div>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- CHAPTER 4 · HOW MUCH -->
+        <!-- ============================================================ -->
+        <div class="feature-section-block-even">
+            <div class="section-number"><span>4</span></div>
+            <p class="feature-section-block-title">How much they spend in Switzerland</p>
+
+            <div class="chapter-intro">
+                <div class="chapter-eyebrow">Chapter 4 · How much</div>
+                <p class="chapter-lede">
+                    Switzerland is famously expensive. But the bill varies dramatically depending on
+                    <strong>where the visitor comes from</strong> - partly taste, partly trip length.
+                </p>
+            </div>
+
+            <!-- Beat 1: Per-night spend to CH choropleth (NEW) -->
+            <div id="ch-inbound-night-tooltip" style="position:fixed; background:#1a1a2e; color:#fff; padding:10px 14px; border-radius:8px; font-size:13px; pointer-events:none; display:none; z-index:999;"></div>
+            <div class="chart-with-explanation">
+                <div class="frame" style="position:relative; overflow:hidden; background:#F6F8FB; height:560px;">
+                    <select id="ch-inbound-night-year-select" style="position:absolute; top:12px; right:12px; z-index:10; padding:6px 10px; font-size:13px; border:1px solid #ccc; border-radius:4px; background:white; cursor:pointer;"></select>
+                    <svg id="ch-inbound-night-map" viewBox="0 0 880 560" preserveAspectRatio="xMidYMid meet" style="width:100%; height:100%; display:block; background:#F6F8FB;"></svg>
+                </div>
+                <div class="frame frame-explanation">
+                    <div class="chart-eyebrow">Per night · Beat 1 / 2</div>
+                    <h3 class="chart-title">Austrians pay the most per night. The Dutch pay the least.</h3>
+                    <p class="story-finding">In 2024, <strong>Austrian visitors spent roughly €204 per night</strong> in Switzerland - the highest per-night spend of any reported origin. <strong>Luxembourgers (€201) and Germans (€178)</strong> followed close behind. At the bottom: <strong>Portuguese (€76) and Dutch (€94)</strong>. Only 9 EU countries publish this metric for trips to Switzerland.</p>
+                    <h4>How to read it</h4>
+                    <p>Each origin country is colored by what its residents spend per night while visiting Switzerland. Countries shown in dark gray do not publish a CH-specific figure.</p>
+                    <p class="source">Source: Eurostat tour_dem_extotw, filtered to c_dest = CH</p>
+                </div>
+            </div>
+            <script src="scripts/ch_inbound_per_night.js"></script>
+
+            <div class="story-bridge">
+                Per night is one dimension. The full bill depends on how long they stay too.
+            </div>
+
+            <!-- Beat 2: Per-trip vs per-night scatter (NEW) -->
+            <div id="ch-inbound-scatter-tooltip" style="position:fixed; background:#1a1a2e; color:#fff; padding:10px 14px; border-radius:8px; font-size:13px; pointer-events:none; display:none; z-index:999;"></div>
+            <div class="chart-with-explanation">
+                <div class="frame" style="position:relative; overflow:hidden; background:#F6F8FB; height:560px;">
+                    <select id="ch-inbound-scatter-year-select" style="position:absolute; top:12px; right:12px; z-index:10; padding:6px 10px; font-size:13px; border:1px solid #ccc; border-radius:4px; background:white; cursor:pointer;"></select>
+                    <svg id="ch-inbound-scatter" viewBox="0 0 880 560" preserveAspectRatio="xMidYMid meet" style="width:100%; height:100%; display:block; background:#F6F8FB;"></svg>
+                </div>
+                <div class="frame frame-explanation">
+                    <div class="chart-eyebrow">Pattern · Beat 2 / 2</div>
+                    <h3 class="chart-title">Two visitor cultures: long-haul splurge, neighbor short break.</h3>
+                    <p class="story-finding">Map the same data onto a scatter. <strong>Luxembourgers spend the most per trip (€1,037)</strong> - high nightly rate × long stays. <strong>Austrians spend big per night but take short trips.</strong> <strong>Hungarians and Portuguese</strong> sit in the budget corner. The diagonal lines show implied stay lengths - most visitors fall between 3 and 7 nights.</p>
+                    <h4>How to read it</h4>
+                    <p>Horizontal axis: average spending per night. Vertical axis: average spending per trip. Each dot is a source country. The dashed lines mark constant trip lengths (3, 5, 7, 10 nights). Hover any dot for the implied stay length.</p>
+                    <p class="source">Source: Eurostat tour_dem_extotw, filtered to c_dest = CH</p>
+                </div>
+            </div>
+            <script src="scripts/ch_inbound_scatter.js"></script>
+
+            <div class="chapter-close">
+                <div class="chapter-close-eyebrow">End of Chapter 4 · Up next: Why</div>
+                <h3 class="chapter-close-title">Spending tells you taste. What determines who shows up?</h3>
+                <p class="chapter-close-body">
+                    We've answered <em>where</em>, <em>when</em>, <em>how</em>, and <em>how much</em>.
+                    The final chapter takes a different angle: what actually predicts whether a country sends
+                    visitors to Switzerland in the first place? Two hypotheses face each other: <strong>distance</strong>
+                    and <strong>wealth</strong>.
+                </p>
+            </div>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- CHAPTER 5 · WHY (existing distance + GDP analysis, preserved) -->
+        <!-- ============================================================ -->
+        <div class="feature-section-block-odd">
+            <div class="section-number"><span>5</span></div>
+            <p class="feature-section-block-title">Why they come: distance vs wealth</p>
+
+            <div class="chapter-intro">
+                <div class="chapter-eyebrow">Chapter 5 · Why · Part 1: Distance</div>
+                <p class="chapter-lede">
+                    The scatter makes the answer immediately visible. Distance is the dominant force.
+                    Countries closer to Switzerland send far more visitors - Germany alone accounts for over 1.5 million arrivals.
+                    Beyond 1,500 km, the numbers drop close to zero. Geography, it seems, is destiny. Or almost.
+                    The United Kingdom sits over 1,000 km away, yet consistently sends hundreds of thousands of visitors,
+                    a reminder that cultural and economic ties can bend the rules.
+                </p>
+            </div>
+
+            <div id="Scattertooltip" style="position:fixed; background:rgba(18,18,24,0.96); color:#fff; padding:12px 16px; border-radius:12px; font-family:'DM Mono',monospace; font-size:13px; line-height:1.5; pointer-events:none; display:none; z-index:9999; min-width:160px;"></div>
             <div class="chart-with-explanation">
                 <div class="frame" style="position:relative; overflow:hidden; background: transparent; height:540px;">
                     <svg id="scatter" width="800" height="500" style="margin-left:80px;"></svg>
                 </div>
                 <div class="frame frame-explanation" style="background:#ffffff;">
-                    <div>
-                        <p class="chart-eyebrow">Key insight</p>
-                        <h3 class="chart-title">Closer means more visitors</h3>
-                            <p>A clear negative correlation exists between distance and arrivals  countries closer to Switzerland consistently send more tourists.</p>
-                        </div>
-                        <div>
-                            <h4>Dominant neighbor</h4>
-                            <p>Germany stands out dramatically, sending over 1.5M visitors despite being only ~300 km away. France follows as the second largest source market.</p>
-                        </div>
-                        <div>
-                            <h4>Distance outlier</h4>
-                            <p>The United Kingdom breaks the trend  despite being ~1000 km away, it sends a disproportionately large number of visitors, suggesting cultural and economic ties outweigh distance.</p>
-                        </div>
-                        <div>
-                            <h4>Beyond 1500 km</h4>
-                            <p>Countries further than 1500 km contribute very few arrivals, clustering near zero regardless of size or wealth.</p>
-                            <p class="source">Source: Eurostat · Distance from Bern · Arrivals data</p>
-                        </div>
-                    </div>
+                    <p class="chart-eyebrow">Distance</p>
+                    <h3 class="chart-title">Closer means more visitors.</h3>
+                    <p>A clear negative correlation exists between distance and arrivals - countries closer to Switzerland consistently send more tourists. Germany stands out dramatically (~300 km, 1.5M+ visitors). The UK breaks the trend, suggesting cultural and economic ties outweigh distance.</p>
+                    <p class="source">Source: Eurostat · Distance from Bern · Arrivals data</p>
                 </div>
             </div>
             <script src="scripts/chart-2.js"></script>
-        </div>
 
+            <div class="story-bridge">
+                Distance is a powerful predictor. But wealth might matter too - let's see if it does.
+            </div>
 
-       <div class="feature-section-block-odd">
             <div class="chapter-intro">
-                <div class="chapter-eyebrow">Part 3 · Wealth</div>
-                <p class="chapter-lede">
-                    Distance, it turns out, is a powerful predictor. Countries closer to Switzerland consistently send more visitors, with Germany towering above all others. 
-                    Yet distance alone doesn't explain everything  the United Kingdom, over 1,000 km away, punches well above its weight, hinting that cultural and economic ties matter too. 
-                    So if proximity shapes tourism flows, what role does wealth play?
-                </p>
+                <div class="chapter-eyebrow">Chapter 5 · Why · Part 2: Wealth</div>
             </div>
-            <div class="section-number">
-                <span>3</span>
-            </div>
-            <p class="feature-section-block-title">Economic Factors - GDP</p>
-            <p class="part-suisse-2">Does wealth influence travel?</p>
-            
             <div id="gdp-controls-3" style="display:flex; justify-content:center; align-items:center; gap:12px; font-family:'DM Mono',monospace; font-size:12px; color:#666; margin-bottom:8px; margin-top:24px; flex-wrap:wrap;">
                 <label>Top</label>
                 <span id="slider-display-3">1 – 10</span>
@@ -152,49 +372,24 @@
                 <label>by avg GDP</label>
                 <button class="btn-all" id="btn-all-3" style="padding:6px 14px; border:1.5px solid #1a1a2e; border-radius:4px; cursor:pointer; font-family:'DM Mono',monospace; font-size:11px; color:#1a1a2e; background:transparent;">Show All</button>
             </div>
-
             <div id="gdp-tooltip-3" style="position:fixed; background:rgba(18,18,24,0.96); color:#fff; padding:12px 16px; border-radius:12px; font-family:'DM Mono',monospace; font-size:13px; line-height:1.5; pointer-events:none; display:none; z-index:9999; min-width:160px;"></div>
-
             <div class="chart-with-explanation">
                 <div class="frame" style="position:relative; overflow:hidden; background:#ffffff; height:540px;">
                     <svg id="gdp-svg-1"></svg>
                 </div>
                 <div class="frame frame-explanation" style="background: #ffffff;">
-                    <div>
-                        <p class="chart-eyebrow">Key insight</p>
-                        <h3 class="chart-title">GDP on the rise</h3>
-                        <p>Most European countries show steady GDP growth from 2019 to 2025.</p>
-                    </div>
-                    <div>
-                        <h4>GDP</h4>
-                        <p>Almost every country's trajectory shows a general rightward drift over time, which may suggest that GDP per capita tended to rise across much of Europe between 2019 and 2025, regardless of starting position. This pattern could potentially reflect the broader post-COVID economic recovery and continued growth in real income across the continent.</p>
-                    </div>
-                    <!-- <div>
-                        <h4></h4>
-                        <p>It is worth noting that Norway's GDP per capita shows a notable spike in 2022.</p>
-                    </div> -->
-                    <div>
-                        <h4>A CLOSER LOOK</h4>
-                        <p>Most countries cluster between 20–55k PPS and grow at similar rates. It is worth noting that Norway's GDP per capita shows a notable spike in 2022.</p>
-                        <p class="source">Source: Eurostat · GDP in PPS · 2020–2025</p>
-                    </div>
+                    <p class="chart-eyebrow">GDP timeline</p>
+                    <h3 class="chart-title">GDP rose across Europe.</h3>
+                    <p>Most European countries show steady GDP per capita growth from 2019 to 2025. Most countries cluster between 20-55k PPS; Norway spikes in 2022.</p>
+                    <p class="source">Source: Eurostat · GDP in PPS · 2020-2025</p>
                 </div>
             </div>
-
             <script src="scripts/chart-3.js"></script>
-        </div>
 
-        <div class="feature-section-block-even">
-                <div class="story-bridge">
-                Across Europe, GDP per capita has been on a general upward trajectory since 2019  a trend that may partly reflect post-COVID economic recovery. 
-                But rising wealth doesn't automatically translate into more visits to Switzerland, as the final chart reveals.
-                </div>
-            <div class="section-number">
-                <span>4</span>
+            <div class="story-bridge">
+                But rising wealth doesn't automatically translate into more visits.
             </div>
-            <p class="feature-section-block-title">GDP and Tourism Flows Among European Nations</p>
-            <p class="part-suisse-2">Tracking GDP and visitor flows across European countries, 2019–2025</p>
-            
+
             <div id="gdp-controls-4" style="display:flex; justify-content:center; align-items:center; gap:12px; font-family:'DM Mono',monospace; font-size:12px; color:#666; margin-bottom:8px; margin-top:24px; flex-wrap:wrap;">
                 <label class="top-label">Top</label>
                 <span id="slider-display-4">1 ~ 10</span>
@@ -207,51 +402,34 @@
                 <span class="metric-label">by avg GDP</span>
                 <button class="btn-all" id="btn-all-4" style="padding:6px 14px; border:1.5px solid #1a1a2e; border-radius:4px; cursor:pointer; font-family:'DM Mono',monospace; font-size:11px; color:#1a1a2e; background:transparent;">Show All</button>
             </div>
-
             <div id="gdp-tooltip-4" style="position:fixed; background:rgba(18,18,24,0.96); color:#fff; padding:12px 16px; border-radius:12px; font-family:'DM Mono',monospace; font-size:13px; line-height:1.5; pointer-events:none; display:none; z-index:9999; min-width:160px;"></div>
-
             <div class="chart-with-explanation">
                 <div class="frame" style="position:relative; overflow:hidden; background: transparent; height:540px;">
                     <svg id="gdp-svg-2"></svg>
                 </div>
                 <div class="frame frame-explanation" style="background: #ffffff;">
-                <div>
-                    <p class="chart-eyebrow">Key insight</p>
-                    <h3 class="chart-title">Wealth alone doesn't tell the whole story</h3>
-                    <p>While a general positive correlation exists between GDP per capita and visitor numbers, the relationship is far from straightforward  some of Europe's wealthiest nations send relatively few visitors to Switzerland.</p>
+                    <p class="chart-eyebrow">GDP × visits</p>
+                    <h3 class="chart-title">Wealth alone doesn't tell the whole story.</h3>
+                    <p>Ireland, Luxembourg and Norway rank among Europe's wealthiest, yet their visitor numbers to Switzerland remain modest. Population size and distance constrain them more than purchasing power.</p>
+                    <p class="source">Source: Eurostat (GDP) · FSO (arrivals) · Log scale</p>
                 </div>
-                <!-- <div>
-                    <h4>Top senders</h4>
-                    <p>Germany, France, the UK, and Italy dominate visitor flows, each contributing over 200k–1M arrivals annually. Yet their dominance stems more from geographic proximity and population size than from wealth alone.</p>
-                </div> -->
-                <div>
-                    <h4>The high-GDP paradox</h4>
-                    <p>From the above chart(Economic Factors - GDP), Ireland, Luxembourg, and Norway rank among Europe's highest GDP per capita nations, yet their visitor numbers to Switzerland remain relatively modest, yet their visitor numbers remain modest. This suggests that population size and distance from Switzerland act as stronger constraints than purchasing power.</p>
-                </div>
-                <!-- <div>
-                    <h4>GDP</h4>
-                    <p>Almost every country's trajectory shows a general rightward drift over time, which may suggest that GDP per capita tended to rise across much of Europe between 2019 and 2025, regardless of starting position. This pattern could potentially reflect the broader post-COVID economic recovery and continued growth in real income across the continent.</p>
-                </div> -->
-                <div>
-                    <!-- <h4>COVID impact</h4>
-                    <p>A sharp dip is visible across most trendlines in 2020–2021, followed by a strong recovery through 2022–2025. Notably, the dip reflects a collapse in visitor numbers rather than GDP  reinforcing that travel restrictions, not economic decline, were the primary driver.</p> -->
-                    <p class="source">Source: Eurostat (GDP in PPS) · FSO (visitor arrivals) · Log scale</p>
-                </div>
-            </div>
             </div>
             <script src="scripts/chart-4.js"></script>
+
+            <div class="chapter-close">
+                <div class="chapter-close-eyebrow">End of the Switzerland story</div>
+                <h3 class="chapter-close-title">Proximity, familiarity, habit.</h3>
+                <p class="chapter-close-body">
+                    Switzerland's appeal endures - not because of wealth or marketing, but because of geography
+                    and the established habits of a few neighboring populations. The data confirms what travelers
+                    already know: the closer you are, the more likely you are to come. And once the pattern is established,
+                    it tends to hold.
+                </p>
+            </div>
         </div>
+
     </div>
 
-    <div class="chapter-intro">
-        <div class="chapter-eyebrow">End of the Switzerland story</div>
-        <p class="chapter-lede">
-            Switzerland's appeal endures  not because of wealth or marketing, but because of proximity, familiarity, and habit. 
-            The data confirms what travelers already know: the closer you are, the more likely you are to come. 
-            And once the pattern is established, it tends to hold.
-        </p>
-    </div>
-    
     <div class="cta-section">
         <p class="cta-section-text">Explore broader tourism patterns in Europe</p>
         <button id="button-explore-europe" onclick="window.location.href='europe.html'">■ &nbsp;Explore Europe</button>
