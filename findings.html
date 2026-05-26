@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="style.css?v=6" rel="stylesheet"/>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Radio+Canada+Big:ital,wght@0,400..700;1,400..700&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Geist+Mono:wght@100..900&family=Radio+Canada+Big:ital,wght@0,400..700;1,400..700&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap');
+    </style>
+    <script src="scripts/script.js"></script>
+    <title>Findings · EUFlow</title>
+</head>
+<body>
+
+    <div class="intro-section-findings">
+        <nav id="navbar">
+            <div id="nav-logo"><a href="index.html">EUFlow</a></div>
+            <ul id="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="europe.html">Europe</a></li>
+                <li><a href="switzerland.html">Switzerland</a></li>
+                <li><a href="findings.html">Findings</a></li>
+            </ul>
+        </nav>
+        <div class="findings-eyebrow">End of the story</div>
+        <span class="intro-tourism-title">Findings</span><br>
+        <span class="intro-tourism-subtitle">Three things the data showed us that we did not know going in</span>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- THE FINDINGS -->
+    <!-- ============================================================ -->
+    <div class="findings-section">
+        <h2 class="findings-section-title">What we did not know going in</h2>
+        <p class="findings-section-lede">
+            We started this project asking four questions: where do Europeans travel, when, how, and how much.
+            By the end the data had answered most of them. But three things genuinely surprised us. Each is supported by
+            a specific chart in the preceding chapters, and each is the kind of pattern that the raw spreadsheets
+            never reveal at a glance.
+        </p>
+
+        <div class="finding-card">
+            <div class="finding-number">Finding 1 of 3</div>
+            <h3 class="finding-title">The pandemic permanently rewrote who visits Switzerland.</h3>
+            <div class="finding-body">
+                <p>
+                    Before 2020, Germany was the top foreign visitor to <strong>21 of Switzerland's 26 cantons</strong>.
+                    Americans led only two. By 2024, the United States had become the largest single foreign source for
+                    <strong>five of the country's biggest tourism hubs</strong>: Zurich, Bern, Geneva, Valais and Lucerne.
+                    The shift to Zurich, Bern and Valais happened in <strong>2023</strong>, two years after travel resumed.
+                </p>
+                <p>
+                    Recovery itself is bifurcated. <strong>Geneva, Aargau and Neuchatel grew arrivals by roughly +20% from 2019 to 2024</strong>.
+                    At the other end, <strong>Obwalden lost 21%, Uri 15%, Zug 13%</strong>. The cantons that overshot are urban.
+                    The ones that stagnated are small alpine resorts. Whatever Switzerland was before 2020, it is not the same destination now.
+                </p>
+            </div>
+            <div class="finding-evidence">
+                Evidence: <a href="switzerland.html#chapter-1">Top foreign origin per canton</a> and
+                <a href="switzerland.html#chapter-3">2019 to 2024 recovery</a> on the Switzerland page.
+            </div>
+        </div>
+
+        <div class="finding-card">
+            <div class="finding-number">Finding 2 of 3</div>
+            <h3 class="finding-title">Tourism is a power law at every scale of zoom.</h3>
+            <div class="finding-body">
+                <p>
+                    Across Europe, the top seven destinations absorb the vast majority of all tourist nights.
+                    Zoom inside any one country and the picture repeats: <strong>Veneto carries Italy, the south carries France,
+                    the Alpine arc carries Austria</strong>. Most of the rest sits comparatively dark on the map.
+                </p>
+                <p>
+                    Switzerland is the same shape one zoom level deeper. Five of 26 cantons absorb most of the country's arrivals.
+                    Inside the calendar, two months absorb most of those arrivals. Inside each canton, a few origin countries
+                    send the bulk of the foreign visitors. The structure is not a uniform distribution at any level - it is
+                    concentration repeated fractally.
+                </p>
+            </div>
+            <div class="finding-evidence">
+                Evidence: <a href="europe.html#chapter-1">Where Europe travels</a> (Trends, NUTS regions) and
+                <a href="switzerland.html#chapter-1">Where in Switzerland</a> (Canton volumes).
+            </div>
+        </div>
+
+        <div class="finding-card">
+            <div class="finding-number">Finding 3 of 3</div>
+            <h3 class="finding-title">Proximity wins. Wealth, mostly, does not.</h3>
+            <div class="finding-body">
+                <p>
+                    The origin map across Europe fills almost entirely with neighbors.
+                    The further away a country sits, the rarer it appears as a top source.
+                    Switzerland mirrors this: <strong>Germany alone sends over 1.5 million arrivals from roughly 300 km away</strong>;
+                    beyond 1,500 km the numbers collapse to near zero.
+                </p>
+                <p>
+                    Wealth is a much weaker predictor. Norway, Ireland and Luxembourg sit among Europe's highest GDP per capita
+                    yet send relatively few visitors to Switzerland. The one consistent counter-example is the United Kingdom -
+                    over 1,000 km away yet sending hundreds of thousands of visitors. The reason is not income.
+                    It is cultural ties, established travel habits, and direct flight infrastructure.
+                </p>
+            </div>
+            <div class="finding-evidence">
+                Evidence: <a href="europe.html#chapter-1">Origin maps</a> on the Europe page;
+                <a href="switzerland.html#chapter-5">Distance scatter and GDP-versus-visits</a> on the Switzerland page.
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- LIMITATIONS -->
+    <!-- ============================================================ -->
+    <div class="findings-section-alt">
+        <div class="findings-section">
+            <h2 class="findings-section-title">What we could not answer</h2>
+            <p class="findings-section-lede">
+                Several patterns we wanted to see do not yet exist in the published data. We list them honestly here so the
+                reader can read the rest of the site with the right caveats.
+            </p>
+            <ul class="findings-list">
+                <li>
+                    <strong>Inbound transport, stays, accommodation</strong>
+                    Eurostat's outbound tables aggregate destinations as Domestic, Foreign, World, or a small list of popular
+                    countries. Switzerland is broken out only in the expenditure dataset. We therefore could not compare
+                    transport mode, stay length distributions, or accommodation choice for trips specifically to Switzerland
+                    against other destinations.
+                </li>
+                <li>
+                    <strong>Recency caveat on 2025 and 2026</strong>
+                    The FSO data ends with partial 2025 and 2026. Yearly figures for those years are not directly comparable
+                    to the complete 2024 figure, so we default to 2024 wherever a year selector is exposed.
+                </li>
+                <li>
+                    <strong>Visitor demographics and trip purpose by canton</strong>
+                    The cube we used does not split by age, income, or purpose at canton resolution. We can say which countries
+                    send visitors to a canton, but not whether they came for business or leisure, or who they are demographically.
+                </li>
+                <li>
+                    <strong>Non-COVID shocks</strong>
+                    The 2022 Russia-Ukraine war is visible in the data as a collapse in Russian and Ukrainian visitor numbers,
+                    but we did not analyze it as a separate event. Future revisions could pair tourism data with geopolitical timelines.
+                </li>
+                <li>
+                    <strong>Price normalization</strong>
+                    Expenditure figures are nominal euros, not inflation-adjusted. The visible upward drift in per-night spending
+                    in the late period mixes real spending with price increases.
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- METHODOLOGY + TEAM + SOURCES -->
+    <!-- ============================================================ -->
+    <div class="findings-section">
+        <h2 class="findings-section-title">Method, sources, team</h2>
+        <p class="findings-section-lede">
+            EUFlow is built entirely on public statistical data. Every chart loads its data directly from CSV or JSON files
+            in the repository, processed once with the preprocessing scripts and rendered in the browser with D3.js.
+        </p>
+
+        <ul class="findings-list">
+            <li>
+                <strong>Data sources</strong>
+                Eurostat tourism datasets (tour_dem_tttr, tour_dem_ttw, tour_dem_tnws, tour_dem_tnac, tour_dem_extotw,
+                tour_occ_nim, tour_occ_nin2c, tour_occ_nin2m), each downloaded directly from ec.europa.eu/eurostat.
+                Swiss Federal Statistical Office PXweb cube px-x-1003020000_102 for canton-by-month-by-origin arrivals.
+                Eurostat sdg_10_10 for GDP in purchasing power standards. NUTS 2 GISCO geometry for regional maps.
+                world-atlas TopoJSON for country shapes.
+            </li>
+            <li>
+                <strong>Preprocessing</strong>
+                Raw Eurostat tables were reshaped from wide to long, encoded dimension columns were split into separate
+                variables, missing values handled, and country codes standardised. The FSO 5-dimensional cube was decoded
+                with a one-shot Python script (preprocess_fso_for_switzerland.py) into six compact JSON files used by
+                the Switzerland page.
+            </li>
+            <li>
+                <strong>Visual stack</strong>
+                D3.js 7 for all custom charts. Plotly for the destination trends line chart on the Europe page.
+                TopoJSON for country and NUTS region geometry. No backend, no build step: every chart runs client-side
+                against static files. Total page weight per chapter stays under ~2MB including geometry.
+            </li>
+        </ul>
+
+        <h3 class="findings-section-title" style="font-size:22px; margin-top:48px;">Team</h3>
+        <div class="findings-team">
+            <div class="findings-team-member">
+                Amine Youssef
+                <span>324253</span>
+            </div>
+            <div class="findings-team-member">
+                Lia Lee
+                <span>423066</span>
+            </div>
+            <div class="findings-team-member">
+                Hsiangtien Kuo
+                <span>414354</span>
+            </div>
+        </div>
+
+        <div class="findings-meta">
+            COM-480 Data Visualization · EPFL · 2026 ·
+            <a href="https://github.com/com-480-data-visualization/EUFLOW" style="color:#1565C0; text-decoration:none;">GitHub</a>
+        </div>
+    </div>
+
+    <div class="cta-section">
+        <p class="cta-section-text">Start the story over?</p>
+        <button id="button-explore-start" onclick="window.location.href='europe.html'">Back to Europe</button>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer-europe">
+        <div class="footer-col">
+            <ul class="footer-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="europe.html">Europe</a></li>
+                <li><a href="switzerland.html">Switzerland</a></li>
+                <li><a href="findings.html">Findings</a></li>
+            </ul>
+            <div class="copywrite">© 2026  EUFlow · All rights reserved.</div>
+        </div>
+        <div class="footer-bottom">
+            <div class="footer-logo"><a href="index.html">EUFlow</a></div>
+        </div>
+    </footer>
+
+</body>
+</html>
