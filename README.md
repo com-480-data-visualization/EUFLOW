@@ -6,7 +6,7 @@
 | Lia Lee        | 423066 |
 | Hsiangtien Kuo | 414354 |
 
-[Milestone 1](#milestone-1) • [Milestone 2](#milestone-2) • [Milestone 3](#milestone-3)
+[Milestone 1](#milestone-1-20th-march-5pm) • [Milestone 2](#milestone-2) • [Milestone 3](#milestone-3)
 
 ## Milestone 1 (20th March, 5pm)
 
