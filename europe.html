@@ -43,7 +43,7 @@
                     Every year Europeans take hundreds of millions of trips inside their own continent.
                     The patterns look chaotic at first glance, but the data tells a much tighter story.
                     <strong>A handful of neighbors. A handful of countries. A handful of regions.</strong>
-                    The eight views below build that picture, layer by layer.
+                    The five views below build that picture, layer by layer.
                 </p>
             </div>
 
@@ -77,7 +77,7 @@
                     <script src="scripts/chart_origin_choropleth.js?v=2"></script>
                 </div>
                 <div class="frame frame-explanation">
-                    <div class="chart-eyebrow">Origin · Beat 1 / 8</div>
+                    <div class="chart-eyebrow">Origin · Beat 1 / 5</div>
                     <h3 class="chart-title">Most tourists don't come from far away.</h3>
                     <p class="story-finding">Color every EU country by the single nation that sends it the most tourists, and the map fills with <strong>neighbors</strong>. Germany covers central Europe. Spain claims Portugal. France stretches across the western Mediterranean. The further away a country sits, the rarer it appears on this map.</p>
                     <h4>How to read it</h4>
@@ -87,17 +87,205 @@
             </div>
 
             <div class="story-bridge">
-                If most trips really are neighbor-to-neighbor, the next question almost writes itself  
-                how do Europeans actually get there?
+                But on that map, most countries are colored by <em>themselves</em>  residents holidaying at home.
+                What happens when we strip out same-country travel?
             </div>
+
+            <div class="chart-with-explanation">
+                <div class="frame" style="position:relative; overflow:hidden; background:#F6F8FB; height:620px;">
+                    <select id="origin-choropleth-excl-year-select" style="
+                        position: absolute; top: 12px; right: 12px; z-index: 10;
+                        padding: 6px 10px; font-size: 13px;
+                        border: 1px solid #ccc; border-radius: 4px;
+                        background: white; cursor: pointer;
+                    "></select>
+                    <div id="origin-choropleth-excl-tooltip" style="position:absolute; background:white; padding:6px 10px; border:1px solid #ccc; display:none; pointer-events:none; border-radius:4px; font-size:13px;"></div>
+                    <svg id="origin-choropleth-excl-map" viewBox="0 0 858 600" preserveAspectRatio="xMidYMid slice" style="width:100%;height:100%;display:block;background:#F6F8FB;"></svg>
+                    <script src="scripts/chart_origin_choropleth_excl_same.js"></script>
+                </div>
+                <div class="frame frame-explanation">
+                    <div class="chart-eyebrow">Foreign origin only · Beat 2 / 5</div>
+                    <h3 class="chart-title">Strip out the locals, and Germany sends almost everyone.</h3>
+                    <p class="story-finding">Remove same-country travelers and the cross-border picture sharpens. <strong>Germany becomes the top foreign source for Austria, Italy, the Netherlands and France.</strong> Spain's biggest international visitors are the British. Portugal's pull comes from the Americas. The previous map was honest, but it hid this cross-border story under a thick layer of domestic tourism.</p>
+                    <h4>How to read it</h4>
+                    <p>Same logic as the previous map, but each country's own residents are excluded before picking the top origin. What's left is the largest <em>foreign</em> source of tourist nights.</p>
+                    <p class="source">Source: Eurostat tour_dem_tttr, same-country travel removed</p>
+                </div>
+            </div>
+
+            <div class="story-bridge">
+                Who sends tourists is one story. Now flip the camera and ask the bluntest question of all:
+                which countries actually catch most of these nights?
+            </div>
+
+            <div class="chart-with-explanation">
+                <div class="frame" id="dest-trend-chart" style="background:#F6F8FB;"></div>
+                <div class="frame frame-explanation">
+                    <div class="chart-eyebrow">Trends · Beat 3 / 5</div>
+                    <h3 class="chart-title">Seven countries soak up most of Europe's nights, and the ranking barely moves.</h3>
+                    <p class="story-finding">France, Spain and Italy lead by an enormous margin. The <strong>2020 pandemic dip is sharp and uniform</strong> across every leader. By 2022 the ranking is back to where it was, with no real reshuffling between countries.</p>
+                    <h4>How to read it</h4>
+                    <p>Annual total nights for each of the seven leading destinations, 2012-2024. Each line tracks one country, labeled directly at its right end. Hover anywhere to compare all destinations for that year.</p>
+                    <p class="source">Source: Eurostat tour_occ_nim</p>
+                </div>
+            </div>
+            <script>
+            (function() {
+                const TOP_COUNTRIES = {
+                    ES:'Spain', DE:'Germany', FR:'France', IT:'Italy',
+                    PL:'Poland', NL:'Netherlands', AT:'Austria'
+                };
+                const COLORS = ['#e41a1c','#377eb8','#4daf4a','#ff7f00','#984ea3','#a65628','#f781bf'];
+                d3.csv("exploitable_data/total_nights_spent_per_dest.csv").then(data => {
+                    const yearCols = Object.keys(data[0]).filter(k => k.trim() !== 'c_dest');
+                    const years = yearCols.map(k => k.trim());
+                    const codes = Object.keys(TOP_COUNTRIES);
+
+                    const traces = codes.map((code, i) => {
+                        const row = data.find(d => d.c_dest.trim() === code);
+                        return {
+                            x: years,
+                            y: yearCols.map(y => row ? (+row[y] / 1e9) : null),
+                            type: 'scatter', mode: 'lines+markers',
+                            name: TOP_COUNTRIES[code],
+                            line: { color: COLORS[i], width: 2.2 },
+                            marker: { size: 5 },
+                            hovertemplate: '%{y:.2f}B nights<extra>' + TOP_COUNTRIES[code] + '</extra>'
+                        };
+                    });
+
+                    // Direct end-of-line labels (replaces the legend)
+                    const lastIdx = yearCols.length - 1;
+                    const annotations = codes.map((code, i) => {
+                        const row = data.find(d => d.c_dest.trim() === code);
+                        const yVal = row ? (+row[yearCols[lastIdx]] / 1e9) : null;
+                        return {
+                            x: years[lastIdx], y: yVal,
+                            xref: 'x', yref: 'y',
+                            xanchor: 'left', yanchor: 'middle',
+                            xshift: 8,
+                            text: TOP_COUNTRIES[code],
+                            showarrow: false,
+                            font: { color: COLORS[i], size: 12, family: 'inherit' }
+                        };
+                    });
+
+                    Plotly.newPlot('dest-trend-chart', traces, {
+                        xaxis: { title: 'Year', showgrid: false, zeroline: false },
+                        yaxis: { title: 'Nights Spent (Billions)', gridcolor: '#e6e9ee', zeroline: false },
+                        showlegend: false,
+                        annotations,
+                        margin: { l: 60, r: 110, t: 20, b: 50 },
+                        width: 858, height: 500,
+                        hovermode: 'x unified',
+                        paper_bgcolor: '#F6F8FB', plot_bgcolor: '#F6F8FB'
+                    }, { responsive: true, displayModeBar: false });
+                });
+            })();
+            </script>
+
+            <div class="story-bridge">
+                Those raw totals are honest, and misleading. They reward size.
+                What happens when we account for population?
+            </div>
+
+            <div class="chart-with-explanation">
+                <div class="frame" style="position:relative; overflow:hidden;">
+                    <select id="europe-year-select" style="
+                        position: absolute;
+                        top: 12px;
+                        right: 12px;
+                        z-index: 10;
+                        padding: 6px 10px;
+                        font-size: 13px;
+                        border: 1px solid #ccc;
+                        border-radius: 4px;
+                        background: white;
+                        cursor: pointer;
+                    "></select>
+                    <div id="europe-tooltip" style="position:absolute; background:white; padding:6px 10px; border:1px solid #ccc; display:none; pointer-events:none; border-radius:4px; font-size:13px;"></div>
+                    <svg id="europe-map" viewBox="0 0 900 550" preserveAspectRatio="xMidYMid meet" style="width:100%;height:100%;display:block;background:white;"></svg>
+                    <script src="scripts/chart-europe-heatmap.js?v=2"></script>
+                </div>
+                <div class="frame frame-explanation">
+                    <div class="chart-eyebrow">Geography · Beat 4 / 5</div>
+                    <h3 class="chart-title">Per capita, the tourism giants are tiny.</h3>
+                    <p class="story-finding">Toggle the per-capita switch and the ranking inverts. <strong>Croatia, Cyprus and Malta jump to the top of the scale</strong>: they carry more tourist nights per resident than anywhere else in Europe. France and Spain, which tower above everyone in absolute totals, drop into the middle of the pack.</p>
+                    <h4>How to read it</h4>
+                    <p>Total nights per country for the selected year, on a logarithmic color scale so smaller countries don't get washed out. Tick the Per capita box to divide each country's total by its population. Hover for the exact value.</p>
+                    <p class="source">Source: Eurostat tour_occ_nin2c</p>
+                </div>
+            </div>
+
+            <div class="story-bridge">
+                One last zoom. Inside each of those countries, where do tourists actually go?
+                Almost never everywhere.
+            </div>
+
+            <div class="chart-with-explanation">
+                <div class="frame" style="position:relative; overflow:hidden; background:#F6F8FB; height:720px;">
+                    <div style="position:absolute; top:12px; right:12px; z-index:10; display:flex; gap:8px;">
+                        <select id="nights-nuts-country-country-select" style="
+                            padding: 6px 10px; font-size: 13px;
+                            border: 1px solid #ccc; border-radius: 4px;
+                            background: white; cursor: pointer;
+                        "></select>
+                        <select id="nights-nuts-country-year-select" style="
+                            padding: 6px 10px; font-size: 13px;
+                            border: 1px solid #ccc; border-radius: 4px;
+                            background: white; cursor: pointer;
+                        "></select>
+                    </div>
+                    <div id="nights-nuts-country-tooltip" style="position:absolute; background:white; padding:6px 10px; border:1px solid #ccc; display:none; pointer-events:none; border-radius:4px; font-size:13px;"></div>
+                    <svg id="nights-nuts-country-map" viewBox="0 0 858 720" preserveAspectRatio="xMidYMid slice" style="width:100%;height:100%;display:block;background:#F6F8FB;"></svg>
+                    <script src="scripts/chart_nights_nuts_country.js"></script>
+                </div>
+                <div class="frame frame-explanation">
+                    <div class="chart-eyebrow">Regions · Beat 5 / 5</div>
+                    <h3 class="chart-title">Tourism clusters in regions, not countries.</h3>
+                    <p class="story-finding">Zoom inside any country and the same shape reappears: a few <strong>hot regions doing most of the work</strong>. Veneto and Lombardy carry Italy. The south carries France. The Alpine arc carries Austria. The rest of each country sits comparatively dark.</p>
+                    <h4>How to read it</h4>
+                    <p>Total tourist nights per NUTS 2 region for the chosen year, on a logarithmic scale. Pick a country in the left dropdown and the color scale recomputes on its regions alone, so within-country variation stops being washed out by the EU giants.</p>
+                    <p class="source">Source: Eurostat tour_occ_nin2m, summed over months and residence types</p>
+                </div>
+            </div>
+
+            <div class="chapter-close">
+                <div class="chapter-close-eyebrow">End of Chapter 1 · Up next: How</div>
+                <h3 class="chapter-close-title">A handful of neighbors. A handful of countries. A handful of regions.</h3>
+                <p class="chapter-close-body">
+                    That's the geography of European tourism. But the map of <em>where</em> only tells half the story.
+                    The next question zooms into the trip itself: how do they get there, how long do they stay,
+                    and where do they sleep? Scroll on.
+                </p>
+            </div>
+        </div>
+
+
+
+        <div class="feature-section-block-even">
+            <div class="section-number">
+                <span>2</span>
+            </div>
+            <p class="feature-section-block-title">How Europe travels</p>
+
+            <div class="chapter-intro">
+                <div class="chapter-eyebrow">Chapter 2 · How</div>
+                <p class="chapter-lede">
+                    The continental flows have a shape. Now zoom in on the trip itself.
+                    <strong>How do Europeans get there, how long do they stay, and where do they sleep?</strong>
+                    Four views that reconstruct the journey.
+                </p>
+            </div>
+
             <div class="chart-with-explanation">
                 <div class="frame" style="height:700px; display:block; overflow:hidden; background:#F6F8FB;">
                     <svg id="chart-transport" width="858" height="700" style="display:block; background:#F6F8FB;"></svg>
                 </div>
                 <div class="frame frame-explanation">
-                    <div class="chart-eyebrow">Transport · Beat 2 / 8</div>
+                    <div class="chart-eyebrow">Transport · Beat 1 / 4</div>
                     <h3 class="chart-title">Cars, not planes, move Europe.</h3>
-                    <p class="story-finding">Road travel dominates almost every country on the continent. <strong>Air takes over only when geography forces it</strong>   islands, far edges, anywhere a drive is impractical. Rail and sea remain a small, stubborn minority everywhere else.</p>
+                    <p class="story-finding">Road travel dominates almost every country on the continent. <strong>Air takes over only when geography forces it</strong>: islands, far edges, anywhere a drive is impractical. Rail and sea remain a small, stubborn minority everywhere else.</p>
                     <h4>How to read it</h4>
                     <p>Rows are EU countries, columns are years. Each cell is shaded by the dominant transport mode of that country's outbound tourists. Countries are sorted by their most frequent mode, so the bands stack cleanly. The icon at the start of each row is its dominant mode at a glance.</p>
                     <p class="source">Source: Eurostat tour_dem_ttw</p>
@@ -173,8 +361,9 @@
             </script>
 
             <div class="story-bridge">
-                They drove in. Now   do they stay for a week, or just a weekend?
+                They drove in. Now: do they stay for a week, or just a weekend?
             </div>
+
             <div class="chart-with-explanation">
                 <div class="frame" style="position:relative; height:600px; display:block; overflow:hidden; background:#F6F8FB;">
                     <select id="chart-night-year-select" style="
@@ -186,7 +375,7 @@
                     <svg id="chart-night" width="858" height="600" style="display:block; background:#F6F8FB;"></svg>
                 </div>
                 <div class="frame frame-explanation">
-                    <div class="chart-eyebrow">Stays · Beat 3 / 8</div>
+                    <div class="chart-eyebrow">Stays · Beat 2 / 4</div>
                     <h3 class="chart-title">The Mediterranean stays a week. The cities stay a weekend.</h3>
                     <p class="story-finding">A clean split runs across the continent. <strong>Beach and island destinations dominate long stays</strong> of four nights or more. <strong>City and central-European destinations dominate short breaks</strong> of one to three nights. The geography of holidays is the geography of how long people sit still.</p>
                     <h4>How to read it</h4>
@@ -348,7 +537,7 @@
                     <script src="scripts/chart_accom_stacked.js"></script>
                 </div>
                 <div class="frame frame-explanation">
-                    <div class="chart-eyebrow">Accommodation · Beat 4 / 8</div>
+                    <div class="chart-eyebrow">Accommodation · Beat 3 / 4</div>
                     <h3 class="chart-title">Hotels still win   but just barely.</h3>
                     <p class="story-finding">Hotels and rented apartments together cover the lion's share of nights. But since 2012 the mix has been quietly shifting: <strong>short-term rentals are eating steadily into the hotel slice</strong>. Camping and own-property stays remain niche but stable.</p>
                     <h4>How to read it</h4>
@@ -374,7 +563,7 @@
                     <script src="scripts/chart_accom_country_map.js"></script>
                 </div>
                 <div class="frame frame-explanation">
-                    <div class="chart-eyebrow">By country · Beat 5 / 8</div>
+                    <div class="chart-eyebrow">By country · Beat 4 / 4</div>
                     <h3 class="chart-title">A clean north-south split   and Greece sleeps with family.</h3>
                     <p class="story-finding"><strong>Northern, central and Alpine countries lean on hotels.</strong> <strong>Mediterranean countries lean on rented apartments</strong>   vacation rentals, holiday flats, short-term lets. Greece is the only country where residents sleep predominantly in family-owned dwellings, a category nobody else relies on.</p>
                     <h4>How to read it</h4>
@@ -383,162 +572,26 @@
                 </div>
             </div>
 
-            <div class="story-bridge">
-                We've seen who, how and where they sleep.
-                Time to pull back and ask the bluntest question of all: which countries actually catch most of these nights?
-            </div>
-
-            <div class="chart-with-explanation">
-                <div class="frame" id="dest-trend-chart" style="background:#F6F8FB;"></div>
-                <div class="frame frame-explanation">
-                    <div class="chart-eyebrow">Trends · Beat 6 / 8</div>
-                    <h3 class="chart-title">Seven countries soak up most of Europe's nights   and the ranking barely moves.</h3>
-                    <p class="story-finding">France, Spain and Italy lead by an enormous margin. The <strong>2020 pandemic dip is sharp and uniform</strong> across every leader. By 2022 the ranking is back to where it was, with no real reshuffling between countries.</p>
-                    <h4>How to read it</h4>
-                    <p>Annual total nights for each of the seven leading destinations, 2012-2024. Each line tracks one country, labeled directly at its right end. Hover anywhere to compare all destinations for that year.</p>
-                    <p class="source">Source: Eurostat tour_occ_nim</p>
-                </div>
-            </div>
-            <script>
-            (function() {
-                const TOP_COUNTRIES = {
-                    ES:'Spain', DE:'Germany', FR:'France', IT:'Italy',
-                    PL:'Poland', NL:'Netherlands', AT:'Austria'
-                };
-                const COLORS = ['#e41a1c','#377eb8','#4daf4a','#ff7f00','#984ea3','#a65628','#f781bf'];
-                d3.csv("exploitable_data/total_nights_spent_per_dest.csv").then(data => {
-                    const yearCols = Object.keys(data[0]).filter(k => k.trim() !== 'c_dest');
-                    const years = yearCols.map(k => k.trim());
-                    const codes = Object.keys(TOP_COUNTRIES);
-
-                    const traces = codes.map((code, i) => {
-                        const row = data.find(d => d.c_dest.trim() === code);
-                        return {
-                            x: years,
-                            y: yearCols.map(y => row ? (+row[y] / 1e9) : null),
-                            type: 'scatter', mode: 'lines+markers',
-                            name: TOP_COUNTRIES[code],
-                            line: { color: COLORS[i], width: 2.2 },
-                            marker: { size: 5 },
-                            hovertemplate: '%{y:.2f}B nights<extra>' + TOP_COUNTRIES[code] + '</extra>'
-                        };
-                    });
-
-                    // Direct end-of-line labels (replaces the legend)
-                    const lastIdx = yearCols.length - 1;
-                    const annotations = codes.map((code, i) => {
-                        const row = data.find(d => d.c_dest.trim() === code);
-                        const yVal = row ? (+row[yearCols[lastIdx]] / 1e9) : null;
-                        return {
-                            x: years[lastIdx], y: yVal,
-                            xref: 'x', yref: 'y',
-                            xanchor: 'left', yanchor: 'middle',
-                            xshift: 8,
-                            text: TOP_COUNTRIES[code],
-                            showarrow: false,
-                            font: { color: COLORS[i], size: 12, family: 'inherit' }
-                        };
-                    });
-
-                    Plotly.newPlot('dest-trend-chart', traces, {
-                        xaxis: { title: 'Year', showgrid: false, zeroline: false },
-                        yaxis: { title: 'Nights Spent (Billions)', gridcolor: '#e6e9ee', zeroline: false },
-                        showlegend: false,
-                        annotations,
-                        margin: { l: 60, r: 110, t: 20, b: 50 },
-                        width: 858, height: 500,
-                        hovermode: 'x unified',
-                        paper_bgcolor: '#F6F8FB', plot_bgcolor: '#F6F8FB'
-                    }, { responsive: true, displayModeBar: false });
-                });
-            })();
-            </script>
-            <div class="story-bridge">
-                Those raw totals are honest   and misleading. They reward size.
-                What happens when we account for population?
-            </div>
-            <div class="chart-with-explanation">
-                <div class="frame" style="position:relative; overflow:hidden;">
-                    <select id="europe-year-select" style="
-                        position: absolute;
-                        top: 12px;
-                        right: 12px;
-                        z-index: 10;
-                        padding: 6px 10px;
-                        font-size: 13px;
-                        border: 1px solid #ccc;
-                        border-radius: 4px;
-                        background: white;
-                        cursor: pointer;
-                    "></select>
-                    <div id="europe-tooltip" style="position:absolute; background:white; padding:6px 10px; border:1px solid #ccc; display:none; pointer-events:none; border-radius:4px; font-size:13px;"></div>
-                    <svg id="europe-map" viewBox="0 0 900 550" preserveAspectRatio="xMidYMid meet" style="width:100%;height:100%;display:block;background:white;"></svg>
-                    <script src="scripts/chart-europe-heatmap.js?v=2"></script>
-                </div>
-                <div class="frame frame-explanation">
-                    <div class="chart-eyebrow">Geography · Beat 7 / 8</div>
-                    <h3 class="chart-title">Per capita, the tourism giants are tiny.</h3>
-                    <p class="story-finding">Toggle the per-capita switch and the ranking inverts. <strong>Croatia, Cyprus and Malta jump to the top of the scale</strong>   they carry more tourist nights per resident than anywhere else in Europe. France and Spain, which tower above everyone in absolute totals, drop into the middle of the pack.</p>
-                    <h4>How to read it</h4>
-                    <p>Total nights per country for the selected year, on a logarithmic color scale so smaller countries don't get washed out. Tick the Per capita box to divide each country's total by its population. Hover for the exact value.</p>
-                    <p class="source">Source: Eurostat tour_occ_nin2c</p>
-                </div>
-            </div>
-
-            <div class="story-bridge">
-                One last zoom. Inside each of those countries, where do tourists actually go?
-                Almost never everywhere.
-            </div>
-
-            <div class="chart-with-explanation">
-                <div class="frame" style="position:relative; overflow:hidden; background:#F6F8FB; height:720px;">
-                    <div style="position:absolute; top:12px; right:12px; z-index:10; display:flex; gap:8px;">
-                        <select id="nights-nuts-country-country-select" style="
-                            padding: 6px 10px; font-size: 13px;
-                            border: 1px solid #ccc; border-radius: 4px;
-                            background: white; cursor: pointer;
-                        "></select>
-                        <select id="nights-nuts-country-year-select" style="
-                            padding: 6px 10px; font-size: 13px;
-                            border: 1px solid #ccc; border-radius: 4px;
-                            background: white; cursor: pointer;
-                        "></select>
-                    </div>
-                    <div id="nights-nuts-country-tooltip" style="position:absolute; background:white; padding:6px 10px; border:1px solid #ccc; display:none; pointer-events:none; border-radius:4px; font-size:13px;"></div>
-                    <svg id="nights-nuts-country-map" viewBox="0 0 858 720" preserveAspectRatio="xMidYMid slice" style="width:100%;height:100%;display:block;background:#F6F8FB;"></svg>
-                    <script src="scripts/chart_nights_nuts_country.js"></script>
-                </div>
-                <div class="frame frame-explanation">
-                    <div class="chart-eyebrow">Regions · Beat 8 / 8</div>
-                    <h3 class="chart-title">Tourism clusters in regions, not countries.</h3>
-                    <p class="story-finding">Zoom inside any country and the same shape reappears: a few <strong>hot regions doing most of the work</strong>. Veneto and Lombardy carry Italy. The south carries France. The Alpine arc carries Austria. The rest of each country sits comparatively dark.</p>
-                    <h4>How to read it</h4>
-                    <p>Total tourist nights per NUTS 2 region for the chosen year, on a logarithmic scale. Pick a country in the left dropdown and the color scale recomputes on its regions alone   so within-country variation stops being washed out by the EU giants.</p>
-                    <p class="source">Source: Eurostat tour_occ_nin2m, summed over months and residence types</p>
-                </div>
-            </div>
-
             <div class="chapter-close">
-                <div class="chapter-close-eyebrow">End of Chapter 1 · Up next: When</div>
-                <h3 class="chapter-close-title">A handful of neighbors. A handful of countries. A handful of regions.</h3>
+                <div class="chapter-close-eyebrow">End of Chapter 2 · Up next: When</div>
+                <h3 class="chapter-close-title">By car, for a week, in a hotel.</h3>
                 <p class="chapter-close-body">
-                    That's the geography of Europe's tourism. But the map of <em>where</em> hides one more pattern  
-                    and it is the sharpest of all. Most of these nights don't happen across the whole year.
-                    They happen in just a few months. Scroll on.
+                    That's the shape of a typical European trip. The next question is timing.
+                    Does Europe travel all year long, or only in one big window? Scroll on.
                 </p>
             </div>
         </div>
 
 
 
-        <div class="feature-section-block-even">
+        <div class="feature-section-block-odd">
             <div class="section-number">
-                <span>2</span>
+                <span>3</span>
             </div>
             <p class="feature-section-block-title">When Europe travels</p>
 
             <div class="chapter-intro">
-                <div class="chapter-eyebrow">Chapter 2 · When</div>
+                <div class="chapter-eyebrow">Chapter 3 · When</div>
                 <p class="chapter-lede">
                     European tourism doesn't run on a calendar   it runs on a clock,
                     and the clock has one big hand. <strong>The summer months crush every other season</strong>
@@ -667,7 +720,7 @@
             </div>
 
             <div class="chapter-close">
-                <div class="chapter-close-eyebrow">End of Chapter 2 · Up next: How much</div>
+                <div class="chapter-close-eyebrow">End of Chapter 3 · Up next: How much</div>
                 <h3 class="chapter-close-title">Europe travels in a window. Now: at what price?</h3>
                 <p class="chapter-close-body">
                     We've answered <em>where</em> and <em>when</em>. There's one number left that ties them together  
@@ -677,14 +730,14 @@
             </div>
         </div>
 
-        <div class="feature-section-block-odd">
+        <div class="feature-section-block-even">
             <div class="section-number">
-                <span>3</span>
+                <span>4</span>
             </div>
             <p class="feature-section-block-title">How much it costs</p>
 
             <div class="chapter-intro">
-                <div class="chapter-eyebrow">Chapter 3 · How much</div>
+                <div class="chapter-eyebrow">Chapter 4 · How much</div>
                 <p class="chapter-lede">
                     The same trip costs wildly different things to wildly different Europeans.
                     The bill depends on <strong>who travels, where they go, and how long they stay</strong>.
