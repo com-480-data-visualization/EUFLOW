@@ -214,23 +214,23 @@ print(f"wrote {OUT_DIR}/ch_canton_avg_stay.json")
 
 
 # ---------------------------------------------------------------------------
-# 6. COVID recovery slope: arrivals in 2019 vs 2024 by canton
+# 6. Annual arrivals by canton, full series.
+#    The recovery chart uses this to compute the 2019->Y comparison
+#    for any user-selected Y, so the chart isn't pinned to one year.
 # ---------------------------------------------------------------------------
-recovery = {}
+arrivals_by_year = {}
 for c_code in canton_codes_only:
     c_label = cantons_labels[c_code]
     c_idx = ci[c_code]
     m_idx = mi[MONTH_TOTAL]
-    v19 = get(yi["2019"], m_idx, c_idx, hi[ORIGIN_TOTAL], ii[IND_ARRIVALS])
-    v24 = get(yi["2024"], m_idx, c_idx, hi[ORIGIN_TOTAL], ii[IND_ARRIVALS])
-    if v19 is None or v24 is None or v19 == 0:
-        continue
-    recovery[c_label] = {
-        "2019": v19,
-        "2024": v24,
-        "pct_change": (v24 - v19) / v19 * 100.0,
-    }
+    row = {}
+    for y_code in years_codes:
+        v = get(yi[y_code], m_idx, c_idx, hi[ORIGIN_TOTAL], ii[IND_ARRIVALS])
+        if v is not None:
+            row[y_code] = v
+    if row:
+        arrivals_by_year[c_label] = row
 
-with open(f"{OUT_DIR}/ch_canton_recovery.json", "w", encoding="utf-8") as f:
-    json.dump(recovery, f, ensure_ascii=False, indent=2)
-print(f"wrote {OUT_DIR}/ch_canton_recovery.json  ({len(recovery)} cantons)")
+with open(f"{OUT_DIR}/ch_canton_arrivals_by_year.json", "w", encoding="utf-8") as f:
+    json.dump(arrivals_by_year, f, ensure_ascii=False, indent=2)
+print(f"wrote {OUT_DIR}/ch_canton_arrivals_by_year.json  ({len(arrivals_by_year)} cantons)")

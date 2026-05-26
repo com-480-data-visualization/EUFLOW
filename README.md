@@ -89,6 +89,186 @@ Relevant flight visualized information can also be obtained from websites such a
 
 **80% of the final grade**
 
+📑 Process book: [MS3 Process book.pdf](./MS3%20Process%20book.pdf)
+🔗 Live site: [EUFLOW](https://com-480-data-visualization.github.io/EUFLOW/)
+🎥 Screencast: [https://youtu.be/...](https://youtu.be/...)
+
+### What this is
+
+EUFlow is a scrollable, four-act data story about how Europeans travel inside their own continent, with a country-scale deep dive into Switzerland and a closing synthesis page. Every chart loads its data directly from static files in the repo and renders client-side in the browser. No backend, no build step.
+
+### Intended usage
+
+The site is meant to be read top to bottom, page by page, in this order:
+
+1. **Home** (`index.html`) opens the story with a one-sentence puzzle and a four-card chapter map. Each card deep-links into the corresponding chapter on the Europe page; two larger cards lead to the Switzerland deep-dive and the Findings synthesis.
+2. **Europe** (`europe.html`) is four chapters: *Where* Europe travels (5 beats including a side-by-side origin comparison), *How* Europe travels (4 beats on transport, stay length, and accommodation), *When* Europe travels (3 beats including paired country-vs-region seasonality), and *How much* it costs (4 beats including paired per-trip vs per-night spending).
+3. **Switzerland** (`switzerland.html`) is five chapters at country scale: *Where* in Switzerland, *When* Switzerland fills up, *How* visitors stay (with an interactive dual-handle year slider for the 2005-2025 window), *How much* they spend, and *Why* they come.
+4. **Findings** (`findings.html`) closes with three validated findings, the limitations we ran into, the data sources, and the team.
+
+Every chart has hover tooltips with exact values. Year selectors, month selectors, and country pickers are placed top-right on the relevant frames.
+
+### Technical setup
+
+The site is static. It does require a local HTTP server because the chart scripts use `fetch` to load JSON and CSV files.
+
+**Dependencies (all loaded from CDN, nothing to install for the site itself):**
+- D3.js 7.8.5
+- TopoJSON 3
+- Plotly (used only for the destination-trends line chart on the Europe page)
+
+**To regenerate the Switzerland preprocessed data:**
+- Python 3 (standard library only)
+
+**Run locally:**
+```bash
+git clone https://github.com/com-480-data-visualization/EUFLOW.git
+cd EUFLOW
+
+# (optional) regenerate Switzerland preprocessed files
+python3 preprocess_fso_for_switzerland.py
+
+# serve any way you like
+python3 -m http.server 8000
+# or:  npx http-server -p 8000
+# or:  npx serve
+
+# open
+open http://localhost:8000/
+```
+
+Opening the HTML files directly from the file system (`file://...`) will not work because of browser CORS rules on local fetches.
+
+### Repository structure
+
+```
+.
+├── index.html                          home: hero + story preamble + chapter map + About
+├── europe.html                         the 4-chapter Europe story
+├── switzerland.html                    the 5-chapter Switzerland deep dive
+├── findings.html                       synthesis: findings + limitations + sources
+├── style.css                           single stylesheet, organized by feature
+│
+├── scripts/
+│   ├── script.js                       navbar + animated stat counters
+│   ├── chart-1.js .. chart-4.js        legacy Switzerland canton/distance/GDP charts
+│   ├── chart-europe-heatmap.js         Europe nights choropleth
+│   ├── chart_origin_choropleth.js          top origin by destination (with domestic)
+│   ├── chart_origin_choropleth_excl_same.js   top foreign origin only
+│   ├── chart_accom_stacked.js              continent-wide accommodation mix
+│   ├── chart_accom_country_map.js          accommodation by country
+│   ├── chart_seasonality_country.js        top month by country
+│   ├── chart_seasonality.js                top month by NUTS 2 region
+│   ├── chart_seasonality_nights_heatmap.js intensity by region/month
+│   ├── chart_seasonality_top.js            top destination each month
+│   ├── chart_expenditure_choropleth.js     per-trip spending by origin
+│   ├── chart_expenditure_per_night.js      per-night spending by origin
+│   ├── chart_expenditure_world.js          per-night spending by destination
+│   ├── chart_expenditure_world_trip.js     per-trip spending by destination
+│   ├── chart_expenditure_scope.js          domestic vs intra-EU vs outside-EU
+│   ├── chart_expenditure_scatter.js        per-night vs per-trip scatter
+│   ├── chart_nights_nuts_country.js        NUTS 2 nights, by country focus
+│   ├── ch_top_month_per_canton.js          Switzerland: top month per canton
+│   ├── ch_canton_month_heatmap.js          Switzerland: canton x month
+│   ├── ch_top_origin_per_canton.js         Switzerland: top foreign origin per canton
+│   ├── ch_domestic_foreign.js              Switzerland: domestic vs foreign mix
+│   ├── ch_avg_stay.js                      Switzerland: average stay length per canton
+│   ├── ch_recovery.js                      Switzerland: dual-handle year-window slider
+│   ├── ch_inbound_per_night.js             Switzerland: per-night spending to CH
+│   └── ch_inbound_scatter.js               Switzerland: per-trip vs per-night to CH
+│
+├── data/
+│   ├── cleaned_arnraw.csv              Eurostat tour_dem_tttr cleaned
+│   ├── cleaned_extotw.csv              Eurostat tour_dem_extotw cleaned (CH dest rows kept)
+│   ├── cleaned_*.csv                   other Eurostat tables (ttw, tnws, tnac, tnw, ttws, nin2m)
+│   ├── cantons.geojson                 Swiss canton geometry
+│   ├── canton_annual_total_visitors.json     FSO arrivals per canton per year (all origins)
+│   ├── canton_annual_total_eu_visitors.json  FSO arrivals per canton per year (EU origins)
+│   ├── countries_distance.json         km from Bern to each country capital
+│   ├── countries_distances_vs_visitors.json  combined distance + visitors
+│   ├── eu_gdp_and_to_ch_df_merged.json GDP per capita + visits to CH
+│   ├── ppp_adj_gdp_per_capita.csv      Eurostat sdg_10_10
+│   └── px-x-1003020000_102_*.json      FSO PXweb 5-D cube (raw input to preprocessing)
+│
+├── exploitable_data/
+│   ├── most_popular_*.csv              Eurostat tables in long/tidy format
+│   ├── percentage_accomad_per_year.csv
+│   ├── total_nights_spent*.csv
+│   ├── exp_ngt*.csv, exp_trp*.csv      expenditure data, several scopes
+│   ├── nights_per_geo_per_month_per_year.csv
+│   ├── in_EU_exp_trp.csv, out_EU_exp_trp.csv, same_country_exp_trp.csv
+│   ├── ch_top_month_per_canton.json    Switzerland preprocessed (top month)
+│   ├── ch_canton_month_intensity.json  Switzerland preprocessed (canton x month grid)
+│   ├── ch_top_origin_per_canton.json   Switzerland preprocessed (top foreign origin)
+│   ├── ch_canton_domestic_foreign.json Switzerland preprocessed (domestic vs foreign)
+│   ├── ch_canton_avg_stay.json         Switzerland preprocessed (avg stay length)
+│   ├── ch_canton_arrivals_by_year.json Switzerland preprocessed (arrivals 2005-2025)
+│   └── ch_inbound_expenditure.json     Switzerland preprocessed (inbound spending)
+│
+├── images/                             hero backgrounds and thumbnails
+├── exploratory_data_analysis.ipynb     Milestone 1 EDA + Eurostat cleaning pipeline
+├── preprocess_fso_for_switzerland.py   FSO cube preprocessor (one-shot)
+├── other_files/                        earlier sketches, intermediate scripts
+├── Milestone2.pdf
+└── README.md
+```
+
+### Data pipeline
+
+Two preprocessing steps produce the static files that the browser loads at runtime.
+
+**1. Eurostat tables → `exploitable_data/*.csv`**
+
+Source: Eurostat tables `tour_dem_tttr`, `tour_dem_ttw`, `tour_dem_tnws`, `tour_dem_tnac`, `tour_dem_extotw`, `tour_dem_tnw`, `tour_occ_nim`, `tour_occ_nin2c`, `tour_occ_nin2m`, `sdg_10_10`.
+
+Cleaning is performed in [exploratory_data_analysis.ipynb](./exploratory_data_analysis.ipynb): dimension-encoded columns are split into separate variables (`geo`, `c_dest`, `purpose`, `duration`, `accommod`, etc.), wide year-columns are kept (the charts iterate over them), `EU27_2020` and `EA20` aggregate rows are kept where useful, missing values are normalized.
+
+**2. FSO PXweb cube → `exploitable_data/ch_*.json`**
+
+Source: `data/px-x-1003020000_102_20260317-180818.json`, a 5-dimensional JSON-stat cube with axes `Jahr (Year) x Monat (Month) x Kanton (Canton) x Herkunftsland (Visitor's country of residence) x Indikator (Arrivals/Overnight stays)`. Roughly 1.2M cells.
+
+The script [preprocess_fso_for_switzerland.py](./preprocess_fso_for_switzerland.py) decodes the cube and writes six compact derived files:
+
+- `ch_top_month_per_canton.json` ........ `{canton: {year: peak_month}}`
+- `ch_canton_month_intensity.json` ...... `{year: {canton: [m1..m12 arrivals]}}`
+- `ch_top_origin_per_canton.json` ....... `{canton: {year: top_foreign_origin}}`, Swiss residents excluded
+- `ch_canton_domestic_foreign.json` ..... `{year: {canton: {domestic, foreign, total}}}`
+- `ch_canton_avg_stay.json` ............. `{year: {canton: nights/arrivals}}`
+- `ch_canton_arrivals_by_year.json` ..... `{canton: {year: arrivals}}`, full 2005-2025 series
+
+The Switzerland inbound expenditure subset (`ch_inbound_expenditure.json`) is extracted in a one-off step from `data/cleaned_extotw.csv` filtered to `c_dest = CH`. See the inline Python at the top of the file.
+
+Re-run preprocessing:
+```bash
+python3 preprocess_fso_for_switzerland.py
+```
+The script is idempotent and uses only the standard library.
+
+### Browser support
+
+Modern Chromium, Firefox, and Safari. All chart scripts use ES2020 (optional chaining and nullish coalescing). IE and pre-2020 browsers will not work.
+
+### Credits
+
+**Team**
+- Amine Youssef (324253)
+- Lia Lee (423066)
+- Hsiangtien Kuo (414354)
+
+**Data sources**
+- Eurostat: tourism (`tour_dem_*`, `tour_occ_*`), GDP (`sdg_10_10`)
+- Swiss Federal Statistical Office: PXweb cube `px-x-1003020000_102`
+- GISCO: NUTS 2 geometry (2021, 20M resolution)
+- world-atlas: country TopoJSON (110m resolution)
+
+**Visual stack**
+- D3.js 7.8.5
+- Plotly (Europe destination-trends chart only)
+- TopoJSON 3
+- All via CDN, no npm install required for the site itself
+
+**Course**
+- COM-480 Data Visualization, EPFL, Spring 2026
 
 ## Late policy
 
