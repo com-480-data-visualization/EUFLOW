@@ -57,7 +57,7 @@ d3.json("data/eu_gdp_and_to_ch_df_merged.json").then(raw => {
         .attr("x", -H/2).attr("y", -52)
         .attr("text-anchor", "middle")
         .attr("fill", "#000").attr("font-size", 16)
-        .text("GDP per capita (PPS)");
+        .text("GDP per capita (PPP)");
 
     const lineGen = d3.line()
         .x(d => x(+d["Year"]))
@@ -89,7 +89,7 @@ d3.json("data/eu_gdp_and_to_ch_df_merged.json").then(raw => {
             .attr("stroke", "#fff").attr("stroke-width", 1.5).attr("opacity", 0)
             .on("mouseover", (event, d) => {
                 tooltip.style.display = "block";
-                tooltip.innerHTML = `<div style="color:#a0cfff;margin-bottom:4px;">${d.country}</div><div>Year: ${d["Year"]}</div><div>GDP: ${(+d["OBS_VALUE"]).toLocaleString()} PPS</div>`;
+                tooltip.innerHTML = `<div style="color:#a0cfff;margin-bottom:4px;">${d.country}</div><div>Year: ${d["Year"]}</div><div>GDP: ${(+d["OBS_VALUE"]).toLocaleString()} PPP</div>`;
             })
             .on("mousemove", event => {
                 tooltip.style.left = (event.clientX + 14) + "px";

@@ -89,7 +89,7 @@ d3.json("data/eu_gdp_and_to_ch_df_merged.json").then(raw => {
         .attr("text-anchor", "middle")
         .attr("fill", "#000")
         .attr("font-size", 16)
-        .text("GDP per capita (PPS (in log scale))");
+        .text("GDP per capita (PPP) (in log scale)");
 
     g.append("text")
         .attr("transform", "rotate(-90)")
@@ -218,7 +218,7 @@ d3.json("data/eu_gdp_and_to_ch_df_merged.json").then(raw => {
                     <div>
                         GDP:
                         ${(+d["OBS_VALUE"])
-                            .toLocaleString()} PPS
+                            .toLocaleString()} PPP
                     </div>
 
                     <div>

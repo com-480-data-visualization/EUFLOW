@@ -1279,12 +1279,12 @@ button {
         border-color 0.2s ease;
 }
 
-#btn-all-3.active,
+/* #btn-all-3.active,
 #btn-all-4.active {
     background: #111;
     color: #fff;
     border-color: #111;
-}
+} */
 
 #ch-recovery-reset:hover,
 #btn-all-3:hover,
