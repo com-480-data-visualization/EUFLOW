@@ -43,6 +43,12 @@
         // Legend lives in its own strip BELOW the map, never over the geography.
         const gLegend = svg.append("g").attr("transform", `translate(20, ${H_MAP + 25})`);
 
+        const nameMap = {
+            "Zürich": "Zurich",
+            "Luzern": "Lucerne",
+            "Genève": "Geneva",
+        };
+
         function update(year) {
             gMap.selectAll("path")
                 .data(geo.features, d => d.properties.NAME)
@@ -51,15 +57,17 @@
                 .attr("stroke", "#333")
                 .attr("stroke-width", 0.5)
                 .attr("fill", d => {
-                    const o = topOrigin[d.properties.NAME]?.[year];
+                    const name = nameMap[d.properties.NAME] || d.properties.NAME; // ← 
+                    const o = topOrigin[name]?.[year];
                     return o ? (ORIGIN_COLOR[o] || FALLBACK) : FALLBACK;
                 })
                 .on("mouseover", function (event, d) {
                     d3.select(this).attr("opacity", 0.75);
-                    const o = topOrigin[d.properties.NAME]?.[year] || "no data";
+                    const name = nameMap[d.properties.NAME] || d.properties.NAME; // ← 
+                    const o = topOrigin[name]?.[year] || "no data";
                     tooltip.style("display", "block")
                         .html(`<div style="font-weight:700; margin-bottom:4px;">${d.properties.NAME}</div>
-                               <div>Top foreign origin (${year}): <strong>${o}</strong></div>`);
+                            <div>Top foreign origin (${year}): <strong>${o}</strong></div>`);
                 })
                 .on("mousemove", function (event) {
                     tooltip
@@ -73,9 +81,11 @@
 
             const present = new Set();
             geo.features.forEach(d => {
-                const o = topOrigin[d.properties.NAME]?.[year];
+                const name = nameMap[d.properties.NAME] || d.properties.NAME; // ← 
+                const o = topOrigin[name]?.[year];
                 if (o) present.add(o);
             });
+
             const items = [...present].sort();
 
             gLegend.selectAll("*").remove();
