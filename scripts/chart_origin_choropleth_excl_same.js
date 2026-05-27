@@ -20,7 +20,11 @@
         NL:'#8C564B', UK:'#E377C2', EL:'#7F7F7F', BG:'#BCBD22', HR:'#17BECF',
         PL:'#FFD92F', BE:'#FFB347', SE:'#4C72B0', DK:'#55A868', FI:'#8172B2',
         PT:'#937860', RO:'#DA8BC3', CZ:'#8C8C8C', HU:'#CCB974', IE:'#64B5CD',
-        // Aggregates that appear in the excluding-same data
+        // Extra single-country origins that surfaced once the data covers all 27 EU members
+        LT:'#FFA07A', LV:'#20B2AA', SI:'#DAA520', SK:'#8FBC8F',
+        NO:'#4682B4', CH_LI:'#C71585', TR:'#B22222', RU:'#708090',
+        US:'#D2691E', CN:'#FFC0CB', JP:'#9370DB', KR:'#48D1CC',
+        // Regional aggregates kept for backwards compatibility; should never win after the unit-NR fix
         AME:'#00838F', AME_N:'#26A69A', AME_C_S:'#80CBC4',
         ASI:'#AB47BC', EUR_OTH:'#90A4AE', AFR:'#F4511E'
     };
@@ -31,11 +35,15 @@
 
     Promise.all([
         d3.json("https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json"),
-        d3.csv("exploitable_data/most_popular_country_of_origin_by_destination_excluding_same.csv")
+        // ?v=3 busts any stale browser cache. The current CSV is 2010-2024
+        // and covers all 27 EU destinations.
+        d3.csv("exploitable_data/most_popular_country_of_origin_by_destination_excluding_same.csv?v=3")
     ]).then(([world, csvData]) => {
         const yearCols = Object.keys(csvData[0]).filter(k => /^\s*\d{4}\s*$/.test(k));
         const years = yearCols.map(k => k.trim());
-        const recentYears = years.filter(y => +y >= 1990);
+        // Hard floor at 2010: even if a stale CSV with older years sneaks
+        // through cache, the dropdown still starts at 2010.
+        const recentYears = years.filter(y => +y >= 2010);
 
         const originByDest = {};
         csvData.forEach(row => {
@@ -127,9 +135,20 @@
 
         function renderLegend(origins) {
             legendG.selectAll("*").remove();
+
+            // Compact multi-column legend so it never overflows the map.
+            // Column count grows with the number of origins; each column holds
+            // at most 8 items.
+            const colWidth = 138;
+            const rowHeight = 17;
+            const maxPerCol = 8;
+            const numCols = Math.max(1, Math.ceil(origins.length / maxPerCol));
+            const perCol = Math.ceil(origins.length / numCols);
+
             legendG.append("rect")
-                .attr("x", -10).attr("y", -12)
-                .attr("width", 175).attr("height", origins.length * 22 + 16)
+                .attr("x", -8).attr("y", -10)
+                .attr("width", numCols * colWidth + 8)
+                .attr("height", perCol * rowHeight + 14)
                 .attr("fill", BG_COLOR).attr("fill-opacity", 0.92)
                 .attr("rx", 4);
 
@@ -137,16 +156,20 @@
                 .data(origins)
                 .join("g")
                 .attr("class", "item")
-                .attr("transform", (d, i) => `translate(0, ${i * 22})`);
+                .attr("transform", (d, i) => {
+                    const col = Math.floor(i / perCol);
+                    const row = i % perCol;
+                    return `translate(${col * colWidth}, ${row * rowHeight})`;
+                });
 
             item.append("rect")
-                .attr("width", 18).attr("height", 18)
+                .attr("width", 12).attr("height", 12)
                 .attr("fill", d => originColor[d] || FALLBACK_COLOR)
-                .attr("stroke", "#333").attr("stroke-width", 0.5);
+                .attr("stroke", "#333").attr("stroke-width", 0.4);
 
             item.append("text")
-                .attr("x", 26).attr("y", 13)
-                .attr("font-size", "13px")
+                .attr("x", 18).attr("y", 10)
+                .attr("font-size", "11px")
                 .attr("fill", "#222")
                 .text(d => N[d] || d);
         }
