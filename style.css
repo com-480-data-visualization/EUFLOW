@@ -1286,6 +1286,7 @@ button {
     border-color: #111;
 }
 
+#ch-recovery-reset:hover,
 #btn-all-3:hover,
 #btn-all-4:hover {
     background: #1a1a2e !important;
