@@ -11,6 +11,7 @@
         d3.json("data/cantons.geojson"),
         d3.json("exploitable_data/ch_canton_avg_stay.json")
     ]).then(([geo, stay]) => {
+
         const projection = d3.geoMercator().fitSize([W, H_MAP], geo);
         const path = d3.geoPath().projection(projection);
 
@@ -48,6 +49,12 @@
             .attr("font-size", 10.5).attr("fill", "#666")
             .text("3.0+");
 
+        const nameMap = {
+            "Zürich": "Zurich",
+            "Luzern": "Lucerne",
+            "Genève": "Geneva",
+        };
+
         function update(year) {
             const data = stay[year] || {};
             gMap.selectAll("path")
@@ -57,15 +64,17 @@
                 .attr("stroke", "#333")
                 .attr("stroke-width", 0.5)
                 .attr("fill", d => {
-                    const v = data[d.properties.NAME];
+                    const name = nameMap[d.properties.NAME] || d.properties.NAME; // ← 加這個
+                    const v = data[name];
                     return v == null ? "#ddd" : color(v);
                 })
                 .on("mouseover", function (event, d) {
                     d3.select(this).attr("opacity", 0.75);
-                    const v = data[d.properties.NAME];
+                    const name = nameMap[d.properties.NAME] || d.properties.NAME; // ← 加這個
+                    const v = data[name];
                     tooltip.style("display", "block")
                         .html(`<div style="font-weight:700; margin-bottom:4px;">${d.properties.NAME}</div>
-                               <div>Avg stay (${year}): <strong>${v ? v.toFixed(2) : "?"}</strong> nights</div>`);
+                            <div>Avg stay (${year}): <strong>${v ? v.toFixed(2) : "?"}</strong> nights</div>`);
                 })
                 .on("mousemove", function (event) {
                     tooltip

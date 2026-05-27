@@ -226,7 +226,7 @@ button {
 }
 
 .frame {
-    background-color: #D9D9D9;
+    /* background-color: #D9D9D9; */
     width: 858px;
     height: 500px;
     display: flex;
@@ -240,7 +240,7 @@ button {
 
 /* explore section */
 .cta-section {
-    background-color: #F6F8FB;
+    /* background-color: #F6F8FB; */
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -861,7 +861,7 @@ button {
 }
 
 .frame {
-    background-color: #D9D9D9;
+    /* background-color: #D9D9D9; */
     width: 858px;
     height: 500px;
     display: flex;
@@ -875,7 +875,7 @@ button {
 
 /* explore section */
 .cta-section {
-    background-color: #F6F8FB;
+    /* background-color: #F6F8FB; */
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -1285,6 +1285,13 @@ button {
     color: #fff;
     border-color: #111;
 }
+
+#btn-all-3:hover,
+#btn-all-4:hover {
+    background: #1a1a2e !important;
+    color: #ffffff !important;
+}
+
 /* ---------- Chart with side explanation panel ---------- */
 .chart-with-explanation {
     display: flex;
@@ -1396,7 +1403,7 @@ button {
 .dual-range {
     position: relative;
     width: 190px;
-    height: 24px;
+    height: 33px;
     display: inline-block;
     vertical-align: middle;
 }
@@ -1886,7 +1893,7 @@ button {
 }
 
 .story-bridge {
-    max-width: 620px;
+    max-width: 750px;
     width: 100%;
     margin: 72px auto 0;
     padding: 0 24px;

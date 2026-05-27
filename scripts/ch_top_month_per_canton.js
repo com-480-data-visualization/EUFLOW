@@ -36,9 +36,14 @@
         const gMap = svg.append("g");
         // Legend strip BELOW the map, never over the geography.
         const gLegend = svg.append("g").attr("transform", `translate(20, ${H_MAP + 25})`);
+        
+        const nameMap = {
+            "Zürich": "Zurich",
+            "Luzern": "Lucerne",
+            "Genève": "Geneva",
+        };
 
         function update(year) {
-            // Cantons
             gMap.selectAll("path")
                 .data(geo.features, d => d.properties.NAME)
                 .join("path")
@@ -46,15 +51,17 @@
                 .attr("stroke", "#333")
                 .attr("stroke-width", 0.5)
                 .attr("fill", d => {
-                    const m = topMonth[d.properties.NAME]?.[year];
+                    const name = nameMap[d.properties.NAME] || d.properties.NAME; // ← 加這個
+                    const m = topMonth[name]?.[year];
                     return m ? (MONTH_COLOR[m] || FALLBACK) : FALLBACK;
                 })
                 .on("mouseover", function (event, d) {
                     d3.select(this).attr("opacity", 0.75);
-                    const m = topMonth[d.properties.NAME]?.[year] || "no data";
+                    const name = nameMap[d.properties.NAME] || d.properties.NAME; // ← 加這個
+                    const m = topMonth[name]?.[year] || "no data";
                     tooltip.style("display", "block")
                         .html(`<div style="font-weight:700; margin-bottom:4px;">${d.properties.NAME}</div>
-                               <div>Peak month (${year}): <strong>${m}</strong></div>`);
+                            <div>Peak month (${year}): <strong>${m}</strong></div>`);
                 })
                 .on("mousemove", function (event) {
                     tooltip
@@ -66,12 +73,14 @@
                     tooltip.style("display", "none");
                 });
 
-            // Legend: only months that appear this year
+            // Legend 部分也要用 mapping
             const present = new Set();
             geo.features.forEach(d => {
-                const m = topMonth[d.properties.NAME]?.[year];
+                const name = nameMap[d.properties.NAME] || d.properties.NAME; // ← 加這個
+                const m = topMonth[name]?.[year];
                 if (m) present.add(m);
             });
+
             const order = ["January","February","March","April","May","June",
                            "July","August","September","October","November","December"];
             const items = order.filter(m => present.has(m));
