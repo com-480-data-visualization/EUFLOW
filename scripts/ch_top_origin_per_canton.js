@@ -22,7 +22,8 @@
         "Austria":         "#17BECF",
         "China":           "#FFD92F",
         "Japan":           "#A65628",
-        "South Korea":     "#984EA3"
+        "South Korea":     "#984EA3",
+        "India":           "#138808"
     };
     const FALLBACK = "#999999";
 
@@ -37,7 +38,7 @@
         const years = Object.keys(sample).sort();
         select.selectAll("option").remove();
         years.forEach(y => select.append("option").attr("value", y).text(y));
-        select.property("value", years[years.length - 2]);
+        select.property("value", years[years.length - 1]);
 
         const gMap = svg.append("g");
         // Legend lives in its own strip BELOW the map, never over the geography.
