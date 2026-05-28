@@ -1,8 +1,8 @@
 (function () {
     const aLabels = {
         'R_HOT':   'Hotel',
-        'NR_RF':   'Rented (furnished)',
-        'NR_OWN':  'Own / Family',
+        'NR_RF':   'Friends & relatives',
+        'NR_OWN':  'Own / family home',
         'NR_OTH':  'Other non-rented',
         'R_OTH':   'Other rented',
         'R_CAMP':  'Camping',
