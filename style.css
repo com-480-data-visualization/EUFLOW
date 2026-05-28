@@ -159,7 +159,7 @@ button {
     padding: 16px;
     /* gap: 10px; */
     color: black;
-    font-family: "Geist Mono";
+    font-family: "Radio Canada Big";
     font-size: 14px;
     font-style: normal;
     font-weight: 500;
@@ -386,7 +386,7 @@ button {
     align-items: center;
     padding: 16px;
     color: white;
-    font-family: "Geist Mono";
+    font-family: "Radio Canada Big";
     font-size: 14px;
     font-style: normal;
     font-weight: 500;
@@ -428,7 +428,7 @@ button {
     align-items: center;
     padding: 16px;
     color: white;
-    font-family: "Geist Mono";
+    font-family: "Radio Canada Big";
     font-size: 14px;
     font-style: normal;
     font-weight: 500;
@@ -495,7 +495,7 @@ button {
     align-items: center;
     padding: 16px;
     color: white;
-    font-family: "Geist Mono";
+    font-family: "Radio Canada Big";
     font-size: 14px;
     font-style: normal;
     font-weight: 500;
@@ -785,26 +785,6 @@ button {
     cursor: pointer;
 }
 
-.button-explore {
-    background-color: white;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    padding: 16px;
-    /* gap: 10px; */
-    color: black;
-    font-family: "Geist Mono";
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 100%;
-    /* margin-top: 24px; */
-    border: none;
-    outline: none;
-    cursor: pointer;
-}
-
 
 /* feature section - project */
 .feature-section {
@@ -1006,27 +986,6 @@ button {
     font-size: 13px;
 }
 
-
-/* explore buttons */
-#button-explore-start {
-    background-color: black;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    padding: 16px;
-    color: white;
-    font-family: "Geist Mono";
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 100%;
-    /* margin-top: 24px; */
-    border: none;
-    outline: none;
-    cursor: pointer;
-}
-
 .intro-section-europe {
     /* background-color: black; */
     /* aspect-ratio: 104 / 103; */
@@ -1049,26 +1008,6 @@ button {
     /* padding-top: 80px; */
     box-sizing: border-box;
 }
-
-#button-explore-suisse {
-    background-color: #080E42;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    padding: 16px;
-    color: white;
-    font-family: "Geist Mono";
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 100%;
-    /* margin-top: 24px; */
-    border: none;
-    outline: none;
-    cursor: pointer;
-}
-
 
 /* Switzerland page */
 .intro-section-suisse {
@@ -1125,7 +1064,7 @@ button {
     align-items: center;
     padding: 16px;
     color: white;
-    font-family: "Geist Mono";
+    font-family: "Radio Canada Big";
     font-size: 14px;
     font-style: normal;
     font-weight: 500;
@@ -1734,7 +1673,7 @@ button {
     line-height: 1.6;
     color: #444;
     margin-bottom: 48px;
-    max-width: 720px;
+    max-width: 950px;
 }
 
 .finding-card {
@@ -2062,7 +2001,7 @@ button {
     padding: 14px 34px !important;
     border-radius: 999px !important;
     border: 1px solid rgba(255, 255, 255, 0.06) !important;
-    font-family: 'Geist Mono', monospace !important;
+    font-family: "Radio Canada Big", monospace !important;
     font-size: 13px !important;
     font-weight: 500 !important;
     letter-spacing: 0.08em;
@@ -2086,7 +2025,7 @@ button {
     padding: 14px 34px !important;
     border-radius: 999px !important;
     border: 1px solid rgba(255, 255, 255, 0.06) !important;
-    font-family: 'Geist Mono', monospace !important;
+    font-family: "Radio Canada Big", monospace !important;
     font-size: 13px !important;
     font-weight: 500 !important;
     letter-spacing: 0.08em;
@@ -2166,7 +2105,7 @@ button {
     padding: 13px 32px !important;
     border-radius: 999px !important;
     border: 1px solid #d6dae0 !important;
-    font-family: 'Geist Mono', monospace !important;
+    font-family: "Radio Canada Big", monospace !important;
     font-size: 13px !important;
     font-weight: 500 !important;
     letter-spacing: 0.08em;
