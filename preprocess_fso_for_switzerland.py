@@ -1,6 +1,6 @@
 """Preprocess the FSO JSON-stat cube into compact per-chart files for the Switzerland page.
 
-Input  : data/px-x-1003020000_102_20260317-180818.json
+Input  : data/px-x-1003020000_102_20260525-135233.json 
          5-D cube: Jahr (22) x Monat (13) x Kanton (27) x Herkunftsland (78) x Indikator (2)
          Indikator 1 = Arrivals, Indikator 2 = Overnight stays
          Monat code 'YYYY' = year total ; Kanton code '8100' = national total ; Herkunftsland code '00' = origin total ; code '1' = Switzerland
@@ -20,7 +20,7 @@ import json
 import os
 from collections import defaultdict
 
-SRC = "data/px-x-1003020000_102_20260317-180818.json"
+SRC = "data/px-x-1003020000_102_20260525-135233.json"
 OUT_DIR = "exploitable_data"
 
 with open(SRC, encoding="utf-8") as f:

@@ -4,11 +4,11 @@ d3.json("data/eu_gdp_and_to_ch_df_merged.json").then(raw => {
     const filtered = raw.filter(d =>
         YEARS.includes(+d["Year"]) &&
         d["Visitors' country of residence"] !== "Switzerland" &&
-        d["OBS_VALUE"] != null
+        d["gdp_pps"] != null
     );
 
     const avgGdp = d3.rollup(filtered,
-        v => d3.mean(v, d => +d["OBS_VALUE"]),
+        v => d3.mean(v, d => +d["gdp_pps"]),
         d => d["Visitors' country of residence"]
     );
 
@@ -36,7 +36,7 @@ d3.json("data/eu_gdp_and_to_ch_df_merged.json").then(raw => {
     const x = d3.scaleLinear().domain([2018.5, 2025.5]).range([0, W]);
 
     const y = d3.scaleLinear()
-        .domain([0, d3.max(filtered, d => +d["OBS_VALUE"]) * 1.1])
+        .domain([0, d3.max(filtered, d => +d["gdp_pps"]) * 1.1])
         .range([H, 0]);
 
     g.append("g").attr("class", "axis")
@@ -61,7 +61,7 @@ d3.json("data/eu_gdp_and_to_ch_df_merged.json").then(raw => {
 
     const lineGen = d3.line()
         .x(d => x(+d["Year"]))
-        .y(d => y(+d["OBS_VALUE"]))
+        .y(d => y(+d["gdp_pps"]))
         .curve(d3.curveMonotoneX);
 
     const tooltip = document.getElementById("gdp-tooltip-3");
@@ -84,12 +84,12 @@ d3.json("data/eu_gdp_and_to_ch_df_merged.json").then(raw => {
         );
         const dots = g.selectAll(".gdp-dot").data(allPts, d => d.country + d["Year"]);
         dots.enter().append("circle").attr("class", "gdp-dot")
-            .attr("cx", d => x(+d["Year"])).attr("cy", d => y(+d["OBS_VALUE"]))
+            .attr("cx", d => x(+d["Year"])).attr("cy", d => y(+d["gdp_pps"]))
             .attr("r", 4).attr("fill", d => color(d.country))
             .attr("stroke", "#fff").attr("stroke-width", 1.5).attr("opacity", 0)
             .on("mouseover", (event, d) => {
                 tooltip.style.display = "block";
-                tooltip.innerHTML = `<div style="color:#a0cfff;margin-bottom:4px;">${d.country}</div><div>Year: ${d["Year"]}</div><div>GDP: ${(+d["OBS_VALUE"]).toLocaleString()} PPS</div>`;
+                tooltip.innerHTML = `<div style="color:#a0cfff;margin-bottom:4px;">${d.country}</div><div>Year: ${d["Year"]}</div><div>GDP: ${(+d["gdp_pps"]).toLocaleString()} PPS</div>`;
             })
             .on("mousemove", event => {
                 tooltip.style.left = (event.clientX + 14) + "px";
@@ -97,12 +97,12 @@ d3.json("data/eu_gdp_and_to_ch_df_merged.json").then(raw => {
             })
             .on("mouseout", () => tooltip.style.display = "none")
             .transition().duration(500).attr("opacity", 1);
-        dots.transition().duration(500).attr("cx", d => x(+d["Year"])).attr("cy", d => y(+d["OBS_VALUE"])).attr("opacity", 1);
+        dots.transition().duration(500).attr("cx", d => x(+d["Year"])).attr("cy", d => y(+d["gdp_pps"])).attr("opacity", 1);
         dots.exit().transition().duration(300).attr("opacity", 0).remove();
 
         const labelData = countries.map(c => {
             const pts = (byCountry.get(c)||[]).filter(r => +r["Year"] === 2025);
-            return pts.length ? {country: c, val: +pts[0]["OBS_VALUE"]} : null;
+            return pts.length ? {country: c, val: +pts[0]["gdp_pps"]} : null;
         }).filter(Boolean);
     }
 
