@@ -31,7 +31,7 @@
         const years = Object.keys(sample).sort();
         select.selectAll("option").remove();
         years.forEach(y => select.append("option").attr("value", y).text(y));
-        select.property("value", years[years.length - 2]); // default to year-1 to avoid partial-2026 data
+        select.property("value", years[years.length - 3]); // default to year-1 to avoid partial-2026 data
 
         const gMap = svg.append("g");
         // Legend strip BELOW the map, never over the geography.
