@@ -91,7 +91,7 @@ Relevant flight visualized information can also be obtained from websites such a
 
 📑 Process book: [MS3 Process book.pdf](https://github.com/com-480-data-visualization/EUFLOW/blob/44be2107e3cb8622e871c10e21d7c5cc9483ba8a/Milestone%203/MS3_Process_book.pdf)
 🔗 Live site: [EUFLOW](https://com-480-data-visualization.github.io/EUFLOW/)
-🎥 Screencast: [EUFlow]([https://youtu.be/7Zl47GV22Go](https://youtu.be/z7iuKLzdyEg))
+🎥 Screencast: [EUFlow](https://youtu.be/z7iuKLzdyEg)
 
 ### What this is
 
