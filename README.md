@@ -91,7 +91,7 @@ Relevant flight visualized information can also be obtained from websites such a
 
 📑 Process book: [MS3 Process book.pdf](https://github.com/com-480-data-visualization/EUFLOW/blob/44be2107e3cb8622e871c10e21d7c5cc9483ba8a/Milestone%203/MS3_Process_book.pdf)
 🔗 Live site: [EUFLOW](https://com-480-data-visualization.github.io/EUFLOW/)
-🎥 Screencast: [EUFlow](https://youtu.be/7Zl47GV22Go)
+🎥 Screencast: [EUFlow]([https://youtu.be/7Zl47GV22Go](https://youtu.be/z7iuKLzdyEg))
 
 ### What this is
 
@@ -218,7 +218,7 @@ Opening the HTML files directly from the file system (`file://...`) will not wor
 
 ### Data pipeline
 
-Two preprocessing steps produce the static files that the browser loads at runtime.
+Preprocessing steps produce the static files that the browser loads at runtime.
 
 **1. Eurostat tables → `exploitable_data/*.csv`**
 
@@ -228,7 +228,7 @@ Cleaning is performed in [exploratory_data_analysis.ipynb](./exploratory_data_an
 
 **2. FSO PXweb cube → `exploitable_data/ch_*.json`**
 
-Source: `data/px-x-1003020000_102_20260317-180818.json`, a 5-dimensional JSON-stat cube with axes `Jahr (Year) x Monat (Month) x Kanton (Canton) x Herkunftsland (Visitor's country of residence) x Indikator (Arrivals/Overnight stays)`. Roughly 1.2M cells.
+Source: `data/px-x-1003020000_102_20260525-135233.json`, a 5-dimensional JSON-stat cube with axes `Jahr (Year) x Monat (Month) x Kanton (Canton) x Herkunftsland (Visitor's country of residence) x Indikator (Arrivals/Overnight stays)`. Roughly 1.2M cells.
 
 The script [preprocess_fso_for_switzerland.py](./preprocess_fso_for_switzerland.py) decodes the cube and writes six compact derived files:
 
@@ -246,6 +246,13 @@ Re-run preprocessing:
 python3 preprocess_fso_for_switzerland.py
 ```
 The script is idempotent and uses only the standard library.
+
+**3. Further_Analysis_Switzerland.ipynb**
+- `canton_annual_total_eu_visitors.json`
+- `cantons.geojson`
+- `countries_distance.json`
+- `countries_distances_vs_visitors.json`
+- `eu_gdp_and_to_ch_df_merged.json`
 
 ### Browser support
 
