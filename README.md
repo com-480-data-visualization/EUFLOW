@@ -189,6 +189,9 @@ Opening the HTML files directly from the file system (`file://...`) will not wor
 │   ├── eu_gdp_and_to_ch_df_merged.json GDP per capita + visits to CH
 │   ├── ppp_adj_gdp_per_capita.csv      Eurostat sdg_10_10
 │   └── px-x-1003020000_102_*.json      FSO PXweb 5-D cube (raw input to preprocessing)
+│   └── swissBOUNDARIES3D_1_5_TLM_KANTONSGEBIET.dbf      Swiss Cantons geometry data (source: Federal Office of Topography swisstopo)
+│   └── swissBOUNDARIES3D_1_5_TLM_KANTONSGEBIET.shp      Swiss Cantons geometry data (source: Federal Office of Topography swisstopo)
+│   └── swissBOUNDARIES3D_1_5_TLM_KANTONSGEBIET.shx      Swiss Cantons geometry data (source: Federal Office of Topography swisstopo)
 │
 ├── exploitable_data/
 │   ├── most_popular_*.csv              Eurostat tables in long/tidy format
@@ -260,6 +263,7 @@ Modern Chromium, Firefox, and Safari. All chart scripts use ES2020 (optional cha
 - Swiss Federal Statistical Office: PXweb cube `px-x-1003020000_102`
 - GISCO: NUTS 2 geometry (2021, 20M resolution)
 - world-atlas: country TopoJSON (110m resolution)
+- Federal Office of Topography swisstopo: swissBOUNDARIES3D data
 
 **Visual stack**
 - D3.js 7.8.5
