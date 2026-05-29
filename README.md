@@ -261,6 +261,7 @@ Modern Chromium, Firefox, and Safari. All chart scripts use ES2020 (optional cha
 **Data sources**
 - Eurostat: tourism (`tour_dem_*`, `tour_occ_*`), GDP (`sdg_10_10`)
 - Swiss Federal Statistical Office: PXweb cube `px-x-1003020000_102`
+- REST Countries API: https://restcountries.com/v3.1/all?fields=name,latlng
 - GISCO: NUTS 2 geometry (2021, 20M resolution)
 - world-atlas: country TopoJSON (110m resolution)
 - Federal Office of Topography swisstopo: swissBOUNDARIES3D data
