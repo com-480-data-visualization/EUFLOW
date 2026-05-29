@@ -89,7 +89,7 @@ Relevant flight visualized information can also be obtained from websites such a
 
 **80% of the final grade**
 
-📑 Process book: [MS3 Process book.pdf](https://github.com/com-480-data-visualization/EUFLOW/blob/44be2107e3cb8622e871c10e21d7c5cc9483ba8a/Milestone%203/MS3_Process_book.pdf)
+📑 Process book: [EUFlow Process book](https://github.com/com-480-data-visualization/EUFLOW/blob/33e348eeac7cb91ea3d90ceb8e1c553432932691/Milestone%203/EUFlow_Process_book.pdf)
 🔗 Live site: [EUFLOW](https://com-480-data-visualization.github.io/EUFLOW/)
 🎥 Screencast: [EUFlow](https://youtu.be/z7iuKLzdyEg)
 
